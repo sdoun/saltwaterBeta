@@ -1,3 +1,4 @@
+import '/components/custom_navbar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'guide_content_home_widget.dart' show GuideContentHomeWidget;
@@ -21,12 +22,17 @@ class GuideContentHomeModel extends FlutterFlowModel<GuideContentHomeWidget> {
       choiceChipsValueController?.value?.firstOrNull;
   set choiceChipsValue(String? val) =>
       choiceChipsValueController?.value = val != null ? [val] : [];
+  // Model for customNavbar component.
+  late CustomNavbarModel customNavbarModel;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    customNavbarModel = createModel(context, () => CustomNavbarModel());
+  }
 
   @override
   void dispose() {
     unfocusNode.dispose();
+    customNavbarModel.dispose();
   }
 }

@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/components/custom_navbar_widget.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -45,7 +46,12 @@ class _GuideContentHomeWidgetState extends State<GuideContentHomeWidget> {
       stream: queryTBGuideContentRecord(
         queryBuilder: (tBGuideContentRecord) => tBGuideContentRecord.where(
           'content_topic',
-          isEqualTo: _model.choiceChipsValue,
+          isEqualTo:
+              _model.choiceChipsValue != '' ? _model.choiceChipsValue : null,
+          isNull: (_model.choiceChipsValue != ''
+                  ? _model.choiceChipsValue
+                  : null) ==
+              null,
         ),
       ),
       builder: (context, snapshot) {
@@ -119,246 +125,257 @@ class _GuideContentHomeWidgetState extends State<GuideContentHomeWidget> {
             ),
             body: SafeArea(
               top: true,
-              child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
-                child: ListView(
-                  padding: EdgeInsets.zero,
-                  scrollDirection: Axis.vertical,
-                  children: [
-                    SizedBox(
-                      height: 200.0,
-                      child: SizedBox(
-                        width: double.infinity,
-                        height: 500.0,
-                        child: Stack(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 40.0),
-                              child: PageView(
-                                controller: _model.pageViewController ??=
-                                    PageController(initialPage: 0),
-                                scrollDirection: Axis.horizontal,
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    child: Image.network(
-                                      'https://picsum.photos/seed/461/600',
-                                      width: 300.0,
-                                      height: 200.0,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    child: Image.network(
-                                      'https://picsum.photos/seed/792/600',
-                                      width: 300.0,
-                                      height: 200.0,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    child: Image.network(
-                                      'https://picsum.photos/seed/682/600',
-                                      width: 300.0,
-                                      height: 200.0,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Align(
-                              alignment: const AlignmentDirectional(-1.0, 1.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 0.0, 16.0),
-                                child:
-                                    smooth_page_indicator.SmoothPageIndicator(
-                                  controller: _model.pageViewController ??=
-                                      PageController(initialPage: 0),
-                                  count: 3,
-                                  axisDirection: Axis.horizontal,
-                                  onDotClicked: (i) async {
-                                    await _model.pageViewController!
-                                        .animateToPage(
-                                      i,
-                                      duration: const Duration(milliseconds: 500),
-                                      curve: Curves.ease,
-                                    );
-                                    setState(() {});
-                                  },
-                                  effect:
-                                      smooth_page_indicator.ExpandingDotsEffect(
-                                    expansionFactor: 3.0,
-                                    spacing: 8.0,
-                                    radius: 16.0,
-                                    dotWidth: 16.0,
-                                    dotHeight: 8.0,
-                                    dotColor:
-                                        FlutterFlowTheme.of(context).accent1,
-                                    activeDotColor:
-                                        FlutterFlowTheme.of(context).primary,
-                                    paintStyle: PaintingStyle.fill,
+              child: Stack(
+                children: [
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
+                    child: ListView(
+                      padding: EdgeInsets.zero,
+                      scrollDirection: Axis.vertical,
+                      children: [
+                        SizedBox(
+                          height: 200.0,
+                          child: SizedBox(
+                            width: double.infinity,
+                            height: 500.0,
+                            child: Stack(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 40.0),
+                                  child: PageView(
+                                    controller: _model.pageViewController ??=
+                                        PageController(initialPage: 0),
+                                    scrollDirection: Axis.horizontal,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.network(
+                                          'https://picsum.photos/seed/461/600',
+                                          width: 300.0,
+                                          height: 200.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.network(
+                                          'https://picsum.photos/seed/792/600',
+                                          width: 300.0,
+                                          height: 200.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.network(
+                                          'https://picsum.photos/seed/682/600',
+                                          width: 300.0,
+                                          height: 200.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
-                      child: Wrap(
-                        spacing: 0.0,
-                        runSpacing: 0.0,
-                        alignment: WrapAlignment.start,
-                        crossAxisAlignment: WrapCrossAlignment.start,
-                        direction: Axis.horizontal,
-                        runAlignment: WrapAlignment.start,
-                        verticalDirection: VerticalDirection.down,
-                        clipBehavior: Clip.none,
-                        children: [
-                          FlutterFlowChoiceChips(
-                            options: const [
-                              ChipData('전체'),
-                              ChipData('안전, 매너'),
-                              ChipData('낚시방법'),
-                              ChipData('장비'),
-                              ChipData('꿀팁'),
-                              ChipData('기타')
-                            ],
-                            onChanged: (val) => setState(() =>
-                                _model.choiceChipsValue = val?.firstOrNull),
-                            selectedChipStyle: ChipStyle(
-                              backgroundColor:
-                                  FlutterFlowTheme.of(context).primary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    fontSize: 12.0,
-                                    letterSpacing: 0.0,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
+                                Align(
+                                  alignment: const AlignmentDirectional(-1.0, 1.0),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 0.0, 0.0, 16.0),
+                                    child: smooth_page_indicator
+                                        .SmoothPageIndicator(
+                                      controller: _model.pageViewController ??=
+                                          PageController(initialPage: 0),
+                                      count: 3,
+                                      axisDirection: Axis.horizontal,
+                                      onDotClicked: (i) async {
+                                        await _model.pageViewController!
+                                            .animateToPage(
+                                          i,
+                                          duration: const Duration(milliseconds: 500),
+                                          curve: Curves.ease,
+                                        );
+                                        setState(() {});
+                                      },
+                                      effect: smooth_page_indicator
+                                          .ExpandingDotsEffect(
+                                        expansionFactor: 3.0,
+                                        spacing: 8.0,
+                                        radius: 16.0,
+                                        dotWidth: 16.0,
+                                        dotHeight: 8.0,
+                                        dotColor: FlutterFlowTheme.of(context)
+                                            .accent1,
+                                        activeDotColor:
                                             FlutterFlowTheme.of(context)
-                                                .bodyMediumFamily),
-                                  ),
-                              iconColor:
-                                  FlutterFlowTheme.of(context).primaryText,
-                              iconSize: 18.0,
-                              elevation: 4.0,
-                              borderRadius: BorderRadius.circular(16.0),
-                            ),
-                            unselectedChipStyle: ChipStyle(
-                              backgroundColor: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    fontSize: 12.0,
-                                    letterSpacing: 0.0,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey(
-                                            FlutterFlowTheme.of(context)
-                                                .bodyMediumFamily),
-                                  ),
-                              iconColor:
-                                  FlutterFlowTheme.of(context).secondaryText,
-                              iconSize: 18.0,
-                              elevation: 0.0,
-                              borderColor:
-                                  FlutterFlowTheme.of(context).secondaryText,
-                              borderRadius: BorderRadius.circular(16.0),
-                            ),
-                            chipSpacing: 12.0,
-                            rowSpacing: 12.0,
-                            multiselect: false,
-                            alignment: WrapAlignment.start,
-                            controller: _model.choiceChipsValueController ??=
-                                FormFieldController<List<String>>(
-                              [],
-                            ),
-                            wrapped: true,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
-                      child: Builder(
-                        builder: (context) {
-                          final contents =
-                              guideContentHomeTBGuideContentRecordList.toList();
-
-                          return Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children:
-                                List.generate(contents.length, (contentsIndex) {
-                              final contentsItem = contents[contentsIndex];
-                              return InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed(
-                                    'guideContent',
-                                    queryParameters: {
-                                      'content': serializeParam(
-                                        contentsItem.reference,
-                                        ParamType.DocumentReference,
+                                                .primary,
+                                        paintStyle: PaintingStyle.fill,
                                       ),
-                                    }.withoutNulls,
-                                  );
-                                },
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(12.0),
-                                  child: Container(
-                                    width: double.infinity,
-                                    height: 100.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      borderRadius: BorderRadius.circular(12.0),
                                     ),
-                                    child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          8.0, 4.0, 8.0, 4.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            child: Image.network(
-                                              contentsItem.contentImage,
-                                              width: 101.0,
-                                              height: double.infinity,
-                                              fit: BoxFit.cover,
-                                            ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              20.0, 0.0, 20.0, 0.0),
+                          child: Wrap(
+                            spacing: 0.0,
+                            runSpacing: 0.0,
+                            alignment: WrapAlignment.start,
+                            crossAxisAlignment: WrapCrossAlignment.start,
+                            direction: Axis.horizontal,
+                            runAlignment: WrapAlignment.start,
+                            verticalDirection: VerticalDirection.down,
+                            clipBehavior: Clip.none,
+                            children: [
+                              FlutterFlowChoiceChips(
+                                options: const [
+                                  ChipData('전체'),
+                                  ChipData('안전, 매너'),
+                                  ChipData('낚시방법'),
+                                  ChipData('장비'),
+                                  ChipData('꿀팁'),
+                                  ChipData('기타')
+                                ],
+                                onChanged: (val) => setState(() =>
+                                    _model.choiceChipsValue = val?.firstOrNull),
+                                selectedChipStyle: ChipStyle(
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).primary,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .bodyMediumFamily,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        fontSize: 12.0,
+                                        letterSpacing: 0.0,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily),
+                                      ),
+                                  iconColor:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  iconSize: 18.0,
+                                  elevation: 4.0,
+                                  borderRadius: BorderRadius.circular(16.0),
+                                ),
+                                unselectedChipStyle: ChipStyle(
+                                  backgroundColor: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .bodyMediumFamily,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        fontSize: 12.0,
+                                        letterSpacing: 0.0,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily),
+                                      ),
+                                  iconColor: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  iconSize: 18.0,
+                                  elevation: 0.0,
+                                  borderColor: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  borderRadius: BorderRadius.circular(16.0),
+                                ),
+                                chipSpacing: 12.0,
+                                rowSpacing: 12.0,
+                                multiselect: false,
+                                alignment: WrapAlignment.start,
+                                controller:
+                                    _model.choiceChipsValueController ??=
+                                        FormFieldController<List<String>>(
+                                  [],
+                                ),
+                                wrapped: true,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              20.0, 0.0, 20.0, 0.0),
+                          child: Builder(
+                            builder: (context) {
+                              final contents =
+                                  guideContentHomeTBGuideContentRecordList
+                                      .toList();
+
+                              return Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: List.generate(contents.length,
+                                    (contentsIndex) {
+                                  final contentsItem = contents[contentsIndex];
+                                  return InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pushNamed(
+                                        'guideContent',
+                                        queryParameters: {
+                                          'content': serializeParam(
+                                            contentsItem.reference,
+                                            ParamType.DocumentReference,
                                           ),
-                                          Column(
+                                        }.withoutNulls,
+                                      );
+                                    },
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(12.0),
+                                      child: Container(
+                                        width: double.infinity,
+                                        height: 100.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  8.0, 4.0, 8.0, 4.0),
+                                          child: Row(
                                             mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
                                             children: [
-                                              Text(
-                                                contentsItem.contentTitle,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
+                                              ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                child: Image.network(
+                                                  contentsItem.contentImage,
+                                                  width: 101.0,
+                                                  height: double.infinity,
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                              Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    contentsItem.contentTitle,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
@@ -376,11 +393,11 @@ class _GuideContentHomeWidgetState extends State<GuideContentHomeWidget> {
                                                                           context)
                                                                       .bodyMediumFamily),
                                                         ),
-                                              ),
-                                              Text(
-                                                contentsItem.contentTopic,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
+                                                  ),
+                                                  Text(
+                                                    contentsItem.contentTopic,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
@@ -397,15 +414,16 @@ class _GuideContentHomeWidgetState extends State<GuideContentHomeWidget> {
                                                                           context)
                                                                       .bodyMediumFamily),
                                                         ),
-                                              ),
-                                              Text(
-                                                functions
-                                                    .datetimeToDate(contentsItem
-                                                        .contentCreatedAt!
-                                                        .toString())
-                                                    .toString(),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
+                                                  ),
+                                                  Text(
+                                                    functions
+                                                        .datetimeToDate(
+                                                            contentsItem
+                                                                .contentCreatedAt!
+                                                                .toString())
+                                                        .toString(),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
@@ -420,22 +438,29 @@ class _GuideContentHomeWidgetState extends State<GuideContentHomeWidget> {
                                                                           context)
                                                                       .bodyMediumFamily),
                                                         ),
+                                                  ),
+                                                ].divide(const SizedBox(height: 4.0)),
                                               ),
-                                            ].divide(const SizedBox(height: 4.0)),
+                                            ].divide(const SizedBox(width: 8.0)),
                                           ),
-                                        ].divide(const SizedBox(width: 8.0)),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ),
+                                  );
+                                }),
                               );
-                            }),
-                          );
-                        },
-                      ),
+                            },
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                  wrapWithModel(
+                    model: _model.customNavbarModel,
+                    updateCallback: () => setState(() {}),
+                    child: const CustomNavbarWidget(),
+                  ),
+                ],
               ),
             ),
           ),
