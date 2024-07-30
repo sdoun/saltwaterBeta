@@ -9,6 +9,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'add_product_to_wish_model.dart';
 export 'add_product_to_wish_model.dart';
@@ -46,6 +47,8 @@ class _AddProductToWishWidgetState extends State<AddProductToWishWidget> {
       FFAppState().chosenOptionStructList = [];
       setState(() {});
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -224,8 +227,13 @@ class _AddProductToWishWidgetState extends State<AddProductToWishWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .titleLarge
                                   .override(
-                                    fontFamily: 'Outfit',
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .titleLargeFamily,
                                     letterSpacing: 0.0,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .titleLargeFamily),
                                   ),
                             ),
                             count: _model.countControllerValue ??= 1,
@@ -308,6 +316,8 @@ class _AddProductToWishWidgetState extends State<AddProductToWishWidget> {
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey('Lexend Deca'),
                                   ),
                               elevation: 0.0,
                               borderSide: const BorderSide(
@@ -346,6 +356,8 @@ class _AddProductToWishWidgetState extends State<AddProductToWishWidget> {
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey('Lexend Deca'),
                                   ),
                               elevation: 0.0,
                               borderSide: const BorderSide(

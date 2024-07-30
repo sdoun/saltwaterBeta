@@ -2,17 +2,19 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/custom_navbar_widget.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/pages/point_explore_sum/point_category/point_category_widget.dart';
-import '/pages/point_explore_sum/point_explore_seawall/seawall_1st_filter/seawall1st_filter_widget.dart';
-import '/pages/point_explore_sum/point_explore_seawall/seawall_2nd_filter/seawall2nd_filter_widget.dart';
-import '/pages/point_explore_sum/point_explore_seawall/seawall_3rd_filter/seawall3rd_filter_widget.dart';
+import '/pages/point_explore_sum/point_explore_fishing_pension/pension_1st_filter/pension1st_filter_widget.dart';
+import '/pages/point_explore_sum/point_explore_fishing_pension/pension_2nd_filter/pension2nd_filter_widget.dart';
+import '/pages/point_explore_sum/point_explore_fishing_pension/pension_3rd_filter/pension3rd_filter_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'explore_map_fishing_pension_model.dart';
 export 'explore_map_fishing_pension_model.dart';
@@ -35,6 +37,8 @@ class _ExploreMapFishingPensionWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => ExploreMapFishingPensionModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -106,14 +110,37 @@ class _ExploreMapFishingPensionWidgetState
             appBar: AppBar(
               backgroundColor: Colors.white,
               automaticallyImplyLeading: false,
+              leading: Align(
+                alignment: const AlignmentDirectional(-1.0, -3.7),
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                  child: FlutterFlowIconButton(
+                    borderColor: Colors.transparent,
+                    borderRadius: 30.0,
+                    borderWidth: 1.0,
+                    buttonSize: 60.0,
+                    icon: const Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.black,
+                      size: 30.0,
+                    ),
+                    onPressed: () async {
+                      context.safePop();
+                    },
+                  ),
+                ),
+              ),
               title: Align(
                 alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Text(
                   '포인트 검색하기',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        fontFamily: 'Outfit',
+                        fontFamily:
+                            FlutterFlowTheme.of(context).headlineMediumFamily,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).headlineMediumFamily),
                       ),
                 ),
               ),
@@ -169,7 +196,10 @@ class _ExploreMapFishingPensionWidgetState
                                                       .primaryBackground,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
-                                              useGoogleFonts: false,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          'PretendardSeries'),
                                             ),
                                         iconColor: FlutterFlowTheme.of(context)
                                             .primaryText,
@@ -190,7 +220,10 @@ class _ExploreMapFishingPensionWidgetState
                                               color: Colors.black,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
-                                              useGoogleFonts: false,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          'PretendardSeries'),
                                             ),
                                         iconColor: FlutterFlowTheme.of(context)
                                             .secondaryText,
@@ -299,7 +332,10 @@ class _ExploreMapFishingPensionWidgetState
                                                             fontWeight:
                                                                 FontWeight.w600,
                                                             useGoogleFonts:
-                                                                false,
+                                                                GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'PretendardSeries'),
                                                           ),
                                                     ),
                                                     const Align(
@@ -327,243 +363,284 @@ class _ExploreMapFishingPensionWidgetState
                                               ),
                                             ),
                                           ),
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              await showModalBottomSheet(
-                                                isScrollControlled: true,
-                                                backgroundColor:
-                                                    Colors.transparent,
-                                                enableDrag: false,
-                                                context: context,
-                                                builder: (context) {
-                                                  return WebViewAware(
-                                                    child: GestureDetector(
-                                                      onTap: () => _model
-                                                              .unfocusNode
-                                                              .canRequestFocus
-                                                          ? FocusScope.of(
-                                                                  context)
-                                                              .requestFocus(_model
-                                                                  .unfocusNode)
-                                                          : FocusScope.of(
-                                                                  context)
-                                                              .unfocus(),
-                                                      child: Padding(
-                                                        padding: MediaQuery
-                                                            .viewInsetsOf(
-                                                                context),
-                                                        child:
-                                                            const Seawall1stFilterWidget(),
-                                                      ),
-                                                    ),
-                                                  );
-                                                },
-                                              ).then((value) => safeSetState(
-                                                  () =>
-                                                      _model.pension1stFilter =
-                                                          value));
-
-                                              setState(() {});
-                                            },
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              child: Container(
-                                                height: 36.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                  border: Border.all(
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          4.0, 0.0, 0.0, 0.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    4.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Builder(
-                                                          builder: (context) {
-                                                            final firstFilter = _model
-                                                                    .pension1stFilter
-                                                                    ?.toList() ??
-                                                                [];
-
-                                                            return Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: List.generate(
-                                                                  firstFilter
-                                                                      .length,
-                                                                  (firstFilterIndex) {
-                                                                final firstFilterItem =
-                                                                    firstFilter[
-                                                                        firstFilterIndex];
-                                                                return Text(
-                                                                  firstFilterItem ==
-                                                                          _model
-                                                                              .pension1stFilter
-                                                                              ?.last
-                                                                      ? firstFilterItem
-                                                                      : '$firstFilterItem, ',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'PretendardSeries',
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.w600,
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                      ),
-                                                                );
-                                                              }),
-                                                            );
-                                                          },
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    4.0, 0.0, 4.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  enableDrag: false,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return WebViewAware(
+                                                      child: GestureDetector(
+                                                        onTap: () => _model
+                                                                .unfocusNode
+                                                                .canRequestFocus
+                                                            ? FocusScope.of(
+                                                                    context)
+                                                                .requestFocus(_model
+                                                                    .unfocusNode)
+                                                            : FocusScope.of(
+                                                                    context)
+                                                                .unfocus(),
+                                                        child: Padding(
+                                                          padding: MediaQuery
+                                                              .viewInsetsOf(
+                                                                  context),
+                                                          child:
+                                                              const Pension1stFilterWidget(),
                                                         ),
                                                       ),
-                                                      Text(
-                                                        (_model.pension1stFilter !=
-                                                                        null &&
-                                                                    (_model.pension1stFilter)!
-                                                                        .isNotEmpty) ==
-                                                                true
-                                                            ? ''
-                                                            : '편의구분',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'PretendardSeries',
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              useGoogleFonts:
-                                                                  false,
-                                                            ),
-                                                      ),
-                                                      const Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                1.0, 0.0),
-                                                        child: Padding(
+                                                    );
+                                                  },
+                                                ).then((value) => safeSetState(
+                                                    () => _model
+                                                            .pension1stFilter =
+                                                        value));
+
+                                                setState(() {});
+                                              },
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                child: Container(
+                                                  height: 36.0,
+                                                  decoration: BoxDecoration(
+                                                    color: (_model
+                                                                        .pension1stFilter !=
+                                                                    null &&
+                                                                (_model.pension1stFilter)!
+                                                                    .isNotEmpty) ==
+                                                            true
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                    border: Border.all(
+                                                      color: Colors.black,
+                                                    ),
+                                                  ),
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(4.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      3.0,
+                                                                      4.0,
                                                                       0.0,
                                                                       0.0,
                                                                       0.0),
-                                                          child: Icon(
-                                                            Icons
-                                                                .keyboard_arrow_down_outlined,
-                                                            color: Colors.black,
-                                                            size: 20.0,
+                                                          child: Builder(
+                                                            builder: (context) {
+                                                              final firstFilter =
+                                                                  _model.pension1stFilter
+                                                                          ?.toList() ??
+                                                                      [];
+
+                                                              return Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: List.generate(
+                                                                    firstFilter
+                                                                        .length,
+                                                                    (firstFilterIndex) {
+                                                                  final firstFilterItem =
+                                                                      firstFilter[
+                                                                          firstFilterIndex];
+                                                                  return Text(
+                                                                    firstFilterItem ==
+                                                                            _model.pension1stFilter?.last
+                                                                        ? firstFilterItem
+                                                                        : '$firstFilterItem, ',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'PretendardSeries',
+                                                                          color: (_model.pension1stFilter != null && (_model.pension1stFilter)!.isNotEmpty) == true
+                                                                              ? FlutterFlowTheme.of(context).primaryBackground
+                                                                              : FlutterFlowTheme.of(context).primaryText,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          fontWeight:
+                                                                              FontWeight.w600,
+                                                                          useGoogleFonts:
+                                                                              GoogleFonts.asMap().containsKey('PretendardSeries'),
+                                                                        ),
+                                                                  );
+                                                                }),
+                                                              );
+                                                            },
                                                           ),
                                                         ),
-                                                      ),
-                                                    ],
+                                                        Text(
+                                                          (_model.pension1stFilter !=
+                                                                          null &&
+                                                                      (_model.pension1stFilter)!
+                                                                          .isNotEmpty) ==
+                                                                  true
+                                                              ? ''
+                                                              : '편의구분',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'PretendardSeries',
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'PretendardSeries'),
+                                                              ),
+                                                        ),
+                                                        Align(
+                                                          alignment:
+                                                              const AlignmentDirectional(
+                                                                  1.0, 0.0),
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        3.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Icon(
+                                                              Icons
+                                                                  .keyboard_arrow_down_outlined,
+                                                              color: (_model.pension1stFilter !=
+                                                                              null &&
+                                                                          (_model.pension1stFilter)!
+                                                                              .isNotEmpty) ==
+                                                                      true
+                                                                  ? FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBackground
+                                                                  : FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                              size: 20.0,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
                                               ),
                                             ),
                                           ),
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              await showModalBottomSheet(
-                                                isScrollControlled: true,
-                                                backgroundColor:
-                                                    Colors.transparent,
-                                                enableDrag: false,
-                                                context: context,
-                                                builder: (context) {
-                                                  return WebViewAware(
-                                                    child: GestureDetector(
-                                                      onTap: () => _model
-                                                              .unfocusNode
-                                                              .canRequestFocus
-                                                          ? FocusScope.of(
-                                                                  context)
-                                                              .requestFocus(_model
-                                                                  .unfocusNode)
-                                                          : FocusScope.of(
-                                                                  context)
-                                                              .unfocus(),
-                                                      child: Padding(
-                                                        padding: MediaQuery
-                                                            .viewInsetsOf(
-                                                                context),
-                                                        child:
-                                                            const Seawall2ndFilterWidget(),
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    4.0, 0.0, 4.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  enableDrag: false,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return WebViewAware(
+                                                      child: GestureDetector(
+                                                        onTap: () => _model
+                                                                .unfocusNode
+                                                                .canRequestFocus
+                                                            ? FocusScope.of(
+                                                                    context)
+                                                                .requestFocus(_model
+                                                                    .unfocusNode)
+                                                            : FocusScope.of(
+                                                                    context)
+                                                                .unfocus(),
+                                                        child: Padding(
+                                                          padding: MediaQuery
+                                                              .viewInsetsOf(
+                                                                  context),
+                                                          child:
+                                                              const Pension2ndFilterWidget(),
+                                                        ),
                                                       ),
-                                                    ),
-                                                  );
-                                                },
-                                              ).then((value) => safeSetState(
-                                                  () =>
-                                                      _model.pension2ndFilter =
-                                                          value));
+                                                    );
+                                                  },
+                                                ).then((value) => safeSetState(
+                                                    () => _model
+                                                            .pension2ndFilter =
+                                                        value));
 
-                                              setState(() {});
-                                            },
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              child: Container(
-                                                height: 36.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                  border: Border.all(
-                                                    color: Colors.black,
+                                                setState(() {});
+                                              },
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                child: Container(
+                                                  height: 36.0,
+                                                  decoration: BoxDecoration(
+                                                    color: (_model
+                                                                        .pension2ndFilter !=
+                                                                    null &&
+                                                                (_model.pension2ndFilter)!
+                                                                    .isNotEmpty) ==
+                                                            true
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                    border: Border.all(
+                                                      color: Colors.black,
+                                                    ),
                                                   ),
-                                                ),
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          4.0, 0.0, 0.0, 0.0),
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          0.0, 0.0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -610,12 +687,16 @@ class _ExploreMapFishingPensionWidgetState
                                                                       .override(
                                                                         fontFamily:
                                                                             'PretendardSeries',
+                                                                        color: (_model.pension2ndFilter != null && (_model.pension2ndFilter)!.isNotEmpty) ==
+                                                                                true
+                                                                            ? FlutterFlowTheme.of(context).primaryBackground
+                                                                            : FlutterFlowTheme.of(context).primaryText,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.w600,
                                                                         useGoogleFonts:
-                                                                            false,
+                                                                            GoogleFonts.asMap().containsKey('PretendardSeries'),
                                                                       ),
                                                                 );
                                                               }),
@@ -643,17 +724,19 @@ class _ExploreMapFishingPensionWidgetState
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w600,
-                                                              useGoogleFonts:
-                                                                  false,
+                                                              useGoogleFonts: GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'PretendardSeries'),
                                                             ),
                                                       ),
-                                                      const Align(
+                                                      Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 1.0, 0.0),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       3.0,
                                                                       0.0,
@@ -662,7 +745,17 @@ class _ExploreMapFishingPensionWidgetState
                                                           child: Icon(
                                                             Icons
                                                                 .keyboard_arrow_down_outlined,
-                                                            color: Colors.black,
+                                                            color: (_model.pension2ndFilter !=
+                                                                            null &&
+                                                                        (_model.pension2ndFilter)!
+                                                                            .isNotEmpty) ==
+                                                                    true
+                                                                ? FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryBackground
+                                                                : FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
                                                             size: 20.0,
                                                           ),
                                                         ),
@@ -673,159 +766,200 @@ class _ExploreMapFishingPensionWidgetState
                                               ),
                                             ),
                                           ),
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              await showModalBottomSheet(
-                                                isScrollControlled: true,
-                                                backgroundColor:
-                                                    Colors.transparent,
-                                                enableDrag: false,
-                                                context: context,
-                                                builder: (context) {
-                                                  return WebViewAware(
-                                                    child: GestureDetector(
-                                                      onTap: () => _model
-                                                              .unfocusNode
-                                                              .canRequestFocus
-                                                          ? FocusScope.of(
-                                                                  context)
-                                                              .requestFocus(_model
-                                                                  .unfocusNode)
-                                                          : FocusScope.of(
-                                                                  context)
-                                                              .unfocus(),
-                                                      child: Padding(
-                                                        padding: MediaQuery
-                                                            .viewInsetsOf(
-                                                                context),
-                                                        child:
-                                                            const Seawall3rdFilterWidget(),
-                                                      ),
-                                                    ),
-                                                  );
-                                                },
-                                              ).then((value) => safeSetState(
-                                                  () =>
-                                                      _model.pension3rdFilter =
-                                                          value));
-
-                                              setState(() {});
-                                            },
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              child: Container(
-                                                width: 90.0,
-                                                height: 36.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                  border: Border.all(
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Builder(
-                                                      builder: (context) {
-                                                        final thirdFilter = _model
-                                                                .pension3rdFilter
-                                                                ?.toList() ??
-                                                            [];
-
-                                                        return Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: List.generate(
-                                                              thirdFilter
-                                                                  .length,
-                                                              (thirdFilterIndex) {
-                                                            final thirdFilterItem =
-                                                                thirdFilter[
-                                                                    thirdFilterIndex];
-                                                            return Text(
-                                                              thirdFilterItem ==
-                                                                      _model
-                                                                          .pension3rdFilter
-                                                                          ?.last
-                                                                  ? thirdFilterItem
-                                                                  : '$thirdFilterItem, ',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'PretendardSeries',
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    useGoogleFonts:
-                                                                        false,
-                                                                  ),
-                                                            );
-                                                          }),
-                                                        );
-                                                      },
-                                                    ),
-                                                    Text(
-                                                      (_model.pension3rdFilter !=
-                                                                      null &&
-                                                                  (_model.pension3rdFilter)!
-                                                                      .isNotEmpty) ==
-                                                              true
-                                                          ? ''
-                                                          : '편의사항',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'PretendardSeries',
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            useGoogleFonts:
-                                                                false,
-                                                          ),
-                                                    ),
-                                                    const Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              1.0, 0.0),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    3.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Icon(
-                                                          Icons
-                                                              .keyboard_arrow_down_outlined,
-                                                          color: Colors.black,
-                                                          size: 20.0,
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    4.0, 0.0, 4.0, 0.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  enableDrag: false,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return WebViewAware(
+                                                      child: GestureDetector(
+                                                        onTap: () => _model
+                                                                .unfocusNode
+                                                                .canRequestFocus
+                                                            ? FocusScope.of(
+                                                                    context)
+                                                                .requestFocus(_model
+                                                                    .unfocusNode)
+                                                            : FocusScope.of(
+                                                                    context)
+                                                                .unfocus(),
+                                                        child: Padding(
+                                                          padding: MediaQuery
+                                                              .viewInsetsOf(
+                                                                  context),
+                                                          child:
+                                                              const Pension3rdFilterWidget(),
                                                         ),
                                                       ),
+                                                    );
+                                                  },
+                                                ).then((value) => safeSetState(
+                                                    () => _model
+                                                            .pension3rdFilter =
+                                                        value));
+
+                                                setState(() {});
+                                              },
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                                child: Container(
+                                                  width: 90.0,
+                                                  height: 36.0,
+                                                  decoration: BoxDecoration(
+                                                    color: (_model
+                                                                        .pension3rdFilter !=
+                                                                    null &&
+                                                                (_model.pension3rdFilter)!
+                                                                    .isNotEmpty) ==
+                                                            true
+                                                        ? FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary
+                                                        : FlutterFlowTheme.of(
+                                                                context)
+                                                            .primaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                    border: Border.all(
+                                                      color: Colors.black,
                                                     ),
-                                                  ],
+                                                  ),
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(4.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Builder(
+                                                          builder: (context) {
+                                                            final thirdFilter = _model
+                                                                    .pension3rdFilter
+                                                                    ?.toList() ??
+                                                                [];
+
+                                                            return Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: List.generate(
+                                                                  thirdFilter
+                                                                      .length,
+                                                                  (thirdFilterIndex) {
+                                                                final thirdFilterItem =
+                                                                    thirdFilter[
+                                                                        thirdFilterIndex];
+                                                                return Text(
+                                                                  thirdFilterItem ==
+                                                                          _model
+                                                                              .pension3rdFilter
+                                                                              ?.last
+                                                                      ? thirdFilterItem
+                                                                      : '$thirdFilterItem, ',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'PretendardSeries',
+                                                                        color: (_model.pension3rdFilter != null && (_model.pension3rdFilter)!.isNotEmpty) ==
+                                                                                true
+                                                                            ? FlutterFlowTheme.of(context).primaryBackground
+                                                                            : FlutterFlowTheme.of(context).primaryText,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.w600,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey('PretendardSeries'),
+                                                                      ),
+                                                                );
+                                                              }),
+                                                            );
+                                                          },
+                                                        ),
+                                                        Text(
+                                                          (_model.pension3rdFilter !=
+                                                                          null &&
+                                                                      (_model.pension3rdFilter)!
+                                                                          .isNotEmpty) ==
+                                                                  true
+                                                              ? ''
+                                                              : '편의사항',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'PretendardSeries',
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'PretendardSeries'),
+                                                              ),
+                                                        ),
+                                                        Align(
+                                                          alignment:
+                                                              const AlignmentDirectional(
+                                                                  1.0, 0.0),
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        3.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Icon(
+                                                              Icons
+                                                                  .keyboard_arrow_down_outlined,
+                                                              color: (_model.pension3rdFilter !=
+                                                                              null &&
+                                                                          (_model.pension3rdFilter)!
+                                                                              .isNotEmpty) ==
+                                                                      true
+                                                                  ? FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBackground
+                                                                  : FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryText,
+                                                              size: 20.0,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -870,7 +1004,9 @@ class _ExploreMapFishingPensionWidgetState
                                             color: Colors.white,
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    'PretendardSeries'),
                                           ),
                                       elevation: 3.0,
                                       borderSide: const BorderSide(

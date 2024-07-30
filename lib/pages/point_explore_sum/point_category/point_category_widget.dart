@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'point_category_model.dart';
 export 'point_category_model.dart';
 
@@ -24,6 +25,8 @@ class _PointCategoryWidgetState extends State<PointCategoryWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PointCategoryModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -49,11 +52,13 @@ class _PointCategoryWidgetState extends State<PointCategoryWidget> {
             Text(
               '포인트구분',
               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'Readex Pro',
+                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                     color: Colors.black,
                     fontSize: 20.0,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.w600,
+                    useGoogleFonts: GoogleFonts.asMap().containsKey(
+                        FlutterFlowTheme.of(context).bodyMediumFamily),
                   ),
             ),
             Divider(
@@ -106,7 +111,8 @@ class _PointCategoryWidgetState extends State<PointCategoryWidget> {
                                   fontSize: 17.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
-                                  useGoogleFonts: false,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey('PretendardSeries'),
                                 ),
                           ),
                         ),
@@ -152,7 +158,8 @@ class _PointCategoryWidgetState extends State<PointCategoryWidget> {
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
-                                  useGoogleFonts: false,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey('PretendardSeries'),
                                 ),
                           ),
                         ),
@@ -206,7 +213,8 @@ class _PointCategoryWidgetState extends State<PointCategoryWidget> {
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
-                                  useGoogleFonts: false,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey('PretendardSeries'),
                                 ),
                           ),
                         ),
@@ -241,7 +249,8 @@ class _PointCategoryWidgetState extends State<PointCategoryWidget> {
                               fontSize: 17.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w600,
-                              useGoogleFonts: false,
+                              useGoogleFonts: GoogleFonts.asMap()
+                                  .containsKey('PretendardSeries'),
                             ),
                       ),
                     ),
@@ -286,7 +295,8 @@ class _PointCategoryWidgetState extends State<PointCategoryWidget> {
                               fontSize: 16.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w600,
-                              useGoogleFonts: false,
+                              useGoogleFonts: GoogleFonts.asMap()
+                                  .containsKey('PretendardSeries'),
                             ),
                       ),
                     ),

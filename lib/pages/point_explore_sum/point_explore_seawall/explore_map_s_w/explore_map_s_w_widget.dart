@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/custom_navbar_widget.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -13,6 +14,7 @@ import '/pages/point_explore_sum/point_explore_seawall/seawall_3rd_filter/seawal
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'explore_map_s_w_model.dart';
@@ -34,6 +36,8 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ExploreMapSWModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -105,14 +109,37 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
             appBar: AppBar(
               backgroundColor: Colors.white,
               automaticallyImplyLeading: false,
+              leading: Align(
+                alignment: const AlignmentDirectional(-1.0, -3.7),
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                  child: FlutterFlowIconButton(
+                    borderColor: Colors.transparent,
+                    borderRadius: 30.0,
+                    borderWidth: 1.0,
+                    buttonSize: 60.0,
+                    icon: const Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.black,
+                      size: 30.0,
+                    ),
+                    onPressed: () async {
+                      context.safePop();
+                    },
+                  ),
+                ),
+              ),
               title: Align(
                 alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Text(
                   '포인트 검색하기',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        fontFamily: 'Outfit',
+                        fontFamily:
+                            FlutterFlowTheme.of(context).headlineMediumFamily,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).headlineMediumFamily),
                       ),
                 ),
               ),
@@ -168,7 +195,10 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                       .primaryBackground,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
-                                              useGoogleFonts: false,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          'PretendardSeries'),
                                             ),
                                         iconColor: FlutterFlowTheme.of(context)
                                             .primaryText,
@@ -189,7 +219,10 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                               color: Colors.black,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
-                                              useGoogleFonts: false,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          'PretendardSeries'),
                                             ),
                                         iconColor: FlutterFlowTheme.of(context)
                                             .secondaryText,
@@ -298,7 +331,10 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                             fontWeight:
                                                                 FontWeight.w600,
                                                             useGoogleFonts:
-                                                                false,
+                                                                GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'PretendardSeries'),
                                                           ),
                                                     ),
                                                     const Align(
@@ -373,9 +409,17 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                               child: Container(
                                                 height: 36.0,
                                                 decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
+                                                  color: (_model.sW1stFilter !=
+                                                                  null &&
+                                                              (_model.sW1stFilter)!
+                                                                  .isNotEmpty) ==
+                                                          true
+                                                      ? FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary
+                                                      : FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryBackground,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           8.0),
@@ -430,13 +474,18 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                                     .override(
                                                                       fontFamily:
                                                                           'PretendardSeries',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryBackground,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w600,
-                                                                      useGoogleFonts:
-                                                                          false,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              'PretendardSeries'),
                                                                     ),
                                                               );
                                                             }),
@@ -463,16 +512,19 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                             fontWeight:
                                                                 FontWeight.w600,
                                                             useGoogleFonts:
-                                                                false,
+                                                                GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'PretendardSeries'),
                                                           ),
                                                     ),
-                                                    const Align(
+                                                    Align(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               1.0, 0.0),
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     3.0,
                                                                     0.0,
@@ -481,7 +533,18 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                         child: Icon(
                                                           Icons
                                                               .keyboard_arrow_down_outlined,
-                                                          color: Colors.black,
+                                                          color: (_model.sW1stFilter !=
+                                                                          null &&
+                                                                      (_model.sW1stFilter)!
+                                                                          .isNotEmpty) ==
+                                                                  true
+                                                              ? FlutterFlowTheme
+                                                                      .of(
+                                                                          context)
+                                                                  .primaryBackground
+                                                              : FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryText,
                                                           size: 20.0,
                                                         ),
                                                       ),
@@ -538,9 +601,17 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                               child: Container(
                                                 height: 36.0,
                                                 decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
+                                                  color: (_model.sW2ndFilter !=
+                                                                  null &&
+                                                              (_model.sW2ndFilter)!
+                                                                  .isNotEmpty) ==
+                                                          true
+                                                      ? FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary
+                                                      : FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryBackground,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           8.0),
@@ -595,13 +666,18 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                                     .override(
                                                                       fontFamily:
                                                                           'PretendardSeries',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryBackground,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w600,
-                                                                      useGoogleFonts:
-                                                                          false,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              'PretendardSeries'),
                                                                     ),
                                                               );
                                                             }),
@@ -628,16 +704,19 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                             fontWeight:
                                                                 FontWeight.w600,
                                                             useGoogleFonts:
-                                                                false,
+                                                                GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'PretendardSeries'),
                                                           ),
                                                     ),
-                                                    const Align(
+                                                    Align(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               1.0, 0.0),
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     3.0,
                                                                     0.0,
@@ -646,7 +725,18 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                         child: Icon(
                                                           Icons
                                                               .keyboard_arrow_down_outlined,
-                                                          color: Colors.black,
+                                                          color: (_model.sW2ndFilter !=
+                                                                          null &&
+                                                                      (_model.sW2ndFilter)!
+                                                                          .isNotEmpty) ==
+                                                                  true
+                                                              ? FlutterFlowTheme
+                                                                      .of(
+                                                                          context)
+                                                                  .primaryBackground
+                                                              : FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryText,
                                                           size: 20.0,
                                                         ),
                                                       ),
@@ -703,9 +793,17 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                               child: Container(
                                                 height: 36.0,
                                                 decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
+                                                  color: (_model.sW3rdFilter !=
+                                                                  null &&
+                                                              (_model.sW3rdFilter)!
+                                                                  .isNotEmpty) ==
+                                                          true
+                                                      ? FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary
+                                                      : FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryBackground,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           8.0),
@@ -751,13 +849,18 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                                   .override(
                                                                     fontFamily:
                                                                         'PretendardSeries',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryBackground,
                                                                     letterSpacing:
                                                                         0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w600,
-                                                                    useGoogleFonts:
-                                                                        false,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            'PretendardSeries'),
                                                                   ),
                                                             );
                                                           }),
@@ -783,16 +886,19 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                             fontWeight:
                                                                 FontWeight.w600,
                                                             useGoogleFonts:
-                                                                false,
+                                                                GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'PretendardSeries'),
                                                           ),
                                                     ),
-                                                    const Align(
+                                                    Align(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               1.0, 0.0),
                                                       child: Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     3.0,
                                                                     0.0,
@@ -801,7 +907,18 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                         child: Icon(
                                                           Icons
                                                               .keyboard_arrow_down_outlined,
-                                                          color: Colors.black,
+                                                          color: (_model.sW3rdFilter !=
+                                                                          null &&
+                                                                      (_model.sW3rdFilter)!
+                                                                          .isNotEmpty) ==
+                                                                  true
+                                                              ? FlutterFlowTheme
+                                                                      .of(
+                                                                          context)
+                                                                  .primaryBackground
+                                                              : FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryText,
                                                           size: 20.0,
                                                         ),
                                                       ),
@@ -851,7 +968,9 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                             color: Colors.white,
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    'PretendardSeries'),
                                           ),
                                       elevation: 3.0,
                                       borderSide: const BorderSide(

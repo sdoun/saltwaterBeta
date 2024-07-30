@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'carrot_nav_bar_model.dart';
 export 'carrot_nav_bar_model.dart';
 
@@ -24,6 +25,8 @@ class _CarrotNavBarWidgetState extends State<CarrotNavBarWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CarrotNavBarModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -87,7 +90,8 @@ class _CarrotNavBarWidgetState extends State<CarrotNavBarWidget> {
                               fontSize: 11.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w600,
-                              useGoogleFonts: false,
+                              useGoogleFonts: GoogleFonts.asMap()
+                                  .containsKey('PretendardSeries'),
                             ),
                       ),
                     ].divide(const SizedBox(height: 4.0)),
@@ -131,7 +135,53 @@ class _CarrotNavBarWidgetState extends State<CarrotNavBarWidget> {
                               fontSize: 11.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w600,
-                              useGoogleFonts: false,
+                              useGoogleFonts: GoogleFonts.asMap()
+                                  .containsKey('PretendardSeries'),
+                            ),
+                      ),
+                    ].divide(const SizedBox(height: 4.0)),
+                  ),
+                ),
+              ),
+              InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  context.pushNamed('carrot_searchResult');
+                },
+                child: Container(
+                  width: 71.0,
+                  height: double.infinity,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).primaryBackground,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 24.0,
+                        height: 24.0,
+                        clipBehavior: Clip.antiAlias,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: Image.asset(
+                          'assets/images/beyv2_.png',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Text(
+                        '검색하기',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'PretendardSeries',
+                              fontSize: 11.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.w600,
+                              useGoogleFonts: GoogleFonts.asMap()
+                                  .containsKey('PretendardSeries'),
                             ),
                       ),
                     ].divide(const SizedBox(height: 4.0)),
@@ -164,7 +214,7 @@ class _CarrotNavBarWidgetState extends State<CarrotNavBarWidget> {
                           shape: BoxShape.circle,
                         ),
                         child: Image.asset(
-                          'assets/images/aqdbq_.png',
+                          'assets/images/KakaoTalk_20240717_160550314.png',
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -175,7 +225,53 @@ class _CarrotNavBarWidgetState extends State<CarrotNavBarWidget> {
                               fontSize: 11.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w600,
-                              useGoogleFonts: false,
+                              useGoogleFonts: GoogleFonts.asMap()
+                                  .containsKey('PretendardSeries'),
+                            ),
+                      ),
+                    ].divide(const SizedBox(height: 4.0)),
+                  ),
+                ),
+              ),
+              InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  context.pushNamed('carrot_liked');
+                },
+                child: Container(
+                  width: 71.0,
+                  height: double.infinity,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).primaryBackground,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 24.0,
+                        height: 24.0,
+                        clipBehavior: Clip.antiAlias,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: Image.asset(
+                          'assets/images/a418y_.png',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Text(
+                        '찜',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'PretendardSeries',
+                              fontSize: 11.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.w600,
+                              useGoogleFonts: GoogleFonts.asMap()
+                                  .containsKey('PretendardSeries'),
                             ),
                       ),
                     ].divide(const SizedBox(height: 4.0)),

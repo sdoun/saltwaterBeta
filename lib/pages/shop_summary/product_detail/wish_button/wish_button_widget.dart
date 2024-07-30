@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/shop_summary/product_detail/add_product_to_wish/add_product_to_wish_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'wish_button_model.dart';
 export 'wish_button_model.dart';
@@ -32,6 +33,8 @@ class _WishButtonWidgetState extends State<WishButtonWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => WishButtonModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -82,9 +85,11 @@ class _WishButtonWidgetState extends State<WishButtonWidget> {
                 iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 color: FlutterFlowTheme.of(context).primary,
                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                      fontFamily: 'Readex Pro',
+                      fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
                       color: Colors.white,
                       letterSpacing: 0.0,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).titleSmallFamily),
                     ),
                 elevation: 3.0,
                 borderSide: const BorderSide(
@@ -105,9 +110,11 @@ class _WishButtonWidgetState extends State<WishButtonWidget> {
                 iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 color: Colors.black,
                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                      fontFamily: 'Readex Pro',
+                      fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
                       color: Colors.white,
                       letterSpacing: 0.0,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).titleSmallFamily),
                     ),
                 elevation: 3.0,
                 borderSide: const BorderSide(

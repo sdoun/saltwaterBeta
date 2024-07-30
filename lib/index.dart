@@ -43,3 +43,17 @@ export '/pages/guid_content/guide_content/guide_content_widget.dart'
     show GuideContentWidget;
 export '/pages/point_explore_sum/poin_explore_fishing_park/fishing_park_map/fishing_park_map_widget.dart'
     show FishingParkMapWidget;
+export '/pages/carrot_sum/carrot_liked/carrot_liked_widget.dart'
+    show CarrotLikedWidget;
+export '/pages/carrot_sum/carrot_search/carrot_search_widget.dart'
+    show CarrotSearchWidget;
+export '/pages/point_explore_sum/point_travel_package/explore_map_travel/explore_map_travel_widget.dart'
+    show ExploreMapTravelWidget;
+export '/pages/carrot_sum/carrot_search_result/carrot_search_result_widget.dart'
+    show CarrotSearchResultWidget;
+export '/pages/point_explore_sum/point_travel_package/travel_list/travel_list_widget.dart'
+    show TravelListWidget;
+export '/pages/shop_summary/shopping_guide/shopping_guide_widget.dart'
+    show ShoppingGuideWidget;
+export '/pages/point_explore_sum/point_explore_fishing_bus/fishing_bus_map/fishing_bus_map_widget.dart'
+    show FishingBusMapWidget;

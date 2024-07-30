@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'option_dropdown_model.dart';
 export 'option_dropdown_model.dart';
@@ -47,6 +48,8 @@ class _OptionDropdownWidgetState extends State<OptionDropdownWidget> {
           widget.optionIndex!, _model.dropDownValue!);
       setState(() {});
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -97,8 +100,10 @@ class _OptionDropdownWidgetState extends State<OptionDropdownWidget> {
             width: double.infinity,
             height: 56.0,
             textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                  fontFamily: 'Readex Pro',
+                  fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                   letterSpacing: 0.0,
+                  useGoogleFonts: GoogleFonts.asMap().containsKey(
+                      FlutterFlowTheme.of(context).bodyMediumFamily),
                 ),
             hintText: '옵션을 선택해주세요',
             icon: Icon(

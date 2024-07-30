@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'review_bottomsheet_model.dart';
 export 'review_bottomsheet_model.dart';
 
@@ -40,6 +41,8 @@ class _ReviewBottomsheetWidgetState extends State<ReviewBottomsheetWidget> {
 
     _model.shortBioTextController ??= TextEditingController();
     _model.shortBioFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -130,7 +133,8 @@ class _ReviewBottomsheetWidgetState extends State<ReviewBottomsheetWidget> {
                               fontFamily: 'PretendardSeries',
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w600,
-                              useGoogleFonts: false,
+                              useGoogleFonts: GoogleFonts.asMap()
+                                  .containsKey('PretendardSeries'),
                             ),
                       ),
                     ),
@@ -161,8 +165,13 @@ class _ReviewBottomsheetWidgetState extends State<ReviewBottomsheetWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .titleLarge
                                     .override(
-                                      fontFamily: 'Outfit',
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .titleLargeFamily,
                                       letterSpacing: 0.0,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .titleLargeFamily),
                                     ),
                               ),
                             ),
@@ -179,14 +188,22 @@ class _ReviewBottomsheetWidgetState extends State<ReviewBottomsheetWidget> {
                         labelText: 'Label here...',
                         labelStyle:
                             FlutterFlowTheme.of(context).labelMedium.override(
-                                  fontFamily: 'Readex Pro',
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .labelMediumFamily,
                                   letterSpacing: 0.0,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .labelMediumFamily),
                                 ),
                         hintText: '리뷰 제목을 입력해주세요.',
                         hintStyle:
                             FlutterFlowTheme.of(context).labelMedium.override(
-                                  fontFamily: 'Readex Pro',
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .labelMediumFamily,
                                   letterSpacing: 0.0,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .labelMediumFamily),
                                 ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -218,8 +235,11 @@ class _ReviewBottomsheetWidgetState extends State<ReviewBottomsheetWidget> {
                         ),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Readex Pro',
+                            fontFamily:
+                                FlutterFlowTheme.of(context).bodyMediumFamily,
                             letterSpacing: 0.0,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).bodyMediumFamily),
                           ),
                       validator:
                           _model.textController1Validator.asValidator(context),
@@ -233,11 +253,16 @@ class _ReviewBottomsheetWidgetState extends State<ReviewBottomsheetWidget> {
                         obscureText: false,
                         decoration: InputDecoration(
                           hintText: '리뷰를 작성해주세요.',
-                          hintStyle:
-                              FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'Readex Pro',
-                                    letterSpacing: 0.0,
-                                  ),
+                          hintStyle: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .labelMediumFamily,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .labelMediumFamily),
+                              ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: FlutterFlowTheme.of(context).secondaryText,
@@ -270,8 +295,12 @@ class _ReviewBottomsheetWidgetState extends State<ReviewBottomsheetWidget> {
                               20.0, 32.0, 20.0, 12.0),
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).bodyMediumFamily,
                               letterSpacing: 0.0,
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily),
                             ),
                         textAlign: TextAlign.start,
                         maxLines: 4,
@@ -311,10 +340,15 @@ class _ReviewBottomsheetWidgetState extends State<ReviewBottomsheetWidget> {
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .titleMediumFamily,
                                     color: Colors.white,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .titleMediumFamily),
                                   ),
                               elevation: 3.0,
                               borderSide: const BorderSide(

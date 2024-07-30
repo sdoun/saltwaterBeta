@@ -161,6 +161,17 @@ final parametersBuilderMap =
         },
       ),
   'fishingParkMap': ParameterData.none(),
+  'carrot_liked': ParameterData.none(),
+  'carrot_search': ParameterData.none(),
+  'exploreMap_travel': ParameterData.none(),
+  'carrot_searchResult': (data) async => ParameterData(
+        allParams: {
+          'searchText': getParameter<String>(data, 'searchText'),
+        },
+      ),
+  'travel_list': ParameterData.none(),
+  'shoppingGuide': ParameterData.none(),
+  'fishingBusMap': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'seawall2nd_filter_model.dart';
 export 'seawall2nd_filter_model.dart';
 
@@ -25,6 +26,8 @@ class _Seawall2ndFilterWidgetState extends State<Seawall2ndFilterWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => Seawall2ndFilterModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -67,10 +70,12 @@ class _Seawall2ndFilterWidgetState extends State<Seawall2ndFilterWidget> {
               Text(
                 '인근편의시설',
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'Readex Pro',
+                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                       fontSize: 20.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w600,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).bodyMediumFamily),
                     ),
               ),
               Divider(
@@ -153,7 +158,8 @@ class _Seawall2ndFilterWidgetState extends State<Seawall2ndFilterWidget> {
                                         fontSize: 17.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
-                                        useGoogleFonts: false,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey('PretendardSeries'),
                                       ),
                                 ),
                               ),
@@ -234,7 +240,8 @@ class _Seawall2ndFilterWidgetState extends State<Seawall2ndFilterWidget> {
                                         fontSize: 17.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
-                                        useGoogleFonts: false,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey('PretendardSeries'),
                                       ),
                                 ),
                               ),
@@ -323,7 +330,8 @@ class _Seawall2ndFilterWidgetState extends State<Seawall2ndFilterWidget> {
                                         fontSize: 17.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
-                                        useGoogleFonts: false,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey('PretendardSeries'),
                                       ),
                                 ),
                               ),
@@ -403,7 +411,8 @@ class _Seawall2ndFilterWidgetState extends State<Seawall2ndFilterWidget> {
                                         fontSize: 17.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
-                                        useGoogleFonts: false,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey('PretendardSeries'),
                                       ),
                                 ),
                               ),
@@ -448,12 +457,16 @@ class _Seawall2ndFilterWidgetState extends State<Seawall2ndFilterWidget> {
                       child: Text(
                         '선택완료',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Readex Pro',
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).bodyMediumFamily,
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                               fontSize: 17.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w500,
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily),
                             ),
                       ),
                     ),

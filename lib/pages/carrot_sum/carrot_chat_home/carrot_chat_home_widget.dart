@@ -1,12 +1,13 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/custom_navbar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/pages/carrot_sum/carrot_nav_bar/carrot_nav_bar_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'carrot_chat_home_model.dart';
 export 'carrot_chat_home_model.dart';
 
@@ -31,6 +32,8 @@ class _CarrotChatHomeWidgetState extends State<CarrotChatHomeWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       await actions.deleteUnusedChatRoom();
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -117,11 +120,15 @@ class _CarrotChatHomeWidgetState extends State<CarrotChatHomeWidget> {
                       '채팅',
                       style:
                           FlutterFlowTheme.of(context).headlineMedium.override(
-                                fontFamily: 'Outfit',
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .headlineMediumFamily,
                                 color: Colors.black,
                                 fontSize: 22.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w600,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .headlineMediumFamily),
                               ),
                     ),
                   ),
@@ -140,10 +147,13 @@ class _CarrotChatHomeWidgetState extends State<CarrotChatHomeWidget> {
                     child: Text(
                       '채팅창이 없습니다!',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Readex Pro',
+                            fontFamily:
+                                FlutterFlowTheme.of(context).bodyMediumFamily,
                             fontSize: 21.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).bodyMediumFamily),
                           ),
                     ),
                   ),
@@ -190,7 +200,6 @@ class _CarrotChatHomeWidgetState extends State<CarrotChatHomeWidget> {
                                 }
                                 List<UsersRecord> containerUsersRecordList =
                                     snapshot.data!;
-
                                 // Return an empty Container when the item does not exist.
                                 if (snapshot.data!.isEmpty) {
                                   return Container();
@@ -199,6 +208,7 @@ class _CarrotChatHomeWidgetState extends State<CarrotChatHomeWidget> {
                                     containerUsersRecordList.isNotEmpty
                                         ? containerUsersRecordList.first
                                         : null;
+
                                 return InkWell(
                                   splashColor: Colors.transparent,
                                   focusColor: Colors.transparent,
@@ -256,8 +266,16 @@ class _CarrotChatHomeWidgetState extends State<CarrotChatHomeWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                               StreamBuilder<List<TBChatRecord>>(
@@ -294,7 +312,6 @@ class _CarrotChatHomeWidgetState extends State<CarrotChatHomeWidget> {
                                                   List<TBChatRecord>
                                                       textTBChatRecordList =
                                                       snapshot.data!;
-
                                                   // Return an empty Container when the item does not exist.
                                                   if (snapshot.data!.isEmpty) {
                                                     return Container();
@@ -305,6 +322,7 @@ class _CarrotChatHomeWidgetState extends State<CarrotChatHomeWidget> {
                                                           ? textTBChatRecordList
                                                               .first
                                                           : null;
+
                                                   return Text(
                                                     valueOrDefault<String>(
                                                       textTBChatRecord
@@ -320,8 +338,16 @@ class _CarrotChatHomeWidgetState extends State<CarrotChatHomeWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
                                                         ),
                                                   );
                                                 },
@@ -340,13 +366,10 @@ class _CarrotChatHomeWidgetState extends State<CarrotChatHomeWidget> {
                       },
                     ),
                   ),
-                  Align(
-                    alignment: const AlignmentDirectional(0.0, 1.0),
-                    child: wrapWithModel(
-                      model: _model.customNavbarModel,
-                      updateCallback: () => setState(() {}),
-                      child: const CustomNavbarWidget(),
-                    ),
+                  wrapWithModel(
+                    model: _model.carrotNavBarModel,
+                    updateCallback: () => setState(() {}),
+                    child: const CarrotNavBarWidget(),
                   ),
                 ],
               ),

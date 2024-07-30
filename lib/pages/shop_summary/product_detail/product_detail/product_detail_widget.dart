@@ -7,6 +7,7 @@ import '/pages/shop_summary/product_detail/wish_button/wish_button_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'product_detail_model.dart';
 export 'product_detail_model.dart';
 
@@ -31,6 +32,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ProductDetailModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -208,9 +211,15 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Readex Pro',
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily,
                                             fontSize: 13.0,
                                             letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily),
                                           ),
                                     ),
                                     Text(
@@ -218,8 +227,14 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Readex Pro',
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily,
                                             letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily),
                                           ),
                                     ),
                                     Text(
@@ -227,9 +242,15 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Readex Pro',
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily,
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily),
                                           ),
                                     ),
                                     Text(
@@ -242,7 +263,9 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                                 .primary,
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    'PretendardSeries'),
                                           ),
                                     ),
                                   ].divide(const SizedBox(height: 8.0)),
@@ -272,10 +295,15 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily,
                                     fontSize: 17.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .bodyMediumFamily),
                                   ),
                             ),
                             Row(
@@ -307,8 +335,16 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Readex Pro',
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
                                               letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                       Text(
@@ -316,8 +352,16 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Readex Pro',
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
                                               letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                     ].divide(const SizedBox(height: 8.0)),
@@ -351,7 +395,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
-                                    useGoogleFonts: false,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey('PretendardSeries'),
                                   ),
                             ),
                             Padding(
@@ -383,7 +428,10 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                                         .secondaryText,
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey(
+                                                            'PretendardSeries'),
                                               ),
                                         ),
                                         Text(
@@ -397,7 +445,10 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                                         .secondaryText,
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey(
+                                                            'PretendardSeries'),
                                               ),
                                         ),
                                         Text(
@@ -411,7 +462,10 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                                         .secondaryText,
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey(
+                                                            'PretendardSeries'),
                                               ),
                                         ),
                                         Text(
@@ -425,7 +479,10 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                                         .secondaryText,
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey(
+                                                            'PretendardSeries'),
                                               ),
                                         ),
                                       ].divide(const SizedBox(height: 4.0)),
@@ -442,7 +499,10 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
-                                                useGoogleFonts: false,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey(
+                                                            'PretendardSeries'),
                                               ),
                                         ),
                                         Text(
@@ -454,7 +514,10 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
-                                                useGoogleFonts: false,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey(
+                                                            'PretendardSeries'),
                                               ),
                                         ),
                                         Text(
@@ -466,7 +529,10 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
-                                                useGoogleFonts: false,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey(
+                                                            'PretendardSeries'),
                                               ),
                                         ),
                                         Text(
@@ -478,7 +544,10 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
-                                                useGoogleFonts: false,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey(
+                                                            'PretendardSeries'),
                                               ),
                                         ),
                                       ].divide(const SizedBox(height: 4.0)),

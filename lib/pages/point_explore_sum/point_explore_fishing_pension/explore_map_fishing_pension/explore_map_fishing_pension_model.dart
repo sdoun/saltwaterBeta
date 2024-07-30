@@ -32,11 +32,11 @@ class ExploreMapFishingPensionModel
       choiceChipsValueController?.value = val;
   // State field(s) for Row widget.
   ScrollController? rowController;
-  // Stores action output result for [Bottom Sheet - seawall_1stFilter] action in Container widget.
+  // Stores action output result for [Bottom Sheet - pension_1stFilter] action in Container widget.
   List<String>? pension1stFilter;
-  // Stores action output result for [Bottom Sheet - seawall_2ndFilter] action in Container widget.
+  // Stores action output result for [Bottom Sheet - pension_2ndFilter] action in Container widget.
   List<String>? pension2ndFilter;
-  // Stores action output result for [Bottom Sheet - seawall_3rdFilter] action in Container widget.
+  // Stores action output result for [Bottom Sheet - pension_3rdFilter] action in Container widget.
   List<String>? pension3rdFilter;
   // Stores action output result for [Custom Action - sWFilterSumString] action in Button widget.
   List<String>? pensionPointList;

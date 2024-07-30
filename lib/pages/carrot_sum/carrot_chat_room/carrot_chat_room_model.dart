@@ -1,5 +1,5 @@
-import '/components/custom_navbar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/pages/carrot_sum/carrot_nav_bar/carrot_nav_bar_widget.dart';
 import 'carrot_chat_room_widget.dart' show CarrotChatRoomWidget;
 import 'package:flutter/material.dart';
 
@@ -22,12 +22,12 @@ class CarrotChatRoomModel extends FlutterFlowModel<CarrotChatRoomWidget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  // Model for customNavbar component.
-  late CustomNavbarModel customNavbarModel;
+  // Model for carrotNavBar component.
+  late CarrotNavBarModel carrotNavBarModel;
 
   @override
   void initState(BuildContext context) {
-    customNavbarModel = createModel(context, () => CustomNavbarModel());
+    carrotNavBarModel = createModel(context, () => CarrotNavBarModel());
   }
 
   @override
@@ -36,6 +36,6 @@ class CarrotChatRoomModel extends FlutterFlowModel<CarrotChatRoomWidget> {
     textFieldFocusNode?.dispose();
     textController?.dispose();
 
-    customNavbarModel.dispose();
+    carrotNavBarModel.dispose();
   }
 }

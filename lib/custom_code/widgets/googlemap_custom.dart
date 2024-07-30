@@ -97,9 +97,14 @@ class _GooglemapCustomState extends State<GooglemapCustom> {
     Set<String?> uniqueIconPaths = widget.point?.map((data) {
           if (data.pointNotfree) {
             if (data.pointLikedBy.contains(widget.currentUserRef)) {
-              return 'https://picsum.photos/150/100';
+              return 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%ED%8F%AC%EC%9D%B8%ED%8A%B8%EC%95%84%EC%9D%B4%EC%BD%98%2F%EC%B0%9C.png?alt=media&token=6b08a8b2-7113-4106-97a2-497bacc6e89a';
             }
             return 'https://picsum.photos/100/100';
+          } else {
+            if (data.pointLikedBy.contains(widget.currentUserRef)) {
+              return 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%ED%8F%AC%EC%9D%B8%ED%8A%B8%EC%95%84%EC%9D%B4%EC%BD%98%2F%EC%B0%9C.png?alt=media&token=6b08a8b2-7113-4106-97a2-497bacc6e89a';
+            } else
+              return 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%ED%8F%AC%EC%9D%B8%ED%8A%B8%EC%95%84%EC%9D%B4%EC%BD%98%2F%EC%A3%BC%EB%B3%80%EC%9D%B8%EA%B7%BC%EB%82%9A%EC%8B%9C%ED%84%B0.png?alt=media&token=89edf507-6340-496c-9de6-13e482e5c98b';
           }
 
           return data.pointImagePath;

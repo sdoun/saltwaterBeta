@@ -25,9 +25,51 @@ class TBFishingBusRecord extends FirestoreRecord {
   String get busImage => _busImage ?? '';
   bool hasBusImage() => _busImage != null;
 
+  // "bus_noti" field.
+  String? _busNoti;
+  String get busNoti => _busNoti ?? '';
+  bool hasBusNoti() => _busNoti != null;
+
+  // "bus_area" field.
+  String? _busArea;
+  String get busArea => _busArea ?? '';
+  bool hasBusArea() => _busArea != null;
+
+  // "bus_date" field.
+  DateTime? _busDate;
+  DateTime? get busDate => _busDate;
+  bool hasBusDate() => _busDate != null;
+
+  // "bus_timeOfUse" field.
+  double? _busTimeOfUse;
+  double get busTimeOfUse => _busTimeOfUse ?? 0.0;
+  bool hasBusTimeOfUse() => _busTimeOfUse != null;
+
+  // "bus_fishes" field.
+  List<String>? _busFishes;
+  List<String> get busFishes => _busFishes ?? const [];
+  bool hasBusFishes() => _busFishes != null;
+
+  // "bus_fishing" field.
+  List<String>? _busFishing;
+  List<String> get busFishing => _busFishing ?? const [];
+  bool hasBusFishing() => _busFishing != null;
+
+  // "bus_payment" field.
+  List<String>? _busPayment;
+  List<String> get busPayment => _busPayment ?? const [];
+  bool hasBusPayment() => _busPayment != null;
+
   void _initializeFields() {
     _busName = snapshotData['bus_name'] as String?;
     _busImage = snapshotData['bus_image'] as String?;
+    _busNoti = snapshotData['bus_noti'] as String?;
+    _busArea = snapshotData['bus_area'] as String?;
+    _busDate = snapshotData['bus_date'] as DateTime?;
+    _busTimeOfUse = castToType<double>(snapshotData['bus_timeOfUse']);
+    _busFishes = getDataList(snapshotData['bus_fishes']);
+    _busFishing = getDataList(snapshotData['bus_fishing']);
+    _busPayment = getDataList(snapshotData['bus_payment']);
   }
 
   static CollectionReference get collection =>
@@ -67,11 +109,19 @@ class TBFishingBusRecord extends FirestoreRecord {
 Map<String, dynamic> createTBFishingBusRecordData({
   String? busName,
   String? busImage,
+  String? busNoti,
+  String? busArea,
+  DateTime? busDate,
+  double? busTimeOfUse,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'bus_name': busName,
       'bus_image': busImage,
+      'bus_noti': busNoti,
+      'bus_area': busArea,
+      'bus_date': busDate,
+      'bus_timeOfUse': busTimeOfUse,
     }.withoutNulls,
   );
 
@@ -84,12 +134,30 @@ class TBFishingBusRecordDocumentEquality
 
   @override
   bool equals(TBFishingBusRecord? e1, TBFishingBusRecord? e2) {
-    return e1?.busName == e2?.busName && e1?.busImage == e2?.busImage;
+    const listEquality = ListEquality();
+    return e1?.busName == e2?.busName &&
+        e1?.busImage == e2?.busImage &&
+        e1?.busNoti == e2?.busNoti &&
+        e1?.busArea == e2?.busArea &&
+        e1?.busDate == e2?.busDate &&
+        e1?.busTimeOfUse == e2?.busTimeOfUse &&
+        listEquality.equals(e1?.busFishes, e2?.busFishes) &&
+        listEquality.equals(e1?.busFishing, e2?.busFishing) &&
+        listEquality.equals(e1?.busPayment, e2?.busPayment);
   }
 
   @override
-  int hash(TBFishingBusRecord? e) =>
-      const ListEquality().hash([e?.busName, e?.busImage]);
+  int hash(TBFishingBusRecord? e) => const ListEquality().hash([
+        e?.busName,
+        e?.busImage,
+        e?.busNoti,
+        e?.busArea,
+        e?.busDate,
+        e?.busTimeOfUse,
+        e?.busFishes,
+        e?.busFishing,
+        e?.busPayment
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is TBFishingBusRecord;

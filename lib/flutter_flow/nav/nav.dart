@@ -257,6 +257,46 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'fishingParkMap',
           path: '/fishingParkMap',
           builder: (context, params) => const FishingParkMapWidget(),
+        ),
+        FFRoute(
+          name: 'carrot_liked',
+          path: '/carrotLiked',
+          builder: (context, params) => const CarrotLikedWidget(),
+        ),
+        FFRoute(
+          name: 'carrot_search',
+          path: '/carrotSearch',
+          builder: (context, params) => const CarrotSearchWidget(),
+        ),
+        FFRoute(
+          name: 'exploreMap_travel',
+          path: '/exploreMapTravel',
+          builder: (context, params) => const ExploreMapTravelWidget(),
+        ),
+        FFRoute(
+          name: 'carrot_searchResult',
+          path: '/carrotSearchResult',
+          builder: (context, params) => CarrotSearchResultWidget(
+            searchText: params.getParam(
+              'searchText',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'travel_list',
+          path: '/travelList',
+          builder: (context, params) => const TravelListWidget(),
+        ),
+        FFRoute(
+          name: 'shoppingGuide',
+          path: '/shoppingGuide',
+          builder: (context, params) => const ShoppingGuideWidget(),
+        ),
+        FFRoute(
+          name: 'fishingBusMap',
+          path: '/fishingBusMap',
+          builder: (context, params) => const FishingBusMapWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

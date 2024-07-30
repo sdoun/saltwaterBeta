@@ -83,14 +83,6 @@ List<String>? sW3rdFilterBottomsheet(
   return convinresult;
 }
 
-List<String> carrotPostCategories(String postCategory) {
-  List<String> result = [];
-  result.add('전체');
-  result.add(postCategory);
-
-  return result;
-}
-
 List<String> carrotChatParticipant(
   String currentUser,
   String sellerId,
@@ -459,7 +451,7 @@ List<String>? park2ndFilterBottomsheet(
   return amenresult;
 }
 
-dynamic tidHlCode(dynamic tidListItem) {
+String tidHlCode(dynamic tidListItem) {
   return tidListItem["hl_code"];
 }
 
@@ -614,4 +606,61 @@ List<DocumentReference> chatParticipants(
   List<DocumentReference> listOfUser = [currentUser] + [seller];
 
   return listOfUser;
+}
+
+String? packageTypeToString(
+  List<String>? stateFromFilter,
+  String fishing,
+  String experience,
+) {
+  String result = '';
+  if (stateFromFilter == null) {
+    return '종류';
+  }
+  if (stateFromFilter!.contains(fishing)) {
+    if (stateFromFilter!.contains(experience)) {
+      result = result + fishing + ', ' + experience;
+    } else {
+      result = result + fishing;
+    }
+  } else if (stateFromFilter!.contains(experience)) {
+    result = result + experience;
+  } else {
+    return '';
+  }
+  return result;
+}
+
+List<String>? package3rdFilterSum(
+  List<String>? fishing,
+  List<String>? seaEx,
+) {
+  List<String>? result = [];
+  result = (fishing ?? []) + (seaEx ?? []);
+  return result;
+}
+
+List<String>? newCustomFunction(
+  bool fishingSelect,
+  bool exSelect,
+) {
+  List<String>? result = [];
+
+  if (fishingSelect) {
+    result.add('낚시');
+  }
+  if (exSelect) {
+    result.add('바다체험');
+  }
+  return result;
+}
+
+List<String>? fishingBusFishes(
+  List<String>? popular,
+  List<String>? fish1,
+  List<String>? fish2,
+  List<String>? fish3,
+) {
+  var sum = (popular ?? []) + (fish1 ?? []) + (fish2 ?? []) + (fish3 ?? []);
+  return sum;
 }

@@ -13,6 +13,7 @@ import '/pages/point_explore_sum/point_category/point_category_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'fishing_park_map_model.dart';
@@ -34,6 +35,8 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => FishingParkMapModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -110,9 +113,12 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                 child: Text(
                   '포인트 검색하기',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        fontFamily: 'Outfit',
+                        fontFamily:
+                            FlutterFlowTheme.of(context).headlineMediumFamily,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).headlineMediumFamily),
                       ),
                 ),
               ),
@@ -168,7 +174,10 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                       .primaryBackground,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
-                                              useGoogleFonts: false,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          'PretendardSeries'),
                                             ),
                                         iconColor: FlutterFlowTheme.of(context)
                                             .primaryText,
@@ -189,7 +198,10 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                               color: Colors.black,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
-                                              useGoogleFonts: false,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          'PretendardSeries'),
                                             ),
                                         iconColor: FlutterFlowTheme.of(context)
                                             .secondaryText,
@@ -298,7 +310,10 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                             fontWeight:
                                                                 FontWeight.w600,
                                                             useGoogleFonts:
-                                                                false,
+                                                                GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'PretendardSeries'),
                                                           ),
                                                     ),
                                                     const Align(
@@ -451,7 +466,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                                         fontWeight:
                                                                             FontWeight.w600,
                                                                         useGoogleFonts:
-                                                                            false,
+                                                                            GoogleFonts.asMap().containsKey('PretendardSeries'),
                                                                       ),
                                                                 );
                                                               }),
@@ -459,30 +474,37 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                           },
                                                         ),
                                                       ),
-                                                      Text(
-                                                        (_model.park1stFilter !=
-                                                                        null &&
-                                                                    (_model.park1stFilter)!
-                                                                        .isNotEmpty) ==
-                                                                true
-                                                            ? ''
-                                                            : '시설구분',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'PretendardSeries',
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              useGoogleFonts:
-                                                                  false,
-                                                            ),
-                                                      ),
+                                                      if ((_model.park1stFilter !=
+                                                                  null &&
+                                                              (_model.park1stFilter)!
+                                                                  .isNotEmpty) ==
+                                                          false)
+                                                        Text(
+                                                          (_model.park1stFilter !=
+                                                                          null &&
+                                                                      (_model.park1stFilter)!
+                                                                          .isNotEmpty) ==
+                                                                  true
+                                                              ? ''
+                                                              : '시설구분',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'PretendardSeries',
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'PretendardSeries'),
+                                                              ),
+                                                        ),
                                                       Align(
                                                         alignment:
                                                             const AlignmentDirectional(
@@ -642,7 +664,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                                         fontWeight:
                                                                             FontWeight.w600,
                                                                         useGoogleFonts:
-                                                                            false,
+                                                                            GoogleFonts.asMap().containsKey('PretendardSeries'),
                                                                       ),
                                                                 );
                                                               }),
@@ -650,30 +672,31 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                           },
                                                         ),
                                                       ),
-                                                      Text(
-                                                        (_model.pension3rdFilter !=
-                                                                        null &&
-                                                                    (_model.pension3rdFilter)!
-                                                                        .isNotEmpty) ==
-                                                                true
-                                                            ? ''
-                                                            : '편의구분',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'PretendardSeries',
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                              useGoogleFonts:
-                                                                  false,
-                                                            ),
-                                                      ),
+                                                      if ((_model.park2ndFilter !=
+                                                                  null &&
+                                                              (_model.park2ndFilter)!
+                                                                  .isNotEmpty) ==
+                                                          false)
+                                                        Text(
+                                                          '편의구분',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'PretendardSeries',
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'PretendardSeries'),
+                                                              ),
+                                                        ),
                                                       Align(
                                                         alignment:
                                                             const AlignmentDirectional(
@@ -758,8 +781,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                               child: Container(
                                                 height: 36.0,
                                                 decoration: BoxDecoration(
-                                                  color: ((_model.pension3rdFilter !=
-                                                                      null &&
+                                                  color: ((_model.pension3rdFilter != null &&
                                                                   (_model.pension3rdFilter)!
                                                                       .isNotEmpty) ==
                                                               true) &&
@@ -770,8 +792,10 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                               true)
                                                       ? FlutterFlowTheme.of(
                                                               context)
-                                                          .primaryBackground
-                                                      : Colors.transparent,
+                                                          .primary
+                                                      : FlutterFlowTheme.of(
+                                                              context)
+                                                          .primaryBackground,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           8.0),
@@ -840,7 +864,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                                         fontWeight:
                                                                             FontWeight.w600,
                                                                         useGoogleFonts:
-                                                                            false,
+                                                                            GoogleFonts.asMap().containsKey('PretendardSeries'),
                                                                       ),
                                                                 );
                                                               }),
@@ -868,17 +892,19 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w600,
-                                                              useGoogleFonts:
-                                                                  false,
+                                                              useGoogleFonts: GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'PretendardSeries'),
                                                             ),
                                                       ),
-                                                      const Align(
+                                                      Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 1.0, 0.0),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       3.0,
                                                                       0.0,
@@ -887,7 +913,17 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                           child: Icon(
                                                             Icons
                                                                 .keyboard_arrow_down_outlined,
-                                                            color: Colors.black,
+                                                            color: (_model.pension3rdFilter !=
+                                                                            null &&
+                                                                        (_model.pension3rdFilter)!
+                                                                            .isNotEmpty) ==
+                                                                    true
+                                                                ? FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryBackground
+                                                                : FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
                                                             size: 20.0,
                                                           ),
                                                         ),
@@ -935,7 +971,9 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                             color: Colors.white,
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    'PretendardSeries'),
                                           ),
                                       elevation: 3.0,
                                       borderSide: const BorderSide(

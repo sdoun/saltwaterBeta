@@ -1,7 +1,7 @@
-import '/components/custom_navbar_widget.dart';
 import '/components/image_upload_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/pages/carrot_sum/carrot_nav_bar/carrot_nav_bar_widget.dart';
 import 'carrot_create_widget.dart' show CarrotCreateWidget;
 import 'package:flutter/material.dart';
 
@@ -26,13 +26,13 @@ class CarrotCreateModel extends FlutterFlowModel<CarrotCreateWidget> {
   FocusNode? textFieldFocusNode3;
   TextEditingController? textController3;
   String? Function(BuildContext, String?)? textController3Validator;
-  // Model for customNavbar component.
-  late CustomNavbarModel customNavbarModel;
+  // Model for carrotNavBar component.
+  late CarrotNavBarModel carrotNavBarModel;
 
   @override
   void initState(BuildContext context) {
     imageUploadModel = createModel(context, () => ImageUploadModel());
-    customNavbarModel = createModel(context, () => CustomNavbarModel());
+    carrotNavBarModel = createModel(context, () => CarrotNavBarModel());
   }
 
   @override
@@ -48,6 +48,6 @@ class CarrotCreateModel extends FlutterFlowModel<CarrotCreateWidget> {
     textFieldFocusNode3?.dispose();
     textController3?.dispose();
 
-    customNavbarModel.dispose();
+    carrotNavBarModel.dispose();
   }
 }

@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'custom_navbar_model.dart';
 export 'custom_navbar_model.dart';
 
@@ -24,6 +25,8 @@ class _CustomNavbarWidgetState extends State<CustomNavbarWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CustomNavbarModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -87,7 +90,8 @@ class _CustomNavbarWidgetState extends State<CustomNavbarWidget> {
                               fontSize: 11.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w600,
-                              useGoogleFonts: false,
+                              useGoogleFonts: GoogleFonts.asMap()
+                                  .containsKey('PretendardSeries'),
                             ),
                       ),
                     ].divide(const SizedBox(height: 4.0)),
@@ -131,7 +135,8 @@ class _CustomNavbarWidgetState extends State<CustomNavbarWidget> {
                               fontSize: 11.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w600,
-                              useGoogleFonts: false,
+                              useGoogleFonts: GoogleFonts.asMap()
+                                  .containsKey('PretendardSeries'),
                             ),
                       ),
                     ].divide(const SizedBox(height: 4.0)),
@@ -175,7 +180,8 @@ class _CustomNavbarWidgetState extends State<CustomNavbarWidget> {
                               fontSize: 11.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w600,
-                              useGoogleFonts: false,
+                              useGoogleFonts: GoogleFonts.asMap()
+                                  .containsKey('PretendardSeries'),
                             ),
                       ),
                     ].divide(const SizedBox(height: 4.0)),
@@ -219,7 +225,8 @@ class _CustomNavbarWidgetState extends State<CustomNavbarWidget> {
                               fontSize: 11.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w600,
-                              useGoogleFonts: false,
+                              useGoogleFonts: GoogleFonts.asMap()
+                                  .containsKey('PretendardSeries'),
                             ),
                       ),
                     ].divide(const SizedBox(height: 4.0)),
@@ -263,7 +270,8 @@ class _CustomNavbarWidgetState extends State<CustomNavbarWidget> {
                               fontSize: 11.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w600,
-                              useGoogleFonts: false,
+                              useGoogleFonts: GoogleFonts.asMap()
+                                  .containsKey('PretendardSeries'),
                             ),
                       ),
                     ].divide(const SizedBox(height: 4.0)),

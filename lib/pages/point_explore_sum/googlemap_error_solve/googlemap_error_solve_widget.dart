@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'googlemap_error_solve_model.dart';
 export 'googlemap_error_solve_model.dart';
 
@@ -22,6 +23,8 @@ class _GooglemapErrorSolveWidgetState extends State<GooglemapErrorSolveWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => GooglemapErrorSolveModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -47,8 +50,10 @@ class _GooglemapErrorSolveWidgetState extends State<GooglemapErrorSolveWidget> {
           title: Text(
             'Page Title',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Outfit',
+                  fontFamily: FlutterFlowTheme.of(context).headlineMediumFamily,
                   letterSpacing: 0.0,
+                  useGoogleFonts: GoogleFonts.asMap().containsKey(
+                      FlutterFlowTheme.of(context).headlineMediumFamily),
                 ),
           ),
           actions: const [],

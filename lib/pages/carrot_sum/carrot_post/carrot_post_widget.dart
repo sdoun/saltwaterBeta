@@ -3,6 +3,7 @@ import '/backend/backend.dart';
 import '/components/custom_navbar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -10,6 +11,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'carrot_post_model.dart';
 export 'carrot_post_model.dart';
 
@@ -34,6 +36,8 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CarrotPostModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -109,11 +113,15 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                       '당근낚시',
                       style:
                           FlutterFlowTheme.of(context).headlineMedium.override(
-                                fontFamily: 'Outfit',
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .headlineMediumFamily,
                                 color: Colors.black,
                                 fontSize: 22.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w600,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .headlineMediumFamily),
                               ),
                     ),
                   ),
@@ -258,11 +266,11 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                                   }
                                   List<UsersRecord> containerUsersRecordList =
                                       snapshot.data!;
-
                                   final containerUsersRecord =
                                       containerUsersRecordList.isNotEmpty
                                           ? containerUsersRecordList.first
                                           : null;
+
                                   return Container(
                                     width: double.infinity,
                                     height: 84.0,
@@ -307,7 +315,11 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
-                                                          useGoogleFonts: false,
+                                                          useGoogleFonts:
+                                                              GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'PretendardSeries'),
                                                         ),
                                               ),
                                             ],
@@ -432,9 +444,17 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                                                       .titleSmall
                                                       .override(
                                                         fontFamily:
-                                                            'Readex Pro',
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmallFamily,
                                                         color: Colors.white,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmallFamily),
                                                       ),
                                               elevation: 3.0,
                                               borderSide: const BorderSide(
@@ -443,6 +463,48 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                                               ),
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
+                                            ),
+                                          ),
+                                          ToggleIcon(
+                                            onPressed: () async {
+                                              final postLikedByElement =
+                                                  currentUserReference;
+                                              final postLikedByUpdate =
+                                                  carrotPostTBCarrotPostRecord
+                                                          .postLikedBy
+                                                          .contains(
+                                                              postLikedByElement)
+                                                      ? FieldValue.arrayRemove(
+                                                          [postLikedByElement])
+                                                      : FieldValue.arrayUnion(
+                                                          [postLikedByElement]);
+                                              await carrotPostTBCarrotPostRecord
+                                                  .reference
+                                                  .update({
+                                                ...mapToFirestore(
+                                                  {
+                                                    'post_likedBy':
+                                                        postLikedByUpdate,
+                                                  },
+                                                ),
+                                              });
+                                            },
+                                            value: carrotPostTBCarrotPostRecord
+                                                .postLikedBy
+                                                .contains(currentUserReference),
+                                            onIcon: Icon(
+                                              Icons.favorite_rounded,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent1,
+                                              size: 25.0,
+                                            ),
+                                            offIcon: Icon(
+                                              Icons.favorite_border,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent1,
+                                              size: 25.0,
                                             ),
                                           ),
                                         ].divide(const SizedBox(width: 8.0)),
@@ -470,7 +532,8 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                                       fontSize: 17.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
-                                      useGoogleFonts: false,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey('PretendardSeries'),
                                     ),
                               ),
                               Text(
@@ -478,9 +541,14 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Readex Pro',
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMediumFamily),
                                     ),
                               ),
                               Text(
@@ -491,7 +559,8 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                                       fontFamily: 'PretendardSeries',
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
-                                      useGoogleFonts: false,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey('PretendardSeries'),
                                     ),
                               ),
                             ].divide(const SizedBox(height: 8.0)),

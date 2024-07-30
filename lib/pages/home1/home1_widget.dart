@@ -11,6 +11,7 @@ import 'package:badges/badges.dart' as badges;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'home1_model.dart';
 export 'home1_model.dart';
@@ -31,6 +32,8 @@ class _Home1WidgetState extends State<Home1Widget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => Home1Model());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -161,10 +164,15 @@ class _Home1WidgetState extends State<Home1Widget> {
                                 style: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Readex Pro',
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .titleSmallFamily,
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
                                       letterSpacing: 0.0,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmallFamily),
                                     ),
                               ),
                               showBadge: true,
@@ -243,7 +251,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                       children: [
                         Container(
                           width: 100.0,
-                          height: 1689.0,
+                          height: 1006.0,
                           decoration: const BoxDecoration(
                             color: Colors.white,
                           ),
@@ -351,7 +359,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                     12.0, 24.0, 12.0, 0.0),
                                 child: Container(
                                   width: double.infinity,
-                                  height: 249.0,
+                                  height: 260.0,
                                   decoration: const BoxDecoration(
                                     color: Colors.white,
                                   ),
@@ -378,7 +386,10 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                     fontSize: 20.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w800,
-                                                    useGoogleFonts: false,
+                                                    useGoogleFonts: GoogleFonts
+                                                            .asMap()
+                                                        .containsKey(
+                                                            'PretendardSeries'),
                                                   ),
                                             ),
                                           ),
@@ -395,7 +406,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                             0.0, 16.0, 0.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
-                                          height: 171.0,
+                                          height: 218.0,
                                           decoration: const BoxDecoration(
                                             color: Color(0x00F4F6FF),
                                           ),
@@ -475,8 +486,10 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                       'PretendardSeries',
                                                                   letterSpacing:
                                                                       0.0,
-                                                                  useGoogleFonts:
-                                                                      false,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          'PretendardSeries'),
                                                                 ),
                                                           ),
                                                         ],
@@ -548,8 +561,10 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                       'PretendardSeries',
                                                                   letterSpacing:
                                                                       0.0,
-                                                                  useGoogleFonts:
-                                                                      false,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          'PretendardSeries'),
                                                                 ),
                                                           ),
                                                         ],
@@ -621,8 +636,10 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                       'PretendardSeries',
                                                                   letterSpacing:
                                                                       0.0,
-                                                                  useGoogleFonts:
-                                                                      false,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          'PretendardSeries'),
                                                                 ),
                                                           ),
                                                         ],
@@ -694,8 +711,10 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                       'PretendardSeries',
                                                                   letterSpacing:
                                                                       0.0,
-                                                                  useGoogleFonts:
-                                                                      false,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          'PretendardSeries'),
                                                                 ),
                                                           ),
                                                         ],
@@ -721,7 +740,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       context.pushNamed(
-                                                          'exploreMapSW');
+                                                          'travel_list');
                                                     },
                                                     child: Container(
                                                       width: 80.0,
@@ -775,8 +794,10 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                       'PretendardSeries',
                                                                   letterSpacing:
                                                                       0.0,
-                                                                  useGoogleFonts:
-                                                                      false,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          'PretendardSeries'),
                                                                 ),
                                                           ),
                                                         ],
@@ -848,8 +869,10 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                       'PretendardSeries',
                                                                   letterSpacing:
                                                                       0.0,
-                                                                  useGoogleFonts:
-                                                                      false,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          'PretendardSeries'),
                                                                 ),
                                                           ),
                                                         ],
@@ -871,7 +894,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                     },
                                                     child: Container(
                                                       width: 80.0,
-                                                      height: 95.0,
+                                                      height: 96.0,
                                                       decoration: BoxDecoration(
                                                         color: FlutterFlowTheme
                                                                 .of(context)
@@ -912,8 +935,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                             ),
                                                           ),
                                                           Text(
-                                                            '낚시펜션\n민박',
-                                                            maxLines: 2,
+                                                            '낚시펜션\n&민박',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -922,8 +944,10 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                       'PretendardSeries',
                                                                   letterSpacing:
                                                                       0.0,
-                                                                  useGoogleFonts:
-                                                                      false,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          'PretendardSeries'),
                                                                 ),
                                                           ),
                                                         ],
@@ -995,8 +1019,10 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                       'PretendardSeries',
                                                                   letterSpacing:
                                                                       0.0,
-                                                                  useGoogleFonts:
-                                                                      false,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          'PretendardSeries'),
                                                                 ),
                                                           ),
                                                         ],
@@ -1045,7 +1071,10 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                     fontSize: 20.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w800,
-                                                    useGoogleFonts: false,
+                                                    useGoogleFonts: GoogleFonts
+                                                            .asMap()
+                                                        .containsKey(
+                                                            'PretendardSeries'),
                                                   ),
                                             ),
                                           ),
@@ -1181,8 +1210,10 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                               fontWeight:
                                                                   FontWeight
                                                                       .bold,
-                                                              useGoogleFonts:
-                                                                  false,
+                                                              useGoogleFonts: GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'PretendardSeries'),
                                                             ),
                                                       ),
                                                     ],
@@ -1296,8 +1327,10 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                               fontWeight:
                                                                   FontWeight
                                                                       .bold,
-                                                              useGoogleFonts:
-                                                                  false,
+                                                              useGoogleFonts: GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'PretendardSeries'),
                                                             ),
                                                       ),
                                                     ],
@@ -1411,8 +1444,10 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                               fontWeight:
                                                                   FontWeight
                                                                       .bold,
-                                                              useGoogleFonts:
-                                                                  false,
+                                                              useGoogleFonts: GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'PretendardSeries'),
                                                             ),
                                                       ),
                                                     ],
@@ -1526,8 +1561,10 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                               fontWeight:
                                                                   FontWeight
                                                                       .bold,
-                                                              useGoogleFonts:
-                                                                  false,
+                                                              useGoogleFonts: GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'PretendardSeries'),
                                                             ),
                                                       ),
                                                     ],
@@ -1574,7 +1611,10 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                     fontSize: 19.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w800,
-                                                    useGoogleFonts: false,
+                                                    useGoogleFonts: GoogleFonts
+                                                            .asMap()
+                                                        .containsKey(
+                                                            'PretendardSeries'),
                                                   ),
                                             ),
                                           ),
@@ -1667,8 +1707,10 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
-                                                                useGoogleFonts:
-                                                                    false,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'PretendardSeries'),
                                                               ),
                                                         ),
                                                       ],
@@ -1749,8 +1791,10 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w600,
-                                                                useGoogleFonts:
-                                                                    false,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'PretendardSeries'),
                                                               ),
                                                         ),
                                                       ],
@@ -1800,7 +1844,10 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                     fontSize: 20.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w800,
-                                                    useGoogleFonts: false,
+                                                    useGoogleFonts: GoogleFonts
+                                                            .asMap()
+                                                        .containsKey(
+                                                            'PretendardSeries'),
                                                   ),
                                             ),
                                           ),
@@ -1817,8 +1864,16 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                             ),
@@ -1906,81 +1961,94 @@ class _Home1WidgetState extends State<Home1Widget> {
                                   ),
                                 ),
                               ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 16.0, 12.0, 0.0),
-                                child: Container(
-                                  width: double.infinity,
-                                  height: 509.0,
-                                  decoration: const BoxDecoration(
-                                    color: Colors.white,
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              12.0, 0.0, 12.0, 0.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Align(
+                                    alignment: const AlignmentDirectional(-1.0, -1.0),
+                                    child: Text(
+                                      '짠물투어',
+                                      style: FlutterFlowTheme.of(context)
+                                          .headlineSmall
+                                          .override(
+                                            fontFamily: 'PretendardSeries',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            fontSize: 19.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w800,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    'PretendardSeries'),
+                                          ),
+                                    ),
                                   ),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Align(
-                                            alignment: const AlignmentDirectional(
-                                                -1.0, -1.0),
-                                            child: Text(
-                                              '짠물투어',
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .headlineSmall
-                                                  .override(
-                                                    fontFamily:
-                                                        'PretendardSeries',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary,
-                                                    fontSize: 19.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w800,
-                                                    useGoogleFonts: false,
-                                                  ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 16.0, 0.0, 0.0),
-                                        child: Container(
-                                          width: double.infinity,
-                                          height: 481.0,
-                                          decoration: const BoxDecoration(
-                                            color: Color(0x00F4F6FF),
-                                          ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              const FlutterFlowYoutubePlayer(
-                                                url:
-                                                    'https://www.youtube.com/watch?v=C30hQ0ZSFoM',
-                                                autoPlay: false,
-                                                looping: true,
-                                                mute: false,
-                                                showControls: true,
-                                                showFullScreen: true,
-                                                strictRelatedVideos: false,
-                                              ),
-                                              const FlutterFlowYoutubePlayer(
-                                                url:
-                                                    'https://www.youtube.com/watch?v=C30hQ0ZSFoM',
-                                                autoPlay: false,
-                                                looping: true,
-                                                mute: false,
-                                                showControls: true,
-                                                showFullScreen: true,
-                                                strictRelatedVideos: false,
-                                              ),
-                                            ].divide(const SizedBox(height: 12.0)),
+                                ],
+                              ),
+                              StreamBuilder<List<TBYoutubeLinksRecord>>(
+                                stream: queryTBYoutubeLinksRecord(
+                                  limit: 3,
+                                ),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 50.0,
+                                        height: 50.0,
+                                        child: CircularProgressIndicator(
+                                          valueColor:
+                                              AlwaysStoppedAnimation<Color>(
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
                                           ),
                                         ),
                                       ),
-                                    ],
+                                    );
+                                  }
+                                  List<TBYoutubeLinksRecord>
+                                      columnTBYoutubeLinksRecordList =
+                                      snapshot.data!;
+
+                                  return Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: List.generate(
+                                        columnTBYoutubeLinksRecordList.length,
+                                        (columnIndex) {
+                                      final columnTBYoutubeLinksRecord =
+                                          columnTBYoutubeLinksRecordList[
+                                              columnIndex];
+                                      return FlutterFlowYoutubePlayer(
+                                        url: columnTBYoutubeLinksRecord
+                                            .videoLink,
+                                        autoPlay: false,
+                                        looping: true,
+                                        mute: false,
+                                        showControls: true,
+                                        showFullScreen: true,
+                                        strictRelatedVideos: false,
+                                      );
+                                    }).divide(const SizedBox(height: 12.0)),
+                                  );
+                                },
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 16.0, 0.0, 0.0),
+                                child: Container(
+                                  width: double.infinity,
+                                  height: 481.0,
+                                  decoration: const BoxDecoration(
+                                    color: Color(0x00F4F6FF),
                                   ),
                                 ),
                               ),
@@ -1993,7 +2061,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                       alignment: const AlignmentDirectional(0.0, 1.0),
                       child: Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
-                            0.0, 720.0, 0.0, 0.0),
+                            0.0, 640.0, 0.0, 0.0),
                         child: wrapWithModel(
                           model: _model.customNavbarModel,
                           updateCallback: () => setState(() {}),

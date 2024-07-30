@@ -34,6 +34,7 @@ Future messageRead(
     // 쿼리 결과의 각 문서에 대해 chat_isRead를 true로 설정
     for (final doc in querySnapshot.docs) {
       batch.update(doc.reference, {'chat_isRead': true});
+      print('$doc');
     }
 
     // 일괄 업데이트 실행

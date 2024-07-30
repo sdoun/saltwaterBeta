@@ -1,6 +1,5 @@
 export '/backend/schema/util/schema_util.dart';
 
-export 's_w_tags_schema_struct.dart';
 export 'place_struct.dart';
 export 'point_schema_struct.dart';
 export 'tid_fcst_struct.dart';

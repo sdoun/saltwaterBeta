@@ -1,14 +1,15 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/push_notifications/push_notifications_util.dart';
-import '/components/custom_navbar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/pages/carrot_sum/carrot_nav_bar/carrot_nav_bar_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'carrot_chat_room_model.dart';
 export 'carrot_chat_room_model.dart';
 
@@ -44,6 +45,8 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -119,11 +122,15 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                       '채팅',
                       style:
                           FlutterFlowTheme.of(context).headlineMedium.override(
-                                fontFamily: 'Outfit',
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .headlineMediumFamily,
                                 color: Colors.black,
                                 fontSize: 22.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w600,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .headlineMediumFamily),
                               ),
                     ),
                   ),
@@ -194,7 +201,13 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                                 0.75,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
+                                              .primaryBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                          border: Border.all(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                          ),
                                         ),
                                         child: Padding(
                                           padding:
@@ -248,7 +261,6 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                                         List<UsersRecord>
                                                             circleImageUsersRecordList =
                                                             snapshot.data!;
-
                                                         // Return an empty Container when the item does not exist.
                                                         if (snapshot
                                                             .data!.isEmpty) {
@@ -260,6 +272,7 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                                                 ? circleImageUsersRecordList
                                                                     .first
                                                                 : null;
+
                                                         return Container(
                                                           width: 36.0,
                                                           height: 36.0,
@@ -315,7 +328,6 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                                       List<UsersRecord>
                                                           textUsersRecordList =
                                                           snapshot.data!;
-
                                                       // Return an empty Container when the item does not exist.
                                                       if (snapshot
                                                           .data!.isEmpty) {
@@ -327,6 +339,7 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                                               ? textUsersRecordList
                                                                   .first
                                                               : null;
+
                                                       return Text(
                                                         valueOrDefault<String>(
                                                           textUsersRecord
@@ -338,10 +351,16 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                       );
                                                     },
@@ -357,11 +376,11 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                                     width: MediaQuery.sizeOf(
                                                                 context)
                                                             .width *
-                                                        0.35,
+                                                        0.5,
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
-                                                          .secondaryBackground,
+                                                          .primaryBackground,
                                                     ),
                                                     child: Wrap(
                                                       spacing: 0.0,
@@ -395,8 +414,10 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
-                                                                useGoogleFonts:
-                                                                    false,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'PretendardSeries'),
                                                               ),
                                                         ),
                                                       ],
@@ -413,15 +434,23 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                                             ?.toString(),
                                                         '0',
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Readex Pro',
-                                                            fontSize: 12.0,
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily),
+                                                              ),
                                                     ),
                                                   ),
                                                 ],
@@ -442,7 +471,13 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                                 0.75,
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
-                                              .secondary,
+                                              .primaryBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                          border: Border.all(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                          ),
                                         ),
                                         child: Padding(
                                           padding:
@@ -462,12 +497,11 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                                     width: MediaQuery.sizeOf(
                                                                 context)
                                                             .width *
-                                                        0.35,
+                                                        0.5,
                                                     decoration: BoxDecoration(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondary,
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .primaryBackground,
                                                     ),
                                                     child: Wrap(
                                                       spacing: 0.0,
@@ -501,8 +535,10 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w500,
-                                                                useGoogleFonts:
-                                                                    false,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'PretendardSeries'),
                                                               ),
                                                         ),
                                                       ],
@@ -519,15 +555,23 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                                             ?.toString(),
                                                         '0',
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Readex Pro',
-                                                            fontSize: 12.0,
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily),
+                                                              ),
                                                     ),
                                                   ),
                                                 ],
@@ -572,13 +616,13 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                                       List<UsersRecord>
                                                           circleImageUsersRecordList =
                                                           snapshot.data!;
-
                                                       final circleImageUsersRecord =
                                                           circleImageUsersRecordList
                                                                   .isNotEmpty
                                                               ? circleImageUsersRecordList
                                                                   .first
                                                               : null;
+
                                                       return Container(
                                                         width: 36.0,
                                                         height: 36.0,
@@ -634,29 +678,37 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                                       List<UsersRecord>
                                                           textUsersRecordList =
                                                           snapshot.data!;
-
                                                       final textUsersRecord =
                                                           textUsersRecordList
                                                                   .isNotEmpty
                                                               ? textUsersRecordList
                                                                   .first
                                                               : null;
+
                                                       return Text(
                                                         valueOrDefault<String>(
                                                           textUsersRecord
                                                               ?.displayName,
                                                           'username',
                                                         ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Readex Pro',
-                                                              fontSize: 13.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  fontSize:
+                                                                      13.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
                                                       );
                                                     },
                                                   ),
@@ -697,14 +749,24 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Readex Pro',
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .labelMediumFamily,
                                         letterSpacing: 0.0,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMediumFamily),
                                       ),
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Readex Pro',
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .labelMediumFamily,
                                         letterSpacing: 0.0,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMediumFamily),
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
@@ -739,8 +801,13 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Readex Pro',
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
                                       letterSpacing: 0.0,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMediumFamily),
                                     ),
                                 maxLines: null,
                                 validator: _model.textControllerValidator
@@ -805,17 +872,10 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                       ),
                     ),
                   ),
-                  Align(
-                    alignment: const AlignmentDirectional(0.0, 1.0),
-                    child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
-                      child: wrapWithModel(
-                        model: _model.customNavbarModel,
-                        updateCallback: () => setState(() {}),
-                        child: const CustomNavbarWidget(),
-                      ),
-                    ),
+                  wrapWithModel(
+                    model: _model.carrotNavBarModel,
+                    updateCallback: () => setState(() {}),
+                    child: const CarrotNavBarWidget(),
                   ),
                 ],
               ),

@@ -10,6 +10,9 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'package:flutter_date_range_picker/flutter_date_range_picker.dart';
+import '';
+
 class DateTimeRangePicker extends StatefulWidget {
   const DateTimeRangePicker({
     super.key,
@@ -48,7 +51,7 @@ class _DateTimeRangePickerState extends State<DateTimeRangePicker> {
   DateTimeRange? selectedDateRange;
 
   @override
-  void initstate() {
+  void initState() {
     super.initState();
     if (widget.initialEndDate != null && widget.initialStartDate != null) {
       selectedDateRange = DateTimeRange(
@@ -57,68 +60,84 @@ class _DateTimeRangePickerState extends State<DateTimeRangePicker> {
   }
 
   void showCustomDateRangePicker() async {
+    final now = DateTime.now();
     final DateTimeRange? picked = await showDateRangePicker(
-        context: context,
-        firstDate: DateTime(widget.dateYear!),
-        lastDate: DateTime(widget.dateYear! + 1),
-        builder: (context, child) {
-          return Center(
-            child: ConstrainedBox(
-              constraints: BoxConstraints(
-                maxHeight: widget.pickerHeight?.toDouble() ?? double.infinity,
-                maxWidth: widget.pickerWidth?.toDouble() ??
-                    MediaQuery.of(context).size.height * 0.8,
-              ),
-              child: child!,
+      context: context,
+      firstDate: DateTime(widget.dateYear ?? now.year - 1),
+      lastDate: DateTime(widget.dateYear ?? now.year + 1),
+      initialDateRange: selectedDateRange,
+      builder: (context, child) {
+        return Center(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              maxHeight: widget.pickerHeight?.toDouble() ??
+                  MediaQuery.of(context).size.height * 0.7,
+              maxWidth: widget.pickerWidth?.toDouble() ??
+                  MediaQuery.of(context).size.width * 0.9,
             ),
-          );
-        });
+            child: child!,
+          ),
+        );
+      },
+    );
+
     if (picked != null) {
       setState(() {
         selectedDateRange = picked;
         FFAppState().startDate = picked.start;
         FFAppState().endDate = picked.end;
-        widget.updatePageUI!();
       });
+
+      // Use a state management solution instead of directly modifying FFAppState
+      // For example, if using Provider:
+      // context.read<AppStateProvider>().updateDateRange(picked);
+
+      // Call updatePageUI only if it's not null
+      widget.updatePageUI?.call();
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: widget.width ?? double.infinity,
+      constraints: BoxConstraints(
+        minWidth: widget.width ?? 100, // 최소 너비
+        maxWidth: 300, // 최대 너비
+      ),
       height: widget.height ?? 50.0,
       child: ElevatedButton(
         onPressed: showCustomDateRangePicker,
         child: Padding(
-          padding:
-              const EdgeInsets.all(8.0), // Adjust the padding value as needed
-          child: selectedDateRange != null
+          padding: const EdgeInsets.all(8.0),
+          child: selectedDateRange != null &&
+                  FFAppState().endDate != null &&
+                  FFAppState().startDate != null
               ? Text(
-                  '${DateFormat('yyyy-MM-dd').format(selectedDateRange!.start)} to ${DateFormat('yyyy-MM-dd').format(selectedDateRange!.end)}',
+                  '${DateFormat('MM-dd').format(selectedDateRange!.start)} ~ ${DateFormat('MM-dd').format(selectedDateRange!.end)}',
                   style: TextStyle(
                     color: widget.fontColor ??
-                        FlutterFlowTheme.of(context).primaryText,
+                        Theme.of(context).textTheme.bodyMedium?.color,
                   ),
                 )
               : Text(
-                  'Select Date Range',
+                  '날짜선택',
                   style: TextStyle(
                     color: widget.fontColor ??
-                        FlutterFlowTheme.of(context).primaryText,
+                        Theme.of(context).textTheme.bodyMedium?.color,
                   ),
                 ),
         ),
         style: ElevatedButton.styleFrom(
           backgroundColor: widget.backgroundColor ??
-              FlutterFlowTheme.of(context).secondaryBackground,
+              Theme.of(context).scaffoldBackgroundColor,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(8),
             side: BorderSide(
-              color: widget.outlineColor ?? Colors.transparent,
+              color: widget.outlineColor ?? Colors.black,
               width: widget.outlineWidth?.toDouble() ?? 0,
             ),
           ),
+          elevation: 0,
         ),
       ),
     );

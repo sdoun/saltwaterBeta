@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'loading1_model.dart';
 export 'loading1_model.dart';
 
@@ -20,6 +21,8 @@ class _Loading1WidgetState extends State<Loading1Widget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => Loading1Model());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -61,9 +64,12 @@ class _Loading1WidgetState extends State<Loading1Widget> {
                 child: Text(
                   'Salty water tour',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Readex Pro',
+                        fontFamily:
+                            FlutterFlowTheme.of(context).bodyMediumFamily,
                         color: const Color(0xFFFFFE00),
                         letterSpacing: 0.0,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).bodyMediumFamily),
                       ),
                 ),
               ),
@@ -71,11 +77,13 @@ class _Loading1WidgetState extends State<Loading1Widget> {
             Text(
               '손품, 발품 필요없이 짠물투어!',
               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'Readex Pro',
+                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                     color: FlutterFlowTheme.of(context).primaryBackground,
                     fontSize: 16.0,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.bold,
+                    useGoogleFonts: GoogleFonts.asMap().containsKey(
+                        FlutterFlowTheme.of(context).bodyMediumFamily),
                   ),
             ),
           ].divide(const SizedBox(height: 8.0)),

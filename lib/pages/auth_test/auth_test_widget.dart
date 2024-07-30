@@ -5,9 +5,11 @@ import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'auth_test_model.dart';
 export 'auth_test_model.dart';
 
@@ -120,6 +122,8 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -137,22 +141,12 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
           top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 16.0),
-                child: Text(
-                  'brand.ai',
-                  style: FlutterFlowTheme.of(context).displaySmall.override(
-                        fontFamily: 'Outfit',
-                        letterSpacing: 0.0,
-                      ),
-                ),
-              ),
               Expanded(
                 child: Align(
                   alignment: const AlignmentDirectional(0.0, 0.0),
@@ -203,14 +197,26 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                 ),
                                               ),
                                             Text(
-                                              'Create Account',
+                                              '회원가입',
                                               textAlign: TextAlign.start,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .headlineMedium
                                                       .override(
-                                                        fontFamily: 'Outfit',
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .headlineMediumFamily,
+                                                        fontSize: 21.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineMediumFamily),
                                                       ),
                                             ),
                                             Padding(
@@ -218,15 +224,23 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                   .fromSTEB(
                                                       0.0, 4.0, 0.0, 24.0),
                                               child: Text(
-                                                'Let\'s get started by filling out the form below.',
+                                                '아래의 폼에 이메일과 비밀번호를 입력해주세요.',
                                                 textAlign: TextAlign.start,
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMediumFamily,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMediumFamily),
                                                         ),
                                               ),
                                             ),
@@ -247,14 +261,22 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                   ],
                                                   obscureText: false,
                                                   decoration: InputDecoration(
-                                                    labelText: 'Email',
+                                                    labelText: '이메일',
                                                     labelStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .labelLarge
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelLargeFamily,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLargeFamily),
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
@@ -262,7 +284,7 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .alternate,
+                                                                .primaryText,
                                                         width: 2.0,
                                                       ),
                                                       borderRadius:
@@ -308,10 +330,6 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                           BorderRadius.circular(
                                                               12.0),
                                                     ),
-                                                    filled: true,
-                                                    fillColor: FlutterFlowTheme
-                                                            .of(context)
-                                                        .secondaryBackground,
                                                     contentPadding:
                                                         const EdgeInsets.all(24.0),
                                                   ),
@@ -320,8 +338,16 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                       .bodyLarge
                                                       .override(
                                                         fontFamily:
-                                                            'Readex Pro',
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyLargeFamily,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLargeFamily),
                                                       ),
                                                   keyboardType: TextInputType
                                                       .emailAddress,
@@ -353,14 +379,22 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                   obscureText: !_model
                                                       .passwordCreateVisibility,
                                                   decoration: InputDecoration(
-                                                    labelText: 'Password',
+                                                    labelText: '비밀번호',
                                                     labelStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .labelLarge
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelLargeFamily,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLargeFamily),
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
@@ -368,7 +402,7 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .alternate,
+                                                                .primaryText,
                                                         width: 2.0,
                                                       ),
                                                       borderRadius:
@@ -414,10 +448,6 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                           BorderRadius.circular(
                                                               12.0),
                                                     ),
-                                                    filled: true,
-                                                    fillColor: FlutterFlowTheme
-                                                            .of(context)
-                                                        .secondaryBackground,
                                                     contentPadding:
                                                         const EdgeInsets.all(24.0),
                                                     suffixIcon: InkWell(
@@ -448,8 +478,16 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                       .bodyLarge
                                                       .override(
                                                         fontFamily:
-                                                            'Readex Pro',
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyLargeFamily,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLargeFamily),
                                                       ),
                                                   cursorColor:
                                                       FlutterFlowTheme.of(
@@ -479,14 +517,22 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                   obscureText: !_model
                                                       .passwordCreateConfirmVisibility,
                                                   decoration: InputDecoration(
-                                                    labelText: 'Password',
+                                                    labelText: '비밀번호 확인',
                                                     labelStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .labelLarge
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelLargeFamily,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLargeFamily),
                                                         ),
                                                     enabledBorder:
                                                         OutlineInputBorder(
@@ -494,7 +540,7 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .alternate,
+                                                                .primaryText,
                                                         width: 2.0,
                                                       ),
                                                       borderRadius:
@@ -540,10 +586,6 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                           BorderRadius.circular(
                                                               12.0),
                                                     ),
-                                                    filled: true,
-                                                    fillColor: FlutterFlowTheme
-                                                            .of(context)
-                                                        .secondaryBackground,
                                                     contentPadding:
                                                         const EdgeInsets.all(24.0),
                                                     suffixIcon: InkWell(
@@ -574,8 +616,16 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                       .bodyLarge
                                                       .override(
                                                         fontFamily:
-                                                            'Readex Pro',
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyLargeFamily,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLargeFamily),
                                                       ),
                                                   cursorColor:
                                                       FlutterFlowTheme.of(
@@ -662,9 +712,17 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                         .titleSmall
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmallFamily,
                                                           color: Colors.white,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmallFamily),
                                                         ),
                                                     elevation: 3.0,
                                                     borderSide: const BorderSide(
@@ -694,14 +752,22 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                       'Or sign up with',
                                                       textAlign:
                                                           TextAlign.center,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .labelMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Readex Pro',
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMediumFamily,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .labelMediumFamily),
+                                                              ),
                                                     ),
                                                   ),
                                                 ),
@@ -759,8 +825,7 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                                   context
                                                                       .mounted);
                                                             },
-                                                            text:
-                                                                'Continue with Google',
+                                                            text: '구글 회원가입',
                                                             icon: const FaIcon(
                                                               FontAwesomeIcons
                                                                   .google,
@@ -793,11 +858,15 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        fontSize:
+                                                                            16.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.bold,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                               elevation: 0.0,
                                                               borderSide:
@@ -849,7 +918,7 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                                             .mounted);
                                                                   },
                                                                   text:
-                                                                      'Continue with Apple',
+                                                                      '애플 로그인',
                                                                   icon: const FaIcon(
                                                                     FontAwesomeIcons
                                                                         .apple,
@@ -881,11 +950,15 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                                         .bodyMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'Readex Pro',
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                          fontSize:
+                                                                              16.0,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
                                                                               FontWeight.bold,
+                                                                          useGoogleFonts:
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                         ),
                                                                     elevation:
                                                                         0.0,
@@ -906,6 +979,95 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                                   ),
                                                                 ),
                                                               ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      16.0),
+                                                          child: FFButtonWidget(
+                                                            onPressed:
+                                                                () async {
+                                                              GoRouter.of(
+                                                                      context)
+                                                                  .prepareAuthEvent();
+                                                              final user =
+                                                                  await authManager
+                                                                      .signInWithGoogle(
+                                                                          context);
+                                                              if (user ==
+                                                                  null) {
+                                                                return;
+                                                              }
+
+                                                              context.goNamedAuth(
+                                                                  'home1',
+                                                                  context
+                                                                      .mounted);
+                                                            },
+                                                            text: '카카오 로그인',
+                                                            icon: const Icon(
+                                                              Icons
+                                                                  .chat_bubble_outlined,
+                                                              size: 20.0,
+                                                            ),
+                                                            options:
+                                                                FFButtonOptions(
+                                                              width: 230.0,
+                                                              height: 44.0,
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              iconPadding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              color: const Color(
+                                                                  0xFFFFE700),
+                                                              textStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        fontSize:
+                                                                            16.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.bold,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                      ),
+                                                              elevation: 0.0,
+                                                              borderSide:
+                                                                  BorderSide(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .alternate,
+                                                                width: 2.0,
+                                                              ),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          12.0),
+                                                              hoverColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBackground,
+                                                            ),
+                                                          ),
+                                                        ),
                                                       ],
                                                     ),
                                                   ),
@@ -944,14 +1106,26 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                 ),
                                               ),
                                             Text(
-                                              'Welcome Back',
+                                              '로그인',
                                               textAlign: TextAlign.start,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .headlineMedium
                                                       .override(
-                                                        fontFamily: 'Outfit',
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .headlineMediumFamily,
+                                                        fontSize: 21.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineMediumFamily),
                                                       ),
                                             ),
                                             Padding(
@@ -959,15 +1133,23 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                   .fromSTEB(
                                                       0.0, 4.0, 0.0, 24.0),
                                               child: Text(
-                                                'Fill out the information below in order to access your account.',
+                                                '아래의 폼을 채워주세요.',
                                                 textAlign: TextAlign.start,
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMediumFamily,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMediumFamily),
                                                         ),
                                               ),
                                             ),
@@ -988,22 +1170,14 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                   ],
                                                   obscureText: false,
                                                   decoration: InputDecoration(
-                                                    labelText: 'Email',
-                                                    labelStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .labelLarge
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                    labelText: '이메일',
                                                     enabledBorder:
                                                         OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .alternate,
+                                                                .primaryText,
                                                         width: 2.0,
                                                       ),
                                                       borderRadius:
@@ -1049,10 +1223,6 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                           BorderRadius.circular(
                                                               12.0),
                                                     ),
-                                                    filled: true,
-                                                    fillColor: FlutterFlowTheme
-                                                            .of(context)
-                                                        .secondaryBackground,
                                                     contentPadding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(
@@ -1066,8 +1236,16 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                       .bodyLarge
                                                       .override(
                                                         fontFamily:
-                                                            'Readex Pro',
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyLargeFamily,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLargeFamily),
                                                       ),
                                                   keyboardType: TextInputType
                                                       .emailAddress,
@@ -1099,22 +1277,14 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                   obscureText: !_model
                                                       .passwordVisibility,
                                                   decoration: InputDecoration(
-                                                    labelText: 'Password',
-                                                    labelStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .labelLarge
-                                                        .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                    labelText: '비밀번호',
                                                     enabledBorder:
                                                         OutlineInputBorder(
                                                       borderSide: BorderSide(
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .alternate,
+                                                                .primaryText,
                                                         width: 2.0,
                                                       ),
                                                       borderRadius:
@@ -1160,10 +1330,6 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                           BorderRadius.circular(
                                                               12.0),
                                                     ),
-                                                    filled: true,
-                                                    fillColor: FlutterFlowTheme
-                                                            .of(context)
-                                                        .secondaryBackground,
                                                     contentPadding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(
@@ -1199,8 +1365,16 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                       .bodyLarge
                                                       .override(
                                                         fontFamily:
-                                                            'Readex Pro',
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyLargeFamily,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLargeFamily),
                                                       ),
                                                   cursorColor:
                                                       FlutterFlowTheme.of(
@@ -1262,9 +1436,17 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                         .titleSmall
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmallFamily,
                                                           color: Colors.white,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmallFamily),
                                                         ),
                                                     elevation: 3.0,
                                                     borderSide: const BorderSide(
@@ -1293,8 +1475,16 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                       .labelMedium
                                                       .override(
                                                         fontFamily:
-                                                            'Readex Pro',
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMediumFamily,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMediumFamily),
                                                       ),
                                                 ),
                                               ),
@@ -1336,8 +1526,7 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                             'home1',
                                                             context.mounted);
                                                       },
-                                                      text:
-                                                          'Continue with Google',
+                                                      text: '구글 로그인',
                                                       icon: const FaIcon(
                                                         FontAwesomeIcons.google,
                                                         size: 20.0,
@@ -1367,13 +1556,21 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  fontSize:
+                                                                      16.0,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .bold,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                         elevation: 0.0,
                                                         borderSide: BorderSide(
@@ -1422,8 +1619,7 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                                   context
                                                                       .mounted);
                                                             },
-                                                            text:
-                                                                'Continue with Apple',
+                                                            text: '애플 로그인',
                                                             icon: const FaIcon(
                                                               FontAwesomeIcons
                                                                   .apple,
@@ -1456,11 +1652,15 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                        fontSize:
+                                                                            16.0,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.bold,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                               elevation: 0.0,
                                                               borderSide:
@@ -1481,6 +1681,79 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                             ),
                                                           ),
                                                         ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 16.0),
+                                                    child: FFButtonWidget(
+                                                      onPressed: () async {
+                                                        await actions
+                                                            .loginKakao();
+                                                      },
+                                                      text: '카카오 로그인',
+                                                      icon: const Icon(
+                                                        Icons
+                                                            .chat_bubble_outlined,
+                                                        size: 20.0,
+                                                      ),
+                                                      options: FFButtonOptions(
+                                                        width: 230.0,
+                                                        height: 44.0,
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        iconPadding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        color:
+                                                            const Color(0xFFFFE700),
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
+                                                        elevation: 0.0,
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                        hoverColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryBackground,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ],
                                               ),
                                             ),
@@ -1506,9 +1779,9 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                     context.goNamedAuth('home1',
                                                         context.mounted);
                                                   },
-                                                  text: 'Forgot Password?',
+                                                  text: '비밀번호 재설정',
                                                   options: FFButtonOptions(
-                                                    height: 44.0,
+                                                    height: 41.0,
                                                     padding:
                                                         const EdgeInsetsDirectional
                                                             .fromSTEB(32.0, 0.0,
@@ -1519,22 +1792,31 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                                 0.0, 0.0),
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .secondaryBackground,
+                                                        .primaryBackground,
                                                     textStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
                                                         ),
                                                     elevation: 0.0,
                                                     borderSide: BorderSide(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
                                                       width: 2.0,
                                                     ),
                                                     borderRadius:
@@ -1564,16 +1846,27 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .bodyLarge
                                     .override(
-                                      fontFamily: 'Readex Pro',
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyLargeFamily,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLargeFamily),
                                     ),
                                 unselectedLabelStyle:
                                     FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
-                                          fontFamily: 'Readex Pro',
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLargeFamily,
                                           letterSpacing: 0.0,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyLargeFamily),
                                         ),
                                 labelColor:
                                     FlutterFlowTheme.of(context).primaryText,

@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'weather_detailed_model.dart';
 export 'weather_detailed_model.dart';
 
@@ -31,6 +32,8 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => WeatherDetailedModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -106,11 +109,15 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                       '날씨보기',
                       style:
                           FlutterFlowTheme.of(context).headlineMedium.override(
-                                fontFamily: 'Outfit',
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .headlineMediumFamily,
                                 color: Colors.black,
                                 fontSize: 22.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w600,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .headlineMediumFamily),
                               ),
                     ),
                   ),
@@ -216,13 +223,22 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Readex Pro',
+                                                    fontFamily:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily,
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryText,
                                                     fontSize: 18.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
+                                                    useGoogleFonts: GoogleFonts
+                                                            .asMap()
+                                                        .containsKey(
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily),
                                                   ),
                                             ),
                                           ].divide(const SizedBox(width: 8.0)),
@@ -345,27 +361,32 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                 0.0, 0.0),
                                                     child: Text(
                                                       valueOrDefault<String>(
-                                                        '${valueOrDefault<String>(
-                                                          RealtimeWeatherAPICall
-                                                              .dataList(
-                                                            containerRealtimeWeatherAPIResponse
-                                                                .jsonBody,
-                                                          )?[3],
-                                                          '0',
-                                                        )}℃',
-                                                        '℃',
+                                                        '${RealtimeWeatherAPICall.dataList(
+                                                          containerRealtimeWeatherAPIResponse
+                                                              .jsonBody,
+                                                        )?[3]}℃',
+                                                        '서버 응답없음',
                                                       ),
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Readex Pro',
-                                                            fontSize: 20.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                          ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                fontSize: 20.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily),
+                                                              ),
                                                     ),
                                                   ),
                                                 ),
@@ -441,13 +462,21 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
                                                           color:
                                                               const Color(0xFF1E2224),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                   Container(
@@ -477,17 +506,25 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                         containerRealtimeWeatherAPIResponse
                                                             .jsonBody,
                                                       )![5]),
-                                                      '데이터 없음',
+                                                      '서버 응답없음',
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ],
@@ -556,13 +593,21 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
                                                           color:
                                                               const Color(0xFF1E2224),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                   Text(
@@ -575,17 +620,25 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                         )?.last,
                                                         '0',
                                                       )}m/s',
-                                                      '데이터 없음',
+                                                      '서버 응답없음',
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ],
@@ -696,21 +749,29 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                     children: [
                                                       Text(
                                                         '파고',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Readex Pro',
-                                                              color: const Color(
-                                                                  0xFF1E2224),
-                                                              fontSize: 16.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w600,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  color: const Color(
+                                                                      0xFF1E2224),
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
                                                       ),
                                                       Text(
                                                         valueOrDefault<String>(
@@ -725,13 +786,19 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Readex Pro',
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                       ),
                                                     ],
@@ -830,11 +897,19 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
                                                           fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ].divide(const SizedBox(width: 8.0)),
@@ -874,11 +949,19 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily:
-                                                            'Readex Pro',
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
                                                         fontSize: 18.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                               ),
@@ -956,11 +1039,19 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
                                                           fontSize: 18.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                             ],
@@ -995,7 +1086,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                     ),
                                                     child: Container(
                                                       width: 100.0,
-                                                      height: 100.0,
+                                                      height: 119.0,
                                                       decoration: BoxDecoration(
                                                         color: FlutterFlowTheme
                                                                 .of(context)
@@ -1050,49 +1141,83 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                     .bodyMedium
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Readex Pro',
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w600,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
                                                               Text(
-                                                                functions
-                                                                    .tidHlCode(
-                                                                        tidListItem)
-                                                                    .toString(),
+                                                                functions.tidHlCode(
+                                                                    tidListItem),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Readex Pro',
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w600,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
-                                                              Text(
-                                                                '${functions.tidStructFromJson(tidListItem)?.tidLevel}cm',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Readex Pro',
-                                                                      color: functions.tidStructFromJson(tidListItem)?.tidType ==
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  ClipRRect(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                    child: Image
+                                                                        .network(
+                                                                      functions.tidHlCode(tidListItem) ==
                                                                               '저조'
-                                                                          ? FlutterFlowTheme.of(context)
-                                                                              .primary
-                                                                          : const Color(
-                                                                              0xFFFF0000),
-                                                                      letterSpacing:
-                                                                          0.0,
+                                                                          ? 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%82%A0%EC%94%A8%EC%95%84%EC%9D%B4%EC%BD%98%2F%EC%A0%80%EC%A1%B0.png?alt=media&token=e66d459d-2e26-4041-af11-dc7d236bc380'
+                                                                          : 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%82%A0%EC%94%A8%EC%95%84%EC%9D%B4%EC%BD%98%2F%EA%B3%A0%EC%A1%B0.png?alt=media&token=b5f1d918-8f87-46fc-a695-ee645f77586e',
+                                                                      width:
+                                                                          24.0,
+                                                                      height:
+                                                                          24.0,
+                                                                      fit: BoxFit
+                                                                          .cover,
                                                                     ),
+                                                                  ),
+                                                                  Text(
+                                                                    '${functions.tidStructFromJson(tidListItem)?.tidLevel}cm',
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                          color: functions.tidHlCode(tidListItem) == '저조'
+                                                                              ? FlutterFlowTheme.of(context).primary
+                                                                              : const Color(0xFFFF0000),
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          useGoogleFonts:
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                        ),
+                                                                  ),
+                                                                ].divide(const SizedBox(
+                                                                    width:
+                                                                        4.0)),
                                                               ),
                                                             ].divide(const SizedBox(
                                                                 height: 4.0)),
@@ -1117,10 +1242,15 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily,
                                     fontSize: 20.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .bodyMediumFamily),
                                   ),
                             ),
                             SizedBox(
@@ -1217,7 +1347,11 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                 alignment: const AlignmentDirectional(
                                                     -1.0, -1.0),
                                                 child: Text(
-                                                  '${weatherDetailedTBWeatherPointRecord.name}일주일간 예보',
+                                                  '${valueOrDefault<String>(
+                                                    weatherDetailedTBWeatherPointRecord
+                                                        .name,
+                                                    '지역',
+                                                  )}일주일간 예보',
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -1228,7 +1362,10 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
-                                                        useGoogleFonts: false,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                'PretendardSeries'),
                                                       ),
                                                 ),
                                               ),
@@ -1342,7 +1479,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                         fontWeight:
                                                                             FontWeight.w600,
                                                                         useGoogleFonts:
-                                                                            false,
+                                                                            GoogleFonts.asMap().containsKey('PretendardSeries'),
                                                                       ),
                                                                 ),
                                                                 ClipRRect(
@@ -1379,18 +1516,20 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                           containerFcstWeatherApiResponse
                                                                               .jsonBody,
                                                                         )?.toList(), functions.datetimeToDate(getCurrentTimestamp.toString()).toString(), 1)?.first?.toString()}℃',
-                                                                    '0',
+                                                                    '예보 응답없음',
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.w600,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
                                                               ].divide(const SizedBox(
@@ -1503,7 +1642,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                         fontWeight:
                                                                             FontWeight.w600,
                                                                         useGoogleFonts:
-                                                                            false,
+                                                                            GoogleFonts.asMap().containsKey('PretendardSeries'),
                                                                       ),
                                                                 ),
                                                                 ClipRRect(
@@ -1540,18 +1679,20 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                           containerFcstWeatherApiResponse
                                                                               .jsonBody,
                                                                         )?.toList(), functions.datetimeToDate(getCurrentTimestamp.toString()).toString(), 2)?.first?.toString()}℃',
-                                                                    '0',
+                                                                    '예보 응답없음',
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.w600,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
                                                               ].divide(const SizedBox(
@@ -1664,7 +1805,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                         fontWeight:
                                                                             FontWeight.w600,
                                                                         useGoogleFonts:
-                                                                            false,
+                                                                            GoogleFonts.asMap().containsKey('PretendardSeries'),
                                                                       ),
                                                                 ),
                                                                 ClipRRect(
@@ -1704,11 +1845,13 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.w600,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
                                                               ].divide(const SizedBox(
@@ -1821,7 +1964,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                         fontWeight:
                                                                             FontWeight.w600,
                                                                         useGoogleFonts:
-                                                                            false,
+                                                                            GoogleFonts.asMap().containsKey('PretendardSeries'),
                                                                       ),
                                                                 ),
                                                                 ClipRRect(
@@ -1853,18 +1996,20 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                       containerMidFcstResponse
                                                                           .jsonBody,
                                                                     )}',
-                                                                    '서버 응답없음',
+                                                                    '예보 응답없음',
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.w600,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
                                                               ].divide(const SizedBox(
@@ -1977,7 +2122,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                         fontWeight:
                                                                             FontWeight.w600,
                                                                         useGoogleFonts:
-                                                                            false,
+                                                                            GoogleFonts.asMap().containsKey('PretendardSeries'),
                                                                       ),
                                                                 ),
                                                                 ClipRRect(
@@ -2010,18 +2155,20 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                       containerMidFcstResponse
                                                                           .jsonBody,
                                                                     ),
-                                                                    '0',
+                                                                    '예보 응답없음',
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.w600,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
                                                               ].divide(const SizedBox(
@@ -2134,7 +2281,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                         fontWeight:
                                                                             FontWeight.w600,
                                                                         useGoogleFonts:
-                                                                            false,
+                                                                            GoogleFonts.asMap().containsKey('PretendardSeries'),
                                                                       ),
                                                                 ),
                                                                 ClipRRect(
@@ -2167,18 +2314,20 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                       containerMidFcstResponse
                                                                           .jsonBody,
                                                                     ),
-                                                                    '0',
+                                                                    '예보 응답없음',
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.w600,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
                                                               ].divide(const SizedBox(
@@ -2291,7 +2440,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                         fontWeight:
                                                                             FontWeight.w600,
                                                                         useGoogleFonts:
-                                                                            false,
+                                                                            GoogleFonts.asMap().containsKey('PretendardSeries'),
                                                                       ),
                                                                 ),
                                                                 ClipRRect(
@@ -2324,18 +2473,20 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                       containerMidFcstResponse
                                                                           .jsonBody,
                                                                     ),
-                                                                    '맑음',
+                                                                    '예보 응답없음',
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Readex Pro',
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.w600,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
                                                               ].divide(const SizedBox(
@@ -2365,10 +2516,14 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                   ),
                   Align(
                     alignment: const AlignmentDirectional(0.0, 1.0),
-                    child: wrapWithModel(
-                      model: _model.customNavbarModel,
-                      updateCallback: () => setState(() {}),
-                      child: const CustomNavbarWidget(),
+                    child: Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
+                      child: wrapWithModel(
+                        model: _model.customNavbarModel,
+                        updateCallback: () => setState(() {}),
+                        child: const CustomNavbarWidget(),
+                      ),
                     ),
                   ),
                 ],

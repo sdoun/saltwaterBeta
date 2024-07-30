@@ -1,6 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/custom_navbar_widget.dart';
 import '/components/image_upload_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -8,7 +7,9 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/pages/carrot_sum/carrot_nav_bar/carrot_nav_bar_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'carrot_create_model.dart';
 export 'carrot_create_model.dart';
@@ -38,6 +39,8 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
 
     _model.textController3 ??= TextEditingController();
     _model.textFieldFocusNode3 ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -90,11 +93,14 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                 child: Text(
                   '게시물 작성',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        fontFamily: 'Outfit',
+                        fontFamily:
+                            FlutterFlowTheme.of(context).headlineMediumFamily,
                         color: Colors.black,
                         fontSize: 22.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).headlineMediumFamily),
                       ),
                 ),
               ),
@@ -133,7 +139,8 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                                   fontSize: 17.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
-                                  useGoogleFonts: false,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey('PretendardSeries'),
                                 ),
                           ),
                           TextFormField(
@@ -146,14 +153,24 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                               labelStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .labelMediumFamily,
                                     letterSpacing: 0.0,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .labelMediumFamily),
                                   ),
                               hintStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .labelMediumFamily,
                                     letterSpacing: 0.0,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .labelMediumFamily),
                                   ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
@@ -191,10 +208,14 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Readex Pro',
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily,
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryText,
                                   letterSpacing: 0.0,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily),
                                 ),
                             validator: _model.textController1Validator
                                 .asValidator(context),
@@ -205,7 +226,13 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                               FlutterFlowDropDown<String>(
                                 controller: _model.dropDownValueController ??=
                                     FormFieldController<String>(null),
-                                options: const ['낚싯대, 릴', '', ''],
+                                options: const [
+                                  '낚시대, 릴',
+                                  '의류',
+                                  '기타장비',
+                                  '개인낚시배',
+                                  '줄, 소품'
+                                ],
                                 onChanged: (val) =>
                                     setState(() => _model.dropDownValue = val),
                                 width: 136.0,
@@ -216,7 +243,8 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                                       fontFamily: 'PretendardSeries',
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
-                                      useGoogleFonts: false,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey('PretendardSeries'),
                                     ),
                                 hintText: '카테고리',
                                 icon: Icon(
@@ -263,7 +291,8 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                                   fontSize: 17.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
-                                  useGoogleFonts: false,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey('PretendardSeries'),
                                 ),
                           ),
                           Align(
@@ -358,7 +387,8 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                                   fontSize: 17.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
-                                  useGoogleFonts: false,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey('PretendardSeries'),
                                 ),
                           ),
                           TextFormField(
@@ -371,14 +401,24 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                               labelStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .labelMediumFamily,
                                     letterSpacing: 0.0,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .labelMediumFamily),
                                   ),
                               hintStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Readex Pro',
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .labelMediumFamily,
                                     letterSpacing: 0.0,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .labelMediumFamily),
                                   ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
@@ -413,8 +453,12 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Readex Pro',
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily,
                                   letterSpacing: 0.0,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily),
                                 ),
                             maxLines: 20,
                             validator: _model.textController2Validator
@@ -435,7 +479,8 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
-                                    useGoogleFonts: false,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey('PretendardSeries'),
                                   ),
                         ),
                         Row(
@@ -452,14 +497,24 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Readex Pro',
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .labelMediumFamily,
                                         letterSpacing: 0.0,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMediumFamily),
                                       ),
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Readex Pro',
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .labelMediumFamily,
                                         letterSpacing: 0.0,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMediumFamily),
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -495,8 +550,13 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Readex Pro',
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
                                       letterSpacing: 0.0,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMediumFamily),
                                     ),
                                 keyboardType: TextInputType.number,
                                 validator: _model.textController3Validator
@@ -543,7 +603,8 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                                   fontFamily: 'PretendardSeries',
                                   color: Colors.white,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey('PretendardSeries'),
                                 ),
                         elevation: 3.0,
                         borderSide: const BorderSide(
@@ -574,7 +635,8 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                               fontFamily: 'PretendardSeries',
                               color: FlutterFlowTheme.of(context).primaryText,
                               letterSpacing: 0.0,
-                              useGoogleFonts: false,
+                              useGoogleFonts: GoogleFonts.asMap()
+                                  .containsKey('PretendardSeries'),
                             ),
                         elevation: 3.0,
                         borderSide: BorderSide(
@@ -594,13 +656,10 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                   ].divide(const SizedBox(height: 8.0)),
                 ),
               ),
-              Align(
-                alignment: const AlignmentDirectional(0.0, 1.0),
-                child: wrapWithModel(
-                  model: _model.customNavbarModel,
-                  updateCallback: () => setState(() {}),
-                  child: const CustomNavbarWidget(),
-                ),
+              wrapWithModel(
+                model: _model.carrotNavBarModel,
+                updateCallback: () => setState(() {}),
+                child: const CarrotNavBarWidget(),
               ),
             ],
           ),
