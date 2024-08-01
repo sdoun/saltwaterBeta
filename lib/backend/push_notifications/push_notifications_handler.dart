@@ -6,6 +6,7 @@ import '../../flutter_flow/flutter_flow_theme.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 
 final _handledMessageIds = <String?>{};
@@ -68,7 +69,9 @@ class _PushNotificationsHandlerState extends State<PushNotificationsHandler> {
   @override
   void initState() {
     super.initState();
-    handleOpenedPushNotification();
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      handleOpenedPushNotification();
+    });
   }
 
   @override
@@ -162,7 +165,11 @@ final parametersBuilderMap =
       ),
   'fishingParkMap': ParameterData.none(),
   'carrot_liked': ParameterData.none(),
-  'carrot_search': ParameterData.none(),
+  'carrot_search': (data) async => ParameterData(
+        allParams: {
+          'searchText': getParameter<String>(data, 'searchText'),
+        },
+      ),
   'exploreMap_travel': ParameterData.none(),
   'carrot_searchResult': (data) async => ParameterData(
         allParams: {

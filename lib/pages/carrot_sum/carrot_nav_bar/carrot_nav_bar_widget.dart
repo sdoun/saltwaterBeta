@@ -149,7 +149,7 @@ class _CarrotNavBarWidgetState extends State<CarrotNavBarWidget> {
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  context.pushNamed('carrot_searchResult');
+                  context.pushNamed('carrot_search');
                 },
                 child: Container(
                   width: 71.0,

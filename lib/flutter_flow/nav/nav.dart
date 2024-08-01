@@ -266,7 +266,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'carrot_search',
           path: '/carrotSearch',
-          builder: (context, params) => const CarrotSearchWidget(),
+          builder: (context, params) => CarrotSearchWidget(
+            searchText: params.getParam(
+              'searchText',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: 'exploreMap_travel',

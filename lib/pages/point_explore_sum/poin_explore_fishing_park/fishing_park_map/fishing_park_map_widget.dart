@@ -1059,6 +1059,20 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                               );
                             },
                           ),
+                          const Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 40.0),
+                            child: SizedBox(
+                              width: double.infinity,
+                              height: 80.0,
+                              child: custom_widgets.NaverMapWidgetPoint(
+                                width: double.infinity,
+                                height: 80.0,
+                                initLat: 37.0,
+                                initLng: 127.0,
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),

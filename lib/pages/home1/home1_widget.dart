@@ -258,102 +258,6 @@ class _Home1WidgetState extends State<Home1Widget> {
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Container(
-                                width: 673.0,
-                                height: 195.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                ),
-                                child: SizedBox(
-                                  width: double.infinity,
-                                  height: 512.0,
-                                  child: Stack(
-                                    children: [
-                                      PageView(
-                                        controller:
-                                            _model.pageViewController ??=
-                                                PageController(initialPage: 0),
-                                        scrollDirection: Axis.horizontal,
-                                        children: [
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            child: Image.network(
-                                              'https://picsum.photos/seed/92/600',
-                                              width: 300.0,
-                                              height: 200.0,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            child: Image.network(
-                                              'https://picsum.photos/seed/396/600',
-                                              width: 300.0,
-                                              height: 200.0,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            child: Image.network(
-                                              'https://picsum.photos/seed/111/600',
-                                              width: 300.0,
-                                              height: 200.0,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Align(
-                                        alignment:
-                                            const AlignmentDirectional(1.0, 1.0),
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 0.0, 16.0, 16.0),
-                                          child: smooth_page_indicator
-                                              .SmoothPageIndicator(
-                                            controller: _model
-                                                    .pageViewController ??=
-                                                PageController(initialPage: 0),
-                                            count: 3,
-                                            axisDirection: Axis.horizontal,
-                                            onDotClicked: (i) async {
-                                              await _model.pageViewController!
-                                                  .animateToPage(
-                                                i,
-                                                duration:
-                                                    const Duration(milliseconds: 500),
-                                                curve: Curves.ease,
-                                              );
-                                              setState(() {});
-                                            },
-                                            effect: smooth_page_indicator
-                                                .ExpandingDotsEffect(
-                                              expansionFactor: 3.0,
-                                              spacing: 8.0,
-                                              radius: 16.0,
-                                              dotWidth: 16.0,
-                                              dotHeight: 8.0,
-                                              dotColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondary,
-                                              activeDotColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              paintStyle: PaintingStyle.fill,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     12.0, 24.0, 12.0, 0.0),
@@ -1032,6 +936,102 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                 ],
                                               ),
                                             ].divide(const SizedBox(height: 7.0)),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                width: 673.0,
+                                height: 144.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                                child: SizedBox(
+                                  width: double.infinity,
+                                  height: 512.0,
+                                  child: Stack(
+                                    children: [
+                                      PageView(
+                                        controller:
+                                            _model.pageViewController ??=
+                                                PageController(initialPage: 0),
+                                        scrollDirection: Axis.horizontal,
+                                        children: [
+                                          ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.network(
+                                              'https://picsum.photos/seed/92/600',
+                                              width: 300.0,
+                                              height: 200.0,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                          ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.network(
+                                              'https://picsum.photos/seed/396/600',
+                                              width: 300.0,
+                                              height: 200.0,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                          ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.network(
+                                              'https://picsum.photos/seed/111/600',
+                                              width: 300.0,
+                                              height: 200.0,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Align(
+                                        alignment:
+                                            const AlignmentDirectional(1.0, 1.0),
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 16.0, 16.0),
+                                          child: smooth_page_indicator
+                                              .SmoothPageIndicator(
+                                            controller: _model
+                                                    .pageViewController ??=
+                                                PageController(initialPage: 0),
+                                            count: 3,
+                                            axisDirection: Axis.horizontal,
+                                            onDotClicked: (i) async {
+                                              await _model.pageViewController!
+                                                  .animateToPage(
+                                                i,
+                                                duration:
+                                                    const Duration(milliseconds: 500),
+                                                curve: Curves.ease,
+                                              );
+                                              setState(() {});
+                                            },
+                                            effect: smooth_page_indicator
+                                                .ExpandingDotsEffect(
+                                              expansionFactor: 3.0,
+                                              spacing: 8.0,
+                                              radius: 16.0,
+                                              dotWidth: 16.0,
+                                              dotHeight: 8.0,
+                                              dotColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondary,
+                                              activeDotColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              paintStyle: PaintingStyle.fill,
+                                            ),
                                           ),
                                         ),
                                       ),

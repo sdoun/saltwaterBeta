@@ -5,11 +5,17 @@ import '/pages/carrot_sum/carrot_nav_bar/carrot_nav_bar_widget.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'carrot_search_model.dart';
 export 'carrot_search_model.dart';
 
 class CarrotSearchWidget extends StatefulWidget {
-  const CarrotSearchWidget({super.key});
+  const CarrotSearchWidget({
+    super.key,
+    this.searchText,
+  });
+
+  final String? searchText;
 
   @override
   State<CarrotSearchWidget> createState() => _CarrotSearchWidgetState();
@@ -25,7 +31,8 @@ class _CarrotSearchWidgetState extends State<CarrotSearchWidget> {
     super.initState();
     _model = createModel(context, () => CarrotSearchModel());
 
-    _model.textController ??= TextEditingController();
+    _model.textController ??=
+        TextEditingController(text: FFAppState().searchText);
     _model.textFieldFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -40,6 +47,8 @@ class _CarrotSearchWidgetState extends State<CarrotSearchWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -114,6 +123,10 @@ class _CarrotSearchWidgetState extends State<CarrotSearchWidget> {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
+                            FFAppState().insertAtIndexInRecentSearch(
+                                0, _model.textController.text);
+                            setState(() {});
+
                             context.pushNamed(
                               'carrot_searchResult',
                               queryParameters: {
@@ -161,7 +174,7 @@ class _CarrotSearchWidgetState extends State<CarrotSearchWidget> {
                               autofocus: true,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelText: 'Label here...',
+                                labelText: '검색어를 입력해주세요',
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
@@ -232,7 +245,73 @@ class _CarrotSearchWidgetState extends State<CarrotSearchWidget> {
                         ),
                       ],
                     ),
-                  ],
+                    Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        const Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [],
+                        ),
+                        Builder(
+                          builder: (context) {
+                            final recentSearch =
+                                FFAppState().recentSearch.toList();
+
+                            return Column(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: List.generate(recentSearch.length,
+                                  (recentSearchIndex) {
+                                final recentSearchItem =
+                                    recentSearch[recentSearchIndex];
+                                return Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      recentSearchItem,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily),
+                                          ),
+                                    ),
+                                    FlutterFlowIconButton(
+                                      borderRadius: 20.0,
+                                      borderWidth: 1.0,
+                                      buttonSize: 32.0,
+                                      fillColor: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                      icon: Icon(
+                                        Icons.block,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        size: 20.0,
+                                      ),
+                                      onPressed: () async {
+                                        FFAppState()
+                                            .removeAtIndexFromRecentSearch(
+                                                recentSearchIndex);
+                                        setState(() {});
+                                      },
+                                    ),
+                                  ],
+                                );
+                              }).divide(const SizedBox(height: 8.0)),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  ].divide(const SizedBox(height: 8.0)),
                 ),
               ),
               Align(

@@ -89,7 +89,7 @@ class _GooglemapCustomState extends State<GooglemapCustom> {
         widget.centerLatitude != oldWidget.centerLatitude ||
         widget.centerLongitude != oldWidget.centerLongitude ||
         widget.currentUserRef != oldWidget.currentUserRef) {
-      _loadCurrentUser();
+      _loadMarkerIcons();
     }
   }
 

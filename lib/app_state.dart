@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '/backend/backend.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -14,12 +15,19 @@ class FFAppState extends ChangeNotifier {
     _instance = FFAppState._internal();
   }
 
-  Future initializePersistedState() async {}
+  Future initializePersistedState() async {
+    prefs = await SharedPreferences.getInstance();
+    _safeInit(() {
+      _recentSearch = prefs.getStringList('ff_recentSearch') ?? _recentSearch;
+    });
+  }
 
   void update(VoidCallback callback) {
     callback();
     notifyListeners();
   }
+
+  late SharedPreferences prefs;
 
   List<String> _chosenOptionList = [];
   List<String> get chosenOptionList => _chosenOptionList;
@@ -435,4 +443,51 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInBusTime(int index, String value) {
     busTime.insert(index, value);
   }
+
+  List<String> _recentSearch = [];
+  List<String> get recentSearch => _recentSearch;
+  set recentSearch(List<String> value) {
+    _recentSearch = value;
+    prefs.setStringList('ff_recentSearch', value);
+  }
+
+  void addToRecentSearch(String value) {
+    recentSearch.add(value);
+    prefs.setStringList('ff_recentSearch', _recentSearch);
+  }
+
+  void removeFromRecentSearch(String value) {
+    recentSearch.remove(value);
+    prefs.setStringList('ff_recentSearch', _recentSearch);
+  }
+
+  void removeAtIndexFromRecentSearch(int index) {
+    recentSearch.removeAt(index);
+    prefs.setStringList('ff_recentSearch', _recentSearch);
+  }
+
+  void updateRecentSearchAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    recentSearch[index] = updateFn(_recentSearch[index]);
+    prefs.setStringList('ff_recentSearch', _recentSearch);
+  }
+
+  void insertAtIndexInRecentSearch(int index, String value) {
+    recentSearch.insert(index, value);
+    prefs.setStringList('ff_recentSearch', _recentSearch);
+  }
+}
+
+void _safeInit(Function() initializeField) {
+  try {
+    initializeField();
+  } catch (_) {}
+}
+
+Future _safeInitAsync(Function() initializeField) async {
+  try {
+    await initializeField();
+  } catch (_) {}
 }

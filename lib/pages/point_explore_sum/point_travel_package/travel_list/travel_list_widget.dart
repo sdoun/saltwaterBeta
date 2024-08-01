@@ -271,8 +271,11 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                                       padding: MediaQuery
                                                           .viewInsetsOf(
                                                               context),
-                                                      child:
-                                                          const PackageAreaWidget(),
+                                                      child: const SizedBox(
+                                                        height: 640.0,
+                                                        child:
+                                                            PackageAreaWidget(),
+                                                      ),
                                                     ),
                                                   ),
                                                 );
@@ -452,8 +455,11 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                                       padding: MediaQuery
                                                           .viewInsetsOf(
                                                               context),
-                                                      child:
-                                                          const PackageTypeWidget(),
+                                                      child: const SizedBox(
+                                                        height: 480.0,
+                                                        child:
+                                                            PackageTypeWidget(),
+                                                      ),
                                                     ),
                                                   ),
                                                 );
@@ -631,8 +637,11 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                                       padding: MediaQuery
                                                           .viewInsetsOf(
                                                               context),
-                                                      child:
-                                                          const PackageDetailedWidget(),
+                                                      child: const SizedBox(
+                                                        height: 480.0,
+                                                        child:
+                                                            PackageDetailedWidget(),
+                                                      ),
                                                     ),
                                                   ),
                                                 );

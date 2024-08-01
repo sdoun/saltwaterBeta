@@ -24,10 +24,6 @@ class CarrotSearchResultModel
   List<TBCarrotPostRecord>? postsQuery;
   // Stores action output result for [Custom Action - carrotSearch] action in carrot_searchResult widget.
   List<TBCarrotPostRecord>? searchResults;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode;
-  TextEditingController? textController;
-  String? Function(BuildContext, String?)? textControllerValidator;
   // Model for carrotNavBar component.
   late CarrotNavBarModel carrotNavBarModel;
 
@@ -39,9 +35,6 @@ class CarrotSearchResultModel
   @override
   void dispose() {
     unfocusNode.dispose();
-    textFieldFocusNode?.dispose();
-    textController?.dispose();
-
     carrotNavBarModel.dispose();
   }
 }
