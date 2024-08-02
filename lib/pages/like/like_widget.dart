@@ -4,8 +4,10 @@ import '/components/custom_navbar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'like_model.dart';
 export 'like_model.dart';
 
@@ -46,20 +48,20 @@ class _LikeWidgetState extends State<LikeWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(64.0),
+          preferredSize: Size.fromHeight(64.0),
           child: AppBar(
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             automaticallyImplyLeading: false,
             leading: Align(
-              alignment: const AlignmentDirectional(-1.0, -3.7),
+              alignment: AlignmentDirectional(-1.0, -3.7),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                 child: FlutterFlowIconButton(
                   borderColor: Colors.transparent,
                   borderRadius: 30.0,
                   borderWidth: 1.0,
                   buttonSize: 60.0,
-                  icon: const Icon(
+                  icon: Icon(
                     Icons.arrow_back_ios,
                     color: Colors.black,
                     size: 30.0,
@@ -70,10 +72,10 @@ class _LikeWidgetState extends State<LikeWidget> {
                 ),
               ),
             ),
-            actions: const [],
+            actions: [],
             flexibleSpace: FlexibleSpaceBar(
               title: Align(
-                alignment: const AlignmentDirectional(0.0, 0.8),
+                alignment: AlignmentDirectional(0.0, 0.8),
                 child: Text(
                   '찜',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -99,7 +101,7 @@ class _LikeWidgetState extends State<LikeWidget> {
           child: Stack(
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
                 child: ListView(
                   padding: EdgeInsets.zero,
                   scrollDirection: Axis.vertical,
@@ -181,7 +183,7 @@ class _LikeWidgetState extends State<LikeWidget> {
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
-                                      boxShadow: const [
+                                      boxShadow: [
                                         BoxShadow(
                                           blurRadius: 4.0,
                                           color: Color(0x33000000),
@@ -194,7 +196,7 @@ class _LikeWidgetState extends State<LikeWidget> {
                                       borderRadius: BorderRadius.circular(12.0),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 8.0, 12.0, 8.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -276,9 +278,9 @@ class _LikeWidgetState extends State<LikeWidget> {
                                                                       .bodyMediumFamily),
                                                         ),
                                               ),
-                                            ].divide(const SizedBox(height: 4.0)),
+                                            ].divide(SizedBox(height: 4.0)),
                                           ),
-                                        ].divide(const SizedBox(width: 8.0)),
+                                        ].divide(SizedBox(width: 8.0)),
                                       ),
                                     ),
                                   ),
@@ -287,7 +289,7 @@ class _LikeWidgetState extends State<LikeWidget> {
                             );
                           },
                         ),
-                      ].divide(const SizedBox(height: 8.0)),
+                      ].divide(SizedBox(height: 8.0)),
                     ),
                     Column(
                       mainAxisSize: MainAxisSize.max,
@@ -366,7 +368,7 @@ class _LikeWidgetState extends State<LikeWidget> {
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
-                                      boxShadow: const [
+                                      boxShadow: [
                                         BoxShadow(
                                           blurRadius: 4.0,
                                           color: Color(0x33000000),
@@ -379,7 +381,7 @@ class _LikeWidgetState extends State<LikeWidget> {
                                       borderRadius: BorderRadius.circular(12.0),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 8.0, 12.0, 8.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -466,9 +468,9 @@ class _LikeWidgetState extends State<LikeWidget> {
                                                                       .bodyMediumFamily),
                                                         ),
                                               ),
-                                            ].divide(const SizedBox(height: 4.0)),
+                                            ].divide(SizedBox(height: 4.0)),
                                           ),
-                                        ].divide(const SizedBox(width: 8.0)),
+                                        ].divide(SizedBox(width: 8.0)),
                                       ),
                                     ),
                                   ),
@@ -477,17 +479,17 @@ class _LikeWidgetState extends State<LikeWidget> {
                             );
                           },
                         ),
-                      ].divide(const SizedBox(height: 8.0)),
+                      ].divide(SizedBox(height: 8.0)),
                     ),
-                  ].divide(const SizedBox(height: 8.0)),
+                  ].divide(SizedBox(height: 8.0)),
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
                 child: wrapWithModel(
                   model: _model.customNavbarModel,
                   updateCallback: () => setState(() {}),
-                  child: const CustomNavbarWidget(),
+                  child: CustomNavbarWidget(),
                 ),
               ),
             ],

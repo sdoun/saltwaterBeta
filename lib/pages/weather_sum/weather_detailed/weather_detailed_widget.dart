@@ -1,13 +1,17 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/custom_navbar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'weather_detailed_model.dart';
 export 'weather_detailed_model.dart';
 
@@ -46,7 +50,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<TBWeatherPointRecord>(
-      stream: TBWeatherPointRecord.getDocument(widget.weatherRef!),
+      stream: TBWeatherPointRecord.getDocument(widget!.weatherRef!),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -76,21 +80,21 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             appBar: PreferredSize(
-              preferredSize: const Size.fromHeight(72.0),
+              preferredSize: Size.fromHeight(72.0),
               child: AppBar(
                 backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
                 automaticallyImplyLeading: false,
                 leading: Align(
-                  alignment: const AlignmentDirectional(-1.0, -3.7),
+                  alignment: AlignmentDirectional(-1.0, -3.7),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                     child: FlutterFlowIconButton(
                       borderColor: Colors.transparent,
                       borderRadius: 30.0,
                       borderWidth: 1.0,
                       buttonSize: 60.0,
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.arrow_back_ios,
                         color: Colors.black,
                         size: 30.0,
@@ -101,10 +105,10 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                     ),
                   ),
                 ),
-                actions: const [],
+                actions: [],
                 flexibleSpace: FlexibleSpaceBar(
                   title: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.8),
+                    alignment: AlignmentDirectional(0.0, 0.8),
                     child: Text(
                       '날씨보기',
                       style:
@@ -172,7 +176,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                   .primaryBackground,
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 20.0, 16.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -180,7 +184,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                   Material(
                                     color: Colors.transparent,
                                     elevation: 4.0,
-                                    shape: const RoundedRectangleBorder(
+                                    shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.only(
                                         bottomLeft: Radius.circular(12.0),
                                         bottomRight: Radius.circular(12.0),
@@ -194,7 +198,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
-                                        borderRadius: const BorderRadius.only(
+                                        borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(12.0),
                                           bottomRight: Radius.circular(12.0),
                                           topLeft: Radius.circular(12.0),
@@ -202,7 +206,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                         ),
                                       ),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 0.0, 8.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -241,13 +245,13 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                 .bodyMediumFamily),
                                                   ),
                                             ),
-                                          ].divide(const SizedBox(width: 8.0)),
+                                          ].divide(SizedBox(width: 8.0)),
                                         ),
                                       ),
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 20.0, 0.0, 0.0),
                                     child: Container(
                                       width: double.infinity,
@@ -261,7 +265,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     16.0, 0.0, 16.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -352,11 +356,11 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, -1.0),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(28.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -405,7 +409,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                       Material(
                                         color: Colors.transparent,
                                         elevation: 4.0,
-                                        shape: const RoundedRectangleBorder(
+                                        shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(8.0),
                                             bottomRight: Radius.circular(8.0),
@@ -414,7 +418,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                           ),
                                         ),
                                         child: ClipRRect(
-                                          borderRadius: const BorderRadius.only(
+                                          borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(8.0),
                                             bottomRight: Radius.circular(8.0),
                                             topLeft: Radius.circular(8.0),
@@ -427,7 +431,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
-                                              boxShadow: const [
+                                              boxShadow: [
                                                 BoxShadow(
                                                   blurRadius: 4.0,
                                                   color: Color(0x33000000),
@@ -437,7 +441,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                   ),
                                                 )
                                               ],
-                                              borderRadius: const BorderRadius.only(
+                                              borderRadius: BorderRadius.only(
                                                 bottomLeft:
                                                     Radius.circular(8.0),
                                                 bottomRight:
@@ -447,7 +451,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                               ),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 12.0, 0.0, 12.0),
                                               child: Column(
@@ -466,7 +470,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                       context)
                                                                   .bodyMediumFamily,
                                                           color:
-                                                              const Color(0xFF1E2224),
+                                                              Color(0xFF1E2224),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -484,7 +488,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                     height: 40.0,
                                                     clipBehavior:
                                                         Clip.antiAlias,
-                                                    decoration: const BoxDecoration(
+                                                    decoration: BoxDecoration(
                                                       shape: BoxShape.circle,
                                                     ),
                                                     child: Image.network(
@@ -536,7 +540,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                       Material(
                                         color: Colors.transparent,
                                         elevation: 4.0,
-                                        shape: const RoundedRectangleBorder(
+                                        shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(8.0),
                                             bottomRight: Radius.circular(8.0),
@@ -545,7 +549,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                           ),
                                         ),
                                         child: ClipRRect(
-                                          borderRadius: const BorderRadius.only(
+                                          borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(8.0),
                                             bottomRight: Radius.circular(8.0),
                                             topLeft: Radius.circular(8.0),
@@ -558,7 +562,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
-                                              boxShadow: const [
+                                              boxShadow: [
                                                 BoxShadow(
                                                   blurRadius: 4.0,
                                                   color: Color(0x33000000),
@@ -568,7 +572,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                   ),
                                                 )
                                               ],
-                                              borderRadius: const BorderRadius.only(
+                                              borderRadius: BorderRadius.only(
                                                 bottomLeft:
                                                     Radius.circular(8.0),
                                                 bottomRight:
@@ -578,7 +582,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                               ),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 12.0, 0.0, 12.0),
                                               child: Column(
@@ -597,7 +601,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                       context)
                                                                   .bodyMediumFamily,
                                                           color:
-                                                              const Color(0xFF1E2224),
+                                                              Color(0xFF1E2224),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -688,7 +692,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                           return Material(
                                             color: Colors.transparent,
                                             elevation: 4.0,
-                                            shape: const RoundedRectangleBorder(
+                                            shape: RoundedRectangleBorder(
                                               borderRadius: BorderRadius.only(
                                                 bottomLeft:
                                                     Radius.circular(8.0),
@@ -699,7 +703,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                               ),
                                             ),
                                             child: ClipRRect(
-                                              borderRadius: const BorderRadius.only(
+                                              borderRadius: BorderRadius.only(
                                                 bottomLeft:
                                                     Radius.circular(8.0),
                                                 bottomRight:
@@ -714,7 +718,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryBackground,
-                                                  boxShadow: const [
+                                                  boxShadow: [
                                                     BoxShadow(
                                                       blurRadius: 4.0,
                                                       color: Color(0x33000000),
@@ -725,7 +729,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                     )
                                                   ],
                                                   borderRadius:
-                                                      const BorderRadius.only(
+                                                      BorderRadius.only(
                                                     bottomLeft:
                                                         Radius.circular(8.0),
                                                     bottomRight:
@@ -737,7 +741,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                   ),
                                                 ),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 12.0),
                                                   child: Column(
@@ -757,7 +761,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                   fontFamily: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMediumFamily,
-                                                                  color: const Color(
+                                                                  color: Color(
                                                                       0xFF1E2224),
                                                                   fontSize:
                                                                       16.0,
@@ -813,7 +817,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                           );
                                         },
                                       ),
-                                    ].divide(const SizedBox(width: 12.0)),
+                                    ].divide(SizedBox(width: 12.0)),
                                   ),
                                 ],
                               ),
@@ -862,7 +866,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                         .primaryBackground,
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         28.0, 0.0, 28.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -916,7 +920,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                       .bodyMediumFamily),
                                                         ),
                                                   ),
-                                                ].divide(const SizedBox(width: 8.0)),
+                                                ].divide(SizedBox(width: 8.0)),
                                               ),
                                             ],
                                           ),
@@ -927,7 +931,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
-                                            borderRadius: const BorderRadius.only(
+                                            borderRadius: BorderRadius.only(
                                               bottomLeft: Radius.circular(8.0),
                                               bottomRight: Radius.circular(8.0),
                                               topLeft: Radius.circular(8.0),
@@ -940,7 +944,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 8.0, 0.0, 0.0),
                                                 child: Text(
@@ -1014,7 +1018,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                         .primaryBackground,
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         20.0, 0.0, 20.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -1095,7 +1099,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .primaryBackground,
-                                                        boxShadow: const [
+                                                        boxShadow: [
                                                           BoxShadow(
                                                             blurRadius: 4.0,
                                                             color: Color(
@@ -1112,7 +1116,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                       ),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     8.0,
                                                                     0.0,
@@ -1212,25 +1216,25 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                               FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                           color: functions.tidHlCode(tidListItem) == '저조'
                                                                               ? FlutterFlowTheme.of(context).primary
-                                                                              : const Color(0xFFFF0000),
+                                                                              : Color(0xFFFF0000),
                                                                           letterSpacing:
                                                                               0.0,
                                                                           useGoogleFonts:
                                                                               GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                         ),
                                                                   ),
-                                                                ].divide(const SizedBox(
+                                                                ].divide(SizedBox(
                                                                     width:
                                                                         4.0)),
                                                               ),
-                                                            ].divide(const SizedBox(
+                                                            ].divide(SizedBox(
                                                                 height: 4.0)),
                                                           ),
                                                         ),
                                                       ),
                                                     ),
                                                   );
-                                                }).divide(const SizedBox(width: 8.0)),
+                                                }).divide(SizedBox(width: 8.0)),
                                               ),
                                             );
                                           },
@@ -1342,13 +1346,13 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                         ),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 12.0, 20.0, 12.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     -1.0, -1.0),
                                                 child: Text(
                                                   valueOrDefault<String>(
@@ -1387,7 +1391,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                       color: Colors.transparent,
                                                       elevation: 4.0,
                                                       shape:
-                                                          const RoundedRectangleBorder(
+                                                          RoundedRectangleBorder(
                                                         borderRadius:
                                                             BorderRadius.only(
                                                           bottomLeft:
@@ -1406,7 +1410,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                       ),
                                                       child: ClipRRect(
                                                         borderRadius:
-                                                            const BorderRadius.only(
+                                                            BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   8.0),
@@ -1428,7 +1432,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryBackground,
-                                                            boxShadow: const [
+                                                            boxShadow: [
                                                               BoxShadow(
                                                                 blurRadius: 4.0,
                                                                 color: Color(
@@ -1440,7 +1444,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                               )
                                                             ],
                                                             borderRadius:
-                                                                const BorderRadius
+                                                                BorderRadius
                                                                     .only(
                                                               bottomLeft: Radius
                                                                   .circular(
@@ -1459,7 +1463,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         12.0,
@@ -1543,7 +1547,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                             GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
-                                                              ].divide(const SizedBox(
+                                                              ].divide(SizedBox(
                                                                   height: 4.0)),
                                                             ),
                                                           ),
@@ -1554,7 +1558,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                       color: Colors.transparent,
                                                       elevation: 4.0,
                                                       shape:
-                                                          const RoundedRectangleBorder(
+                                                          RoundedRectangleBorder(
                                                         borderRadius:
                                                             BorderRadius.only(
                                                           bottomLeft:
@@ -1573,7 +1577,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                       ),
                                                       child: ClipRRect(
                                                         borderRadius:
-                                                            const BorderRadius.only(
+                                                            BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   8.0),
@@ -1595,7 +1599,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryBackground,
-                                                            boxShadow: const [
+                                                            boxShadow: [
                                                               BoxShadow(
                                                                 blurRadius: 4.0,
                                                                 color: Color(
@@ -1607,7 +1611,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                               )
                                                             ],
                                                             borderRadius:
-                                                                const BorderRadius
+                                                                BorderRadius
                                                                     .only(
                                                               bottomLeft: Radius
                                                                   .circular(
@@ -1626,7 +1630,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         12.0,
@@ -1710,7 +1714,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                             GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
-                                                              ].divide(const SizedBox(
+                                                              ].divide(SizedBox(
                                                                   height: 4.0)),
                                                             ),
                                                           ),
@@ -1721,7 +1725,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                       color: Colors.transparent,
                                                       elevation: 4.0,
                                                       shape:
-                                                          const RoundedRectangleBorder(
+                                                          RoundedRectangleBorder(
                                                         borderRadius:
                                                             BorderRadius.only(
                                                           bottomLeft:
@@ -1740,7 +1744,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                       ),
                                                       child: ClipRRect(
                                                         borderRadius:
-                                                            const BorderRadius.only(
+                                                            BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   8.0),
@@ -1762,7 +1766,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryBackground,
-                                                            boxShadow: const [
+                                                            boxShadow: [
                                                               BoxShadow(
                                                                 blurRadius: 4.0,
                                                                 color: Color(
@@ -1774,7 +1778,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                               )
                                                             ],
                                                             borderRadius:
-                                                                const BorderRadius
+                                                                BorderRadius
                                                                     .only(
                                                               bottomLeft: Radius
                                                                   .circular(
@@ -1793,7 +1797,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         12.0,
@@ -1873,7 +1877,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                             GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
-                                                              ].divide(const SizedBox(
+                                                              ].divide(SizedBox(
                                                                   height: 4.0)),
                                                             ),
                                                           ),
@@ -1884,7 +1888,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                       color: Colors.transparent,
                                                       elevation: 4.0,
                                                       shape:
-                                                          const RoundedRectangleBorder(
+                                                          RoundedRectangleBorder(
                                                         borderRadius:
                                                             BorderRadius.only(
                                                           bottomLeft:
@@ -1903,7 +1907,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                       ),
                                                       child: ClipRRect(
                                                         borderRadius:
-                                                            const BorderRadius.only(
+                                                            BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   8.0),
@@ -1925,7 +1929,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryBackground,
-                                                            boxShadow: const [
+                                                            boxShadow: [
                                                               BoxShadow(
                                                                 blurRadius: 4.0,
                                                                 color: Color(
@@ -1937,7 +1941,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                               )
                                                             ],
                                                             borderRadius:
-                                                                const BorderRadius
+                                                                BorderRadius
                                                                     .only(
                                                               bottomLeft: Radius
                                                                   .circular(
@@ -1956,7 +1960,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         12.0,
@@ -2035,7 +2039,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                             GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
-                                                              ].divide(const SizedBox(
+                                                              ].divide(SizedBox(
                                                                   height: 4.0)),
                                                             ),
                                                           ),
@@ -2046,7 +2050,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                       color: Colors.transparent,
                                                       elevation: 4.0,
                                                       shape:
-                                                          const RoundedRectangleBorder(
+                                                          RoundedRectangleBorder(
                                                         borderRadius:
                                                             BorderRadius.only(
                                                           bottomLeft:
@@ -2065,7 +2069,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                       ),
                                                       child: ClipRRect(
                                                         borderRadius:
-                                                            const BorderRadius.only(
+                                                            BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   8.0),
@@ -2087,7 +2091,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryBackground,
-                                                            boxShadow: const [
+                                                            boxShadow: [
                                                               BoxShadow(
                                                                 blurRadius: 4.0,
                                                                 color: Color(
@@ -2099,7 +2103,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                               )
                                                             ],
                                                             borderRadius:
-                                                                const BorderRadius
+                                                                BorderRadius
                                                                     .only(
                                                               bottomLeft: Radius
                                                                   .circular(
@@ -2118,7 +2122,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         12.0,
@@ -2198,7 +2202,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                             GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
-                                                              ].divide(const SizedBox(
+                                                              ].divide(SizedBox(
                                                                   height: 4.0)),
                                                             ),
                                                           ),
@@ -2209,7 +2213,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                       color: Colors.transparent,
                                                       elevation: 4.0,
                                                       shape:
-                                                          const RoundedRectangleBorder(
+                                                          RoundedRectangleBorder(
                                                         borderRadius:
                                                             BorderRadius.only(
                                                           bottomLeft:
@@ -2228,7 +2232,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                       ),
                                                       child: ClipRRect(
                                                         borderRadius:
-                                                            const BorderRadius.only(
+                                                            BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   8.0),
@@ -2250,7 +2254,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryBackground,
-                                                            boxShadow: const [
+                                                            boxShadow: [
                                                               BoxShadow(
                                                                 blurRadius: 4.0,
                                                                 color: Color(
@@ -2262,7 +2266,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                               )
                                                             ],
                                                             borderRadius:
-                                                                const BorderRadius
+                                                                BorderRadius
                                                                     .only(
                                                               bottomLeft: Radius
                                                                   .circular(
@@ -2281,7 +2285,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         12.0,
@@ -2361,7 +2365,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                             GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
-                                                              ].divide(const SizedBox(
+                                                              ].divide(SizedBox(
                                                                   height: 4.0)),
                                                             ),
                                                           ),
@@ -2372,7 +2376,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                       color: Colors.transparent,
                                                       elevation: 4.0,
                                                       shape:
-                                                          const RoundedRectangleBorder(
+                                                          RoundedRectangleBorder(
                                                         borderRadius:
                                                             BorderRadius.only(
                                                           bottomLeft:
@@ -2391,7 +2395,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                       ),
                                                       child: ClipRRect(
                                                         borderRadius:
-                                                            const BorderRadius.only(
+                                                            BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   8.0),
@@ -2413,7 +2417,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryBackground,
-                                                            boxShadow: const [
+                                                            boxShadow: [
                                                               BoxShadow(
                                                                 blurRadius: 4.0,
                                                                 color: Color(
@@ -2425,7 +2429,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                               )
                                                             ],
                                                             borderRadius:
-                                                                const BorderRadius
+                                                                BorderRadius
                                                                     .only(
                                                               bottomLeft: Radius
                                                                   .circular(
@@ -2444,7 +2448,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         12.0,
@@ -2524,7 +2528,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                             GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
                                                                 ),
-                                                              ].divide(const SizedBox(
+                                                              ].divide(SizedBox(
                                                                   height: 4.0)),
                                                             ),
                                                           ),
@@ -2532,10 +2536,10 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                       ),
                                                     ),
                                                   ].divide(
-                                                      const SizedBox(width: 8.0)),
+                                                      SizedBox(width: 8.0)),
                                                 ),
                                               ),
-                                            ].divide(const SizedBox(height: 8.0)),
+                                            ].divide(SizedBox(height: 8.0)),
                                           ),
                                         ),
                                       );
@@ -2550,14 +2554,14 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                     ],
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 1.0),
+                    alignment: AlignmentDirectional(0.0, 1.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
                       child: wrapWithModel(
                         model: _model.customNavbarModel,
                         updateCallback: () => setState(() {}),
-                        child: const CustomNavbarWidget(),
+                        child: CustomNavbarWidget(),
                       ),
                     ),
                   ),

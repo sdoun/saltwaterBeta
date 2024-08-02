@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'user_page_model.dart';
 export 'user_page_model.dart';
 
@@ -52,7 +53,7 @@ class _UserPageWidgetState extends State<UserPageWidget> {
           child: Stack(
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 32.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 32.0),
                 child: ListView(
                   padding: EdgeInsets.zero,
                   scrollDirection: Axis.vertical,
@@ -65,7 +66,7 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                       ),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -74,7 +75,7 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                 width: 80.0,
                                 height: 80.0,
                                 clipBehavior: Clip.antiAlias,
-                                decoration: const BoxDecoration(
+                                decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                 ),
                                 child: Image.network(
@@ -84,7 +85,7 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 20.0, 0.0, 0.0),
                               child: AuthUserStreamWidget(
                                 builder: (context) => Text(
@@ -106,10 +107,10 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 10.0, 0.0, 0.0),
                               child: ClipRRect(
-                                borderRadius: const BorderRadius.only(
+                                borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(10.0),
                                   bottomRight: Radius.circular(10.0),
                                   topLeft: Radius.circular(10.0),
@@ -121,7 +122,7 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
-                                    borderRadius: const BorderRadius.only(
+                                    borderRadius: BorderRadius.only(
                                       bottomLeft: Radius.circular(10.0),
                                       bottomRight: Radius.circular(10.0),
                                       topLeft: Radius.circular(10.0),
@@ -129,9 +130,9 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                     ),
                                   ),
                                   child: Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 6.0, 0.0, 6.0),
                                       child: Text(
                                         '[회원등급]',
@@ -141,7 +142,7 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMediumFamily,
-                                              color: const Color(0xFF949595),
+                                              color: Color(0xFF949595),
                                               fontSize: 12.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
@@ -159,7 +160,7 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   24.0, 24.0, 24.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
@@ -177,9 +178,9 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                 options: FFButtonOptions(
                                   width: 350.0,
                                   height: 40.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: Colors.black,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -196,7 +197,7 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                                     .titleSmallFamily),
                                       ),
                                   elevation: 3.0,
-                                  borderSide: const BorderSide(
+                                  borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
                                   ),
@@ -205,7 +206,7 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   24.0, 12.0, 24.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
@@ -221,9 +222,9 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                 options: FFButtonOptions(
                                   width: 350.0,
                                   height: 40.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -241,7 +242,7 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                                     .titleSmallFamily),
                                       ),
                                   elevation: 3.0,
-                                  borderSide: const BorderSide(
+                                  borderSide: BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
                                   ),
@@ -263,9 +264,9 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Align(
-                            alignment: const AlignmentDirectional(-1.0, -1.0),
+                            alignment: AlignmentDirectional(-1.0, -1.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 0.0, 12.0),
                               child: Text(
                                 '내 포인트',
@@ -286,12 +287,12 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 12.0),
                             child: Container(
                               width: 370.0,
                               height: 100.0,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 color: Color(0xFFE9E9E9),
                                 borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(0.0),
@@ -304,7 +305,7 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 20.0, 0.0, 0.0),
                                     child: Text(
                                       '[Point]',
@@ -325,17 +326,17 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 8.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     48.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               '적립예정: ',
@@ -347,7 +348,7 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .bodyMediumFamily,
-                                                    color: const Color(0xFF949595),
+                                                    color: Color(0xFF949595),
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w600,
                                                     useGoogleFonts: GoogleFonts
@@ -379,7 +380,7 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   14.0, 0.0, 10.0, 0.0),
                                           child: Text(
                                             '|',
@@ -390,7 +391,7 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .titleSmallFamily,
-                                                  color: const Color(0xFF949595),
+                                                  color: Color(0xFF949595),
                                                   letterSpacing: 0.0,
                                                   useGoogleFonts: GoogleFonts
                                                           .asMap()
@@ -403,7 +404,7 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: FFButtonWidget(
                                             onPressed: () {
                                               print('Button pressed ...');
@@ -411,12 +412,12 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                             text: '적립내역보기  >',
                                             options: FFButtonOptions(
                                               height: 36.0,
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       24.0, 0.0, 24.0, 0.0),
-                                              iconPadding: const EdgeInsetsDirectional
+                                              iconPadding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color: const Color(0xFFE9E9E9),
+                                              color: Color(0xFFE9E9E9),
                                               textStyle: FlutterFlowTheme.of(
                                                       context)
                                                   .titleSmall
@@ -425,7 +426,7 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .titleSmallFamily,
-                                                    color: const Color(0xFF949595),
+                                                    color: Color(0xFF949595),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.bold,
@@ -436,7 +437,7 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                                                     context)
                                                                 .titleSmallFamily),
                                                   ),
-                                              borderSide: const BorderSide(
+                                              borderSide: BorderSide(
                                                 color: Colors.transparent,
                                                 width: 0.0,
                                               ),
@@ -453,7 +454,7 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 6.0, 24.0, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
@@ -464,7 +465,7 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                 context.pushNamed('shoppingGuide');
                               },
                               child: ClipRRect(
-                                borderRadius: const BorderRadius.only(
+                                borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(7.0),
                                   bottomRight: Radius.circular(7.0),
                                   topLeft: Radius.circular(7.0),
@@ -473,7 +474,7 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                 child: Container(
                                   width: 359.0,
                                   height: 71.0,
-                                  decoration: const BoxDecoration(
+                                  decoration: BoxDecoration(
                                     color: Color(0xFFA6D4F5),
                                     borderRadius: BorderRadius.only(
                                       bottomLeft: Radius.circular(7.0),
@@ -486,10 +487,10 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                     children: [
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(-1.0, 0.0),
+                                            AlignmentDirectional(-1.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 0.0, 0.0),
                                           child: FFButtonWidget(
                                             onPressed: () {
@@ -498,12 +499,12 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                             text: '쇼핑 가이드',
                                             options: FFButtonOptions(
                                               height: 40.0,
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       24.0, 0.0, 24.0, 0.0),
-                                              iconPadding: const EdgeInsetsDirectional
+                                              iconPadding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color: const Color(0xFFA6D4F5),
+                                              color: Color(0xFFA6D4F5),
                                               textStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .titleSmall
@@ -525,7 +526,7 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                                                     .titleSmallFamily),
                                                       ),
                                               elevation: 0.0,
-                                              borderSide: const BorderSide(
+                                              borderSide: BorderSide(
                                                 color: Colors.transparent,
                                                 width: 0.0,
                                               ),
@@ -537,17 +538,17 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(1.0, 0.0),
+                                            AlignmentDirectional(1.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 8.0, 24.0, 8.0),
                                           child: FlutterFlowIconButton(
-                                            borderColor: const Color(0x004B39EF),
+                                            borderColor: Color(0x004B39EF),
                                             borderRadius: 20.0,
                                             borderWidth: 1.0,
                                             buttonSize: 40.0,
-                                            fillColor: const Color(0xFF4CAAF5),
+                                            fillColor: Color(0xFF4CAAF5),
                                             icon: Icon(
                                               Icons.monetization_on,
                                               color:
@@ -572,14 +573,14 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Align(
-                            alignment: const AlignmentDirectional(-1.0, -1.0),
+                            alignment: AlignmentDirectional(-1.0, -1.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 0.0, 12.0),
                               child: Text(
                                 '내가 작성한 리뷰',
@@ -668,7 +669,7 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                         ),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 8.0, 8.0, 8.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -732,7 +733,7 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                                                       .bodyMediumFamily),
                                                         ),
                                               ),
-                                            ].divide(const SizedBox(height: 8.0)),
+                                            ].divide(SizedBox(height: 8.0)),
                                           ),
                                         ),
                                       );
@@ -749,11 +750,11 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
                 child: wrapWithModel(
                   model: _model.customNavbarModel,
                   updateCallback: () => setState(() {}),
-                  child: const CustomNavbarWidget(),
+                  child: CustomNavbarWidget(),
                 ),
               ),
             ],

@@ -2,10 +2,12 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/carrot_sum/carrot_nav_bar/carrot_nav_bar_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'carrot_home_model.dart';
 export 'carrot_home_model.dart';
 
@@ -72,21 +74,21 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             appBar: PreferredSize(
-              preferredSize: const Size.fromHeight(64.0),
+              preferredSize: Size.fromHeight(64.0),
               child: AppBar(
                 backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
                 automaticallyImplyLeading: false,
                 leading: Align(
-                  alignment: const AlignmentDirectional(-1.0, -3.7),
+                  alignment: AlignmentDirectional(-1.0, -3.7),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                     child: FlutterFlowIconButton(
                       borderColor: Colors.transparent,
                       borderRadius: 30.0,
                       borderWidth: 1.0,
                       buttonSize: 60.0,
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.arrow_back_ios,
                         color: Colors.black,
                         size: 30.0,
@@ -97,10 +99,10 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
                     ),
                   ),
                 ),
-                actions: const [],
+                actions: [],
                 flexibleSpace: FlexibleSpaceBar(
                   title: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.8),
+                    alignment: AlignmentDirectional(0.0, 0.8),
                     child: Text(
                       '당근낚시',
                       style:
@@ -129,7 +131,7 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 64.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 64.0),
                     child: ListView(
                       padding: EdgeInsets.zero,
                       scrollDirection: Axis.vertical,
@@ -142,13 +144,13 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
                                 FlutterFlowTheme.of(context).primaryBackground,
                           ),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 20.0, 0.0, 20.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       24.0, 24.0, 24.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -192,7 +194,7 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
                                                 ),
                                               ),
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, -4.6),
                                                 child: Text(
                                                   '낚싯대 릴',
@@ -216,7 +218,7 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
                                                       ),
                                                 ),
                                               ),
-                                            ].divide(const SizedBox(height: 4.0)),
+                                            ].divide(SizedBox(height: 4.0)),
                                           ),
                                         ),
                                       ),
@@ -250,7 +252,7 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
                                                 width: 64.0,
                                                 height: 64.0,
                                                 clipBehavior: Clip.antiAlias,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   shape: BoxShape.circle,
                                                 ),
                                                 child: Image.asset(
@@ -259,7 +261,7 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
                                                 ),
                                               ),
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, -4.6),
                                                 child: Text(
                                                   '줄 - 소품',
@@ -283,7 +285,7 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
                                                       ),
                                                 ),
                                               ),
-                                            ].divide(const SizedBox(height: 4.0)),
+                                            ].divide(SizedBox(height: 4.0)),
                                           ),
                                         ),
                                       ),
@@ -324,7 +326,7 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
                                                 ),
                                               ),
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, -4.6),
                                                 child: Text(
                                                   '의류',
@@ -348,7 +350,7 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
                                                       ),
                                                 ),
                                               ),
-                                            ].divide(const SizedBox(height: 4.0)),
+                                            ].divide(SizedBox(height: 4.0)),
                                           ),
                                         ),
                                       ),
@@ -356,7 +358,7 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       24.0, 0.0, 24.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -400,7 +402,7 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
                                                 ),
                                               ),
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, -4.6),
                                                 child: Text(
                                                   '기타장비',
@@ -424,7 +426,7 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
                                                       ),
                                                 ),
                                               ),
-                                            ].divide(const SizedBox(height: 4.0)),
+                                            ].divide(SizedBox(height: 4.0)),
                                           ),
                                         ),
                                       ),
@@ -465,7 +467,7 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
                                                 ),
                                               ),
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, -4.6),
                                                 child: Text(
                                                   '개인 낚시배',
@@ -489,7 +491,7 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
                                                       ),
                                                 ),
                                               ),
-                                            ].divide(const SizedBox(height: 4.0)),
+                                            ].divide(SizedBox(height: 4.0)),
                                           ),
                                         ),
                                       ),
@@ -530,7 +532,7 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
                                                 ),
                                               ),
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, -4.6),
                                                 child: Text(
                                                   '출조권양도',
@@ -554,7 +556,7 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
                                                       ),
                                                 ),
                                               ),
-                                            ].divide(const SizedBox(height: 4.0)),
+                                            ].divide(SizedBox(height: 4.0)),
                                           ),
                                         ),
                                       ),
@@ -566,7 +568,7 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 20.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -575,7 +577,7 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
                               Stack(
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       width: double.infinity,
                                       height: 395.0,
@@ -585,10 +587,10 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
                                       ),
                                       child: Align(
                                         alignment:
-                                            const AlignmentDirectional(0.0, -1.0),
+                                            AlignmentDirectional(0.0, -1.0),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 32.0, 0.0, 0.0),
                                           child: Text(
                                             '게시물이 존재하지 않습니다!',
@@ -646,7 +648,7 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
                                                         .primaryBackground,
                                               ),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 0.0, 12.0, 0.0),
                                                 child: Row(
@@ -734,22 +736,22 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
                                                                             .bodyMediumFamily),
                                                               ),
                                                         ),
-                                                      ].divide(const SizedBox(
+                                                      ].divide(SizedBox(
                                                           height: 4.0)),
                                                     ),
                                                   ].divide(
-                                                      const SizedBox(width: 8.0)),
+                                                      SizedBox(width: 8.0)),
                                                 ),
                                               ),
                                             ),
                                           );
-                                        }).divide(const SizedBox(height: 8.0)),
+                                        }).divide(SizedBox(height: 8.0)),
                                       );
                                     },
                                   ),
                                 ],
                               ),
-                            ].divide(const SizedBox(height: 8.0)),
+                            ].divide(SizedBox(height: 8.0)),
                           ),
                         ),
                       ],
@@ -757,11 +759,11 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
                     child: wrapWithModel(
                       model: _model.carrotNavBarModel,
                       updateCallback: () => setState(() {}),
-                      child: const CarrotNavBarWidget(),
+                      child: CarrotNavBarWidget(),
                     ),
                   ),
                 ],

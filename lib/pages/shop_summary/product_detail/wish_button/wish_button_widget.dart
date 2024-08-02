@@ -2,8 +2,10 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/shop_summary/product_detail/add_product_to_wish/add_product_to_wish_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'wish_button_model.dart';
 export 'wish_button_model.dart';
@@ -49,11 +51,11 @@ class _WishButtonWidgetState extends State<WishButtonWidget> {
     return Container(
       width: double.infinity,
       height: 64.0,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: Color(0x6FFFFFFF),
       ),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+        padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
         child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -70,7 +72,7 @@ class _WishButtonWidgetState extends State<WishButtonWidget> {
                       child: Padding(
                         padding: MediaQuery.viewInsetsOf(context),
                         child: AddProductToWishWidget(
-                          product: widget.productDetail!,
+                          product: widget!.productDetail!,
                           saveAction: () async {},
                         ),
                       ),
@@ -81,8 +83,8 @@ class _WishButtonWidgetState extends State<WishButtonWidget> {
               text: '장바구니 추가하기',
               options: FFButtonOptions(
                 height: 40.0,
-                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 color: FlutterFlowTheme.of(context).primary,
                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                       fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
@@ -92,7 +94,7 @@ class _WishButtonWidgetState extends State<WishButtonWidget> {
                           FlutterFlowTheme.of(context).titleSmallFamily),
                     ),
                 elevation: 3.0,
-                borderSide: const BorderSide(
+                borderSide: BorderSide(
                   color: Colors.transparent,
                   width: 1.0,
                 ),
@@ -106,8 +108,8 @@ class _WishButtonWidgetState extends State<WishButtonWidget> {
               text: '즉시 구매',
               options: FFButtonOptions(
                 height: 40.0,
-                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 color: Colors.black,
                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                       fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
@@ -117,14 +119,14 @@ class _WishButtonWidgetState extends State<WishButtonWidget> {
                           FlutterFlowTheme.of(context).titleSmallFamily),
                     ),
                 elevation: 3.0,
-                borderSide: const BorderSide(
+                borderSide: BorderSide(
                   color: Colors.transparent,
                   width: 1.0,
                 ),
                 borderRadius: BorderRadius.circular(8.0),
               ),
             ),
-          ].divide(const SizedBox(width: 12.0)),
+          ].divide(SizedBox(width: 12.0)),
         ),
       ),
     );

@@ -3,9 +3,11 @@ import '/components/custom_navbar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'shopping_home_model.dart';
 export 'shopping_home_model.dart';
 
@@ -58,7 +60,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
           backgroundColor: Colors.white,
           automaticallyImplyLeading: false,
           title: Align(
-            alignment: const AlignmentDirectional(0.0, 0.0),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Text(
               '짠물쇼핑',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -71,7 +73,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                   ),
             ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: false,
           elevation: 2.0,
         ),
@@ -94,12 +96,12 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 12.0, 8.0, 0.0),
                             child: TextFormField(
                               controller: _model.searchBarTextController,
                               focusNode: _model.searchBarFocusNode,
-                              autofillHints: const [AutofillHints.email],
+                              autofillHints: [AutofillHints.email],
                               textCapitalization: TextCapitalization.words,
                               obscureText: false,
                               decoration: InputDecoration(
@@ -158,7 +160,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                                 filled: true,
                                 fillColor: FlutterFlowTheme.of(context)
                                     .primaryBackground,
-                                contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                                contentPadding: EdgeInsetsDirectional.fromSTEB(
                                     24.0, 24.0, 20.0, 24.0),
                                 prefixIcon: Icon(
                                   Icons.search,
@@ -184,7 +186,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 12.0, 12.0, 0.0),
                           child: FlutterFlowIconButton(
                             borderColor: Colors.transparent,
@@ -211,11 +213,11 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                     ),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                       child: Column(
                         children: [
                           Align(
-                            alignment: const Alignment(0.0, 0),
+                            alignment: Alignment(0.0, 0),
                             child: TabBar(
                               isScrollable: true,
                               labelColor:
@@ -250,8 +252,8 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                                   ),
                               indicatorColor: Colors.black,
                               indicatorWeight: 2.5,
-                              padding: const EdgeInsets.all(4.0),
-                              tabs: const [
+                              padding: EdgeInsets.all(4.0),
+                              tabs: [
                                 Tab(
                                   text: '쇼핑몰',
                                 ),
@@ -291,7 +293,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                                     children: [
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(-1.0, -1.0),
+                                            AlignmentDirectional(-1.0, -1.0),
                                         child: Text(
                                           '인기상품',
                                           style: FlutterFlowTheme.of(context)
@@ -314,7 +316,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(-1.0, -1.0),
+                                            AlignmentDirectional(-1.0, -1.0),
                                         child: Text(
                                           '지금! 이 순간이 가장 핫한 상품',
                                           style: FlutterFlowTheme.of(context)
@@ -323,7 +325,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                                                 fontFamily:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMediumFamily,
-                                                color: const Color(0xFFA1A5A6),
+                                                color: Color(0xFFA1A5A6),
                                                 fontSize: 14.0,
                                                 letterSpacing: 1.0,
                                                 fontWeight: FontWeight.w600,
@@ -367,7 +369,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
 
                                             return MasonryGridView.builder(
                                               gridDelegate:
-                                                  const SliverSimpleGridDelegateWithFixedCrossAxisCount(
+                                                  SliverSimpleGridDelegateWithFixedCrossAxisCount(
                                                 crossAxisCount: 2,
                                               ),
                                               crossAxisSpacing: 10.0,
@@ -381,7 +383,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                                                     staggeredViewTBShoppingProductRecordList[
                                                         staggeredViewIndex];
                                                 return Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 10.0, 0.0, 10.0),
                                                   child: InkWell(
@@ -434,7 +436,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                                                           ),
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     -1.0, -1.0),
                                                             child:
                                                                 SelectionArea(
@@ -464,7 +466,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                                                           ),
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     -1.0, -1.0),
                                                             child: Text(
                                                               '브랜드',
@@ -486,7 +488,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                                                           ),
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     -1.0, 0.0),
                                                             child: Text(
                                                               '가격',
@@ -508,7 +510,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                                                                   ),
                                                             ),
                                                           ),
-                                                        ].divide(const SizedBox(
+                                                        ].divide(SizedBox(
                                                             height: 2.0)),
                                                       ),
                                                     ),
@@ -549,7 +551,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
 
                                       return MasonryGridView.builder(
                                         gridDelegate:
-                                            const SliverSimpleGridDelegateWithFixedCrossAxisCount(
+                                            SliverSimpleGridDelegateWithFixedCrossAxisCount(
                                           crossAxisCount: 2,
                                         ),
                                         crossAxisSpacing: 10.0,
@@ -564,7 +566,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                                                   staggeredViewIndex];
                                           return Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 10.0, 0.0, 10.0),
                                             child: InkWell(
                                               splashColor: Colors.transparent,
@@ -610,7 +612,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               -1.0, -1.0),
                                                       child: SelectionArea(
                                                           child: Text(
@@ -641,7 +643,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               -1.0, -1.0),
                                                       child: Text(
                                                         '브랜드',
@@ -665,7 +667,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               -1.0, 0.0),
                                                       child: Text(
                                                         '가격',
@@ -690,7 +692,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                                                       ),
                                                     ),
                                                   ].divide(
-                                                      const SizedBox(height: 2.0)),
+                                                      SizedBox(height: 2.0)),
                                                 ),
                                               ),
                                             ),
@@ -727,7 +729,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
 
                                       return MasonryGridView.builder(
                                         gridDelegate:
-                                            const SliverSimpleGridDelegateWithFixedCrossAxisCount(
+                                            SliverSimpleGridDelegateWithFixedCrossAxisCount(
                                           crossAxisCount: 2,
                                         ),
                                         crossAxisSpacing: 10.0,
@@ -742,7 +744,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                                                   staggeredViewIndex];
                                           return Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 10.0, 0.0, 10.0),
                                             child: InkWell(
                                               splashColor: Colors.transparent,
@@ -788,11 +790,11 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               -1.0, -1.0),
                                                       child: SelectionArea(
                                                           child: Text(
-                                                        staggeredViewTBShoppingProductRecord.productName,
+                                                        '${staggeredViewTBShoppingProductRecord.productName}',
                                                         maxLines: 1,
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -819,7 +821,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               -1.0, -1.0),
                                                       child: Text(
                                                         '브랜드',
@@ -843,7 +845,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               -1.0, 0.0),
                                                       child: Text(
                                                         '상품가격',
@@ -868,7 +870,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                                                       ),
                                                     ),
                                                   ].divide(
-                                                      const SizedBox(height: 2.0)),
+                                                      SizedBox(height: 2.0)),
                                                 ),
                                               ),
                                             ),
@@ -905,7 +907,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
 
                                       return MasonryGridView.builder(
                                         gridDelegate:
-                                            const SliverSimpleGridDelegateWithFixedCrossAxisCount(
+                                            SliverSimpleGridDelegateWithFixedCrossAxisCount(
                                           crossAxisCount: 2,
                                         ),
                                         crossAxisSpacing: 10.0,
@@ -920,7 +922,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                                                   staggeredViewIndex];
                                           return Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 10.0, 0.0, 10.0),
                                             child: InkWell(
                                               splashColor: Colors.transparent,
@@ -966,185 +968,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
-                                                              -1.0, -1.0),
-                                                      child: SelectionArea(
-                                                          child: Text(
-                                                        '상품명',
-                                                        maxLines: 1,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                                  fontSize:
-                                                                      16.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w600,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily),
-                                                                ),
-                                                      )),
-                                                    ),
-                                                    Align(
-                                                      alignment:
-                                                          const AlignmentDirectional(
-                                                              -1.0, -1.0),
-                                                      child: Text(
-                                                        '브랜드',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily),
-                                                                ),
-                                                      ),
-                                                    ),
-                                                    Align(
-                                                      alignment:
-                                                          const AlignmentDirectional(
-                                                              -1.0, 0.0),
-                                                      child: Text(
-                                                        '상품가격',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                                  fontSize:
-                                                                      17.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily),
-                                                                ),
-                                                      ),
-                                                    ),
-                                                  ].divide(
-                                                      const SizedBox(height: 2.0)),
-                                                ),
-                                              ),
-                                            ),
-                                          );
-                                        },
-                                      );
-                                    },
-                                  ),
-                                ),
-                                KeepAliveWidgetWrapper(
-                                  builder: (context) => StreamBuilder<
-                                      List<TBShoppingProductRecord>>(
-                                    stream: queryTBShoppingProductRecord(),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 50.0,
-                                            height: 50.0,
-                                            child: CircularProgressIndicator(
-                                              valueColor:
-                                                  AlwaysStoppedAnimation<Color>(
-                                                FlutterFlowTheme.of(context)
-                                                    .primary,
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      }
-                                      List<TBShoppingProductRecord>
-                                          staggeredViewTBShoppingProductRecordList =
-                                          snapshot.data!;
-
-                                      return MasonryGridView.builder(
-                                        gridDelegate:
-                                            const SliverSimpleGridDelegateWithFixedCrossAxisCount(
-                                          crossAxisCount: 2,
-                                        ),
-                                        crossAxisSpacing: 10.0,
-                                        mainAxisSpacing: 10.0,
-                                        itemCount:
-                                            staggeredViewTBShoppingProductRecordList
-                                                .length,
-                                        itemBuilder:
-                                            (context, staggeredViewIndex) {
-                                          final staggeredViewTBShoppingProductRecord =
-                                              staggeredViewTBShoppingProductRecordList[
-                                                  staggeredViewIndex];
-                                          return Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 10.0),
-                                            child: InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                context.pushNamed(
-                                                  'productDetail',
-                                                  queryParameters: {
-                                                    'product': serializeParam(
-                                                      staggeredViewTBShoppingProductRecord
-                                                          .reference,
-                                                      ParamType
-                                                          .DocumentReference,
-                                                    ),
-                                                  }.withoutNulls,
-                                                );
-                                              },
-                                              child: Container(
-                                                width: 160.0,
-                                                height: 216.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    ClipRRect(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                      child: Image.asset(
-                                                        'assets/images/84o1p_1.PNG',
-                                                        width: 300.0,
-                                                        height: 133.0,
-                                                        fit: BoxFit.cover,
-                                                      ),
-                                                    ),
-                                                    Align(
-                                                      alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               -1.0, -1.0),
                                                       child: SelectionArea(
                                                           child: Text(
@@ -1175,7 +999,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               -1.0, -1.0),
                                                       child: Text(
                                                         '브랜드',
@@ -1199,7 +1023,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               -1.0, 0.0),
                                                       child: Text(
                                                         '상품가격',
@@ -1224,7 +1048,185 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                                                       ),
                                                     ),
                                                   ].divide(
-                                                      const SizedBox(height: 2.0)),
+                                                      SizedBox(height: 2.0)),
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      );
+                                    },
+                                  ),
+                                ),
+                                KeepAliveWidgetWrapper(
+                                  builder: (context) => StreamBuilder<
+                                      List<TBShoppingProductRecord>>(
+                                    stream: queryTBShoppingProductRecord(),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50.0,
+                                            height: 50.0,
+                                            child: CircularProgressIndicator(
+                                              valueColor:
+                                                  AlwaysStoppedAnimation<Color>(
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                      List<TBShoppingProductRecord>
+                                          staggeredViewTBShoppingProductRecordList =
+                                          snapshot.data!;
+
+                                      return MasonryGridView.builder(
+                                        gridDelegate:
+                                            SliverSimpleGridDelegateWithFixedCrossAxisCount(
+                                          crossAxisCount: 2,
+                                        ),
+                                        crossAxisSpacing: 10.0,
+                                        mainAxisSpacing: 10.0,
+                                        itemCount:
+                                            staggeredViewTBShoppingProductRecordList
+                                                .length,
+                                        itemBuilder:
+                                            (context, staggeredViewIndex) {
+                                          final staggeredViewTBShoppingProductRecord =
+                                              staggeredViewTBShoppingProductRecordList[
+                                                  staggeredViewIndex];
+                                          return Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 10.0, 0.0, 10.0),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                context.pushNamed(
+                                                  'productDetail',
+                                                  queryParameters: {
+                                                    'product': serializeParam(
+                                                      staggeredViewTBShoppingProductRecord
+                                                          .reference,
+                                                      ParamType
+                                                          .DocumentReference,
+                                                    ),
+                                                  }.withoutNulls,
+                                                );
+                                              },
+                                              child: Container(
+                                                width: 160.0,
+                                                height: 216.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBackground,
+                                                ),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                      child: Image.asset(
+                                                        'assets/images/84o1p_1.PNG',
+                                                        width: 300.0,
+                                                        height: 133.0,
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                    ),
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              -1.0, -1.0),
+                                                      child: SelectionArea(
+                                                          child: Text(
+                                                        '상품명',
+                                                        maxLines: 1,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
+                                                      )),
+                                                    ),
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              -1.0, -1.0),
+                                                      child: Text(
+                                                        '브랜드',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
+                                                      ),
+                                                    ),
+                                                    Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              -1.0, 0.0),
+                                                      child: Text(
+                                                        '상품가격',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  fontSize:
+                                                                      17.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ].divide(
+                                                      SizedBox(height: 2.0)),
                                                 ),
                                               ),
                                             ),
@@ -1244,13 +1246,13 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                 ],
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 1.0),
+                alignment: AlignmentDirectional(0.0, 1.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 480.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 480.0, 0.0, 0.0),
                   child: wrapWithModel(
                     model: _model.customNavbarModel,
                     updateCallback: () => setState(() {}),
-                    child: const CustomNavbarWidget(),
+                    child: CustomNavbarWidget(),
                   ),
                 ),
               ),

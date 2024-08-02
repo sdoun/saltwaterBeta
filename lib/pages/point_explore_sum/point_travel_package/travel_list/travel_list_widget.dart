@@ -90,7 +90,7 @@ class _TravelListWidgetState extends State<TravelListWidget> {
               title: Stack(
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Text(
                       '여행상품',
                       style:
@@ -107,7 +107,7 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                   ),
                 ],
               ),
-              actions: const [],
+              actions: [],
               centerTitle: false,
               elevation: 2.0,
             ),
@@ -117,7 +117,7 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 40.0),
+                        EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 40.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -129,14 +129,14 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                 FlutterFlowTheme.of(context).primaryBackground,
                           ),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 12.0, 0.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: SingleChildScrollView(
                                     scrollDirection: Axis.horizontal,
                                     child: Row(
@@ -144,7 +144,7 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                       children: [
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
@@ -189,7 +189,7 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                                     color: Colors.black,
                                                   ),
                                                 ),
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Row(
                                                   mainAxisSize:
@@ -199,7 +199,7 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   8.0,
                                                                   0.0,
@@ -271,7 +271,7 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                                       padding: MediaQuery
                                                           .viewInsetsOf(
                                                               context),
-                                                      child: const SizedBox(
+                                                      child: Container(
                                                         height: 640.0,
                                                         child:
                                                             PackageAreaWidget(),
@@ -308,10 +308,10 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                                   color: Colors.black,
                                                 ),
                                               ),
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         4.0, 0.0, 0.0, 0.0),
                                                 child: Row(
@@ -342,7 +342,7 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                                                       _model
                                                                           .package1stFilter
                                                                           ?.last
-                                                                  ? '$firstFilterItem, '
+                                                                  ? '${firstFilterItem}, '
                                                                   : firstFilterItem,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -397,11 +397,11 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                                       ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               1.0, 0.0),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     3.0,
                                                                     0.0,
@@ -455,7 +455,7 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                                       padding: MediaQuery
                                                           .viewInsetsOf(
                                                               context),
-                                                      child: const SizedBox(
+                                                      child: Container(
                                                         height: 480.0,
                                                         child:
                                                             PackageTypeWidget(),
@@ -492,10 +492,10 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                                   color: Colors.black,
                                                 ),
                                               ),
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         4.0, 0.0, 0.0, 0.0),
                                                 child: Row(
@@ -526,7 +526,7 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                                                       _model
                                                                           .package2ndFilter
                                                                           ?.last
-                                                                  ? '$seconddFilterItem, '
+                                                                  ? '${seconddFilterItem}, '
                                                                   : seconddFilterItem,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -576,11 +576,11 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               1.0, 0.0),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     3.0,
                                                                     0.0,
@@ -637,7 +637,7 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                                       padding: MediaQuery
                                                           .viewInsetsOf(
                                                               context),
-                                                      child: const SizedBox(
+                                                      child: Container(
                                                         height: 480.0,
                                                         child:
                                                             PackageDetailedWidget(),
@@ -674,10 +674,10 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                                   color: Colors.black,
                                                 ),
                                               ),
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         4.0, 0.0, 0.0, 0.0),
                                                 child: Row(
@@ -708,7 +708,7 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                                                       _model
                                                                           .package3rdFilter
                                                                           ?.last
-                                                                  ? '$thirdFilterItem, '
+                                                                  ? '${thirdFilterItem}, '
                                                                   : thirdFilterItem,
                                                               style: FlutterFlowTheme
                                                                       .of(context)
@@ -758,11 +758,11 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               1.0, 0.0),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     3.0,
                                                                     0.0,
@@ -789,7 +789,7 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                             ),
                                           ),
                                         ),
-                                      ].divide(const SizedBox(width: 8.0)),
+                                      ].divide(SizedBox(width: 8.0)),
                                     ),
                                   ),
                                 ),
@@ -816,9 +816,9 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.8,
                                     height: 40.0,
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: Colors.black,
                                     textStyle: FlutterFlowTheme.of(context)
@@ -832,14 +832,14 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                               .containsKey('PretendardSeries'),
                                         ),
                                     elevation: 3.0,
-                                    borderSide: const BorderSide(
+                                    borderSide: BorderSide(
                                       color: Colors.transparent,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 8.0)),
+                              ].divide(SizedBox(height: 8.0)),
                             ),
                           ),
                         ),
@@ -870,7 +870,7 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                           .primaryBackground,
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           8.0, 4.0, 8.0, 4.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -909,9 +909,9 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                                                       .bodyMediumFamily),
                                                         ),
                                               ),
-                                            ].divide(const SizedBox(height: 4.0)),
+                                            ].divide(SizedBox(height: 4.0)),
                                           ),
-                                        ].divide(const SizedBox(width: 8.0)),
+                                        ].divide(SizedBox(width: 8.0)),
                                       ),
                                     ),
                                   );
@@ -924,22 +924,22 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 1.0),
+                    alignment: AlignmentDirectional(0.0, 1.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
                       child: wrapWithModel(
                         model: _model.customNavbarModel,
                         updateCallback: () => setState(() {}),
-                        child: const CustomNavbarWidget(),
+                        child: CustomNavbarWidget(),
                       ),
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 1.0),
+                    alignment: AlignmentDirectional(0.0, 1.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 80.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 80.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,

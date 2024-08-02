@@ -22,6 +22,7 @@ class NaverMapWidgetPoint extends StatefulWidget {
     this.initLat,
     this.initLng,
     this.pointList,
+    required this.onClickMarker,
   });
 
   final double? width;
@@ -29,18 +30,21 @@ class NaverMapWidgetPoint extends StatefulWidget {
   final double? initLat;
   final double? initLng;
   final List<TBPointRecord>? pointList;
+  final Future Function(TBPointRecord markerDoc) onClickMarker;
 
   @override
   State<NaverMapWidgetPoint> createState() => _NaverMapWidgetPointState();
 }
 
 class _NaverMapWidgetPointState extends State<NaverMapWidgetPoint> {
+  Set<NMarker> markerList = {};
   var pointLength;
   @override
   void initState() {
     super.initState();
     pointLength = (widget.pointList ?? []).length;
     initializeNaverMap();
+    markerList = _createMarkers();
   }
 
   Future<void> initializeNaverMap() async {
@@ -51,19 +55,28 @@ class _NaverMapWidgetPointState extends State<NaverMapWidgetPoint> {
   }
 
   Set<NMarker> _createMarkers() {
-    Set<NMarker> markerList = {};
     for (int i = 0; i < pointLength; i++) {
       var place = widget.pointList?[i];
 
       final latlng.LatLng coordinates = latlng.LatLng(
           place?.pointLatitude ?? 0.0, place?.pointLongitude ?? 0.0);
-
       NLatLng _position =
           NLatLng(place?.pointLatitude ?? 0.0, place?.pointLongitude ?? 0.0);
       NMarker marker = NMarker(id: i.toString(), position: _position);
+      marker.setOnTapListener((NMarker marker) {
+        print("마커가 터치되었습니다. id: ${marker.info.id}");
+        widget.onClickMarker.call(widget.pointList![int.parse(marker.info.id)]);
+      });
       markerList.add(marker);
     }
     return markerList;
+  }
+
+  void updateMarkers() {
+    setState(() {
+      markerList.clear();
+      markerList = _createMarkers();
+    });
   }
 
   @override
@@ -85,7 +98,7 @@ class _NaverMapWidgetPointState extends State<NaverMapWidgetPoint> {
       ),
       onMapReady: (NaverMapController controller) async {
         mapControllerCompleter.complete(controller);
-        controller.addOverlayAll(_createMarkers());
+        controller.addOverlayAll(markerList);
         print('맵 로딩됨');
       },
     );

@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'bus_area_model.dart';
 export 'bus_area_model.dart';
 
@@ -53,11 +54,11 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
         color: FlutterFlowTheme.of(context).primaryBackground,
       ),
       child: Align(
-        alignment: const AlignmentDirectional(-1.0, 0.0),
+        alignment: AlignmentDirectional(-1.0, 0.0),
         child: Column(
           children: [
             Align(
-              alignment: const Alignment(0.0, 0),
+              alignment: Alignment(0.0, 0),
               child: TabBar(
                 labelColor: FlutterFlowTheme.of(context).primaryText,
                 unselectedLabelColor:
@@ -70,11 +71,11 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                       useGoogleFonts: GoogleFonts.asMap().containsKey(
                           FlutterFlowTheme.of(context).titleMediumFamily),
                     ),
-                unselectedLabelStyle: const TextStyle(),
+                unselectedLabelStyle: TextStyle(),
                 indicatorColor: FlutterFlowTheme.of(context).primaryText,
                 indicatorWeight: 3.0,
-                padding: const EdgeInsets.all(4.0),
-                tabs: const [
+                padding: EdgeInsets.all(4.0),
+                tabs: [
                   Tab(
                     text: '지역별',
                   ),
@@ -94,7 +95,7 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -103,7 +104,7 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                                alignment: AlignmentDirectional(-1.0, 0.0),
                                 child: Text(
                                   '인천',
                                   style: FlutterFlowTheme.of(context)
@@ -121,7 +122,7 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                                       ),
                                 ),
                               ),
-                              SizedBox(
+                              Container(
                                 width: double.infinity,
                                 height: 40.0,
                                 child: custom_widgets.BusFishTypeChoiceChips(
@@ -141,14 +142,14 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                                       FlutterFlowTheme.of(context).primary,
                                   unselectedBorderColor:
                                       FlutterFlowTheme.of(context).primaryText,
-                                  options: const ['전체', '인천 남구', '인천 서구', '인천 중구'],
+                                  options: ['전체', '인천 남구', '인천 서구', '인천 중구'],
                                   selectedCallback:
                                       (selectedOptionCallback) async {
                                     setState(() {});
                                   },
                                 ),
                               ),
-                            ].divide(const SizedBox(height: 8.0)),
+                            ].divide(SizedBox(height: 8.0)),
                           ),
                           Divider(
                             thickness: 1.0,
@@ -158,7 +159,7 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                                alignment: AlignmentDirectional(-1.0, 0.0),
                                 child: Text(
                                   '경기',
                                   style: FlutterFlowTheme.of(context)
@@ -176,7 +177,7 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                                       ),
                                 ),
                               ),
-                              SizedBox(
+                              Container(
                                 width: double.infinity,
                                 height: 40.0,
                                 child: custom_widgets.BusFishTypeChoiceChips(
@@ -196,7 +197,7 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                                       FlutterFlowTheme.of(context).primary,
                                   unselectedBorderColor:
                                       FlutterFlowTheme.of(context).primaryText,
-                                  options: const [
+                                  options: [
                                     '전체',
                                     '경기 시흥',
                                     '경기 안산',
@@ -209,7 +210,7 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                                   },
                                 ),
                               ),
-                            ].divide(const SizedBox(height: 8.0)),
+                            ].divide(SizedBox(height: 8.0)),
                           ),
                           Divider(
                             thickness: 1.0,
@@ -219,7 +220,7 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                                alignment: AlignmentDirectional(-1.0, 0.0),
                                 child: Text(
                                   '호남',
                                   style: FlutterFlowTheme.of(context)
@@ -237,7 +238,7 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                                       ),
                                 ),
                               ),
-                              SizedBox(
+                              Container(
                                 width: double.infinity,
                                 height: 40.0,
                                 child: custom_widgets.BusFishTypeChoiceChips(
@@ -257,7 +258,7 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                                       FlutterFlowTheme.of(context).primary,
                                   unselectedBorderColor:
                                       FlutterFlowTheme.of(context).primaryText,
-                                  options: const ['전체', '호남 당진', '호남 태안'],
+                                  options: ['전체', '호남 당진', '호남 태안'],
                                   selectedCallback:
                                       (selectedOptionCallback) async {
                                     setState(() {});
@@ -268,10 +269,10 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                                 thickness: 1.0,
                                 color: FlutterFlowTheme.of(context).accent4,
                               ),
-                            ].divide(const SizedBox(height: 8.0)),
+                            ].divide(SizedBox(height: 8.0)),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 20.0),
                             child: FFButtonWidget(
                               onPressed: () {
@@ -280,9 +281,9 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                               text: '적용',
                               options: FFButtonOptions(
                                 height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).primary,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -298,7 +299,7 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                                                   .titleSmallFamily),
                                     ),
                                 elevation: 3.0,
-                                borderSide: const BorderSide(
+                                borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),
@@ -306,13 +307,13 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                               ),
                             ),
                           ),
-                        ].divide(const SizedBox(height: 8.0)),
+                        ].divide(SizedBox(height: 8.0)),
                       ),
                     ),
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -321,7 +322,7 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                                alignment: AlignmentDirectional(-1.0, 0.0),
                                 child: Text(
                                   '서해',
                                   style: FlutterFlowTheme.of(context)
@@ -339,7 +340,7 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                                       ),
                                 ),
                               ),
-                              SizedBox(
+                              Container(
                                 width: double.infinity,
                                 height: 40.0,
                                 child: custom_widgets.BusFishTypeChoiceChips(
@@ -359,14 +360,14 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                                       FlutterFlowTheme.of(context).primary,
                                   unselectedBorderColor:
                                       FlutterFlowTheme.of(context).primaryText,
-                                  options: const ['전체', '인천인근', '태안인근', '평택인근'],
+                                  options: ['전체', '인천인근', '태안인근', '평택인근'],
                                   selectedCallback:
                                       (selectedOptionCallback) async {
                                     setState(() {});
                                   },
                                 ),
                               ),
-                            ].divide(const SizedBox(height: 8.0)),
+                            ].divide(SizedBox(height: 8.0)),
                           ),
                           Divider(
                             thickness: 1.0,
@@ -376,7 +377,7 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                                alignment: AlignmentDirectional(-1.0, 0.0),
                                 child: Text(
                                   '남해',
                                   style: FlutterFlowTheme.of(context)
@@ -394,7 +395,7 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                                       ),
                                 ),
                               ),
-                              SizedBox(
+                              Container(
                                 width: double.infinity,
                                 height: 40.0,
                                 child: custom_widgets.BusFishTypeChoiceChips(
@@ -414,14 +415,14 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                                       FlutterFlowTheme.of(context).primary,
                                   unselectedBorderColor:
                                       FlutterFlowTheme.of(context).primaryText,
-                                  options: const ['전체', '여수인근', '통영인근'],
+                                  options: ['전체', '여수인근', '통영인근'],
                                   selectedCallback:
                                       (selectedOptionCallback) async {
                                     setState(() {});
                                   },
                                 ),
                               ),
-                            ].divide(const SizedBox(height: 8.0)),
+                            ].divide(SizedBox(height: 8.0)),
                           ),
                           Divider(
                             thickness: 1.0,
@@ -437,9 +438,9 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                             text: '적용',
                             options: FFButtonOptions(
                               height: 40.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 24.0, 0.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
@@ -455,14 +456,14 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                                                 .titleSmallFamily),
                                   ),
                               elevation: 3.0,
-                              borderSide: const BorderSide(
+                              borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
-                        ].divide(const SizedBox(height: 8.0)),
+                        ].divide(SizedBox(height: 8.0)),
                       ),
                     ),
                   ),

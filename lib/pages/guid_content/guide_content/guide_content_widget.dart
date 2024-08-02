@@ -3,11 +3,14 @@ import '/components/custom_navbar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'guide_content_model.dart';
 export 'guide_content_model.dart';
 
@@ -46,7 +49,7 @@ class _GuideContentWidgetState extends State<GuideContentWidget> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<TBGuideContentRecord>(
-      stream: TBGuideContentRecord.getDocument(widget.content!),
+      stream: TBGuideContentRecord.getDocument(widget!.content!),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -79,15 +82,15 @@ class _GuideContentWidgetState extends State<GuideContentWidget> {
               backgroundColor: Colors.white,
               automaticallyImplyLeading: false,
               leading: Align(
-                alignment: const AlignmentDirectional(-1.0, -3.7),
+                alignment: AlignmentDirectional(-1.0, -3.7),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                   child: FlutterFlowIconButton(
                     borderColor: Colors.transparent,
                     borderRadius: 30.0,
                     borderWidth: 1.0,
                     buttonSize: 60.0,
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.arrow_back_ios,
                       color: Colors.black,
                       size: 30.0,
@@ -99,7 +102,7 @@ class _GuideContentWidgetState extends State<GuideContentWidget> {
                 ),
               ),
               title: Align(
-                alignment: const AlignmentDirectional(0.0, -1.0),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: Text(
                   '초보탈출',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -112,7 +115,7 @@ class _GuideContentWidgetState extends State<GuideContentWidget> {
                       ),
                 ),
               ),
-              actions: const [],
+              actions: [],
               centerTitle: false,
               elevation: 2.0,
             ),
@@ -122,20 +125,20 @@ class _GuideContentWidgetState extends State<GuideContentWidget> {
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
+                        EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
                     child: ListView(
                       padding: EdgeInsets.zero,
                       scrollDirection: Axis.vertical,
                       children: [
-                        SizedBox(
+                        Container(
                           height: 200.0,
-                          child: SizedBox(
+                          child: Container(
                             width: double.infinity,
                             height: 500.0,
                             child: Stack(
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 40.0),
                                   child: PageView(
                                     controller: _model.pageViewController ??=
@@ -176,9 +179,9 @@ class _GuideContentWidgetState extends State<GuideContentWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, 1.0),
+                                  alignment: AlignmentDirectional(-1.0, 1.0),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 0.0, 0.0, 16.0),
                                     child: smooth_page_indicator
                                         .SmoothPageIndicator(
@@ -190,7 +193,7 @@ class _GuideContentWidgetState extends State<GuideContentWidget> {
                                         await _model.pageViewController!
                                             .animateToPage(
                                           i,
-                                          duration: const Duration(milliseconds: 500),
+                                          duration: Duration(milliseconds: 500),
                                           curve: Curves.ease,
                                         );
                                         setState(() {});
@@ -276,13 +279,13 @@ class _GuideContentWidgetState extends State<GuideContentWidget> {
                                         .bodyMediumFamily),
                               ),
                         ),
-                      ].divide(const SizedBox(height: 8.0)),
+                      ].divide(SizedBox(height: 8.0)),
                     ),
                   ),
                   wrapWithModel(
                     model: _model.customNavbarModel,
                     updateCallback: () => setState(() {}),
-                    child: const CustomNavbarWidget(),
+                    child: CustomNavbarWidget(),
                   ),
                 ],
               ),

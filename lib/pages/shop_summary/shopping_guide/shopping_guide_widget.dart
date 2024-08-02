@@ -1,8 +1,10 @@
 import '/components/custom_navbar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'shopping_guide_model.dart';
 export 'shopping_guide_model.dart';
 
@@ -43,7 +45,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(72.0),
+          preferredSize: Size.fromHeight(72.0),
           child: AppBar(
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             automaticallyImplyLeading: false,
@@ -61,7 +63,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                 size: 48.0,
               ),
             ),
-            actions: const [],
+            actions: [],
             elevation: 2.0,
           ),
         ),
@@ -81,7 +83,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                     ),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -93,7 +95,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                             ),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Text(
                               '짠물투어 가이드',
                               style: FlutterFlowTheme.of(context)
@@ -116,7 +118,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                     child: Container(
                       width: 100.0,
                       height: 828.0,
@@ -127,12 +129,12 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 12.0, 0.0),
                             child: Material(
                               color: Colors.transparent,
                               elevation: 2.0,
-                              shape: const RoundedRectangleBorder(
+                              shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(0.0),
                                   bottomRight: Radius.circular(0.0),
@@ -146,7 +148,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
-                                  borderRadius: const BorderRadius.only(
+                                  borderRadius: BorderRadius.only(
                                     bottomLeft: Radius.circular(0.0),
                                     bottomRight: Radius.circular(0.0),
                                     topLeft: Radius.circular(10.0),
@@ -159,7 +161,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                     Material(
                                       color: Colors.transparent,
                                       elevation: 2.0,
-                                      shape: const RoundedRectangleBorder(
+                                      shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(0.0),
                                           bottomRight: Radius.circular(0.0),
@@ -168,7 +170,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                         ),
                                       ),
                                       child: ClipRRect(
-                                        borderRadius: const BorderRadius.only(
+                                        borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(0.0),
                                           bottomRight: Radius.circular(0.0),
                                           topLeft: Radius.circular(10.0),
@@ -182,7 +184,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
-                                            boxShadow: const [
+                                            boxShadow: [
                                               BoxShadow(
                                                 blurRadius: 4.0,
                                                 color: Color(0x33000000),
@@ -192,7 +194,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                                 ),
                                               )
                                             ],
-                                            borderRadius: const BorderRadius.only(
+                                            borderRadius: BorderRadius.only(
                                               bottomLeft: Radius.circular(0.0),
                                               bottomRight: Radius.circular(0.0),
                                               topLeft: Radius.circular(10.0),
@@ -201,7 +203,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     12.0, 0.0, 12.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -215,7 +217,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                                   size: 24.0,
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           8.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -251,7 +253,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 20.0, 12.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -264,7 +266,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               '조항 등 글쓰기로 포인트 적립하여 \n쇼핑 등에 사용',
@@ -293,7 +295,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 20.0, 12.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -306,7 +308,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               '회원 등급에 따른 차별 지급',
@@ -334,7 +336,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                         ],
                                       ),
                                     ),
-                                    const Wrap(
+                                    Wrap(
                                       spacing: 0.0,
                                       runSpacing: 0.0,
                                       alignment: WrapAlignment.start,
@@ -352,12 +354,12 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 16.0, 12.0, 0.0),
                             child: Material(
                               color: Colors.transparent,
                               elevation: 2.0,
-                              shape: const RoundedRectangleBorder(
+                              shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(0.0),
                                   bottomRight: Radius.circular(0.0),
@@ -371,7 +373,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
-                                  borderRadius: const BorderRadius.only(
+                                  borderRadius: BorderRadius.only(
                                     bottomLeft: Radius.circular(0.0),
                                     bottomRight: Radius.circular(0.0),
                                     topLeft: Radius.circular(10.0),
@@ -384,7 +386,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                     Material(
                                       color: Colors.transparent,
                                       elevation: 2.0,
-                                      shape: const RoundedRectangleBorder(
+                                      shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(0.0),
                                           bottomRight: Radius.circular(0.0),
@@ -393,7 +395,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                         ),
                                       ),
                                       child: ClipRRect(
-                                        borderRadius: const BorderRadius.only(
+                                        borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(0.0),
                                           bottomRight: Radius.circular(0.0),
                                           topLeft: Radius.circular(10.0),
@@ -407,7 +409,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
-                                            boxShadow: const [
+                                            boxShadow: [
                                               BoxShadow(
                                                 blurRadius: 4.0,
                                                 color: Color(0x33000000),
@@ -417,7 +419,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                                 ),
                                               )
                                             ],
-                                            borderRadius: const BorderRadius.only(
+                                            borderRadius: BorderRadius.only(
                                               bottomLeft: Radius.circular(0.0),
                                               bottomRight: Radius.circular(0.0),
                                               topLeft: Radius.circular(10.0),
@@ -426,7 +428,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     12.0, 0.0, 12.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -440,7 +442,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                                   size: 24.0,
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           8.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -476,7 +478,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 20.0, 12.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -489,7 +491,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               '일반회원: 무료 가입 회원',
@@ -518,7 +520,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 20.0, 12.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -531,7 +533,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               'VIP회원: 월 회원비(6,900원 예상)',
@@ -561,9 +563,9 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             24.0, 12.0, 0.0, 0.0),
                                         child: Text(
                                           '-적립금 추가 혜택',
@@ -587,9 +589,9 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             24.0, 8.0, 0.0, 0.0),
                                         child: Text(
                                           '-조항 좋은 곳 최신정보 미리 알려주기',
@@ -613,9 +615,9 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-1.0, 0.0),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             24.0, 8.0, 0.0, 0.0),
                                         child: Text(
                                           '-1대1 채팅상담 제공',
@@ -643,12 +645,12 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 20.0, 12.0, 0.0),
                             child: Material(
                               color: Colors.transparent,
                               elevation: 2.0,
-                              shape: const RoundedRectangleBorder(
+                              shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(0.0),
                                   bottomRight: Radius.circular(0.0),
@@ -662,7 +664,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
-                                  borderRadius: const BorderRadius.only(
+                                  borderRadius: BorderRadius.only(
                                     bottomLeft: Radius.circular(0.0),
                                     bottomRight: Radius.circular(0.0),
                                     topLeft: Radius.circular(10.0),
@@ -675,7 +677,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                     Material(
                                       color: Colors.transparent,
                                       elevation: 2.0,
-                                      shape: const RoundedRectangleBorder(
+                                      shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(0.0),
                                           bottomRight: Radius.circular(0.0),
@@ -684,7 +686,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                         ),
                                       ),
                                       child: ClipRRect(
-                                        borderRadius: const BorderRadius.only(
+                                        borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(0.0),
                                           bottomRight: Radius.circular(0.0),
                                           topLeft: Radius.circular(10.0),
@@ -698,7 +700,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
-                                            boxShadow: const [
+                                            boxShadow: [
                                               BoxShadow(
                                                 blurRadius: 4.0,
                                                 color: Color(0x33000000),
@@ -708,7 +710,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                                 ),
                                               )
                                             ],
-                                            borderRadius: const BorderRadius.only(
+                                            borderRadius: BorderRadius.only(
                                               bottomLeft: Radius.circular(0.0),
                                               bottomRight: Radius.circular(0.0),
                                               topLeft: Radius.circular(10.0),
@@ -717,7 +719,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     12.0, 0.0, 12.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -731,7 +733,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                                   size: 24.0,
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           8.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -767,7 +769,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 20.0, 12.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -780,7 +782,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               '찜페이지에 내가 즐겨찾기한 포인트 표시',
@@ -809,7 +811,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 20.0, 12.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -822,7 +824,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               '내가 즐겨찾기한 상품 보기',
@@ -856,12 +858,12 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 12.0, 20.0, 12.0, 0.0),
                             child: Material(
                               color: Colors.transparent,
                               elevation: 2.0,
-                              shape: const RoundedRectangleBorder(
+                              shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(0.0),
                                   bottomRight: Radius.circular(0.0),
@@ -875,7 +877,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
-                                  borderRadius: const BorderRadius.only(
+                                  borderRadius: BorderRadius.only(
                                     bottomLeft: Radius.circular(0.0),
                                     bottomRight: Radius.circular(0.0),
                                     topLeft: Radius.circular(10.0),
@@ -888,7 +890,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                     Material(
                                       color: Colors.transparent,
                                       elevation: 2.0,
-                                      shape: const RoundedRectangleBorder(
+                                      shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(0.0),
                                           bottomRight: Radius.circular(0.0),
@@ -897,7 +899,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                         ),
                                       ),
                                       child: ClipRRect(
-                                        borderRadius: const BorderRadius.only(
+                                        borderRadius: BorderRadius.only(
                                           bottomLeft: Radius.circular(0.0),
                                           bottomRight: Radius.circular(0.0),
                                           topLeft: Radius.circular(10.0),
@@ -911,7 +913,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
-                                            boxShadow: const [
+                                            boxShadow: [
                                               BoxShadow(
                                                 blurRadius: 4.0,
                                                 color: Color(0x33000000),
@@ -921,7 +923,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                                 ),
                                               )
                                             ],
-                                            borderRadius: const BorderRadius.only(
+                                            borderRadius: BorderRadius.only(
                                               bottomLeft: Radius.circular(0.0),
                                               bottomRight: Radius.circular(0.0),
                                               topLeft: Radius.circular(10.0),
@@ -930,7 +932,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     12.0, 0.0, 12.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -944,7 +946,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                                   size: 24.0,
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           8.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -980,7 +982,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 20.0, 12.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -993,7 +995,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               '배송 관련 등',
@@ -1035,7 +1037,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
               wrapWithModel(
                 model: _model.customNavbarModel,
                 updateCallback: () => setState(() {}),
-                child: const CustomNavbarWidget(),
+                child: CustomNavbarWidget(),
               ),
             ],
           ),

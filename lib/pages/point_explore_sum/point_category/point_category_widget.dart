@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'point_category_model.dart';
 export 'point_category_model.dart';
 
@@ -45,7 +46,7 @@ class _PointCategoryWidgetState extends State<PointCategoryWidget> {
         color: FlutterFlowTheme.of(context).secondaryBackground,
       ),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(18.0, 21.0, 18.0, 0.0),
+        padding: EdgeInsetsDirectional.fromSTEB(18.0, 21.0, 18.0, 0.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -66,13 +67,13 @@ class _PointCategoryWidgetState extends State<PointCategoryWidget> {
               color: FlutterFlowTheme.of(context).secondaryText,
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -89,7 +90,7 @@ class _PointCategoryWidgetState extends State<PointCategoryWidget> {
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: const BorderRadius.only(
+                          borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(8.0),
                             bottomRight: Radius.circular(8.0),
                             topLeft: Radius.circular(8.0),
@@ -101,7 +102,7 @@ class _PointCategoryWidgetState extends State<PointCategoryWidget> {
                           ),
                         ),
                         child: Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Text(
                             '방파제, 선착장',
                             style: FlutterFlowTheme.of(context)
@@ -121,7 +122,7 @@ class _PointCategoryWidgetState extends State<PointCategoryWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -136,7 +137,7 @@ class _PointCategoryWidgetState extends State<PointCategoryWidget> {
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: const BorderRadius.only(
+                          borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(8.0),
                             bottomRight: Radius.circular(8.0),
                             topLeft: Radius.circular(8.0),
@@ -148,7 +149,7 @@ class _PointCategoryWidgetState extends State<PointCategoryWidget> {
                           ),
                         ),
                         child: Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Text(
                             '낚시공원',
                             style: FlutterFlowTheme.of(context)
@@ -173,10 +174,10 @@ class _PointCategoryWidgetState extends State<PointCategoryWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Align(
-                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                  alignment: AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 10.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 10.0, 0.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -191,7 +192,7 @@ class _PointCategoryWidgetState extends State<PointCategoryWidget> {
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: const BorderRadius.only(
+                          borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(8.0),
                             bottomRight: Radius.circular(8.0),
                             topLeft: Radius.circular(8.0),
@@ -203,7 +204,7 @@ class _PointCategoryWidgetState extends State<PointCategoryWidget> {
                           ),
                         ),
                         child: Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Text(
                             '낚시펜션, 민박',
                             style: FlutterFlowTheme.of(context)
@@ -223,13 +224,13 @@ class _PointCategoryWidgetState extends State<PointCategoryWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                   child: Container(
                     width: 121.0,
                     height: 44.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: const BorderRadius.only(
+                      borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(8.0),
                         bottomRight: Radius.circular(8.0),
                         topLeft: Radius.circular(8.0),
@@ -241,7 +242,7 @@ class _PointCategoryWidgetState extends State<PointCategoryWidget> {
                       ),
                     ),
                     child: Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Text(
                         '좌대, 해상펜션',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -259,9 +260,9 @@ class _PointCategoryWidgetState extends State<PointCategoryWidget> {
               ],
             ),
             Align(
-              alignment: const AlignmentDirectional(-1.0, 0.0),
+              alignment: AlignmentDirectional(-1.0, 0.0),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 10.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 10.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -275,7 +276,7 @@ class _PointCategoryWidgetState extends State<PointCategoryWidget> {
                     height: 44.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: const BorderRadius.only(
+                      borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(8.0),
                         bottomRight: Radius.circular(8.0),
                         topLeft: Radius.circular(8.0),
@@ -287,7 +288,7 @@ class _PointCategoryWidgetState extends State<PointCategoryWidget> {
                       ),
                     ),
                     child: Align(
-                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Text(
                         '해변, 갯바위',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(

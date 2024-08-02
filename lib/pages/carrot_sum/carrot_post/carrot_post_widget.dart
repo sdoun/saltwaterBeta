@@ -9,9 +9,11 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'carrot_post_model.dart';
 export 'carrot_post_model.dart';
 
@@ -50,7 +52,7 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<TBCarrotPostRecord>(
-      stream: TBCarrotPostRecord.getDocument(widget.carrotPost!),
+      stream: TBCarrotPostRecord.getDocument(widget!.carrotPost!),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -80,21 +82,21 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             appBar: PreferredSize(
-              preferredSize: const Size.fromHeight(64.0),
+              preferredSize: Size.fromHeight(64.0),
               child: AppBar(
                 backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
                 automaticallyImplyLeading: false,
                 leading: Align(
-                  alignment: const AlignmentDirectional(-1.0, -3.7),
+                  alignment: AlignmentDirectional(-1.0, -3.7),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                     child: FlutterFlowIconButton(
                       borderColor: Colors.transparent,
                       borderRadius: 30.0,
                       borderWidth: 1.0,
                       buttonSize: 60.0,
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.arrow_back_ios,
                         color: Colors.black,
                         size: 30.0,
@@ -105,10 +107,10 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                     ),
                   ),
                 ),
-                actions: const [],
+                actions: [],
                 flexibleSpace: FlexibleSpaceBar(
                   title: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.8),
+                    alignment: AlignmentDirectional(0.0, 0.8),
                     child: Text(
                       '당근낚시',
                       style:
@@ -137,20 +139,20 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: ListView(
                       padding: EdgeInsets.zero,
                       scrollDirection: Axis.vertical,
                       children: [
-                        SizedBox(
+                        Container(
                           height: 200.0,
-                          child: SizedBox(
+                          child: Container(
                             width: double.infinity,
                             height: 500.0,
                             child: Stack(
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 40.0),
                                   child: PageView(
                                     controller: _model.pageViewController ??=
@@ -191,9 +193,9 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, 1.0),
+                                  alignment: AlignmentDirectional(-1.0, 1.0),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 0.0, 0.0, 16.0),
                                     child: smooth_page_indicator
                                         .SmoothPageIndicator(
@@ -205,7 +207,7 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                                         await _model.pageViewController!
                                             .animateToPage(
                                           i,
-                                          duration: const Duration(milliseconds: 500),
+                                          duration: Duration(milliseconds: 500),
                                           curve: Curves.ease,
                                         );
                                         setState(() {});
@@ -232,7 +234,7 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 20.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -279,7 +281,7 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                                           .primaryBackground,
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           8.0, 0.0, 8.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -288,7 +290,7 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                                             width: 56.0,
                                             height: 56.0,
                                             clipBehavior: Clip.antiAlias,
-                                            decoration: const BoxDecoration(
+                                            decoration: BoxDecoration(
                                               shape: BoxShape.circle,
                                             ),
                                             child: Image.network(
@@ -302,7 +304,7 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                                               Text(
                                                 valueOrDefault<String>(
                                                   containerUsersRecord
-                                                      .displayName,
+                                                      ?.displayName,
                                                   '0',
                                                 ),
                                                 style:
@@ -339,9 +341,9 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                                                       getCurrentTimestamp,
                                                   roomBuyer:
                                                       containerUsersRecord
-                                                          .reference.id,
+                                                          ?.reference.id,
                                                   roomPostDocID:
-                                                      widget.carrotPost?.id,
+                                                      widget!.carrotPost?.id,
                                                   roomUsed: false,
                                                 ),
                                                 ...mapToFirestore(
@@ -372,9 +374,9 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                                                       getCurrentTimestamp,
                                                   roomBuyer:
                                                       containerUsersRecord
-                                                          .reference.id,
+                                                          ?.reference.id,
                                                   roomPostDocID:
-                                                      widget.carrotPost?.id,
+                                                      widget!.carrotPost?.id,
                                                   roomUsed: false,
                                                 ),
                                                 ...mapToFirestore(
@@ -401,7 +403,7 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                                                         tBChatRoomRecord
                                                             .where(
                                                               'room_postDocID',
-                                                              isEqualTo: widget
+                                                              isEqualTo: widget!
                                                                   .carrotPost
                                                                   ?.id,
                                                             )
@@ -431,10 +433,10 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                                             text: '채팅하기',
                                             options: FFButtonOptions(
                                               height: 40.0,
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       24.0, 0.0, 24.0, 0.0),
-                                              iconPadding: const EdgeInsetsDirectional
+                                              iconPadding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -457,7 +459,7 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                                                                     .titleSmallFamily),
                                                       ),
                                               elevation: 3.0,
-                                              borderSide: const BorderSide(
+                                              borderSide: BorderSide(
                                                 color: Colors.transparent,
                                                 width: 1.0,
                                               ),
@@ -507,7 +509,7 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                                               size: 25.0,
                                             ),
                                           ),
-                                        ].divide(const SizedBox(width: 8.0)),
+                                        ].divide(SizedBox(width: 8.0)),
                                       ),
                                     ),
                                   );
@@ -517,7 +519,7 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 20.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -563,18 +565,18 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                                           .containsKey('PretendardSeries'),
                                     ),
                               ),
-                            ].divide(const SizedBox(height: 8.0)),
+                            ].divide(SizedBox(height: 8.0)),
                           ),
                         ),
-                      ].divide(const SizedBox(height: 8.0)),
+                      ].divide(SizedBox(height: 8.0)),
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 1.0),
+                    alignment: AlignmentDirectional(0.0, 1.0),
                     child: wrapWithModel(
                       model: _model.customNavbarModel,
                       updateCallback: () => setState(() {}),
-                      child: const CustomNavbarWidget(),
+                      child: CustomNavbarWidget(),
                     ),
                   ),
                 ],

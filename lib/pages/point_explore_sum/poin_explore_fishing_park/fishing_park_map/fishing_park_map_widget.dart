@@ -11,7 +11,9 @@ import '/pages/point_explore_sum/poin_explore_fishing_park/park_3rd_filter/park3
 import '/pages/point_explore_sum/point_category/point_category_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -68,7 +70,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
             () async {
               await _model.columnController?.animateTo(
                 _model.columnController!.position.maxScrollExtent,
-                duration: const Duration(milliseconds: 100),
+                duration: Duration(milliseconds: 100),
                 curve: Curves.ease,
               );
 
@@ -108,7 +110,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
               backgroundColor: Colors.white,
               automaticallyImplyLeading: false,
               title: Align(
-                alignment: const AlignmentDirectional(0.0, 0.0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: Text(
                   '포인트 검색하기',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -121,7 +123,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                       ),
                 ),
               ),
-              actions: const [],
+              actions: [],
               centerTitle: false,
               elevation: 2.0,
             ),
@@ -131,7 +133,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                     child: SingleChildScrollView(
                       controller: _model.columnController,
                       child: Column(
@@ -145,16 +147,16 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                   .primaryBackground,
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 12.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                     child: FlutterFlowChoiceChips(
-                                      options: const [
+                                      options: [
                                         ChipData('돔'),
                                         ChipData('두족류'),
                                         ChipData('찌낚시'),
@@ -226,7 +228,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                     child: SingleChildScrollView(
                                       scrollDirection: Axis.horizontal,
                                       controller: _model.rowController,
@@ -242,7 +244,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                               await showModalBottomSheet(
                                                 isScrollControlled: true,
                                                 backgroundColor:
-                                                    const Color(0x24000000),
+                                                    Color(0x24000000),
                                                 enableDrag: false,
                                                 context: context,
                                                 builder: (context) {
@@ -263,7 +265,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                             .viewInsetsOf(
                                                                 context),
                                                         child:
-                                                            const PointCategoryWidget(),
+                                                            PointCategoryWidget(),
                                                       ),
                                                     ),
                                                   );
@@ -288,7 +290,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                     color: Colors.black,
                                                   ),
                                                 ),
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Row(
                                                   mainAxisSize:
@@ -315,7 +317,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                                         'PretendardSeries'),
                                                           ),
                                                     ),
-                                                    const Align(
+                                                    Align(
                                                       alignment:
                                                           AlignmentDirectional(
                                                               1.0, 0.0),
@@ -370,7 +372,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                             .viewInsetsOf(
                                                                 context),
                                                         child:
-                                                            const Park1stFilterWidget(),
+                                                            Park1stFilterWidget(),
                                                       ),
                                                     ),
                                                   );
@@ -396,7 +398,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                       ? FlutterFlowTheme.of(
                                                               context)
                                                           .primary
-                                                      : const Color(0x00FFFFFF),
+                                                      : Color(0x00FFFFFF),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           8.0),
@@ -404,10 +406,10 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                     color: Colors.black,
                                                   ),
                                                 ),
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           4.0, 0.0, 0.0, 0.0),
                                                   child: Row(
@@ -419,7 +421,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     4.0,
                                                                     0.0,
@@ -449,7 +451,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                                               .park1stFilter
                                                                               ?.last
                                                                       ? firstFilterItem
-                                                                      : '$firstFilterItem, ',
+                                                                      : '${firstFilterItem}, ',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -506,11 +508,11 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                         ),
                                                       Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 1.0, 0.0),
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       3.0,
                                                                       0.0,
@@ -568,7 +570,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                             .viewInsetsOf(
                                                                 context),
                                                         child:
-                                                            const Park2ndFilterWidget(),
+                                                            Park2ndFilterWidget(),
                                                       ),
                                                     ),
                                                   );
@@ -594,7 +596,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                       ? FlutterFlowTheme.of(
                                                               context)
                                                           .primary
-                                                      : const Color(0x000C5AF9),
+                                                      : Color(0x000C5AF9),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           8.0),
@@ -602,10 +604,10 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                     color: Colors.black,
                                                   ),
                                                 ),
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           4.0, 0.0, 0.0, 0.0),
                                                   child: Row(
@@ -617,7 +619,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     4.0,
                                                                     0.0,
@@ -647,7 +649,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                                               .park2ndFilter
                                                                               ?.last
                                                                       ? secondFilterItem
-                                                                      : '$secondFilterItem, ',
+                                                                      : '${secondFilterItem}, ',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -698,11 +700,11 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                         ),
                                                       Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 1.0, 0.0),
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       3.0,
                                                                       0.0,
@@ -762,7 +764,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                             .viewInsetsOf(
                                                                 context),
                                                         child:
-                                                            const Park3rdFilterWidget(),
+                                                            Park3rdFilterWidget(),
                                                       ),
                                                     ),
                                                   );
@@ -802,10 +804,10 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                     color: Colors.black,
                                                   ),
                                                 ),
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           4.0, 0.0, 0.0, 0.0),
                                                   child: Row(
@@ -817,7 +819,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     4.0,
                                                                     0.0,
@@ -847,7 +849,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                                               .park2ndFilter
                                                                               ?.last
                                                                       ? thirdFilterItem
-                                                                      : '$thirdFilterItem, ',
+                                                                      : '${thirdFilterItem}, ',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -899,11 +901,11 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                       ),
                                                       Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 1.0, 0.0),
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       3.0,
                                                                       0.0,
@@ -933,7 +935,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                               ),
                                             ),
                                           ),
-                                        ].divide(const SizedBox(width: 8.0)),
+                                        ].divide(SizedBox(width: 8.0)),
                                       ),
                                     ),
                                   ),
@@ -957,10 +959,10 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                       width: MediaQuery.sizeOf(context).width *
                                           0.8,
                                       height: 40.0,
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 0.0),
                                       iconPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
+                                          EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color: Colors.black,
                                       textStyle: FlutterFlowTheme.of(context)
@@ -975,14 +977,14 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                                     'PretendardSeries'),
                                           ),
                                       elevation: 3.0,
-                                      borderSide: const BorderSide(
+                                      borderSide: BorderSide(
                                         color: Colors.transparent,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                   ),
-                                ].divide(const SizedBox(height: 8.0)),
+                                ].divide(SizedBox(height: 8.0)),
                               ),
                             ),
                           ),
@@ -1024,7 +1026,7 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                         .primaryBackground,
                                     borderRadius: BorderRadius.circular(10.0),
                                   ),
-                                  child: SizedBox(
+                                  child: Container(
                                     width: double.infinity,
                                     height: double.infinity,
                                     child: custom_widgets.NaverMapWidgetPoint(
@@ -1033,6 +1035,17 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                       initLat: 37.0,
                                       initLng: 127.0,
                                       pointList: containerTBPointRecordList,
+                                      onClickMarker: (markerDoc) async {
+                                        context.pushNamed(
+                                          'point_detailed',
+                                          queryParameters: {
+                                            'pointRefSW': serializeParam(
+                                              markerDoc.reference,
+                                              ParamType.DocumentReference,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+                                      },
                                     ),
                                   ),
                                 ),
@@ -1044,14 +1057,14 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 1.0),
+                    alignment: AlignmentDirectional(0.0, 1.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
                       child: wrapWithModel(
                         model: _model.customNavbarModel,
                         updateCallback: () => setState(() {}),
-                        child: const CustomNavbarWidget(),
+                        child: CustomNavbarWidget(),
                       ),
                     ),
                   ),

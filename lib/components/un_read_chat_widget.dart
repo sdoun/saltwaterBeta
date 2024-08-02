@@ -1,8 +1,10 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'un_read_chat_model.dart';
 export 'un_read_chat_model.dart';
 
@@ -47,7 +49,7 @@ class _UnReadChatWidgetState extends State<UnReadChatWidget> {
     return Material(
       color: Colors.transparent,
       elevation: 5.0,
-      shape: const RoundedRectangleBorder(
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
@@ -59,7 +61,7 @@ class _UnReadChatWidgetState extends State<UnReadChatWidget> {
         width: double.infinity,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
-          borderRadius: const BorderRadius.only(
+          borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(0.0),
             bottomRight: Radius.circular(0.0),
             topLeft: Radius.circular(16.0),
@@ -70,7 +72,7 @@ class _UnReadChatWidgetState extends State<UnReadChatWidget> {
           mainAxisSize: MainAxisSize.max,
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
               child: Container(
                 width: 50.0,
                 height: 4.0,
@@ -81,7 +83,7 @@ class _UnReadChatWidgetState extends State<UnReadChatWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -99,10 +101,10 @@ class _UnReadChatWidgetState extends State<UnReadChatWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 32.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 32.0),
               child: Builder(
                 builder: (context) {
-                  final chatRef = widget.unReadChat!.toList();
+                  final chatRef = widget!.unReadChat!.toList();
 
                   return ListView.builder(
                     padding: EdgeInsets.zero,
@@ -113,7 +115,7 @@ class _UnReadChatWidgetState extends State<UnReadChatWidget> {
                     itemBuilder: (context, chatRefIndex) {
                       final chatRefItem = chatRef[chatRefIndex];
                       return Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 12.0, 16.0, 0.0),
                         child: StreamBuilder<TBChatRecord>(
                           stream: TBChatRecord.getDocument(chatRefItem),
@@ -194,7 +196,7 @@ class _UnReadChatWidgetState extends State<UnReadChatWidget> {
                                             .primaryBackground,
                                       ),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 4.0, 8.0, 4.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -208,7 +210,7 @@ class _UnReadChatWidgetState extends State<UnReadChatWidget> {
                                                   width: 40.0,
                                                   height: 40.0,
                                                   clipBehavior: Clip.antiAlias,
-                                                  decoration: const BoxDecoration(
+                                                  decoration: BoxDecoration(
                                                     shape: BoxShape.circle,
                                                   ),
                                                   child: Image.network(
@@ -300,9 +302,9 @@ class _UnReadChatWidgetState extends State<UnReadChatWidget> {
                                                                     .bodyMediumFamily),
                                                       ),
                                                 ),
-                                              ].divide(const SizedBox(height: 8.0)),
+                                              ].divide(SizedBox(height: 8.0)),
                                             ),
-                                          ].divide(const SizedBox(width: 8.0)),
+                                          ].divide(SizedBox(width: 8.0)),
                                         ),
                                       ),
                                     );

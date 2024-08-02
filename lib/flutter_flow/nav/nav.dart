@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
@@ -10,8 +12,12 @@ import '/auth/base_auth_user_provider.dart';
 import '/backend/push_notifications/push_notifications_handler.dart'
     show PushNotificationsHandler;
 import '/index.dart';
+import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/lat_lng.dart';
+import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -76,43 +82,43 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const Home1Widget() : const AuthTestWidget(),
+          appStateNotifier.loggedIn ? Home1Widget() : AuthTestWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const Home1Widget() : const AuthTestWidget(),
+              appStateNotifier.loggedIn ? Home1Widget() : AuthTestWidget(),
         ),
         FFRoute(
           name: 'home1',
           path: '/home1',
-          builder: (context, params) => const Home1Widget(),
+          builder: (context, params) => Home1Widget(),
         ),
         FFRoute(
           name: 'exploreMapSW',
           path: '/exploreMapSW',
-          builder: (context, params) => const ExploreMapSWWidget(),
+          builder: (context, params) => ExploreMapSWWidget(),
         ),
         FFRoute(
           name: 'shoppingHome',
           path: '/shoppingHome',
-          builder: (context, params) => const ShoppingHomeWidget(),
+          builder: (context, params) => ShoppingHomeWidget(),
         ),
         FFRoute(
           name: 'loading1',
           path: '/loading1',
-          builder: (context, params) => const Loading1Widget(),
+          builder: (context, params) => Loading1Widget(),
         ),
         FFRoute(
           name: 'AuthTest',
           path: '/authTest',
-          builder: (context, params) => const AuthTestWidget(),
+          builder: (context, params) => AuthTestWidget(),
         ),
         FFRoute(
           name: 'googlemapErrorSolve',
           path: '/googlemapErrorSolve',
-          builder: (context, params) => const GooglemapErrorSolveWidget(),
+          builder: (context, params) => GooglemapErrorSolveWidget(),
         ),
         FFRoute(
           name: 'point_detailed',
@@ -141,7 +147,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'carrotHome',
           path: '/carrotHome',
-          builder: (context, params) => const CarrotHomeWidget(),
+          builder: (context, params) => CarrotHomeWidget(),
         ),
         FFRoute(
           name: 'carrotPost',
@@ -158,12 +164,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'carrot_create',
           path: '/carrotCreate',
-          builder: (context, params) => const CarrotCreateWidget(),
+          builder: (context, params) => CarrotCreateWidget(),
         ),
         FFRoute(
           name: 'carrot_chatHome',
           path: '/carrotChatHome',
-          builder: (context, params) => const CarrotChatHomeWidget(),
+          builder: (context, params) => CarrotChatHomeWidget(),
         ),
         FFRoute(
           name: 'carrot_chatRoom',
@@ -180,12 +186,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'userPage',
           path: '/userPage',
-          builder: (context, params) => const UserPageWidget(),
+          builder: (context, params) => UserPageWidget(),
         ),
         FFRoute(
           name: 'weatherMap',
           path: '/weatherMap',
-          builder: (context, params) => const WeatherMapWidget(),
+          builder: (context, params) => WeatherMapWidget(),
         ),
         FFRoute(
           name: 'weatherDetailed',
@@ -202,22 +208,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'fishingBusList',
           path: '/fishingBusList',
-          builder: (context, params) => const FishingBusListWidget(),
+          builder: (context, params) => FishingBusListWidget(),
         ),
         FFRoute(
           name: 'exploreMapOcean',
           path: '/exploreMapOcean',
-          builder: (context, params) => const ExploreMapOceanWidget(),
+          builder: (context, params) => ExploreMapOceanWidget(),
         ),
         FFRoute(
           name: 'like',
           path: '/like',
-          builder: (context, params) => const LikeWidget(),
+          builder: (context, params) => LikeWidget(),
         ),
         FFRoute(
           name: 'Checkout1',
           path: '/checkout1',
-          builder: (context, params) => const Checkout1Widget(),
+          builder: (context, params) => Checkout1Widget(),
         ),
         FFRoute(
           name: 'userEdit',
@@ -234,12 +240,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'exploreMapFishingPension',
           path: '/exploreMapFishingPension',
-          builder: (context, params) => const ExploreMapFishingPensionWidget(),
+          builder: (context, params) => ExploreMapFishingPensionWidget(),
         ),
         FFRoute(
           name: 'guideContentHome',
           path: '/guideContentHome',
-          builder: (context, params) => const GuideContentHomeWidget(),
+          builder: (context, params) => GuideContentHomeWidget(),
         ),
         FFRoute(
           name: 'guideContent',
@@ -256,12 +262,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'fishingParkMap',
           path: '/fishingParkMap',
-          builder: (context, params) => const FishingParkMapWidget(),
+          builder: (context, params) => FishingParkMapWidget(),
         ),
         FFRoute(
           name: 'carrot_liked',
           path: '/carrotLiked',
-          builder: (context, params) => const CarrotLikedWidget(),
+          builder: (context, params) => CarrotLikedWidget(),
         ),
         FFRoute(
           name: 'carrot_search',
@@ -276,7 +282,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'exploreMap_travel',
           path: '/exploreMapTravel',
-          builder: (context, params) => const ExploreMapTravelWidget(),
+          builder: (context, params) => ExploreMapTravelWidget(),
         ),
         FFRoute(
           name: 'carrot_searchResult',
@@ -291,17 +297,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'travel_list',
           path: '/travelList',
-          builder: (context, params) => const TravelListWidget(),
+          builder: (context, params) => TravelListWidget(),
         ),
         FFRoute(
           name: 'shoppingGuide',
           path: '/shoppingGuide',
-          builder: (context, params) => const ShoppingGuideWidget(),
+          builder: (context, params) => ShoppingGuideWidget(),
         ),
         FFRoute(
           name: 'fishingBusMap',
           path: '/fishingBusMap',
-          builder: (context, params) => const FishingBusMapWidget(),
+          builder: (context, params) => FishingBusMapWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -542,7 +548,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

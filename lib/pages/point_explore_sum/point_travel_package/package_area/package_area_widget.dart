@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package_area_model.dart';
 export 'package_area_model.dart';
 
@@ -44,7 +45,7 @@ class _PackageAreaWidgetState extends State<PackageAreaWidget> {
     return Material(
       color: Colors.transparent,
       elevation: 2.0,
-      shape: const RoundedRectangleBorder(
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
@@ -53,7 +54,7 @@ class _PackageAreaWidgetState extends State<PackageAreaWidget> {
         ),
       ),
       child: ClipRRect(
-        borderRadius: const BorderRadius.only(
+        borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
           topLeft: Radius.circular(12.0),
@@ -64,7 +65,7 @@ class _PackageAreaWidgetState extends State<PackageAreaWidget> {
           height: 279.0,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).primaryBackground,
-            borderRadius: const BorderRadius.only(
+            borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(0.0),
               bottomRight: Radius.circular(0.0),
               topLeft: Radius.circular(12.0),
@@ -72,7 +73,7 @@ class _PackageAreaWidgetState extends State<PackageAreaWidget> {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(18.0, 21.0, 18.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(18.0, 21.0, 18.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -104,7 +105,7 @@ class _PackageAreaWidgetState extends State<PackageAreaWidget> {
                   clipBehavior: Clip.none,
                   children: [
                     FlutterFlowChoiceChips(
-                      options: const [
+                      options: [
                         ChipData('경기권'),
                         ChipData('충청권'),
                         ChipData('전라권'),
@@ -180,9 +181,9 @@ class _PackageAreaWidgetState extends State<PackageAreaWidget> {
                   options: FFButtonOptions(
                     height: 40.0,
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primaryText,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily:
@@ -193,14 +194,14 @@ class _PackageAreaWidgetState extends State<PackageAreaWidget> {
                               FlutterFlowTheme.of(context).titleSmallFamily),
                         ),
                     elevation: 3.0,
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
-              ].divide(const SizedBox(height: 8.0)),
+              ].divide(SizedBox(height: 8.0)),
             ),
           ),
         ),

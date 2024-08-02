@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/carrot_sum/carrot_nav_bar/carrot_nav_bar_widget.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
@@ -57,20 +58,20 @@ class _CarrotSearchWidgetState extends State<CarrotSearchWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(64.0),
+          preferredSize: Size.fromHeight(64.0),
           child: AppBar(
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             automaticallyImplyLeading: false,
             leading: Align(
-              alignment: const AlignmentDirectional(-1.0, -3.7),
+              alignment: AlignmentDirectional(-1.0, -3.7),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                 child: FlutterFlowIconButton(
                   borderColor: Colors.transparent,
                   borderRadius: 30.0,
                   borderWidth: 1.0,
                   buttonSize: 60.0,
-                  icon: const Icon(
+                  icon: Icon(
                     Icons.arrow_back_ios,
                     color: Colors.black,
                     size: 30.0,
@@ -81,10 +82,10 @@ class _CarrotSearchWidgetState extends State<CarrotSearchWidget> {
                 ),
               ),
             ),
-            actions: const [],
+            actions: [],
             flexibleSpace: FlexibleSpaceBar(
               title: Align(
-                alignment: const AlignmentDirectional(0.0, 0.8),
+                alignment: AlignmentDirectional(0.0, 0.8),
                 child: Text(
                   '당근낚시',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -110,7 +111,7 @@ class _CarrotSearchWidgetState extends State<CarrotSearchWidget> {
           child: Stack(
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -141,7 +142,7 @@ class _CarrotSearchWidgetState extends State<CarrotSearchWidget> {
                             width: 32.0,
                             height: 32.0,
                             clipBehavior: Clip.antiAlias,
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
                               shape: BoxShape.circle,
                             ),
                             child: Image.asset(
@@ -152,14 +153,14 @@ class _CarrotSearchWidgetState extends State<CarrotSearchWidget> {
                         ),
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
                             child: TextFormField(
                               controller: _model.textController,
                               focusNode: _model.textFieldFocusNode,
                               onChanged: (_) => EasyDebounce.debounce(
                                 '_model.textController',
-                                const Duration(milliseconds: 2000),
+                                Duration(milliseconds: 2000),
                                 () async {
                                   FFAppState().searchText =
                                       _model.textController.text;
@@ -248,7 +249,7 @@ class _CarrotSearchWidgetState extends State<CarrotSearchWidget> {
                     Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        const Row(
+                        Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [],
                         ),
@@ -305,23 +306,23 @@ class _CarrotSearchWidgetState extends State<CarrotSearchWidget> {
                                     ),
                                   ],
                                 );
-                              }).divide(const SizedBox(height: 8.0)),
+                              }).divide(SizedBox(height: 8.0)),
                             );
                           },
                         ),
                       ],
                     ),
-                  ].divide(const SizedBox(height: 8.0)),
+                  ].divide(SizedBox(height: 8.0)),
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 0.0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
                   child: wrapWithModel(
                     model: _model.carrotNavBarModel,
                     updateCallback: () => setState(() {}),
-                    child: const CarrotNavBarWidget(),
+                    child: CarrotNavBarWidget(),
                   ),
                 ),
               ),

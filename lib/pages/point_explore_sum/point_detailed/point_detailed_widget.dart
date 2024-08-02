@@ -5,9 +5,11 @@ import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/point_explore_sum/review_bottomsheet/review_bottomsheet_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'point_detailed_model.dart';
 export 'point_detailed_model.dart';
@@ -47,7 +49,7 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<TBPointRecord>(
-      stream: TBPointRecord.getDocument(widget.pointRefSW!),
+      stream: TBPointRecord.getDocument(widget!.pointRefSW!),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -80,7 +82,7 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
               backgroundColor: Colors.white,
               automaticallyImplyLeading: false,
               title: Align(
-                alignment: const AlignmentDirectional(0.0, 0.0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: Text(
                   pointDetailedTBPointRecord.pointName,
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -93,21 +95,21 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                       ),
                 ),
               ),
-              actions: const [],
+              actions: [],
               centerTitle: false,
               elevation: 2.0,
             ),
             body: SafeArea(
               top: true,
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
                 child: ListView(
                   padding: EdgeInsets.zero,
                   scrollDirection: Axis.vertical,
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 20.0, 24.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(24.0, 20.0, 24.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -135,7 +137,7 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                                         fit: BoxFit.cover,
                                       ),
                                     );
-                                  }).divide(const SizedBox(width: 8.0)),
+                                  }).divide(SizedBox(width: 8.0)),
                                 ),
                               );
                             },
@@ -210,7 +212,7 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                             color: FlutterFlowTheme.of(context).secondary,
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 10.0, 0.0, 0.0),
                             child: StreamBuilder<List<TBPointTagsRecord>>(
                               stream: queryTBPointTagsRecord(
@@ -276,7 +278,7 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                                                     height: 56.0,
                                                     clipBehavior:
                                                         Clip.antiAlias,
-                                                    decoration: const BoxDecoration(
+                                                    decoration: BoxDecoration(
                                                       shape: BoxShape.circle,
                                                     ),
                                                     child: Image.network(
@@ -302,7 +304,7 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                                                                       'PretendardSeries'),
                                                         ),
                                                   ),
-                                                ].divide(const SizedBox(height: 8.0)),
+                                                ].divide(SizedBox(height: 8.0)),
                                               ),
                                             );
                                           }),
@@ -314,12 +316,12 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                               },
                             ),
                           ),
-                        ].divide(const SizedBox(height: 8.0)),
+                        ].divide(SizedBox(height: 8.0)),
                       ),
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -327,7 +329,7 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(-1.0, -1.0),
+                                alignment: AlignmentDirectional(-1.0, -1.0),
                                 child: Text(
                                   '포인트 소개',
                                   style: FlutterFlowTheme.of(context)
@@ -346,9 +348,9 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(-1.0, -1.0),
+                                alignment: AlignmentDirectional(-1.0, -1.0),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 20.0, 16.0, 20.0),
                                   child: Text(
                                     pointDetailedTBPointRecord
@@ -372,7 +374,7 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                             ],
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 16.0),
                             child: Container(
                               width: double.infinity,
@@ -385,7 +387,7 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(-1.0, -1.0),
+                                    alignment: AlignmentDirectional(-1.0, -1.0),
                                     child: Text(
                                       '주변시설 및 특이사항',
                                       style: FlutterFlowTheme.of(context)
@@ -405,9 +407,9 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(-1.0, -1.0),
+                                    alignment: AlignmentDirectional(-1.0, -1.0),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           16.0, 12.0, 16.0, 0.0),
                                       child: Text(
                                         '주변시설 : ${pointDetailedTBPointRecord.pointArround}',
@@ -431,9 +433,9 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(-1.0, -1.0),
+                                    alignment: AlignmentDirectional(-1.0, -1.0),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           16.0, 12.0, 16.0, 0.0),
                                       child: Text(
                                         '특이사항 : ${pointDetailedTBPointRecord.pointSpecialNote}',
@@ -456,7 +458,7 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                                       ),
                                     ),
                                   ),
-                                ].divide(const SizedBox(height: 4.0)),
+                                ].divide(SizedBox(height: 4.0)),
                               ),
                             ),
                           ),
@@ -471,7 +473,7 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Align(
-                                  alignment: const AlignmentDirectional(-1.0, -1.0),
+                                  alignment: AlignmentDirectional(-1.0, -1.0),
                                   child: Text(
                                     '추천 조법',
                                     style: FlutterFlowTheme.of(context)
@@ -577,7 +579,7 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                                                         clipBehavior:
                                                             Clip.antiAlias,
                                                         decoration:
-                                                            const BoxDecoration(
+                                                            BoxDecoration(
                                                           shape:
                                                               BoxShape.circle,
                                                         ),
@@ -609,7 +611,7 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                                                                 ),
                                                       ),
                                                     ].divide(
-                                                        const SizedBox(height: 8.0)),
+                                                        SizedBox(height: 8.0)),
                                                   ),
                                                 ),
                                               );
@@ -620,7 +622,7 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                                     );
                                   },
                                 ),
-                              ].divide(const SizedBox(height: 4.0)),
+                              ].divide(SizedBox(height: 4.0)),
                             ),
                           ),
                           Container(
@@ -730,7 +732,7 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                                     ),
                                   ],
                                 ),
-                              ].divide(const SizedBox(height: 8.0)),
+                              ].divide(SizedBox(height: 8.0)),
                             ),
                           ),
                         ],
@@ -738,12 +740,12 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Align(
-                            alignment: const AlignmentDirectional(-1.0, -1.0),
+                            alignment: AlignmentDirectional(-1.0, -1.0),
                             child: Text(
                               '주 어종',
                               style: FlutterFlowTheme.of(context)
@@ -821,7 +823,7 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                                                   width: 56.0,
                                                   height: 56.0,
                                                   clipBehavior: Clip.antiAlias,
-                                                  decoration: const BoxDecoration(
+                                                  decoration: BoxDecoration(
                                                     shape: BoxShape.circle,
                                                   ),
                                                   child: Image.network(
@@ -846,7 +848,7 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                                                                 'PretendardSeries'),
                                                       ),
                                                 ),
-                                              ].divide(const SizedBox(height: 8.0)),
+                                              ].divide(SizedBox(height: 8.0)),
                                             ),
                                           );
                                         }),
@@ -867,7 +869,7 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                         color: FlutterFlowTheme.of(context).primaryBackground,
                       ),
                       child: Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 0.0, 20.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -892,11 +894,11 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
-                                          child: SizedBox(
+                                          child: Container(
                                             height: 520.0,
                                             child: ReviewBottomsheetWidget(
                                               reviewPointRef:
-                                                  widget.pointRefSW!,
+                                                  widget!.pointRefSW!,
                                             ),
                                           ),
                                         ),
@@ -908,9 +910,9 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                               text: '리뷰작성',
                               options: FFButtonOptions(
                                 height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).primary,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -926,7 +928,7 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                                                   .titleSmallFamily),
                                     ),
                                 elevation: 3.0,
-                                borderSide: const BorderSide(
+                                borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),
@@ -939,10 +941,10 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                       child: StreamBuilder<List<TBUserReviewPointRecord>>(
                         stream: queryTBUserReviewPointRecord(
-                          parent: widget.pointRefSW,
+                          parent: widget!.pointRefSW,
                           limit: 3,
                         ),
                         builder: (context, snapshot) {
@@ -1004,7 +1006,7 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                                           .primaryBackground,
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           8.0, 8.0, 8.0, 8.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -1035,7 +1037,7 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                                                 width: 36.0,
                                                 height: 36.0,
                                                 clipBehavior: Clip.antiAlias,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   shape: BoxShape.circle,
                                                 ),
                                                 child: Image.network(
@@ -1081,7 +1083,7 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                                                               .bodyMediumFamily),
                                                 ),
                                           ),
-                                        ].divide(const SizedBox(height: 8.0)),
+                                        ].divide(SizedBox(height: 8.0)),
                                       ),
                                     ),
                                   );
@@ -1092,7 +1094,7 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                         },
                       ),
                     ),
-                  ].divide(const SizedBox(height: 8.0)),
+                  ].divide(SizedBox(height: 8.0)),
                 ),
               ),
             ),

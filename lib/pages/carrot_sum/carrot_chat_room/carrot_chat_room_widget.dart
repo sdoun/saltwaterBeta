@@ -4,12 +4,15 @@ import '/backend/push_notifications/push_notifications_util.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/carrot_sum/carrot_nav_bar/carrot_nav_bar_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'carrot_chat_room_model.dart';
 export 'carrot_chat_room_model.dart';
 
@@ -39,7 +42,7 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       await actions.messageRead(
         currentUserReference!,
-        widget.chatRoom!,
+        widget!.chatRoom!,
       );
     });
 
@@ -59,7 +62,7 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<TBChatRoomRecord>(
-      stream: TBChatRoomRecord.getDocument(widget.chatRoom!),
+      stream: TBChatRoomRecord.getDocument(widget!.chatRoom!),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -89,21 +92,21 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             appBar: PreferredSize(
-              preferredSize: const Size.fromHeight(64.0),
+              preferredSize: Size.fromHeight(64.0),
               child: AppBar(
                 backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
                 automaticallyImplyLeading: false,
                 leading: Align(
-                  alignment: const AlignmentDirectional(-1.0, -3.7),
+                  alignment: AlignmentDirectional(-1.0, -3.7),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                     child: FlutterFlowIconButton(
                       borderColor: Colors.transparent,
                       borderRadius: 30.0,
                       borderWidth: 1.0,
                       buttonSize: 60.0,
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.arrow_back_ios,
                         color: Colors.black,
                         size: 30.0,
@@ -114,10 +117,10 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                     ),
                   ),
                 ),
-                actions: const [],
+                actions: [],
                 flexibleSpace: FlexibleSpaceBar(
                   title: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.8),
+                    alignment: AlignmentDirectional(0.0, 0.8),
                     child: Text(
                       '채팅',
                       style:
@@ -145,17 +148,17 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
               child: Stack(
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(
+                      padding: EdgeInsetsDirectional.fromSTEB(
                           12.0, 20.0, 12.0, 160.0),
                       child: StreamBuilder<List<TBChatRecord>>(
                         stream: queryTBChatRecord(
-                          parent: widget.chatRoom,
+                          parent: widget!.chatRoom,
                           queryBuilder: (tBChatRecord) => tBChatRecord
                               .where(
                                 'chat_chatRoom',
-                                isEqualTo: widget.chatRoom,
+                                isEqualTo: widget!.chatRoom,
                               )
                               .whereIn(
                                   'chat_sendBy',
@@ -194,7 +197,7 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                       currentUserReference?.id)
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-0.95, 0.0),
+                                          AlignmentDirectional(-0.95, 0.0),
                                       child: Container(
                                         width:
                                             MediaQuery.sizeOf(context).width *
@@ -211,7 +214,7 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                         ),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 8.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -279,7 +282,7 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                                           clipBehavior:
                                                               Clip.antiAlias,
                                                           decoration:
-                                                              const BoxDecoration(
+                                                              BoxDecoration(
                                                             shape:
                                                                 BoxShape.circle,
                                                           ),
@@ -425,7 +428,7 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             1.0, 1.0),
                                                     child: Text(
                                                       valueOrDefault<String>(
@@ -455,7 +458,7 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                                   ),
                                                 ],
                                               ),
-                                            ].divide(const SizedBox(width: 8.0)),
+                                            ].divide(SizedBox(width: 8.0)),
                                           ),
                                         ),
                                       ),
@@ -464,7 +467,7 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                       currentUserReference?.id)
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(0.97, 0.0),
+                                          AlignmentDirectional(0.97, 0.0),
                                       child: Container(
                                         width:
                                             MediaQuery.sizeOf(context).width *
@@ -481,7 +484,7 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                         ),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 8.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -546,7 +549,7 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             1.0, 1.0),
                                                     child: Text(
                                                       valueOrDefault<String>(
@@ -629,7 +632,7 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                                         clipBehavior:
                                                             Clip.antiAlias,
                                                         decoration:
-                                                            const BoxDecoration(
+                                                            BoxDecoration(
                                                           shape:
                                                               BoxShape.circle,
                                                         ),
@@ -714,7 +717,7 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                                   ),
                                                 ],
                                               ),
-                                            ].divide(const SizedBox(width: 8.0)),
+                                            ].divide(SizedBox(width: 8.0)),
                                           ),
                                         ),
                                       ),
@@ -728,16 +731,16 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 0.8),
+                    alignment: AlignmentDirectional(0.0, 0.8),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 12.0),
                               child: TextFormField(
                                 controller: _model.textController,
@@ -769,7 +772,7 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                                     .labelMediumFamily),
                                       ),
                                   enabledBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
+                                    borderSide: BorderSide(
                                       color: Color(0xFFE3E5FF),
                                       width: 2.0,
                                     ),
@@ -832,18 +835,18 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                   FirebaseFirestore.instance.batch();
                               try {
                                 firestoreBatch.update(
-                                    widget.chatRoom!,
+                                    widget!.chatRoom!,
                                     createTBChatRoomRecordData(
                                       roomUsed: true,
                                     ));
 
                                 firestoreBatch.set(
-                                    TBChatRecord.createDoc(widget.chatRoom!),
+                                    TBChatRecord.createDoc(widget!.chatRoom!),
                                     createTBChatRecordData(
                                       chatSendBy: currentUserReference?.id,
                                       chatContent: _model.textController.text,
                                       chatCreatedAt: getCurrentTimestamp,
-                                      chatChatRoom: widget.chatRoom,
+                                      chatChatRoom: widget!.chatRoom,
                                       chatCreatedBy: currentUserReference,
                                       chatIsRead: false,
                                     ));
@@ -868,14 +871,14 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                               }
                             },
                           ),
-                        ].divide(const SizedBox(width: 8.0)),
+                        ].divide(SizedBox(width: 8.0)),
                       ),
                     ),
                   ),
                   wrapWithModel(
                     model: _model.carrotNavBarModel,
                     updateCallback: () => setState(() {}),
-                    child: const CarrotNavBarWidget(),
+                    child: CarrotNavBarWidget(),
                   ),
                 ],
               ),

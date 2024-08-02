@@ -9,7 +9,9 @@ import '/pages/point_explore_sum/point_explore_seawall/seawall_3rd_filter/seawal
 import '/pages/point_explore_sum/point_travel_package/package_area/package_area_widget.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -58,7 +60,7 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
             () async {
               await _model.columnController?.animateTo(
                 _model.columnController!.position.maxScrollExtent,
-                duration: const Duration(milliseconds: 100),
+                duration: Duration(milliseconds: 100),
                 curve: Curves.ease,
               );
 
@@ -100,7 +102,7 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
               title: Stack(
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Text(
                       '여행상품',
                       style:
@@ -117,7 +119,7 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                   ),
                 ],
               ),
-              actions: const [],
+              actions: [],
               centerTitle: false,
               elevation: 2.0,
             ),
@@ -127,7 +129,7 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                     child: SingleChildScrollView(
                       controller: _model.columnController,
                       child: Column(
@@ -141,14 +143,14 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                                   .primaryBackground,
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 12.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(-1.0, 0.0),
+                                    alignment: AlignmentDirectional(-1.0, 0.0),
                                     child: SingleChildScrollView(
                                       scrollDirection: Axis.horizontal,
                                       controller: _model.rowController,
@@ -157,7 +159,7 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                                         children: [
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: InkWell(
                                               splashColor: Colors.transparent,
                                               focusColor: Colors.transparent,
@@ -204,7 +206,7 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                                                     ),
                                                   ),
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Row(
                                                     mainAxisSize:
@@ -214,7 +216,7 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     8.0,
                                                                     0.0,
@@ -277,7 +279,7 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                                                             .viewInsetsOf(
                                                                 context),
                                                         child:
-                                                            const PackageAreaWidget(),
+                                                            PackageAreaWidget(),
                                                       ),
                                                     ),
                                                   );
@@ -314,10 +316,10 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                                                     color: Colors.black,
                                                   ),
                                                 ),
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           4.0, 0.0, 0.0, 0.0),
                                                   child: Row(
@@ -347,7 +349,7 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                                                                       'PretendardSeries'),
                                                             ),
                                                       ),
-                                                      const Align(
+                                                      Align(
                                                         alignment:
                                                             AlignmentDirectional(
                                                                 1.0, 0.0),
@@ -403,7 +405,7 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                                                             .viewInsetsOf(
                                                                 context),
                                                         child:
-                                                            const Ocean2ndFilterWidget(),
+                                                            Ocean2ndFilterWidget(),
                                                       ),
                                                     ),
                                                   );
@@ -439,10 +441,10 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                                                     color: Colors.black,
                                                   ),
                                                 ),
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           4.0, 0.0, 0.0, 0.0),
                                                   child: Row(
@@ -481,7 +483,7 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                                                                       'PretendardSeries'),
                                                             ),
                                                       ),
-                                                      const Align(
+                                                      Align(
                                                         alignment:
                                                             AlignmentDirectional(
                                                                 1.0, 0.0),
@@ -537,7 +539,7 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                                                             .viewInsetsOf(
                                                                 context),
                                                         child:
-                                                            const Seawall3rdFilterWidget(),
+                                                            Seawall3rdFilterWidget(),
                                                       ),
                                                     ),
                                                   );
@@ -573,10 +575,10 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                                                     color: Colors.black,
                                                   ),
                                                 ),
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           4.0, 0.0, 0.0, 0.0),
                                                   child: Row(
@@ -606,7 +608,7 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                                                                       'PretendardSeries'),
                                                             ),
                                                       ),
-                                                      const Align(
+                                                      Align(
                                                         alignment:
                                                             AlignmentDirectional(
                                                                 1.0, 0.0),
@@ -632,7 +634,7 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                                               ),
                                             ),
                                           ),
-                                        ].divide(const SizedBox(width: 8.0)),
+                                        ].divide(SizedBox(width: 8.0)),
                                       ),
                                     ),
                                   ),
@@ -645,10 +647,10 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                                       width: MediaQuery.sizeOf(context).width *
                                           0.8,
                                       height: 40.0,
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 0.0),
                                       iconPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
+                                          EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color: Colors.black,
                                       textStyle: FlutterFlowTheme.of(context)
@@ -663,14 +665,14 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                                                     'PretendardSeries'),
                                           ),
                                       elevation: 3.0,
-                                      borderSide: const BorderSide(
+                                      borderSide: BorderSide(
                                         color: Colors.transparent,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                   ),
-                                ].divide(const SizedBox(height: 8.0)),
+                                ].divide(SizedBox(height: 8.0)),
                               ),
                             ),
                           ),
@@ -684,7 +686,7 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                                     .primaryBackground,
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
-                              child: SizedBox(
+                              child: Container(
                                 width: double.infinity,
                                 height: double.infinity,
                                 child: custom_widgets.GooglemapCustom(
@@ -721,22 +723,22 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 1.0),
+                    alignment: AlignmentDirectional(0.0, 1.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
                       child: wrapWithModel(
                         model: _model.customNavbarModel,
                         updateCallback: () => setState(() {}),
-                        child: const CustomNavbarWidget(),
+                        child: CustomNavbarWidget(),
                       ),
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 1.0),
+                    alignment: AlignmentDirectional(0.0, 1.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 80.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 80.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
