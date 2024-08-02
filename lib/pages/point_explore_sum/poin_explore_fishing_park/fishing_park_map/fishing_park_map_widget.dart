@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/custom_navbar_widget.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
@@ -1028,50 +1027,17 @@ class _FishingParkMapWidgetState extends State<FishingParkMapWidget> {
                                   child: SizedBox(
                                     width: double.infinity,
                                     height: double.infinity,
-                                    child: custom_widgets.GooglemapCustom(
+                                    child: custom_widgets.NaverMapWidgetPoint(
                                       width: double.infinity,
                                       height: double.infinity,
-                                      centerLatitude: 37.0,
-                                      centerLongitude: 127.0,
-                                      showLocation: true,
-                                      showCompass: false,
-                                      showMaptoolbar: false,
-                                      showTraffic: false,
-                                      allowZoom: true,
-                                      showZoomControls: true,
-                                      defaultZoom: 7.0,
-                                      point: containerTBPointRecordList,
-                                      currentUserRef: currentUserReference!,
-                                      onClickMarker: (pointData) async {
-                                        context.pushNamed(
-                                          'point_detailed',
-                                          queryParameters: {
-                                            'pointRefSW': serializeParam(
-                                              pointData?.reference,
-                                              ParamType.DocumentReference,
-                                            ),
-                                          }.withoutNulls,
-                                        );
-                                      },
+                                      initLat: 37.0,
+                                      initLng: 127.0,
+                                      pointList: containerTBPointRecordList,
                                     ),
                                   ),
                                 ),
                               );
                             },
-                          ),
-                          const Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 40.0),
-                            child: SizedBox(
-                              width: double.infinity,
-                              height: 80.0,
-                              child: custom_widgets.NaverMapWidgetPoint(
-                                width: double.infinity,
-                                height: 80.0,
-                                initLat: 37.0,
-                                initLng: 127.0,
-                              ),
-                            ),
                           ),
                         ],
                       ),
