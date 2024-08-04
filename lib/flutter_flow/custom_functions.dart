@@ -69,7 +69,7 @@ List<String>? sW3rdFilterBottomsheet(
 ) {
   List<String> convinresult = [];
   if (carcamp) {
-    convinresult.add('캠핑가능');
+    convinresult.add('차박가능');
   }
 
   if (cancook) {

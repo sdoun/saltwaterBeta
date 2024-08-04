@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'ocean3rd_filter_model.dart';
 export 'ocean3rd_filter_model.dart';
 
@@ -43,7 +42,7 @@ class _Ocean3rdFilterWidgetState extends State<Ocean3rdFilterWidget> {
     return Material(
       color: Colors.transparent,
       elevation: 3.0,
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
@@ -56,7 +55,7 @@ class _Ocean3rdFilterWidgetState extends State<Ocean3rdFilterWidget> {
         height: 380.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             bottomLeft: Radius.circular(0.0),
             bottomRight: Radius.circular(0.0),
             topLeft: Radius.circular(12.0),
@@ -64,7 +63,7 @@ class _Ocean3rdFilterWidgetState extends State<Ocean3rdFilterWidget> {
           ),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(18.0, 21.0, 18.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(18.0, 21.0, 18.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -84,38 +83,38 @@ class _Ocean3rdFilterWidgetState extends State<Ocean3rdFilterWidget> {
                 color: FlutterFlowTheme.of(context).secondaryText,
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                       child: Container(
                         width: 112.0,
                         height: 44.0,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: BorderRadius.only(
+                          borderRadius: const BorderRadius.only(
                             bottomLeft: Radius.circular(8.0),
                             bottomRight: Radius.circular(8.0),
                             topLeft: Radius.circular(8.0),
                             topRight: Radius.circular(8.0),
                           ),
                           border: Border.all(
-                            color: Color(0xFF545454),
+                            color: const Color(0xFF545454),
                             width: 1.0,
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               5.0, 0.0, 5.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Theme(
                                   data: ThemeData(
                                     checkboxTheme: CheckboxThemeData(
@@ -149,7 +148,7 @@ class _Ocean3rdFilterWidgetState extends State<Ocean3rdFilterWidget> {
                                 ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   '캠핑가능',
                                   style: FlutterFlowTheme.of(context)
@@ -173,35 +172,35 @@ class _Ocean3rdFilterWidgetState extends State<Ocean3rdFilterWidget> {
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                         child: Container(
                           width: 111.0,
                           height: 44.0,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                               bottomLeft: Radius.circular(8.0),
                               bottomRight: Radius.circular(8.0),
                               topLeft: Radius.circular(8.0),
                               topRight: Radius.circular(8.0),
                             ),
                             border: Border.all(
-                              color: Color(0xFF545454),
+                              color: const Color(0xFF545454),
                               width: 1.0,
                             ),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 5.0, 0.0, 5.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Theme(
                                     data: ThemeData(
                                       checkboxTheme: CheckboxThemeData(
@@ -235,7 +234,7 @@ class _Ocean3rdFilterWidgetState extends State<Ocean3rdFilterWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     '취사가능',
                                     style: FlutterFlowTheme.of(context)
@@ -264,38 +263,38 @@ class _Ocean3rdFilterWidgetState extends State<Ocean3rdFilterWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                       child: Container(
                         width: 128.0,
                         height: 44.0,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: BorderRadius.only(
+                          borderRadius: const BorderRadius.only(
                             bottomLeft: Radius.circular(8.0),
                             bottomRight: Radius.circular(8.0),
                             topLeft: Radius.circular(8.0),
                             topRight: Radius.circular(8.0),
                           ),
                           border: Border.all(
-                            color: Color(0xFF545454),
+                            color: const Color(0xFF545454),
                             width: 1.0,
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               5.0, 0.0, 5.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Theme(
                                   data: ThemeData(
                                     checkboxTheme: CheckboxThemeData(
@@ -329,7 +328,7 @@ class _Ocean3rdFilterWidgetState extends State<Ocean3rdFilterWidget> {
                                 ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   '야간가로등',
                                   style: FlutterFlowTheme.of(context)
@@ -356,7 +355,7 @@ class _Ocean3rdFilterWidgetState extends State<Ocean3rdFilterWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 36.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 36.0, 0.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -371,7 +370,7 @@ class _Ocean3rdFilterWidgetState extends State<Ocean3rdFilterWidget> {
                   child: Container(
                     width: 100.0,
                     height: 43.0,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.black,
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(8.0),
@@ -381,7 +380,7 @@ class _Ocean3rdFilterWidgetState extends State<Ocean3rdFilterWidget> {
                       ),
                     ),
                     child: Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Text(
                         '선택완료',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(

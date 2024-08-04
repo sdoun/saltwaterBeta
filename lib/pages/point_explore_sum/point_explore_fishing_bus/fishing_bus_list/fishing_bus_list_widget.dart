@@ -59,15 +59,15 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
           backgroundColor: Colors.white,
           automaticallyImplyLeading: false,
           leading: Align(
-            alignment: AlignmentDirectional(-1.0, -3.7),
+            alignment: const AlignmentDirectional(-1.0, -3.7),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
               child: FlutterFlowIconButton(
                 borderColor: Colors.transparent,
                 borderRadius: 30.0,
                 borderWidth: 1.0,
                 buttonSize: 60.0,
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back_ios,
                   color: Colors.black,
                   size: 30.0,
@@ -79,7 +79,7 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
             ),
           ),
           title: Align(
-            alignment: AlignmentDirectional(0.0, 0.0),
+            alignment: const AlignmentDirectional(0.0, 0.0),
             child: Text(
               '낚시버스',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -92,7 +92,7 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                   ),
             ),
           ),
-          actions: [],
+          actions: const [],
           centerTitle: false,
           elevation: 2.0,
         ),
@@ -101,13 +101,13 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
           child: Stack(
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: Container(
                         width: double.infinity,
                         height: 98.0,
@@ -118,7 +118,7 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 8.0, 0.0),
                               child: SingleChildScrollView(
                                 scrollDirection: Axis.horizontal,
@@ -168,7 +168,7 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                           ),
                                         ),
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           '전체',
                                           style: FlutterFlowTheme.of(context)
@@ -236,7 +236,7 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                                   padding:
                                                       MediaQuery.viewInsetsOf(
                                                           context),
-                                                  child: BusExtarFilterWidget(),
+                                                  child: const BusExtarFilterWidget(),
                                                 ),
                                               ),
                                             );
@@ -266,10 +266,10 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                           ),
                                         ),
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 8.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -310,10 +310,10 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                                     ),
                                               ),
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     1.07, 0.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           4.0, 0.0, 4.0, 0.0),
                                                   child: FlutterFlowIconButton(
@@ -323,7 +323,7 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                                     borderWidth: 1.0,
                                                     buttonSize: 28.0,
                                                     fillColor:
-                                                        Color(0x00FF3366),
+                                                        const Color(0x00FF3366),
                                                     icon: FaIcon(
                                                       FontAwesomeIcons.eraser,
                                                       color: ((FFAppState()
@@ -376,7 +376,7 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Container(
+                                          SizedBox(
                                             width: 140.0,
                                             height: 36.0,
                                             child: custom_widgets
@@ -414,16 +414,16 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                           ),
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(1.07, 0.0),
+                                                const AlignmentDirectional(1.07, 0.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(4.0, 0.0, 4.0, 0.0),
                                               child: FlutterFlowIconButton(
                                                 borderColor: Colors.transparent,
                                                 borderRadius: 20.0,
                                                 borderWidth: 1.0,
                                                 buttonSize: 36.0,
-                                                fillColor: Color(0x00FF3366),
+                                                fillColor: const Color(0x00FF3366),
                                                 icon: FaIcon(
                                                   FontAwesomeIcons.eraser,
                                                   color: (FFAppState()
@@ -452,7 +452,7 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           4.0, 0.0, 4.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -480,7 +480,7 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                                     padding:
                                                         MediaQuery.viewInsetsOf(
                                                             context),
-                                                    child: BusFishesWidget(),
+                                                    child: const BusFishesWidget(),
                                                   ),
                                                 ),
                                               );
@@ -511,10 +511,10 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                             ),
                                           ),
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 8.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -522,7 +522,7 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                                   MainAxisAlignment.center,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           4.0, 0.0, 0.0, 0.0),
                                                   child: Builder(
@@ -547,7 +547,7 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                                                         .selectedFishes
                                                                         ?.last
                                                                 ? fishFilterItem
-                                                                : '${fishFilterItem}, ',
+                                                                : '$fishFilterItem, ',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -604,7 +604,7 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                                                 'PretendardSeries'),
                                                       ),
                                                 ),
-                                                Align(
+                                                const Align(
                                                   alignment:
                                                       AlignmentDirectional(
                                                           1.0, 0.0),
@@ -628,7 +628,7 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           4.0, 0.0, 4.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -656,7 +656,7 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                                     padding:
                                                         MediaQuery.viewInsetsOf(
                                                             context),
-                                                    child: Container(
+                                                    child: const SizedBox(
                                                       height: 540.0,
                                                       child: BusAreaWidget(),
                                                     ),
@@ -687,10 +687,10 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                             ),
                                           ),
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 8.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -698,7 +698,7 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                                   MainAxisAlignment.center,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           4.0, 0.0, 0.0, 0.0),
                                                   child: Builder(
@@ -723,7 +723,7 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                                                         .busArea
                                                                         .last
                                                                 ? areaFilterItem
-                                                                : '${areaFilterItem}, ',
+                                                                : '$areaFilterItem, ',
                                                             style: FlutterFlowTheme
                                                                     .of(context)
                                                                 .bodyMedium
@@ -786,11 +786,11 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                                   ),
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           1.0, 0.0),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(3.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Icon(
@@ -816,7 +816,7 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                         ),
                                       ),
                                     ),
-                                  ].divide(SizedBox(width: 8.0)),
+                                  ].divide(const SizedBox(width: 8.0)),
                                 ),
                               ),
                             ),
@@ -837,9 +837,9 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                               options: FFButtonOptions(
                                 width: double.infinity,
                                 height: 40.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context).primary,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -855,14 +855,14 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                                   .titleSmallFamily),
                                     ),
                                 elevation: 3.0,
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                             ),
-                          ].divide(SizedBox(height: 8.0)),
+                          ].divide(const SizedBox(height: 8.0)),
                         ),
                       ),
                     ),
@@ -906,7 +906,7 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                 FlutterFlowTheme.of(context).primaryBackground,
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 20.0, 0.0, 20.0),
                             child: Builder(
                               builder: (context) {
@@ -919,7 +919,7 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                   scrollDirection: Axis.vertical,
                                   itemCount: busDocLists.length,
                                   separatorBuilder: (_, __) =>
-                                      SizedBox(height: 4.0),
+                                      const SizedBox(height: 4.0),
                                   itemBuilder: (context, busDocListsIndex) {
                                     final busDocListsItem =
                                         busDocLists[busDocListsIndex];
@@ -936,7 +936,7 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .primaryBackground,
-                                          boxShadow: [
+                                          boxShadow: const [
                                             BoxShadow(
                                               blurRadius: 4.0,
                                               color: Color(0x33000000),
@@ -951,7 +951,7 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                         ),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 8.0, 12.0, 8.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -1009,9 +1009,9 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                                                       .bodyMediumFamily),
                                                         ),
                                                   ),
-                                                ].divide(SizedBox(height: 4.0)),
+                                                ].divide(const SizedBox(height: 4.0)),
                                               ),
-                                            ].divide(SizedBox(width: 8.0)),
+                                            ].divide(const SizedBox(width: 8.0)),
                                           ),
                                         ),
                                       ),
@@ -1027,18 +1027,18 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                   ],
                 ),
               ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
+              Align(
+                alignment: const AlignmentDirectional(0.0, 1.0),
                 child: wrapWithModel(
                   model: _model.customNavbarModel,
                   updateCallback: () => setState(() {}),
-                  child: CustomNavbarWidget(),
+                  child: const CustomNavbarWidget(),
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
+                alignment: const AlignmentDirectional(0.0, 1.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 64.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 64.0),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -1051,7 +1051,7 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                       width: 109.0,
                       height: 36.0,
                       decoration: BoxDecoration(
-                        color: Color(0x00E8E8E8),
+                        color: const Color(0x00E8E8E8),
                         image: DecorationImage(
                           fit: BoxFit.cover,
                           image: Image.asset(

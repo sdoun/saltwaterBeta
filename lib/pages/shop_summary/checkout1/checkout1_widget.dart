@@ -3,10 +3,8 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'checkout1_model.dart';
 export 'checkout1_model.dart';
 
@@ -47,11 +45,11 @@ class _Checkout1WidgetState extends State<Checkout1Widget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(120.0),
+          preferredSize: const Size.fromHeight(120.0),
           child: AppBar(
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             automaticallyImplyLeading: false,
-            actions: [],
+            actions: const [],
             flexibleSpace: FlexibleSpaceBar(
               title: Column(
                 mainAxisSize: MainAxisSize.max,
@@ -60,12 +58,12 @@ class _Checkout1WidgetState extends State<Checkout1Widget> {
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 8.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 8.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 0.0, 0.0),
                           child: FlutterFlowIconButton(
                             borderColor: Colors.transparent,
@@ -83,7 +81,7 @@ class _Checkout1WidgetState extends State<Checkout1Widget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               4.0, 0.0, 0.0, 0.0),
                           child: Text(
                             'Back',
@@ -106,7 +104,7 @@ class _Checkout1WidgetState extends State<Checkout1Widget> {
                   Expanded(
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                       child: Text(
                         '장바구니',
                         style:
@@ -140,7 +138,7 @@ class _Checkout1WidgetState extends State<Checkout1Widget> {
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                       child: StreamBuilder<List<TBWishProductsRecord>>(
                         stream: queryTBWishProductsRecord(
                           queryBuilder: (tBWishProductsRecord) =>
@@ -178,7 +176,7 @@ class _Checkout1WidgetState extends State<Checkout1Widget> {
                                   listViewTBWishProductsRecordList[
                                       listViewIndex];
                               return Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 8.0, 16.0, 0.0),
                                 child: StreamBuilder<TBShoppingProductRecord>(
                                   stream: TBShoppingProductRecord.getDocument(
@@ -217,7 +215,7 @@ class _Checkout1WidgetState extends State<Checkout1Widget> {
                                         decoration: BoxDecoration(
                                           color: FlutterFlowTheme.of(context)
                                               .primaryBackground,
-                                          boxShadow: [
+                                          boxShadow: const [
                                             BoxShadow(
                                               blurRadius: 4.0,
                                               color: Color(0x320E151B),
@@ -239,7 +237,7 @@ class _Checkout1WidgetState extends State<Checkout1Widget> {
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     16.0, 8.0, 8.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -264,7 +262,7 @@ class _Checkout1WidgetState extends State<Checkout1Widget> {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           12.0, 0.0, 0.0, 0.0),
                                                   child: Column(
@@ -279,7 +277,7 @@ class _Checkout1WidgetState extends State<Checkout1Widget> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -333,7 +331,7 @@ class _Checkout1WidgetState extends State<Checkout1Widget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     8.0,
@@ -395,7 +393,7 @@ class _Checkout1WidgetState extends State<Checkout1Widget> {
                                                   borderRadius: 30.0,
                                                   borderWidth: 1.0,
                                                   buttonSize: 40.0,
-                                                  icon: Icon(
+                                                  icon: const Icon(
                                                     Icons
                                                         .delete_outline_rounded,
                                                     color: Color(0xFFE86969),
@@ -423,7 +421,7 @@ class _Checkout1WidgetState extends State<Checkout1Widget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 4.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 4.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -445,7 +443,7 @@ class _Checkout1WidgetState extends State<Checkout1Widget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 24.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 24.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -481,7 +479,7 @@ class _Checkout1WidgetState extends State<Checkout1Widget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 24.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 24.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -517,7 +515,7 @@ class _Checkout1WidgetState extends State<Checkout1Widget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 24.0, 24.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 24.0, 24.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -544,7 +542,7 @@ class _Checkout1WidgetState extends State<Checkout1Widget> {
                                 borderRadius: 30.0,
                                 borderWidth: 1.0,
                                 buttonSize: 36.0,
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.info_outlined,
                                   color: Color(0xFF57636C),
                                   size: 18.0,
@@ -580,7 +578,7 @@ class _Checkout1WidgetState extends State<Checkout1Widget> {
               height: 100.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).primary,
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                     blurRadius: 4.0,
                     color: Color(0x320E151B),
@@ -590,14 +588,14 @@ class _Checkout1WidgetState extends State<Checkout1Widget> {
                     ),
                   )
                 ],
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(0.0),
                   bottomRight: Radius.circular(0.0),
                   topLeft: Radius.circular(16.0),
                   topRight: Radius.circular(16.0),
                 ),
               ),
-              alignment: AlignmentDirectional(0.0, -0.35),
+              alignment: const AlignmentDirectional(0.0, -0.35),
               child: Text(
                 'Checkout (\$137.75)',
                 style: FlutterFlowTheme.of(context).headlineMedium.override(

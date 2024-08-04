@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'notification_badge_model.dart';
 export 'notification_badge_model.dart';
 
@@ -41,7 +40,7 @@ class _NotificationBadgeWidgetState extends State<NotificationBadgeWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 1.0),
+      padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 1.0),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
@@ -50,7 +49,7 @@ class _NotificationBadgeWidgetState extends State<NotificationBadgeWidget> {
             BoxShadow(
               blurRadius: 0.0,
               color: FlutterFlowTheme.of(context).primaryBackground,
-              offset: Offset(
+              offset: const Offset(
                 0.0,
                 1.0,
               ),
@@ -59,7 +58,7 @@ class _NotificationBadgeWidgetState extends State<NotificationBadgeWidget> {
           borderRadius: BorderRadius.circular(12.0),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,7 +67,7 @@ class _NotificationBadgeWidgetState extends State<NotificationBadgeWidget> {
                 flex: 4,
                 child: Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 12.0, 12.0),
+                      const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 12.0, 12.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,7 +80,7 @@ class _NotificationBadgeWidgetState extends State<NotificationBadgeWidget> {
                           shape: BoxShape.circle,
                         ),
                         child: Padding(
-                          padding: EdgeInsets.all(2.0),
+                          padding: const EdgeInsets.all(2.0),
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(40.0),
                             child: Image.network(
@@ -95,7 +94,7 @@ class _NotificationBadgeWidgetState extends State<NotificationBadgeWidget> {
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -108,7 +107,7 @@ class _NotificationBadgeWidgetState extends State<NotificationBadgeWidget> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 4.0, 0.0, 0.0),
                                     child: Text(
                                       'Andrew Hernandez',
@@ -144,7 +143,7 @@ class _NotificationBadgeWidgetState extends State<NotificationBadgeWidget> {
                                 ],
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 4.0, 0.0, 0.0),
                                 child: Text(
                                   '@username',
@@ -164,7 +163,7 @@ class _NotificationBadgeWidgetState extends State<NotificationBadgeWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 4.0, 0.0, 0.0),
                                 child: Text(
                                   'FlutterFlow is a visual development platform that allows you to easily create beautiful and responsive user interfaces for your mobile and web applications. ',
@@ -190,7 +189,7 @@ class _NotificationBadgeWidgetState extends State<NotificationBadgeWidget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: Container(
                   width: 12.0,
                   height: 12.0,
@@ -198,7 +197,7 @@ class _NotificationBadgeWidgetState extends State<NotificationBadgeWidget> {
                     color: FlutterFlowTheme.of(context).secondary,
                     shape: BoxShape.circle,
                   ),
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                 ),
               ),
             ],

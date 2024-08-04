@@ -5,11 +5,9 @@ import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'weather_map_model.dart';
 export 'weather_map_model.dart';
 
@@ -74,21 +72,21 @@ class _WeatherMapWidgetState extends State<WeatherMapWidget> {
             resizeToAvoidBottomInset: false,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             appBar: PreferredSize(
-              preferredSize: Size.fromHeight(64.0),
+              preferredSize: const Size.fromHeight(64.0),
               child: AppBar(
                 backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
                 automaticallyImplyLeading: false,
                 leading: Align(
-                  alignment: AlignmentDirectional(-1.0, -3.7),
+                  alignment: const AlignmentDirectional(-1.0, -3.7),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                     child: FlutterFlowIconButton(
                       borderColor: Colors.transparent,
                       borderRadius: 30.0,
                       borderWidth: 1.0,
                       buttonSize: 60.0,
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.arrow_back_ios,
                         color: Colors.black,
                         size: 30.0,
@@ -99,10 +97,10 @@ class _WeatherMapWidgetState extends State<WeatherMapWidget> {
                     ),
                   ),
                 ),
-                actions: [],
+                actions: const [],
                 flexibleSpace: FlexibleSpaceBar(
                   title: Align(
-                    alignment: AlignmentDirectional(0.0, 0.8),
+                    alignment: const AlignmentDirectional(0.0, 0.8),
                     child: Text(
                       '날씨',
                       style:
@@ -131,7 +129,7 @@ class _WeatherMapWidgetState extends State<WeatherMapWidget> {
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -143,7 +141,7 @@ class _WeatherMapWidgetState extends State<WeatherMapWidget> {
                                 FlutterFlowTheme.of(context).primaryBackground,
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 12.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -151,7 +149,7 @@ class _WeatherMapWidgetState extends State<WeatherMapWidget> {
                                 FlutterFlowDropDown<String>(
                                   controller: _model.dropDownValueController ??=
                                       FormFieldController<String>(null),
-                                  options: ['Option 1'],
+                                  options: const ['Option 1'],
                                   onChanged: (val) => setState(
                                       () => _model.dropDownValue = val),
                                   width: 134.0,
@@ -182,7 +180,7 @@ class _WeatherMapWidgetState extends State<WeatherMapWidget> {
                                       .secondaryText,
                                   borderWidth: 1.0,
                                   borderRadius: 8.0,
-                                  margin: EdgeInsetsDirectional.fromSTEB(
+                                  margin: const EdgeInsetsDirectional.fromSTEB(
                                       16.0, 4.0, 16.0, 4.0),
                                   hidesUnderline: true,
                                   isOverButton: true,
@@ -208,7 +206,7 @@ class _WeatherMapWidgetState extends State<WeatherMapWidget> {
                               onCameraIdle: (latLng) =>
                                   _model.googleMapsCenter = latLng,
                               initialLocation: _model.googleMapsCenter ??=
-                                  LatLng(37.0, 127.0),
+                                  const LatLng(37.0, 127.0),
                               markers: weatherMapTBWeatherPointRecordList
                                   .map(
                                     (weatherMapTBWeatherPointRecord) =>
@@ -250,11 +248,11 @@ class _WeatherMapWidgetState extends State<WeatherMapWidget> {
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0.0, 1.0),
+                    alignment: const AlignmentDirectional(0.0, 1.0),
                     child: wrapWithModel(
                       model: _model.customNavbarModel,
                       updateCallback: () => setState(() {}),
-                      child: CustomNavbarWidget(),
+                      child: const CustomNavbarWidget(),
                     ),
                   ),
                 ],

@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -46,7 +45,7 @@ class _OptionDropdownWidgetState extends State<OptionDropdownWidget> {
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().insertAtIndexInChosenOptionList(
-          widget!.optionIndex!, _model.dropDownValue!);
+          widget.optionIndex!, _model.dropDownValue!);
       setState(() {});
     });
 
@@ -65,7 +64,7 @@ class _OptionDropdownWidgetState extends State<OptionDropdownWidget> {
     context.watch<FFAppState>();
 
     return StreamBuilder<TBProductOptionRecord>(
-      stream: TBProductOptionRecord.getDocument(widget!.option!),
+      stream: TBProductOptionRecord.getDocument(widget.option!),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -117,7 +116,7 @@ class _OptionDropdownWidgetState extends State<OptionDropdownWidget> {
             borderColor: FlutterFlowTheme.of(context).primaryText,
             borderWidth: 2.0,
             borderRadius: 8.0,
-            margin: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+            margin: const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
             hidesUnderline: true,
             isOverButton: true,
             isSearchable: false,

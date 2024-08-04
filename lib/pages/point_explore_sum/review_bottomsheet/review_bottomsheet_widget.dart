@@ -4,10 +4,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'review_bottomsheet_model.dart';
 export 'review_bottomsheet_model.dart';
 
@@ -57,7 +55,7 @@ class _ReviewBottomsheetWidgetState extends State<ReviewBottomsheetWidget> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<TBPointRecord>(
-      stream: TBPointRecord.getDocument(widget!.reviewPointRef!),
+      stream: TBPointRecord.getDocument(widget.reviewPointRef!),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -79,7 +77,7 @@ class _ReviewBottomsheetWidgetState extends State<ReviewBottomsheetWidget> {
         return Material(
           color: Colors.transparent,
           elevation: 5.0,
-          shape: RoundedRectangleBorder(
+          shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(0.0),
               bottomRight: Radius.circular(0.0),
@@ -92,7 +90,7 @@ class _ReviewBottomsheetWidgetState extends State<ReviewBottomsheetWidget> {
             height: 370.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).primaryBackground,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(0.0),
                 bottomRight: Radius.circular(0.0),
                 topLeft: Radius.circular(16.0),
@@ -100,7 +98,7 @@ class _ReviewBottomsheetWidgetState extends State<ReviewBottomsheetWidget> {
               ),
             ),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
@@ -111,7 +109,7 @@ class _ReviewBottomsheetWidgetState extends State<ReviewBottomsheetWidget> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 12.0, 0.0, 0.0),
                           child: Container(
                             width: 50.0,
@@ -126,7 +124,7 @@ class _ReviewBottomsheetWidgetState extends State<ReviewBottomsheetWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                       child: Text(
                         '리뷰 작성하기',
                         style: FlutterFlowTheme.of(context)
@@ -142,7 +140,7 @@ class _ReviewBottomsheetWidgetState extends State<ReviewBottomsheetWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 120.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 120.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -159,7 +157,7 @@ class _ReviewBottomsheetWidgetState extends State<ReviewBottomsheetWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 0.0, 0.0),
                             child: AuthUserStreamWidget(
                               builder: (context) => Text(
@@ -248,7 +246,7 @@ class _ReviewBottomsheetWidgetState extends State<ReviewBottomsheetWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                       child: TextFormField(
                         controller: _model.shortBioTextController,
                         focusNode: _model.shortBioFocusNode,
@@ -293,7 +291,7 @@ class _ReviewBottomsheetWidgetState extends State<ReviewBottomsheetWidget> {
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
-                          contentPadding: EdgeInsetsDirectional.fromSTEB(
+                          contentPadding: const EdgeInsetsDirectional.fromSTEB(
                               20.0, 32.0, 20.0, 12.0),
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -317,12 +315,12 @@ class _ReviewBottomsheetWidgetState extends State<ReviewBottomsheetWidget> {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 24.0, 0.0, 44.0),
                           child: FFButtonWidget(
                             onPressed: () async {
                               await TBUserReviewPointRecord.createDoc(
-                                      widget!.reviewPointRef!)
+                                      widget.reviewPointRef!)
                                   .set(createTBUserReviewPointRecordData(
                                 reviewTitle: currentUserUid,
                                 reviewWrittenBy: currentUserReference,
@@ -334,9 +332,9 @@ class _ReviewBottomsheetWidgetState extends State<ReviewBottomsheetWidget> {
                             options: FFButtonOptions(
                               width: 270.0,
                               height: 50.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
@@ -353,7 +351,7 @@ class _ReviewBottomsheetWidgetState extends State<ReviewBottomsheetWidget> {
                                                 .titleMediumFamily),
                                   ),
                               elevation: 3.0,
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),
@@ -362,7 +360,7 @@ class _ReviewBottomsheetWidgetState extends State<ReviewBottomsheetWidget> {
                         ),
                       ],
                     ),
-                  ].divide(SizedBox(height: 8.0)),
+                  ].divide(const SizedBox(height: 8.0)),
                 ),
               ),
             ),

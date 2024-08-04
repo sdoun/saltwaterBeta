@@ -8,7 +8,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/pages/carrot_sum/carrot_nav_bar/carrot_nav_bar_widget.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -63,20 +62,20 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(64.0),
+          preferredSize: const Size.fromHeight(64.0),
           child: AppBar(
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             automaticallyImplyLeading: false,
             leading: Align(
-              alignment: AlignmentDirectional(-1.0, -3.7),
+              alignment: const AlignmentDirectional(-1.0, -3.7),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                 child: FlutterFlowIconButton(
                   borderColor: Colors.transparent,
                   borderRadius: 30.0,
                   borderWidth: 1.0,
                   buttonSize: 60.0,
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.arrow_back_ios,
                     color: Colors.black,
                     size: 30.0,
@@ -87,10 +86,10 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                 ),
               ),
             ),
-            actions: [],
+            actions: const [],
             flexibleSpace: FlexibleSpaceBar(
               title: Align(
-                alignment: AlignmentDirectional(0.0, 0.8),
+                alignment: const AlignmentDirectional(0.0, 0.8),
                 child: Text(
                   '게시물 작성',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -116,7 +115,7 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
           child: Stack(
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
                 child: ListView(
                   padding: EdgeInsets.zero,
                   scrollDirection: Axis.vertical,
@@ -227,7 +226,7 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                               FlutterFlowDropDown<String>(
                                 controller: _model.dropDownValueController ??=
                                     FormFieldController<String>(null),
-                                options: [
+                                options: const [
                                   '낚시대, 릴',
                                   '의류',
                                   '기타장비',
@@ -261,7 +260,7 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                                     FlutterFlowTheme.of(context).secondaryText,
                                 borderWidth: 2.0,
                                 borderRadius: 8.0,
-                                margin: EdgeInsetsDirectional.fromSTEB(
+                                margin: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 4.0, 16.0, 4.0),
                                 hidesUnderline: true,
                                 isOverButton: true,
@@ -270,7 +269,7 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                               ),
                             ],
                           ),
-                        ].divide(SizedBox(height: 8.0)),
+                        ].divide(const SizedBox(height: 8.0)),
                       ),
                     ),
                     Container(
@@ -297,11 +296,11 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                                 ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: wrapWithModel(
                               model: _model.imageUploadModel,
                               updateCallback: () => setState(() {}),
-                              child: ImageUploadWidget(),
+                              child: const ImageUploadWidget(),
                             ),
                           ),
                           Builder(
@@ -343,14 +342,14 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                                             ),
                                           ),
                                           Align(
-                                            alignment: AlignmentDirectional(
+                                            alignment: const AlignmentDirectional(
                                                 1.02, -0.91),
                                             child: FlutterFlowIconButton(
-                                              borderColor: Color(0xFFFF0004),
+                                              borderColor: const Color(0xFFFF0004),
                                               borderRadius: 20.0,
                                               borderWidth: 1.0,
-                                              fillColor: Color(0x00FFFFFF),
-                                              icon: Icon(
+                                              fillColor: const Color(0x00FFFFFF),
+                                              icon: const Icon(
                                                 Icons.delete_outline,
                                                 color: Color(0xFFFF0004),
                                                 size: 24.0,
@@ -367,11 +366,11 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                                       ),
                                     ),
                                   );
-                                }).divide(SizedBox(width: 4.0)),
+                                }).divide(const SizedBox(width: 4.0)),
                               );
                             },
                           ),
-                        ].divide(SizedBox(height: 8.0)),
+                        ].divide(const SizedBox(height: 8.0)),
                       ),
                     ),
                     SingleChildScrollView(
@@ -566,7 +565,7 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                             ),
                           ],
                         ),
-                      ].divide(SizedBox(height: 8.0)),
+                      ].divide(const SizedBox(height: 8.0)),
                     ),
                     FFButtonWidget(
                       onPressed: () async {
@@ -594,10 +593,10 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                       text: '게시하기',
                       options: FFButtonOptions(
                         height: 40.0,
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
                         iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primary,
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
@@ -608,7 +607,7 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                                       .containsKey('PretendardSeries'),
                                 ),
                         elevation: 3.0,
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Colors.transparent,
                           width: 1.0,
                         ),
@@ -625,10 +624,10 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                       text: '취소하기',
                       options: FFButtonOptions(
                         height: 40.0,
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 0.0, 24.0, 0.0),
                         iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primaryBackground,
                         textStyle: FlutterFlowTheme.of(context)
                             .titleSmall
@@ -654,13 +653,13 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                         color: FlutterFlowTheme.of(context).primaryBackground,
                       ),
                     ),
-                  ].divide(SizedBox(height: 8.0)),
+                  ].divide(const SizedBox(height: 8.0)),
                 ),
               ),
               wrapWithModel(
                 model: _model.carrotNavBarModel,
                 updateCallback: () => setState(() {}),
-                child: CarrotNavBarWidget(),
+                child: const CarrotNavBarWidget(),
               ),
             ],
           ),

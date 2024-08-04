@@ -2,8 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'fish_choicechip_component_model.dart';
 export 'fish_choicechip_component_model.dart';
 
@@ -42,7 +40,7 @@ class _FishChoicechipComponentWidgetState
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 120.0,
       child: custom_widgets.BusFishTypeChoiceChips(
@@ -55,7 +53,7 @@ class _FishChoicechipComponentWidgetState
             FlutterFlowTheme.of(context).primaryBackground,
         selectedBorderColor: FlutterFlowTheme.of(context).primary,
         unselectedBorderColor: FlutterFlowTheme.of(context).primaryText,
-        options: [
+        options: const [
           '전체',
           '참치',
           '시즌어종',

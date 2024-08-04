@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'bus_extar_filter_model.dart';
 export 'bus_extar_filter_model.dart';
 
@@ -47,13 +46,13 @@ class _BusExtarFilterWidgetState extends State<BusExtarFilterWidget> {
         color: FlutterFlowTheme.of(context).primaryBackground,
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
         child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Text(
                   '필터링',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -75,7 +74,7 @@ class _BusExtarFilterWidgetState extends State<BusExtarFilterWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(-1.0, 0.0),
+                    alignment: const AlignmentDirectional(-1.0, 0.0),
                     child: Text(
                       '결제방법',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -90,8 +89,8 @@ class _BusExtarFilterWidgetState extends State<BusExtarFilterWidget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
-                    child: Container(
+                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
+                    child: SizedBox(
                       width: double.infinity,
                       height: 40.0,
                       child: custom_widgets.BusFishTypeChoiceChips(
@@ -109,7 +108,7 @@ class _BusExtarFilterWidgetState extends State<BusExtarFilterWidget> {
                             FlutterFlowTheme.of(context).primary,
                         unselectedBorderColor:
                             FlutterFlowTheme.of(context).primaryText,
-                        options: ['전체', '무통장', '가상계좌', '카드결제'],
+                        options: const ['전체', '무통장', '가상계좌', '카드결제'],
                         selectedCallback: (selectedOptionCallback) async {
                           _model.extraFilter =
                               selectedOptionCallback!.toList().cast<String>();
@@ -122,13 +121,13 @@ class _BusExtarFilterWidgetState extends State<BusExtarFilterWidget> {
                     thickness: 1.0,
                     color: FlutterFlowTheme.of(context).primary,
                   ),
-                ].divide(SizedBox(height: 8.0)),
+                ].divide(const SizedBox(height: 8.0)),
               ),
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(-1.0, 0.0),
+                    alignment: const AlignmentDirectional(-1.0, 0.0),
                     child: Text(
                       '공략방법',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -143,8 +142,8 @@ class _BusExtarFilterWidgetState extends State<BusExtarFilterWidget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
-                    child: Container(
+                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
+                    child: SizedBox(
                       width: double.infinity,
                       height: 200.0,
                       child: custom_widgets.BusFishTypeChoiceChips(
@@ -162,7 +161,7 @@ class _BusExtarFilterWidgetState extends State<BusExtarFilterWidget> {
                             FlutterFlowTheme.of(context).primary,
                         unselectedBorderColor:
                             FlutterFlowTheme.of(context).primaryText,
-                        options: [
+                        options: const [
                           '전체',
                           '똥침',
                           '침선',
@@ -190,15 +189,15 @@ class _BusExtarFilterWidgetState extends State<BusExtarFilterWidget> {
                     thickness: 1.0,
                     color: FlutterFlowTheme.of(context).primary,
                   ),
-                ].divide(SizedBox(height: 8.0)),
+                ].divide(const SizedBox(height: 8.0)),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(-1.0, 0.0),
+                      alignment: const AlignmentDirectional(-1.0, 0.0),
                       child: Text(
                         '이용시간',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -215,8 +214,8 @@ class _BusExtarFilterWidgetState extends State<BusExtarFilterWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
-                      child: Container(
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
+                      child: SizedBox(
                         width: double.infinity,
                         height: 120.0,
                         child: custom_widgets.BusFishTypeChoiceChips(
@@ -234,7 +233,7 @@ class _BusExtarFilterWidgetState extends State<BusExtarFilterWidget> {
                               FlutterFlowTheme.of(context).primary,
                           unselectedBorderColor:
                               FlutterFlowTheme.of(context).primaryText,
-                          options: ['전체', '3시간이하', '3~6시간', '6~9시간', '9시간이상'],
+                          options: const ['전체', '3시간이하', '3~6시간', '6~9시간', '9시간이상'],
                           selectedCallback: (selectedOptionCallback) async {
                             _model.tiemOfUse =
                                 selectedOptionCallback!.toList().cast<String>();
@@ -243,13 +242,13 @@ class _BusExtarFilterWidgetState extends State<BusExtarFilterWidget> {
                         ),
                       ),
                     ),
-                  ].divide(SizedBox(height: 8.0)),
+                  ].divide(const SizedBox(height: 8.0)),
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
+                alignment: const AlignmentDirectional(0.0, 1.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -268,7 +267,7 @@ class _BusExtarFilterWidgetState extends State<BusExtarFilterWidget> {
                       height: 43.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).primaryText,
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                           bottomLeft: Radius.circular(8.0),
                           bottomRight: Radius.circular(8.0),
                           topLeft: Radius.circular(8.0),
@@ -276,7 +275,7 @@ class _BusExtarFilterWidgetState extends State<BusExtarFilterWidget> {
                         ),
                       ),
                       child: Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Text(
                           '선택완료',
                           style: FlutterFlowTheme.of(context)

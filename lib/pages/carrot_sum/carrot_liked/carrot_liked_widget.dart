@@ -3,11 +3,9 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/carrot_sum/carrot_nav_bar/carrot_nav_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'carrot_liked_model.dart';
 export 'carrot_liked_model.dart';
 
@@ -48,20 +46,20 @@ class _CarrotLikedWidgetState extends State<CarrotLikedWidget> {
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(64.0),
+          preferredSize: const Size.fromHeight(64.0),
           child: AppBar(
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             automaticallyImplyLeading: false,
             leading: Align(
-              alignment: AlignmentDirectional(-1.0, -3.7),
+              alignment: const AlignmentDirectional(-1.0, -3.7),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                 child: FlutterFlowIconButton(
                   borderColor: Colors.transparent,
                   borderRadius: 30.0,
                   borderWidth: 1.0,
                   buttonSize: 60.0,
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.arrow_back_ios,
                     color: Colors.black,
                     size: 30.0,
@@ -72,10 +70,10 @@ class _CarrotLikedWidgetState extends State<CarrotLikedWidget> {
                 ),
               ),
             ),
-            actions: [],
+            actions: const [],
             flexibleSpace: FlexibleSpaceBar(
               title: Align(
-                alignment: AlignmentDirectional(0.0, 0.8),
+                alignment: const AlignmentDirectional(0.0, 0.8),
                 child: Text(
                   '당근낚시',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -101,7 +99,7 @@ class _CarrotLikedWidgetState extends State<CarrotLikedWidget> {
           child: Stack(
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -183,7 +181,7 @@ class _CarrotLikedWidgetState extends State<CarrotLikedWidget> {
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
-                                    boxShadow: [
+                                    boxShadow: const [
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: Color(0x33000000),
@@ -196,7 +194,7 @@ class _CarrotLikedWidgetState extends State<CarrotLikedWidget> {
                                     borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         12.0, 8.0, 12.0, 8.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -283,9 +281,9 @@ class _CarrotLikedWidgetState extends State<CarrotLikedWidget> {
                                                                     .bodyMediumFamily),
                                                       ),
                                             ),
-                                          ].divide(SizedBox(height: 4.0)),
+                                          ].divide(const SizedBox(height: 4.0)),
                                         ),
-                                      ].divide(SizedBox(width: 8.0)),
+                                      ].divide(const SizedBox(width: 8.0)),
                                     ),
                                   ),
                                 ),
@@ -294,14 +292,14 @@ class _CarrotLikedWidgetState extends State<CarrotLikedWidget> {
                           );
                         },
                       ),
-                    ].divide(SizedBox(height: 8.0)),
+                    ].divide(const SizedBox(height: 8.0)),
                   ),
                 ),
               ),
               wrapWithModel(
                 model: _model.carrotNavBarModel,
                 updateCallback: () => setState(() {}),
-                child: CarrotNavBarWidget(),
+                child: const CarrotNavBarWidget(),
               ),
             ],
           ),

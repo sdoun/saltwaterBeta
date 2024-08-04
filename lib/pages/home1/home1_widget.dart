@@ -5,7 +5,6 @@ import '/components/un_read_chat_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/flutter_flow_youtube_player.dart';
 import '/pages/point_explore_sum/point_category/point_category_widget.dart';
 import 'package:badges/badges.dart' as badges;
@@ -13,7 +12,6 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'home1_model.dart';
 export 'home1_model.dart';
@@ -146,7 +144,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                       child: Padding(
                                         padding:
                                             MediaQuery.viewInsetsOf(context),
-                                        child: Container(
+                                        child: SizedBox(
                                           height: 480.0,
                                           child: UnReadChatWidget(
                                             unReadChat: badgeTBChatRecordList
@@ -181,7 +179,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                               shape: badges.BadgeShape.circle,
                               badgeColor: FlutterFlowTheme.of(context).primary,
                               elevation: 4.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   8.0, 8.0, 8.0, 8.0),
                               position: badges.BadgePosition.topEnd(),
                               animationType: badges.BadgeAnimationType.scale,
@@ -190,7 +188,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                 width: 36.0,
                                 height: 36.0,
                                 clipBehavior: Clip.antiAlias,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   shape: BoxShape.circle,
                                 ),
                                 child: Image.asset(
@@ -214,7 +212,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                           width: 36.0,
                           height: 36.0,
                           clipBehavior: Clip.antiAlias,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                           ),
                           child: Image.asset(
@@ -254,19 +252,19 @@ class _Home1WidgetState extends State<Home1Widget> {
                         Container(
                           width: 100.0,
                           height: 1006.0,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.white,
                           ),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     12.0, 24.0, 12.0, 0.0),
                                 child: Container(
                                   width: double.infinity,
                                   height: 260.0,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     color: Colors.white,
                                   ),
                                   child: Column(
@@ -276,7 +274,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Align(
-                                            alignment: AlignmentDirectional(
+                                            alignment: const AlignmentDirectional(
                                                 -1.0, -1.0),
                                             child: Text(
                                               '포인트별 검색하기',
@@ -308,12 +306,12 @@ class _Home1WidgetState extends State<Home1Widget> {
                                         ],
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 16.0, 0.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           height: 218.0,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             color: Color(0x00F4F6FF),
                                           ),
                                           child: Column(
@@ -348,7 +346,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                 .of(context)
                                                             .primaryBackground,
                                                         borderRadius:
-                                                            BorderRadius.only(
+                                                            const BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   8.0),
@@ -373,7 +371,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                             clipBehavior:
                                                                 Clip.antiAlias,
                                                             decoration:
-                                                                BoxDecoration(
+                                                                const BoxDecoration(
                                                               shape: BoxShape
                                                                   .circle,
                                                             ),
@@ -423,7 +421,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                 .of(context)
                                                             .primaryBackground,
                                                         borderRadius:
-                                                            BorderRadius.only(
+                                                            const BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   8.0),
@@ -448,7 +446,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                             clipBehavior:
                                                                 Clip.antiAlias,
                                                             decoration:
-                                                                BoxDecoration(
+                                                                const BoxDecoration(
                                                               shape: BoxShape
                                                                   .circle,
                                                             ),
@@ -498,7 +496,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                 .of(context)
                                                             .primaryBackground,
                                                         borderRadius:
-                                                            BorderRadius.only(
+                                                            const BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   8.0),
@@ -523,7 +521,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                             clipBehavior:
                                                                 Clip.antiAlias,
                                                             decoration:
-                                                                BoxDecoration(
+                                                                const BoxDecoration(
                                                               shape: BoxShape
                                                                   .circle,
                                                             ),
@@ -573,7 +571,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                 .of(context)
                                                             .primaryBackground,
                                                         borderRadius:
-                                                            BorderRadius.only(
+                                                            const BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   8.0),
@@ -598,7 +596,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                             clipBehavior:
                                                                 Clip.antiAlias,
                                                             decoration:
-                                                                BoxDecoration(
+                                                                const BoxDecoration(
                                                               shape: BoxShape
                                                                   .circle,
                                                             ),
@@ -656,7 +654,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                 .of(context)
                                                             .primaryBackground,
                                                         borderRadius:
-                                                            BorderRadius.only(
+                                                            const BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   8.0),
@@ -681,7 +679,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                             clipBehavior:
                                                                 Clip.antiAlias,
                                                             decoration:
-                                                                BoxDecoration(
+                                                                const BoxDecoration(
                                                               shape: BoxShape
                                                                   .circle,
                                                             ),
@@ -731,7 +729,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                 .of(context)
                                                             .primaryBackground,
                                                         borderRadius:
-                                                            BorderRadius.only(
+                                                            const BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   8.0),
@@ -756,7 +754,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                             clipBehavior:
                                                                 Clip.antiAlias,
                                                             decoration:
-                                                                BoxDecoration(
+                                                                const BoxDecoration(
                                                               shape: BoxShape
                                                                   .circle,
                                                             ),
@@ -806,7 +804,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                 .of(context)
                                                             .primaryBackground,
                                                         borderRadius:
-                                                            BorderRadius.only(
+                                                            const BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   8.0),
@@ -831,7 +829,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                             clipBehavior:
                                                                 Clip.antiAlias,
                                                             decoration:
-                                                                BoxDecoration(
+                                                                const BoxDecoration(
                                                               shape: BoxShape
                                                                   .circle,
                                                             ),
@@ -881,7 +879,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                 .of(context)
                                                             .primaryBackground,
                                                         borderRadius:
-                                                            BorderRadius.only(
+                                                            const BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   8.0),
@@ -906,7 +904,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                             clipBehavior:
                                                                 Clip.antiAlias,
                                                             decoration:
-                                                                BoxDecoration(
+                                                                const BoxDecoration(
                                                               shape: BoxShape
                                                                   .circle,
                                                             ),
@@ -937,7 +935,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                   ),
                                                 ],
                                               ),
-                                            ].divide(SizedBox(height: 7.0)),
+                                            ].divide(const SizedBox(height: 7.0)),
                                           ),
                                         ),
                                       ),
@@ -952,7 +950,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                 ),
-                                child: Container(
+                                child: SizedBox(
                                   width: double.infinity,
                                   height: 512.0,
                                   child: Stack(
@@ -997,10 +995,10 @@ class _Home1WidgetState extends State<Home1Widget> {
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(1.0, 1.0),
+                                            const AlignmentDirectional(1.0, 1.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 0.0, 16.0, 16.0),
                                           child: smooth_page_indicator
                                               .SmoothPageIndicator(
@@ -1014,7 +1012,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                   .animateToPage(
                                                 i,
                                                 duration:
-                                                    Duration(milliseconds: 500),
+                                                    const Duration(milliseconds: 500),
                                                 curve: Curves.ease,
                                               );
                                               setState(() {});
@@ -1042,12 +1040,12 @@ class _Home1WidgetState extends State<Home1Widget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     12.0, 8.0, 12.0, 0.0),
                                 child: Container(
                                   width: double.infinity,
                                   height: 200.0,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     color: Colors.white,
                                   ),
                                   child: Column(
@@ -1057,7 +1055,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Align(
-                                            alignment: AlignmentDirectional(
+                                            alignment: const AlignmentDirectional(
                                                 -1.0, -1.0),
                                             child: Text(
                                               '어종별 검색하기',
@@ -1089,12 +1087,12 @@ class _Home1WidgetState extends State<Home1Widget> {
                                         ],
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 16.0, 0.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           height: 132.0,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             color: Color(0x00F4F6FF),
                                           ),
                                           child: SingleChildScrollView(
@@ -1142,7 +1140,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                   .viewInsetsOf(
                                                                       context),
                                                               child:
-                                                                  PointCategoryWidget(),
+                                                                  const PointCategoryWidget(),
                                                             ),
                                                           ),
                                                         );
@@ -1170,7 +1168,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                   .of(context)
                                                               .primaryBackground,
                                                           borderRadius:
-                                                              BorderRadius.only(
+                                                              const BorderRadius.only(
                                                             bottomLeft:
                                                                 Radius.circular(
                                                                     8.0),
@@ -1259,7 +1257,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                   .viewInsetsOf(
                                                                       context),
                                                               child:
-                                                                  PointCategoryWidget(),
+                                                                  const PointCategoryWidget(),
                                                             ),
                                                           ),
                                                         );
@@ -1287,7 +1285,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                   .of(context)
                                                               .primaryBackground,
                                                           borderRadius:
-                                                              BorderRadius.only(
+                                                              const BorderRadius.only(
                                                             bottomLeft:
                                                                 Radius.circular(
                                                                     8.0),
@@ -1376,7 +1374,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                   .viewInsetsOf(
                                                                       context),
                                                               child:
-                                                                  PointCategoryWidget(),
+                                                                  const PointCategoryWidget(),
                                                             ),
                                                           ),
                                                         );
@@ -1404,7 +1402,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                   .of(context)
                                                               .primaryBackground,
                                                           borderRadius:
-                                                              BorderRadius.only(
+                                                              const BorderRadius.only(
                                                             bottomLeft:
                                                                 Radius.circular(
                                                                     8.0),
@@ -1493,7 +1491,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                   .viewInsetsOf(
                                                                       context),
                                                               child:
-                                                                  PointCategoryWidget(),
+                                                                  const PointCategoryWidget(),
                                                             ),
                                                           ),
                                                         );
@@ -1521,7 +1519,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                                   .of(context)
                                                               .primaryBackground,
                                                           borderRadius:
-                                                              BorderRadius.only(
+                                                              const BorderRadius.only(
                                                             bottomLeft:
                                                                 Radius.circular(
                                                                     8.0),
@@ -1572,7 +1570,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                     ],
                                                   ),
                                                 ),
-                                              ].divide(SizedBox(width: 8.0)),
+                                              ].divide(const SizedBox(width: 8.0)),
                                             ),
                                           ),
                                         ),
@@ -1582,12 +1580,12 @@ class _Home1WidgetState extends State<Home1Widget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     12.0, 0.0, 12.0, 0.0),
                                 child: Container(
                                   width: double.infinity,
                                   height: 166.0,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     color: Colors.white,
                                   ),
                                   child: Column(
@@ -1597,7 +1595,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Align(
-                                            alignment: AlignmentDirectional(
+                                            alignment: const AlignmentDirectional(
                                                 -1.0, -1.0),
                                             child: Text(
                                               '놓치면 후회할 짠물투어 서비스',
@@ -1623,12 +1621,12 @@ class _Home1WidgetState extends State<Home1Widget> {
                                         ],
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 16.0, 0.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           height: 89.0,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             color: Color(0x00F4F6FF),
                                           ),
                                           child: Row(
@@ -1657,7 +1655,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                             context)
                                                         .primaryBackground,
                                                     borderRadius:
-                                                        BorderRadius.only(
+                                                        const BorderRadius.only(
                                                       bottomLeft:
                                                           Radius.circular(8.0),
                                                       bottomRight:
@@ -1670,7 +1668,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(8.0, 0.0,
                                                                 8.0, 0.0),
                                                     child: Row(
@@ -1686,7 +1684,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                           clipBehavior:
                                                               Clip.antiAlias,
                                                           decoration:
-                                                              BoxDecoration(
+                                                              const BoxDecoration(
                                                             shape:
                                                                 BoxShape.circle,
                                                           ),
@@ -1741,7 +1739,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                             context)
                                                         .primaryBackground,
                                                     borderRadius:
-                                                        BorderRadius.only(
+                                                        const BorderRadius.only(
                                                       bottomLeft:
                                                           Radius.circular(8.0),
                                                       bottomRight:
@@ -1754,7 +1752,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(8.0, 0.0,
                                                                 8.0, 0.0),
                                                     child: Row(
@@ -1770,7 +1768,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                           clipBehavior:
                                                               Clip.antiAlias,
                                                           decoration:
-                                                              BoxDecoration(
+                                                              const BoxDecoration(
                                                             shape:
                                                                 BoxShape.circle,
                                                           ),
@@ -1813,12 +1811,12 @@ class _Home1WidgetState extends State<Home1Widget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     12.0, 0.0, 12.0, 0.0),
                                 child: Container(
                                   width: double.infinity,
                                   height: 158.0,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     color: Colors.white,
                                   ),
                                   child: Column(
@@ -1830,7 +1828,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Align(
-                                            alignment: AlignmentDirectional(
+                                            alignment: const AlignmentDirectional(
                                                 -1.0, -1.0),
                                             child: Text(
                                               '짠물투어 추천 테마여행',
@@ -1855,9 +1853,9 @@ class _Home1WidgetState extends State<Home1Widget> {
                                           ),
                                           Align(
                                             alignment:
-                                                AlignmentDirectional(1.0, 1.0),
+                                                const AlignmentDirectional(1.0, 1.0),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 8.0, 0.0, 0.0),
                                               child: Text(
                                                 '모두보기',
@@ -1885,7 +1883,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                       Container(
                                         width: double.infinity,
                                         height: 132.0,
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                           color: Color(0x00F4F6FF),
                                         ),
                                         child: SingleChildScrollView(
@@ -1903,7 +1901,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                           context)
                                                       .secondaryBackground,
                                                   borderRadius:
-                                                      BorderRadius.only(
+                                                      const BorderRadius.only(
                                                     bottomLeft:
                                                         Radius.circular(8.0),
                                                     bottomRight:
@@ -1923,7 +1921,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                           context)
                                                       .secondaryBackground,
                                                   borderRadius:
-                                                      BorderRadius.only(
+                                                      const BorderRadius.only(
                                                     bottomLeft:
                                                         Radius.circular(8.0),
                                                     bottomRight:
@@ -1943,7 +1941,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                           context)
                                                       .secondaryBackground,
                                                   borderRadius:
-                                                      BorderRadius.only(
+                                                      const BorderRadius.only(
                                                     bottomLeft:
                                                         Radius.circular(8.0),
                                                     bottomRight:
@@ -1955,7 +1953,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                   ),
                                                 ),
                                               ),
-                                            ].divide(SizedBox(width: 8.0)),
+                                            ].divide(const SizedBox(width: 8.0)),
                                           ),
                                         ),
                                       ),
@@ -1967,7 +1965,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 12.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -1976,7 +1974,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(-1.0, -1.0),
+                                    alignment: const AlignmentDirectional(-1.0, -1.0),
                                     child: Text(
                                       '짠물투어',
                                       style: FlutterFlowTheme.of(context)
@@ -2039,17 +2037,17 @@ class _Home1WidgetState extends State<Home1Widget> {
                                         showFullScreen: true,
                                         strictRelatedVideos: false,
                                       );
-                                    }).divide(SizedBox(height: 12.0)),
+                                    }).divide(const SizedBox(height: 12.0)),
                                   );
                                 },
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 16.0, 0.0, 0.0),
                                 child: Container(
                                   width: double.infinity,
                                   height: 481.0,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     color: Color(0x00F4F6FF),
                                   ),
                                 ),
@@ -2060,15 +2058,11 @@ class _Home1WidgetState extends State<Home1Widget> {
                       ],
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 1.0),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            0.0, 640.0, 0.0, 0.0),
-                        child: wrapWithModel(
-                          model: _model.customNavbarModel,
-                          updateCallback: () => setState(() {}),
-                          child: CustomNavbarWidget(),
-                        ),
+                      alignment: const AlignmentDirectional(0.0, 1.0),
+                      child: wrapWithModel(
+                        model: _model.customNavbarModel,
+                        updateCallback: () => setState(() {}),
+                        child: const CustomNavbarWidget(),
                       ),
                     ),
                   ],

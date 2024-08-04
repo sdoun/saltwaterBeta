@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'image_upload_model.dart';
 export 'image_upload_model.dart';
 
@@ -44,7 +43,7 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
     return Material(
       color: Colors.transparent,
       elevation: 2.0,
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(12.0),
           bottomRight: Radius.circular(12.0),
@@ -57,7 +56,7 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
         height: 96.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               blurRadius: 4.0,
               color: Color(0x33000000),
@@ -67,7 +66,7 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
               ),
             )
           ],
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             bottomLeft: Radius.circular(12.0),
             bottomRight: Radius.circular(12.0),
             topLeft: Radius.circular(12.0),
@@ -75,7 +74,7 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
           ),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -249,7 +248,7 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
                   ),
                 ),
               ),
-            ].divide(SizedBox(width: 12.0)),
+            ].divide(const SizedBox(width: 12.0)),
           ),
         ),
       ),

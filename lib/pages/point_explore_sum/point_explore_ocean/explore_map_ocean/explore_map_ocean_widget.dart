@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/custom_navbar_widget.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
@@ -13,9 +12,7 @@ import '/pages/point_explore_sum/point_explore_ocean/ocean_2nd_filter/ocean2nd_f
 import '/pages/point_explore_sum/point_explore_seawall/seawall_3rd_filter/seawall3rd_filter_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -55,14 +52,11 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
 
     return StreamBuilder<List<TBPointRecord>>(
       stream: queryTBPointRecord(
-        queryBuilder: (tBPointRecord) => tBPointRecord
-            .whereIn(
-                'point_name', _model.pointList != '' ? _model.pointList : null)
-            .where(
-              'point_categories',
-              isEqualTo: '해변, 갯바위' != '' ? '해변, 갯바위' : null,
-              isNull: ('해변, 갯바위' != '' ? '해변, 갯바위' : null) == null,
-            ),
+        queryBuilder: (tBPointRecord) =>
+            tBPointRecord.whereIn('point_name', _model.pointList).where(
+                  'point_categories',
+                  isEqualTo: '해변, 갯바위',
+                ),
       )..listen((snapshot) {
           List<TBPointRecord> exploreMapOceanTBPointRecordList = snapshot;
           if (_model.exploreMapOceanPreviousSnapshot != null &&
@@ -72,7 +66,7 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
             () async {
               await _model.columnController?.animateTo(
                 _model.columnController!.position.maxScrollExtent,
-                duration: Duration(milliseconds: 100),
+                duration: const Duration(milliseconds: 100),
                 curve: Curves.ease,
               );
 
@@ -112,15 +106,15 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
               backgroundColor: Colors.white,
               automaticallyImplyLeading: false,
               leading: Align(
-                alignment: AlignmentDirectional(-1.0, -3.7),
+                alignment: const AlignmentDirectional(-1.0, -3.7),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                   child: FlutterFlowIconButton(
                     borderColor: Colors.transparent,
                     borderRadius: 30.0,
                     borderWidth: 1.0,
                     buttonSize: 60.0,
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_back_ios,
                       color: Colors.black,
                       size: 30.0,
@@ -132,7 +126,7 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                 ),
               ),
               title: Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Text(
                   '포인트 검색하기',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -145,7 +139,7 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                       ),
                 ),
               ),
-              actions: [],
+              actions: const [],
               centerTitle: false,
               elevation: 2.0,
             ),
@@ -155,7 +149,7 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                     child: SingleChildScrollView(
                       controller: _model.columnController,
                       child: Column(
@@ -169,16 +163,16 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                   .primaryBackground,
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 12.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
+                                    alignment: const AlignmentDirectional(-1.0, 0.0),
                                     child: FlutterFlowChoiceChips(
-                                      options: [
+                                      options: const [
                                         ChipData('돔'),
                                         ChipData('두족류'),
                                         ChipData('찌낚시'),
@@ -250,7 +244,7 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
+                                    alignment: const AlignmentDirectional(-1.0, 0.0),
                                     child: SingleChildScrollView(
                                       scrollDirection: Axis.horizontal,
                                       controller: _model.rowController,
@@ -266,7 +260,7 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                               await showModalBottomSheet(
                                                 isScrollControlled: true,
                                                 backgroundColor:
-                                                    Color(0x24000000),
+                                                    const Color(0x24000000),
                                                 enableDrag: false,
                                                 context: context,
                                                 builder: (context) {
@@ -287,7 +281,7 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                                             .viewInsetsOf(
                                                                 context),
                                                         child:
-                                                            PointCategoryWidget(),
+                                                            const PointCategoryWidget(),
                                                       ),
                                                     ),
                                                   );
@@ -312,7 +306,7 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                                     color: Colors.black,
                                                   ),
                                                 ),
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Row(
                                                   mainAxisSize:
@@ -339,7 +333,7 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                                                         'PretendardSeries'),
                                                           ),
                                                     ),
-                                                    Align(
+                                                    const Align(
                                                       alignment:
                                                           AlignmentDirectional(
                                                               1.0, 0.0),
@@ -394,7 +388,7 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                                             .viewInsetsOf(
                                                                 context),
                                                         child:
-                                                            Ocean1stFilterWidget(),
+                                                            const Ocean1stFilterWidget(),
                                                       ),
                                                     ),
                                                   );
@@ -430,10 +424,10 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                                     color: Colors.black,
                                                   ),
                                                 ),
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           4.0, 0.0, 0.0, 0.0),
                                                   child: Row(
@@ -445,7 +439,7 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     4.0,
                                                                     0.0,
@@ -475,7 +469,7 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                                                               .ocean1stFilter
                                                                               ?.last
                                                                       ? firstFilterItem
-                                                                      : '${firstFilterItem}, ',
+                                                                      : '$firstFilterItem, ',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -527,11 +521,11 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                                       ),
                                                       Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 1.0, 0.0),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       3.0,
                                                                       0.0,
@@ -591,7 +585,7 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                                             .viewInsetsOf(
                                                                 context),
                                                         child:
-                                                            Ocean2ndFilterWidget(),
+                                                            const Ocean2ndFilterWidget(),
                                                       ),
                                                     ),
                                                   );
@@ -627,10 +621,10 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                                     color: Colors.black,
                                                   ),
                                                 ),
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           4.0, 0.0, 0.0, 0.0),
                                                   child: Row(
@@ -642,7 +636,7 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     4.0,
                                                                     0.0,
@@ -672,7 +666,7 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                                                               .ocean2ndFilter
                                                                               ?.last
                                                                       ? secondFilterItem
-                                                                      : '${secondFilterItem}, ',
+                                                                      : '$secondFilterItem, ',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyMedium
@@ -724,11 +718,11 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                                       ),
                                                       Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 1.0, 0.0),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       3.0,
                                                                       0.0,
@@ -788,7 +782,7 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                                             .viewInsetsOf(
                                                                 context),
                                                         child:
-                                                            Seawall3rdFilterWidget(),
+                                                            const Seawall3rdFilterWidget(),
                                                       ),
                                                     ),
                                                   );
@@ -824,10 +818,10 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                                     color: Colors.black,
                                                   ),
                                                 ),
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           4.0, 0.0, 0.0, 0.0),
                                                   child: Row(
@@ -861,7 +855,7 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                                                             .oceean3rdFilter
                                                                             ?.last
                                                                     ? thirdFilterItem
-                                                                    : '${thirdFilterItem}, ',
+                                                                    : '$thirdFilterItem, ',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -917,11 +911,11 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                                       ),
                                                       Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 1.0, 0.0),
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       3.0,
                                                                       0.0,
@@ -951,7 +945,7 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                               ),
                                             ),
                                           ),
-                                        ].divide(SizedBox(width: 8.0)),
+                                        ].divide(const SizedBox(width: 8.0)),
                                       ),
                                     ),
                                   ),
@@ -978,10 +972,10 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                       width: MediaQuery.sizeOf(context).width *
                                           0.8,
                                       height: 40.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 0.0),
                                       iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color: Colors.black,
                                       textStyle: FlutterFlowTheme.of(context)
@@ -996,14 +990,14 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                                     'PretendardSeries'),
                                           ),
                                       elevation: 3.0,
-                                      borderSide: BorderSide(
+                                      borderSide: const BorderSide(
                                         color: Colors.transparent,
                                         width: 1.0,
                                       ),
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                   ),
-                                ].divide(SizedBox(height: 8.0)),
+                                ].divide(const SizedBox(height: 8.0)),
                               ),
                             ),
                           ),
@@ -1017,29 +1011,19 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                     .primaryBackground,
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
-                              child: Container(
+                              child: SizedBox(
                                 width: double.infinity,
                                 height: double.infinity,
-                                child: custom_widgets.GooglemapCustom(
+                                child: custom_widgets.NaverMapWidgetPoint(
                                   width: double.infinity,
                                   height: double.infinity,
-                                  centerLatitude: 37.0,
-                                  centerLongitude: 127.0,
-                                  showLocation: true,
-                                  showCompass: false,
-                                  showMaptoolbar: false,
-                                  showTraffic: false,
-                                  allowZoom: true,
-                                  showZoomControls: true,
-                                  defaultZoom: 7.0,
-                                  point: _model.filterValue,
-                                  currentUserRef: currentUserReference!,
-                                  onClickMarker: (pointData) async {
+                                  pointList: exploreMapOceanTBPointRecordList,
+                                  onClickMarker: (markerDoc) async {
                                     context.pushNamed(
                                       'point_detailed',
                                       queryParameters: {
                                         'pointRefSW': serializeParam(
-                                          pointData?.reference,
+                                          markerDoc.reference,
                                           ParamType.DocumentReference,
                                         ),
                                       }.withoutNulls,
@@ -1054,15 +1038,11 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0.0, 1.0),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
-                      child: wrapWithModel(
-                        model: _model.customNavbarModel,
-                        updateCallback: () => setState(() {}),
-                        child: CustomNavbarWidget(),
-                      ),
+                    alignment: const AlignmentDirectional(0.0, 1.0),
+                    child: wrapWithModel(
+                      model: _model.customNavbarModel,
+                      updateCallback: () => setState(() {}),
+                      child: const CustomNavbarWidget(),
                     ),
                   ),
                 ],

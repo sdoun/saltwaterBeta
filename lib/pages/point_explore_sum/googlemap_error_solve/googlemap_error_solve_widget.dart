@@ -1,10 +1,8 @@
 import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'googlemap_error_solve_model.dart';
 export 'googlemap_error_solve_model.dart';
 
@@ -58,7 +56,7 @@ class _GooglemapErrorSolveWidgetState extends State<GooglemapErrorSolveWidget> {
                       FlutterFlowTheme.of(context).headlineMediumFamily),
                 ),
           ),
-          actions: [],
+          actions: const [],
           centerTitle: false,
           elevation: 2.0,
         ),
@@ -72,7 +70,7 @@ class _GooglemapErrorSolveWidgetState extends State<GooglemapErrorSolveWidget> {
                   controller: _model.googleMapsController,
                   onCameraIdle: (latLng) => _model.googleMapsCenter = latLng,
                   initialLocation: _model.googleMapsCenter ??=
-                      LatLng(13.106061, -59.613158),
+                      const LatLng(13.106061, -59.613158),
                   markerColor: GoogleMarkerColor.violet,
                   mapType: MapType.normal,
                   style: GoogleMapStyle.standard,

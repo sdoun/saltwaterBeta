@@ -1,13 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_count_controller.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/shop_summary/product_detail/option_dropdown/option_dropdown_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -65,7 +63,7 @@ class _AddProductToWishWidgetState extends State<AddProductToWishWidget> {
     context.watch<FFAppState>();
 
     return StreamBuilder<TBShoppingProductRecord>(
-      stream: TBShoppingProductRecord.getDocument(widget!.product!),
+      stream: TBShoppingProductRecord.getDocument(widget.product!),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -89,7 +87,7 @@ class _AddProductToWishWidgetState extends State<AddProductToWishWidget> {
           height: 270.0,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).primaryBackground,
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 blurRadius: 5.0,
                 color: Color(0x3B1D2429),
@@ -99,7 +97,7 @@ class _AddProductToWishWidgetState extends State<AddProductToWishWidget> {
                 ),
               )
             ],
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(0.0),
               bottomRight: Radius.circular(0.0),
               topLeft: Radius.circular(16.0),
@@ -111,7 +109,7 @@ class _AddProductToWishWidgetState extends State<AddProductToWishWidget> {
               queryBuilder: (tBProductOptionRecord) =>
                   tBProductOptionRecord.where(
                 'option_product',
-                isEqualTo: widget!.product,
+                isEqualTo: widget.product,
               ),
             ),
             builder: (context, snapshot) {
@@ -139,7 +137,7 @@ class _AddProductToWishWidgetState extends State<AddProductToWishWidget> {
                   color: FlutterFlowTheme.of(context).primaryBackground,
                 ),
                 child: Padding(
-                  padding: EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(20.0),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -192,7 +190,7 @@ class _AddProductToWishWidgetState extends State<AddProductToWishWidget> {
                                     },
                                   ),
                                 );
-                              }).divide(SizedBox(height: 4.0)),
+                              }).divide(const SizedBox(height: 4.0)),
                             );
                           },
                         ),
@@ -246,7 +244,7 @@ class _AddProductToWishWidgetState extends State<AddProductToWishWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 16.0, 0.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
@@ -265,13 +263,13 @@ class _AddProductToWishWidgetState extends State<AddProductToWishWidget> {
                                           Shadow(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryText,
-                                            offset: Offset(2.0, 2.0),
+                                            offset: const Offset(2.0, 2.0),
                                             blurRadius: 2.0,
                                           )
                                         ],
                                       ),
                                     ),
-                                    duration: Duration(milliseconds: 4000),
+                                    duration: const Duration(milliseconds: 4000),
                                     backgroundColor:
                                         FlutterFlowTheme.of(context)
                                             .primaryBackground,
@@ -283,7 +281,7 @@ class _AddProductToWishWidgetState extends State<AddProductToWishWidget> {
                                     .set({
                                   ...createTBWishProductsRecordData(
                                     userRef: currentUserReference,
-                                    productRef: widget!.product,
+                                    productRef: widget.product,
                                     productNum: _model.countControllerValue,
                                   ),
                                   ...mapToFirestore(
@@ -304,9 +302,9 @@ class _AddProductToWishWidgetState extends State<AddProductToWishWidget> {
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 60.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)
@@ -322,7 +320,7 @@ class _AddProductToWishWidgetState extends State<AddProductToWishWidget> {
                                         .containsKey('Lexend Deca'),
                                   ),
                               elevation: 0.0,
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Colors.transparent,
                                 width: 0.0,
                               ),
@@ -330,7 +328,7 @@ class _AddProductToWishWidgetState extends State<AddProductToWishWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 16.0, 0.0, 0.0),
                           child: FFButtonWidget(
                             onPressed: () async {
@@ -343,9 +341,9 @@ class _AddProductToWishWidgetState extends State<AddProductToWishWidget> {
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 60.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
@@ -362,14 +360,14 @@ class _AddProductToWishWidgetState extends State<AddProductToWishWidget> {
                                         .containsKey('Lexend Deca'),
                                   ),
                               elevation: 0.0,
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Colors.transparent,
                                 width: 0.0,
                               ),
                             ),
                           ),
                         ),
-                      ].divide(SizedBox(height: 8.0)),
+                      ].divide(const SizedBox(height: 8.0)),
                     ),
                   ),
                 ),

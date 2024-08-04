@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_naver_map/flutter_naver_map.dart';
 import '/flutter_flow/lat_lng.dart' as latlng;
 import 'dart:async';
+import 'package:http/http.dart';
 
 class NaverMapWidgetPoint extends StatefulWidget {
   const NaverMapWidgetPoint({
@@ -23,6 +24,7 @@ class NaverMapWidgetPoint extends StatefulWidget {
     this.initLng,
     this.pointList,
     required this.onClickMarker,
+    this.basicIcon,
   });
 
   final double? width;
@@ -31,6 +33,7 @@ class NaverMapWidgetPoint extends StatefulWidget {
   final double? initLng;
   final List<TBPointRecord>? pointList;
   final Future Function(TBPointRecord markerDoc) onClickMarker;
+  final FFUploadedFile? basicIcon;
 
   @override
   State<NaverMapWidgetPoint> createState() => _NaverMapWidgetPointState();
@@ -39,6 +42,7 @@ class NaverMapWidgetPoint extends StatefulWidget {
 class _NaverMapWidgetPointState extends State<NaverMapWidgetPoint> {
   Set<NMarker> markerList = {};
   var pointLength;
+  Completer<NaverMapController> mapControllerCompleter = Completer();
   @override
   void initState() {
     super.initState();
@@ -76,28 +80,47 @@ class _NaverMapWidgetPointState extends State<NaverMapWidgetPoint> {
     setState(() {
       markerList.clear();
       markerList = _createMarkers();
+      _updateMapOverlays();
     });
+  }
+
+  Future<void> _updateMapOverlays() async {
+    if (mapControllerCompleter.isCompleted) {
+      final controller = await mapControllerCompleter.future;
+      controller.clearOverlays();
+      controller.addOverlayAll(markerList);
+    }
+  }
+
+  @override
+  void didUpdateWidget(NaverMapWidgetPoint oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.pointList != oldWidget.pointList) {
+      pointLength = widget.pointList?.length ?? 0;
+      updateMarkers();
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    Completer<NaverMapController> mapControllerCompleter = Completer();
-
     return NaverMap(
       options: NaverMapViewOptions(
-        mapType: NMapType.basic,
+        mapType: NMapType.hybrid,
+        minZoom: 3,
+        maxZoom: 16,
         extent: NLatLngBounds(
           southWest: NLatLng(31.43, 122.37),
           northEast: NLatLng(44.35, 132.0),
         ),
         initialCameraPosition: NCameraPosition(
             target: NLatLng(widget.initLat ?? 37.0, widget.initLng ?? 127.0),
-            zoom: 10,
+            zoom: 5,
             bearing: 0,
             tilt: 0),
       ),
       onMapReady: (NaverMapController controller) async {
         mapControllerCompleter.complete(controller);
+        controller.clearOverlays();
         controller.addOverlayAll(markerList);
         print('맵 로딩됨');
       },

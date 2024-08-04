@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'bus_fishes_model.dart';
 export 'bus_fishes_model.dart';
 
@@ -43,7 +42,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
     return Material(
       color: Colors.transparent,
       elevation: 2.0,
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
@@ -52,7 +51,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
         ),
       ),
       child: ClipRRect(
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
           topLeft: Radius.circular(12.0),
@@ -63,7 +62,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
           height: 477.0,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).primaryBackground,
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(0.0),
               bottomRight: Radius.circular(0.0),
               topLeft: Radius.circular(12.0),
@@ -71,13 +70,13 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
             ),
           ),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(18.0, 21.0, 18.0, 30.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(18.0, 21.0, 18.0, 30.0),
             child: ListView(
               padding: EdgeInsets.zero,
               scrollDirection: Axis.vertical,
               children: [
                 Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Text(
                     '어종',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -109,8 +108,8 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
-                      child: Container(
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
+                      child: SizedBox(
                         width: double.infinity,
                         height: 120.0,
                         child: custom_widgets.BusFishTypeChoiceChips(
@@ -128,7 +127,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
                               FlutterFlowTheme.of(context).primary,
                           unselectedBorderColor:
                               FlutterFlowTheme.of(context).primaryText,
-                          options: [
+                          options: const [
                             '전체',
                             '무늬오징어',
                             '갑오징어',
@@ -150,7 +149,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
                       thickness: 1.0,
                       color: FlutterFlowTheme.of(context).secondaryText,
                     ),
-                  ].divide(SizedBox(height: 8.0)),
+                  ].divide(const SizedBox(height: 8.0)),
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.max,
@@ -170,8 +169,8 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
-                      child: Container(
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
+                      child: SizedBox(
                         width: double.infinity,
                         height: 160.0,
                         child: custom_widgets.BusFishTypeChoiceChips(
@@ -189,7 +188,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
                               FlutterFlowTheme.of(context).primary,
                           unselectedBorderColor:
                               FlutterFlowTheme.of(context).primaryText,
-                          options: [
+                          options: const [
                             '전체',
                             '광어',
                             '우럭',
@@ -216,7 +215,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
                       thickness: 1.0,
                       color: FlutterFlowTheme.of(context).secondaryText,
                     ),
-                  ].divide(SizedBox(height: 8.0)),
+                  ].divide(const SizedBox(height: 8.0)),
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.max,
@@ -234,7 +233,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
                                 FlutterFlowTheme.of(context).bodyMediumFamily),
                           ),
                     ),
-                    Container(
+                    SizedBox(
                       width: double.infinity,
                       height: 40.0,
                       child: custom_widgets.BusFishTypeChoiceChips(
@@ -252,7 +251,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
                             FlutterFlowTheme.of(context).primary,
                         unselectedBorderColor:
                             FlutterFlowTheme.of(context).primaryText,
-                        options: ['전체', '홍감펭', '임연수'],
+                        options: const ['전체', '홍감펭', '임연수'],
                         selectedCallback: (selectedOptionCallback) async {
                           _model.selectedFish2 =
                               selectedOptionCallback!.toList().cast<String>();
@@ -264,7 +263,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
                       thickness: 1.0,
                       color: FlutterFlowTheme.of(context).secondaryText,
                     ),
-                  ].divide(SizedBox(height: 8.0)),
+                  ].divide(const SizedBox(height: 8.0)),
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.max,
@@ -282,7 +281,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
                                 FlutterFlowTheme.of(context).bodyMediumFamily),
                           ),
                     ),
-                    Container(
+                    SizedBox(
                       width: double.infinity,
                       height: 40.0,
                       child: custom_widgets.BusFishTypeChoiceChips(
@@ -300,7 +299,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
                             FlutterFlowTheme.of(context).primary,
                         unselectedBorderColor:
                             FlutterFlowTheme.of(context).primaryText,
-                        options: ['전체', '참돔', '감성돔', '뱅에돔'],
+                        options: const ['전체', '참돔', '감성돔', '뱅에돔'],
                         selectedCallback: (selectedOptionCallback) async {
                           _model.selectedFish3 =
                               selectedOptionCallback!.toList().cast<String>();
@@ -312,7 +311,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
                       thickness: 1.0,
                       color: FlutterFlowTheme.of(context).secondaryText,
                     ),
-                  ].divide(SizedBox(height: 8.0)),
+                  ].divide(const SizedBox(height: 8.0)),
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.max,
@@ -330,7 +329,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
                                 FlutterFlowTheme.of(context).bodyMediumFamily),
                           ),
                     ),
-                    Container(
+                    SizedBox(
                       width: double.infinity,
                       height: 120.0,
                       child: custom_widgets.BusFishTypeChoiceChips(
@@ -348,7 +347,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
                             FlutterFlowTheme.of(context).primary,
                         unselectedBorderColor:
                             FlutterFlowTheme.of(context).primaryText,
-                        options: [
+                        options: const [
                           '전체',
                           '참치',
                           '시즌어종',
@@ -372,7 +371,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
                       thickness: 1.0,
                       color: FlutterFlowTheme.of(context).secondaryText,
                     ),
-                  ].divide(SizedBox(height: 8.0)),
+                  ].divide(const SizedBox(height: 8.0)),
                 ),
                 InkWell(
                   splashColor: Colors.transparent,
@@ -423,7 +422,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
                     height: 43.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).primaryText,
-                      borderRadius: BorderRadius.only(
+                      borderRadius: const BorderRadius.only(
                         bottomLeft: Radius.circular(8.0),
                         bottomRight: Radius.circular(8.0),
                         topLeft: Radius.circular(8.0),
@@ -431,7 +430,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
                       ),
                     ),
                     child: Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Text(
                         '선택완료',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -450,7 +449,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
                     ),
                   ),
                 ),
-              ].divide(SizedBox(height: 12.0)),
+              ].divide(const SizedBox(height: 12.0)),
             ),
           ),
         ),

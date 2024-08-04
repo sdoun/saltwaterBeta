@@ -4,14 +4,12 @@ import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'guide_content_home_model.dart';
 export 'guide_content_home_model.dart';
 
@@ -88,15 +86,15 @@ class _GuideContentHomeWidgetState extends State<GuideContentHomeWidget> {
               backgroundColor: Colors.white,
               automaticallyImplyLeading: false,
               leading: Align(
-                alignment: AlignmentDirectional(-1.0, -3.7),
+                alignment: const AlignmentDirectional(-1.0, -3.7),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                   child: FlutterFlowIconButton(
                     borderColor: Colors.transparent,
                     borderRadius: 30.0,
                     borderWidth: 1.0,
                     buttonSize: 60.0,
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_back_ios,
                       color: Colors.black,
                       size: 30.0,
@@ -108,7 +106,7 @@ class _GuideContentHomeWidgetState extends State<GuideContentHomeWidget> {
                 ),
               ),
               title: Align(
-                alignment: AlignmentDirectional(0.0, -1.0),
+                alignment: const AlignmentDirectional(0.0, -1.0),
                 child: Text(
                   '초보탈출',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -121,7 +119,7 @@ class _GuideContentHomeWidgetState extends State<GuideContentHomeWidget> {
                       ),
                 ),
               ),
-              actions: [],
+              actions: const [],
               centerTitle: false,
               elevation: 2.0,
             ),
@@ -131,20 +129,20 @@ class _GuideContentHomeWidgetState extends State<GuideContentHomeWidget> {
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
                     child: ListView(
                       padding: EdgeInsets.zero,
                       scrollDirection: Axis.vertical,
                       children: [
-                        Container(
+                        SizedBox(
                           height: 200.0,
-                          child: Container(
+                          child: SizedBox(
                             width: double.infinity,
                             height: 500.0,
                             child: Stack(
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 40.0),
                                   child: PageView(
                                     controller: _model.pageViewController ??=
@@ -185,9 +183,9 @@ class _GuideContentHomeWidgetState extends State<GuideContentHomeWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(-1.0, 1.0),
+                                  alignment: const AlignmentDirectional(-1.0, 1.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         16.0, 0.0, 0.0, 16.0),
                                     child: smooth_page_indicator
                                         .SmoothPageIndicator(
@@ -199,7 +197,7 @@ class _GuideContentHomeWidgetState extends State<GuideContentHomeWidget> {
                                         await _model.pageViewController!
                                             .animateToPage(
                                           i,
-                                          duration: Duration(milliseconds: 500),
+                                          duration: const Duration(milliseconds: 500),
                                           curve: Curves.ease,
                                         );
                                         setState(() {});
@@ -226,7 +224,7 @@ class _GuideContentHomeWidgetState extends State<GuideContentHomeWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 20.0, 0.0),
                           child: Wrap(
                             spacing: 0.0,
@@ -239,7 +237,7 @@ class _GuideContentHomeWidgetState extends State<GuideContentHomeWidget> {
                             clipBehavior: Clip.none,
                             children: [
                               FlutterFlowChoiceChips(
-                                options: [
+                                options: const [
                                   ChipData('전체'),
                                   ChipData('안전, 매너'),
                                   ChipData('낚시방법'),
@@ -312,7 +310,7 @@ class _GuideContentHomeWidgetState extends State<GuideContentHomeWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 20.0, 0.0),
                           child: Builder(
                             builder: (context) {
@@ -354,7 +352,7 @@ class _GuideContentHomeWidgetState extends State<GuideContentHomeWidget> {
                                         ),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 4.0, 8.0, 4.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -407,7 +405,7 @@ class _GuideContentHomeWidgetState extends State<GuideContentHomeWidget> {
                                                                       context)
                                                                   .bodyMediumFamily,
                                                           color:
-                                                              Color(0xFF4D4D4D),
+                                                              const Color(0xFF4D4D4D),
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -441,9 +439,9 @@ class _GuideContentHomeWidgetState extends State<GuideContentHomeWidget> {
                                                                       .bodyMediumFamily),
                                                         ),
                                                   ),
-                                                ].divide(SizedBox(height: 4.0)),
+                                                ].divide(const SizedBox(height: 4.0)),
                                               ),
-                                            ].divide(SizedBox(width: 8.0)),
+                                            ].divide(const SizedBox(width: 8.0)),
                                           ),
                                         ),
                                       ),
@@ -460,7 +458,7 @@ class _GuideContentHomeWidgetState extends State<GuideContentHomeWidget> {
                   wrapWithModel(
                     model: _model.customNavbarModel,
                     updateCallback: () => setState(() {}),
-                    child: CustomNavbarWidget(),
+                    child: const CustomNavbarWidget(),
                   ),
                 ],
               ),

@@ -3,15 +3,11 @@ import '/components/custom_navbar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/shop_summary/product_detail/wish_button/wish_button_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'product_detail_model.dart';
 export 'product_detail_model.dart';
 
@@ -83,7 +79,7 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
           child: Stack(
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
                 child: ListView(
                   padding: EdgeInsets.zero,
                   scrollDirection: Axis.vertical,
@@ -104,13 +100,13 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
                             ),
-                            child: Container(
+                            child: SizedBox(
                               width: double.infinity,
                               height: 500.0,
                               child: Stack(
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 40.0),
                                     child: PageView(
                                       controller: _model.pageViewController ??=
@@ -151,9 +147,9 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 1.0),
+                                    alignment: const AlignmentDirectional(0.0, 1.0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           16.0, 0.0, 0.0, 16.0),
                                       child: smooth_page_indicator
                                           .SmoothPageIndicator(
@@ -167,7 +163,7 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                               .animateToPage(
                                             i,
                                             duration:
-                                                Duration(milliseconds: 500),
+                                                const Duration(milliseconds: 500),
                                             curve: Curves.ease,
                                           );
                                           setState(() {});
@@ -204,7 +200,7 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                 borderRadius: BorderRadius.circular(12.0),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -272,7 +268,7 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                                     'PretendardSeries'),
                                           ),
                                     ),
-                                  ].divide(SizedBox(height: 8.0)),
+                                  ].divide(const SizedBox(height: 8.0)),
                                 ),
                               ),
                             ),
@@ -288,7 +284,7 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                         borderRadius: BorderRadius.circular(12.0),
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             16.0, 12.0, 16.0, 12.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -368,12 +364,12 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                                           .bodyMediumFamily),
                                             ),
                                       ),
-                                    ].divide(SizedBox(height: 8.0)),
+                                    ].divide(const SizedBox(height: 8.0)),
                                   ),
                                 ),
                               ],
                             ),
-                          ].divide(SizedBox(height: 8.0)),
+                          ].divide(const SizedBox(height: 8.0)),
                         ),
                       ),
                     ),
@@ -384,7 +380,7 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                         color: FlutterFlowTheme.of(context).primaryBackground,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             16.0, 12.0, 16.0, 12.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -404,7 +400,7 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                   ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 12.0, 0.0, 0.0),
                               child: Container(
                                 width: double.infinity,
@@ -489,7 +485,7 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                                             'PretendardSeries'),
                                               ),
                                         ),
-                                      ].divide(SizedBox(height: 4.0)),
+                                      ].divide(const SizedBox(height: 4.0)),
                                     ),
                                     Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -554,9 +550,9 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                                             'PretendardSeries'),
                                               ),
                                         ),
-                                      ].divide(SizedBox(height: 4.0)),
+                                      ].divide(const SizedBox(height: 4.0)),
                                     ),
-                                  ].divide(SizedBox(width: 48.0)),
+                                  ].divide(const SizedBox(width: 48.0)),
                                 ),
                               ),
                             ),
@@ -564,24 +560,24 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                         ),
                       ),
                     ),
-                  ].divide(SizedBox(height: 8.0)),
+                  ].divide(const SizedBox(height: 8.0)),
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
+                alignment: const AlignmentDirectional(0.0, 1.0),
                 child: wrapWithModel(
                   model: _model.customNavbarModel,
                   updateCallback: () => setState(() {}),
-                  child: CustomNavbarWidget(),
+                  child: const CustomNavbarWidget(),
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
+                alignment: const AlignmentDirectional(0.0, 1.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 64.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 64.0),
                   child: StreamBuilder<TBShoppingProductRecord>(
                     stream:
-                        TBShoppingProductRecord.getDocument(widget!.product!),
+                        TBShoppingProductRecord.getDocument(widget.product!),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
                       if (!snapshot.hasData) {
@@ -604,7 +600,7 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                         model: _model.wishButtonModel,
                         updateCallback: () => setState(() {}),
                         child: WishButtonWidget(
-                          productDetail: widget!.product,
+                          productDetail: widget.product,
                         ),
                       );
                     },
