@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class GuideContentModel extends FlutterFlowModel<GuideContentWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for PageView widget.
   PageController? pageViewController;
 
@@ -25,7 +24,6 @@ class GuideContentModel extends FlutterFlowModel<GuideContentWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     customNavbarModel.dispose();
   }
 }

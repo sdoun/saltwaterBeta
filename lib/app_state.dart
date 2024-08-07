@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '/backend/backend.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -58,37 +59,6 @@ class FFAppState extends ChangeNotifier {
     chosenOptionList.insert(index, value);
   }
 
-  List<WishProductOptionStruct> _chosenOptionStructList = [];
-  List<WishProductOptionStruct> get chosenOptionStructList =>
-      _chosenOptionStructList;
-  set chosenOptionStructList(List<WishProductOptionStruct> value) {
-    _chosenOptionStructList = value;
-  }
-
-  void addToChosenOptionStructList(WishProductOptionStruct value) {
-    chosenOptionStructList.add(value);
-  }
-
-  void removeFromChosenOptionStructList(WishProductOptionStruct value) {
-    chosenOptionStructList.remove(value);
-  }
-
-  void removeAtIndexFromChosenOptionStructList(int index) {
-    chosenOptionStructList.removeAt(index);
-  }
-
-  void updateChosenOptionStructListAtIndex(
-    int index,
-    WishProductOptionStruct Function(WishProductOptionStruct) updateFn,
-  ) {
-    chosenOptionStructList[index] = updateFn(_chosenOptionStructList[index]);
-  }
-
-  void insertAtIndexInChosenOptionStructList(
-      int index, WishProductOptionStruct value) {
-    chosenOptionStructList.insert(index, value);
-  }
-
   String _newProfileImage = '';
   String get newProfileImage => _newProfileImage;
   set newProfileImage(String value) {
@@ -124,12 +94,6 @@ class FFAppState extends ChangeNotifier {
     carrotImages.insert(index, value);
   }
 
-  String _fishName = '';
-  String get fishName => _fishName;
-  set fishName(String value) {
-    _fishName = value;
-  }
-
   List<String> _fishes = [];
   List<String> get fishes => _fishes;
   set fishes(List<String> value) {
@@ -159,41 +123,6 @@ class FFAppState extends ChangeNotifier {
     fishes.insert(index, value);
   }
 
-  int _unReadNoti = 0;
-  int get unReadNoti => _unReadNoti;
-  set unReadNoti(int value) {
-    _unReadNoti = value;
-  }
-
-  List<DocumentReference> _unReadChat = [];
-  List<DocumentReference> get unReadChat => _unReadChat;
-  set unReadChat(List<DocumentReference> value) {
-    _unReadChat = value;
-  }
-
-  void addToUnReadChat(DocumentReference value) {
-    unReadChat.add(value);
-  }
-
-  void removeFromUnReadChat(DocumentReference value) {
-    unReadChat.remove(value);
-  }
-
-  void removeAtIndexFromUnReadChat(int index) {
-    unReadChat.removeAt(index);
-  }
-
-  void updateUnReadChatAtIndex(
-    int index,
-    DocumentReference Function(DocumentReference) updateFn,
-  ) {
-    unReadChat[index] = updateFn(_unReadChat[index]);
-  }
-
-  void insertAtIndexInUnReadChat(int index, DocumentReference value) {
-    unReadChat.insert(index, value);
-  }
-
   DateTime? _startDate;
   DateTime? get startDate => _startDate;
   set startDate(DateTime? value) {
@@ -204,12 +133,6 @@ class FFAppState extends ChangeNotifier {
   DateTime? get endDate => _endDate;
   set endDate(DateTime? value) {
     _endDate = value;
-  }
-
-  String _searchText = '';
-  String get searchText => _searchText;
-  set searchText(String value) {
-    _searchText = value;
   }
 
   List<DocumentReference> _carrotPosts = [];
@@ -477,6 +400,64 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInRecentSearch(int index, String value) {
     recentSearch.insert(index, value);
     prefs.setStringList('ff_recentSearch', _recentSearch);
+  }
+
+  List<String> _standFacility1 = [];
+  List<String> get standFacility1 => _standFacility1;
+  set standFacility1(List<String> value) {
+    _standFacility1 = value;
+  }
+
+  void addToStandFacility1(String value) {
+    standFacility1.add(value);
+  }
+
+  void removeFromStandFacility1(String value) {
+    standFacility1.remove(value);
+  }
+
+  void removeAtIndexFromStandFacility1(int index) {
+    standFacility1.removeAt(index);
+  }
+
+  void updateStandFacility1AtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    standFacility1[index] = updateFn(_standFacility1[index]);
+  }
+
+  void insertAtIndexInStandFacility1(int index, String value) {
+    standFacility1.insert(index, value);
+  }
+
+  List<String> _standFacility2 = [];
+  List<String> get standFacility2 => _standFacility2;
+  set standFacility2(List<String> value) {
+    _standFacility2 = value;
+  }
+
+  void addToStandFacility2(String value) {
+    standFacility2.add(value);
+  }
+
+  void removeFromStandFacility2(String value) {
+    standFacility2.remove(value);
+  }
+
+  void removeAtIndexFromStandFacility2(int index) {
+    standFacility2.removeAt(index);
+  }
+
+  void updateStandFacility2AtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    standFacility2[index] = updateFn(_standFacility2[index]);
+  }
+
+  void insertAtIndexInStandFacility2(int index, String value) {
+    standFacility2.insert(index, value);
   }
 }
 

@@ -82,9 +82,7 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
         final carrotChatRoomTBChatRoomRecord = snapshot.data!;
 
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -148,7 +146,7 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                     alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Padding(
                       padding: const EdgeInsetsDirectional.fromSTEB(
-                          12.0, 20.0, 12.0, 160.0),
+                          12.0, 20.0, 12.0, 168.0),
                       child: StreamBuilder<List<TBChatRecord>>(
                         stream: queryTBChatRecord(
                           parent: widget.chatRoom,
@@ -181,10 +179,11 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                           List<TBChatRecord> listViewTBChatRecordList =
                               snapshot.data!;
 
-                          return ListView.builder(
+                          return ListView.separated(
                             padding: EdgeInsets.zero,
                             scrollDirection: Axis.vertical,
                             itemCount: listViewTBChatRecordList.length,
+                            separatorBuilder: (_, __) => const SizedBox(height: 8.0),
                             itemBuilder: (context, listViewIndex) {
                               final listViewTBChatRecord =
                                   listViewTBChatRecordList[listViewIndex];
@@ -218,62 +217,47 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.start,
                                             children: [
-                                              Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  AuthUserStreamWidget(
-                                                    builder: (context) =>
-                                                        StreamBuilder<
-                                                            List<UsersRecord>>(
-                                                      stream: queryUsersRecord(
-                                                        queryBuilder:
-                                                            (usersRecord) =>
-                                                                usersRecord
-                                                                    .where(
-                                                          'uid',
-                                                          isEqualTo:
-                                                              listViewTBChatRecord
-                                                                  .chatSendBy,
+                                              StreamBuilder<UsersRecord>(
+                                                stream: UsersRecord.getDocument(
+                                                    listViewTBChatRecord
+                                                        .chatCreatedBy!),
+                                                builder: (context, snapshot) {
+                                                  // Customize what your widget looks like when it's loading.
+                                                  if (!snapshot.hasData) {
+                                                    return Center(
+                                                      child: SizedBox(
+                                                        width: 50.0,
+                                                        height: 50.0,
+                                                        child:
+                                                            CircularProgressIndicator(
+                                                          valueColor:
+                                                              AlwaysStoppedAnimation<
+                                                                  Color>(
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                          ),
                                                         ),
-                                                        singleRecord: true,
                                                       ),
-                                                      builder:
-                                                          (context, snapshot) {
-                                                        // Customize what your widget looks like when it's loading.
-                                                        if (!snapshot.hasData) {
-                                                          return Center(
-                                                            child: SizedBox(
-                                                              width: 50.0,
-                                                              height: 50.0,
-                                                              child:
-                                                                  CircularProgressIndicator(
-                                                                valueColor:
-                                                                    AlwaysStoppedAnimation<
-                                                                        Color>(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          );
-                                                        }
-                                                        List<UsersRecord>
-                                                            circleImageUsersRecordList =
-                                                            snapshot.data!;
-                                                        // Return an empty Container when the item does not exist.
-                                                        if (snapshot
-                                                            .data!.isEmpty) {
-                                                          return Container();
-                                                        }
-                                                        final circleImageUsersRecord =
-                                                            circleImageUsersRecordList
-                                                                    .isNotEmpty
-                                                                ? circleImageUsersRecordList
-                                                                    .first
-                                                                : null;
+                                                    );
+                                                  }
 
-                                                        return Container(
+                                                  final containerUsersRecord =
+                                                      snapshot.data!;
+
+                                                  return Container(
+                                                    width: 64.0,
+                                                    height: 64.0,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .primaryBackground,
+                                                    ),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Container(
                                                           width: 36.0,
                                                           height: 36.0,
                                                           clipBehavior:
@@ -284,88 +268,36 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                                                 BoxShape.circle,
                                                           ),
                                                           child: Image.network(
-                                                            currentUserPhoto,
+                                                            containerUsersRecord
+                                                                .photoUrl,
                                                             fit: BoxFit.cover,
                                                           ),
-                                                        );
-                                                      },
-                                                    ),
-                                                  ),
-                                                  StreamBuilder<
-                                                      List<UsersRecord>>(
-                                                    stream: queryUsersRecord(
-                                                      queryBuilder:
-                                                          (usersRecord) =>
-                                                              usersRecord.where(
-                                                        'uid',
-                                                        isEqualTo:
-                                                            listViewTBChatRecord
-                                                                .chatSendBy,
-                                                      ),
-                                                      singleRecord: true,
-                                                    ),
-                                                    builder:
-                                                        (context, snapshot) {
-                                                      // Customize what your widget looks like when it's loading.
-                                                      if (!snapshot.hasData) {
-                                                        return Center(
-                                                          child: SizedBox(
-                                                            width: 50.0,
-                                                            height: 50.0,
-                                                            child:
-                                                                CircularProgressIndicator(
-                                                              valueColor:
-                                                                  AlwaysStoppedAnimation<
-                                                                      Color>(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        );
-                                                      }
-                                                      List<UsersRecord>
-                                                          textUsersRecordList =
-                                                          snapshot.data!;
-                                                      // Return an empty Container when the item does not exist.
-                                                      if (snapshot
-                                                          .data!.isEmpty) {
-                                                        return Container();
-                                                      }
-                                                      final textUsersRecord =
-                                                          textUsersRecordList
-                                                                  .isNotEmpty
-                                                              ? textUsersRecordList
-                                                                  .first
-                                                              : null;
-
-                                                      return Text(
-                                                        valueOrDefault<String>(
-                                                          textUsersRecord
-                                                              ?.displayName,
-                                                          '0',
                                                         ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily),
-                                                                ),
-                                                      );
-                                                    },
-                                                  ),
-                                                ],
+                                                        Text(
+                                                          containerUsersRecord
+                                                              .displayName
+                                                              .maybeHandleOverflow(
+                                                                  maxChars: 5),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily),
+                                                              ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  );
+                                                },
                                               ),
                                               Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -576,144 +508,6 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                                                   ),
                                                 ],
                                               ),
-                                              Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  StreamBuilder<
-                                                      List<UsersRecord>>(
-                                                    stream: queryUsersRecord(
-                                                      queryBuilder:
-                                                          (usersRecord) =>
-                                                              usersRecord.where(
-                                                        'uid',
-                                                        isEqualTo:
-                                                            listViewTBChatRecord
-                                                                .chatSendBy,
-                                                      ),
-                                                      singleRecord: true,
-                                                    ),
-                                                    builder:
-                                                        (context, snapshot) {
-                                                      // Customize what your widget looks like when it's loading.
-                                                      if (!snapshot.hasData) {
-                                                        return Center(
-                                                          child: SizedBox(
-                                                            width: 50.0,
-                                                            height: 50.0,
-                                                            child:
-                                                                CircularProgressIndicator(
-                                                              valueColor:
-                                                                  AlwaysStoppedAnimation<
-                                                                      Color>(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        );
-                                                      }
-                                                      List<UsersRecord>
-                                                          circleImageUsersRecordList =
-                                                          snapshot.data!;
-                                                      final circleImageUsersRecord =
-                                                          circleImageUsersRecordList
-                                                                  .isNotEmpty
-                                                              ? circleImageUsersRecordList
-                                                                  .first
-                                                              : null;
-
-                                                      return Container(
-                                                        width: 36.0,
-                                                        height: 36.0,
-                                                        clipBehavior:
-                                                            Clip.antiAlias,
-                                                        decoration:
-                                                            const BoxDecoration(
-                                                          shape:
-                                                              BoxShape.circle,
-                                                        ),
-                                                        child: Image.network(
-                                                          circleImageUsersRecord!
-                                                              .photoUrl,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      );
-                                                    },
-                                                  ),
-                                                  StreamBuilder<
-                                                      List<UsersRecord>>(
-                                                    stream: queryUsersRecord(
-                                                      queryBuilder:
-                                                          (usersRecord) =>
-                                                              usersRecord.where(
-                                                        'uid',
-                                                        isEqualTo:
-                                                            listViewTBChatRecord
-                                                                .chatSendBy,
-                                                      ),
-                                                      singleRecord: true,
-                                                    ),
-                                                    builder:
-                                                        (context, snapshot) {
-                                                      // Customize what your widget looks like when it's loading.
-                                                      if (!snapshot.hasData) {
-                                                        return Center(
-                                                          child: SizedBox(
-                                                            width: 50.0,
-                                                            height: 50.0,
-                                                            child:
-                                                                CircularProgressIndicator(
-                                                              valueColor:
-                                                                  AlwaysStoppedAnimation<
-                                                                      Color>(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        );
-                                                      }
-                                                      List<UsersRecord>
-                                                          textUsersRecordList =
-                                                          snapshot.data!;
-                                                      final textUsersRecord =
-                                                          textUsersRecordList
-                                                                  .isNotEmpty
-                                                              ? textUsersRecordList
-                                                                  .first
-                                                              : null;
-
-                                                      return Text(
-                                                        valueOrDefault<String>(
-                                                          textUsersRecord
-                                                              ?.displayName,
-                                                          'username',
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                                  fontSize:
-                                                                      13.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily),
-                                                                ),
-                                                      );
-                                                    },
-                                                  ),
-                                                ],
-                                              ),
                                             ].divide(const SizedBox(width: 8.0)),
                                           ),
                                         ),
@@ -731,88 +525,83 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                     alignment: const AlignmentDirectional(0.0, 0.8),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Expanded(
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 12.0),
-                              child: TextFormField(
-                                controller: _model.textController,
-                                focusNode: _model.textFieldFocusNode,
-                                autofocus: true,
-                                obscureText: false,
-                                decoration: InputDecoration(
-                                  labelText: '메시지를 입력해주세요.',
-                                  labelStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .labelMediumFamily,
-                                        letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMediumFamily),
-                                      ),
-                                  hintStyle: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .labelMediumFamily,
-                                        letterSpacing: 0.0,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMediumFamily),
-                                      ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                      color: Color(0xFFE3E5FF),
-                                      width: 2.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      width: 2.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  errorBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context).error,
-                                      width: 2.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  focusedErrorBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context).error,
-                                      width: 2.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
+                            child: TextFormField(
+                              controller: _model.textController,
+                              focusNode: _model.textFieldFocusNode,
+                              autofocus: true,
+                              obscureText: false,
+                              decoration: InputDecoration(
+                                labelText: '메시지를 입력해주세요.',
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily,
+                                          .labelMediumFamily,
                                       letterSpacing: 0.0,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily),
+                                                  .labelMediumFamily),
                                     ),
-                                maxLines: null,
-                                validator: _model.textControllerValidator
-                                    .asValidator(context),
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .labelMediumFamily,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMediumFamily),
+                                    ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                    color: Color(0xFFE3E5FF),
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).error,
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).error,
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
                               ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily,
+                                    letterSpacing: 0.0,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .bodyMediumFamily),
+                                  ),
+                              maxLines: null,
+                              validator: _model.textControllerValidator
+                                  .asValidator(context),
                             ),
                           ),
                           FlutterFlowIconButton(
@@ -872,10 +661,20 @@ class _CarrotChatRoomWidgetState extends State<CarrotChatRoomWidget> {
                       ),
                     ),
                   ),
-                  wrapWithModel(
-                    model: _model.carrotNavBarModel,
-                    updateCallback: () => setState(() {}),
-                    child: const CarrotNavBarWidget(),
+                  Align(
+                    alignment: const AlignmentDirectional(0.0, 1.0),
+                    child: Container(
+                      width: double.infinity,
+                      height: MediaQuery.sizeOf(context).height * 0.08,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).primaryBackground,
+                      ),
+                      child: wrapWithModel(
+                        model: _model.carrotNavBarModel,
+                        updateCallback: () => setState(() {}),
+                        child: const CarrotNavBarWidget(),
+                      ),
+                    ),
                   ),
                 ],
               ),

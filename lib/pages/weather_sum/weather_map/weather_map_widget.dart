@@ -1,11 +1,9 @@
 import '/backend/backend.dart';
 import '/components/custom_navbar_widget.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'weather_map_model.dart';
@@ -64,9 +62,7 @@ class _WeatherMapWidgetState extends State<WeatherMapWidget> {
             snapshot.data!;
 
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             resizeToAvoidBottomInset: false,
@@ -140,56 +136,6 @@ class _WeatherMapWidgetState extends State<WeatherMapWidget> {
                             color:
                                 FlutterFlowTheme.of(context).primaryBackground,
                           ),
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                12.0, 0.0, 12.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                FlutterFlowDropDown<String>(
-                                  controller: _model.dropDownValueController ??=
-                                      FormFieldController<String>(null),
-                                  options: const ['Option 1'],
-                                  onChanged: (val) => setState(
-                                      () => _model.dropDownValue = val),
-                                  width: 134.0,
-                                  height: 49.0,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily),
-                                      ),
-                                  hintText: '지역별 보기',
-                                  icon: Icon(
-                                    Icons.keyboard_arrow_down_rounded,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    size: 24.0,
-                                  ),
-                                  fillColor: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                                  elevation: 2.0,
-                                  borderColor: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  borderWidth: 1.0,
-                                  borderRadius: 8.0,
-                                  margin: const EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 4.0, 16.0, 4.0),
-                                  hidesUnderline: true,
-                                  isOverButton: true,
-                                  isSearchable: false,
-                                  isMultiSelect: false,
-                                ),
-                              ],
-                            ),
-                          ),
                         ),
                         ClipRRect(
                           borderRadius: BorderRadius.circular(12.0),
@@ -209,18 +155,15 @@ class _WeatherMapWidgetState extends State<WeatherMapWidget> {
                                   const LatLng(37.0, 127.0),
                               markers: weatherMapTBWeatherPointRecordList
                                   .map(
-                                    (weatherMapTBWeatherPointRecord) =>
-                                        FlutterFlowMarker(
-                                      weatherMapTBWeatherPointRecord
-                                          .reference.path,
-                                      weatherMapTBWeatherPointRecord.latlng!,
+                                    (marker) => FlutterFlowMarker(
+                                      marker.reference.path,
+                                      marker.latlng!,
                                       () async {
                                         context.pushNamed(
                                           'weatherDetailed',
                                           queryParameters: {
                                             'weatherRef': serializeParam(
-                                              weatherMapTBWeatherPointRecord
-                                                  .reference,
+                                              marker.reference,
                                               ParamType.DocumentReference,
                                             ),
                                           }.withoutNulls,

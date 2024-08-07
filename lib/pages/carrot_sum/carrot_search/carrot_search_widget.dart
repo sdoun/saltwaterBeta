@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/carrot_sum/carrot_nav_bar/carrot_nav_bar_widget.dart';
-import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -31,8 +30,7 @@ class _CarrotSearchWidgetState extends State<CarrotSearchWidget> {
     super.initState();
     _model = createModel(context, () => CarrotSearchModel());
 
-    _model.textController ??=
-        TextEditingController(text: FFAppState().searchText);
+    _model.textController ??= TextEditingController(text: widget.searchText);
     _model.textFieldFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -50,9 +48,7 @@ class _CarrotSearchWidgetState extends State<CarrotSearchWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -157,20 +153,6 @@ class _CarrotSearchWidgetState extends State<CarrotSearchWidget> {
                             child: TextFormField(
                               controller: _model.textController,
                               focusNode: _model.textFieldFocusNode,
-                              onChanged: (_) => EasyDebounce.debounce(
-                                '_model.textController',
-                                const Duration(milliseconds: 2000),
-                                () async {
-                                  FFAppState().searchText =
-                                      _model.textController.text;
-                                  setState(() {});
-                                },
-                              ),
-                              onFieldSubmitted: (_) async {
-                                FFAppState().searchText =
-                                    _model.textController.text;
-                                setState(() {});
-                              },
                               autofocus: true,
                               obscureText: false,
                               decoration: InputDecoration(
@@ -245,84 +227,69 @@ class _CarrotSearchWidgetState extends State<CarrotSearchWidget> {
                         ),
                       ],
                     ),
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        const Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [],
-                        ),
-                        Builder(
-                          builder: (context) {
-                            final recentSearch =
-                                FFAppState().recentSearch.toList();
+                    Builder(
+                      builder: (context) {
+                        final recentSearch = FFAppState().recentSearch.toList();
 
-                            return Column(
+                        return Column(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: List.generate(recentSearch.length,
+                              (recentSearchIndex) {
+                            final recentSearchItem =
+                                recentSearch[recentSearchIndex];
+                            return Row(
                               mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: List.generate(recentSearch.length,
-                                  (recentSearchIndex) {
-                                final recentSearchItem =
-                                    recentSearch[recentSearchIndex];
-                                return Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      recentSearchItem,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily:
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  recentSearchItem,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .bodyMediumFamily,
+                                        letterSpacing: 0.0,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
                                                 FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily,
-                                            letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily),
-                                          ),
-                                    ),
-                                    FlutterFlowIconButton(
-                                      borderRadius: 20.0,
-                                      borderWidth: 1.0,
-                                      buttonSize: 32.0,
-                                      fillColor: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      icon: Icon(
-                                        Icons.block,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        size: 20.0,
+                                                    .bodyMediumFamily),
                                       ),
-                                      onPressed: () async {
-                                        FFAppState()
-                                            .removeAtIndexFromRecentSearch(
-                                                recentSearchIndex);
-                                        setState(() {});
-                                      },
-                                    ),
-                                  ],
-                                );
-                              }).divide(const SizedBox(height: 8.0)),
+                                ),
+                                FlutterFlowIconButton(
+                                  borderColor: Colors.transparent,
+                                  borderRadius: 20.0,
+                                  borderWidth: 1.0,
+                                  buttonSize: 32.0,
+                                  fillColor: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  icon: Icon(
+                                    Icons.block,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    size: 20.0,
+                                  ),
+                                  onPressed: () async {
+                                    FFAppState().removeAtIndexFromRecentSearch(
+                                        recentSearchIndex);
+                                    setState(() {});
+                                  },
+                                ),
+                              ],
                             );
-                          },
-                        ),
-                      ],
+                          }).divide(const SizedBox(height: 8.0)),
+                        );
+                      },
                     ),
                   ].divide(const SizedBox(height: 8.0)),
                 ),
               ),
               Align(
                 alignment: const AlignmentDirectional(0.0, 0.0),
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
-                  child: wrapWithModel(
-                    model: _model.carrotNavBarModel,
-                    updateCallback: () => setState(() {}),
-                    child: const CarrotNavBarWidget(),
-                  ),
+                child: wrapWithModel(
+                  model: _model.carrotNavBarModel,
+                  updateCallback: () => setState(() {}),
+                  child: const CarrotNavBarWidget(),
                 ),
               ),
             ],

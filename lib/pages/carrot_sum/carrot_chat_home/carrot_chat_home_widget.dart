@@ -56,7 +56,7 @@ class _CarrotChatHomeWidgetState extends State<CarrotChatHomeWidget> {
               'room_participant',
               arrayContains: currentUserReference?.id,
             )
-            .orderBy('room_createdAt', descending: true),
+            .orderBy('room_createdAt'),
       ),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
@@ -80,9 +80,7 @@ class _CarrotChatHomeWidgetState extends State<CarrotChatHomeWidget> {
             snapshot.data!;
 
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,

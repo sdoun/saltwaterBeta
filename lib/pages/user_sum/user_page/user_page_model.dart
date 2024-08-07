@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class UserPageModel extends FlutterFlowModel<UserPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for customNavbar component.
   late CustomNavbarModel customNavbarModel;
 
@@ -17,7 +16,6 @@ class UserPageModel extends FlutterFlowModel<UserPageWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     customNavbarModel.dispose();
   }
 }

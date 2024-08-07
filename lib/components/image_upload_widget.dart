@@ -86,6 +86,8 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
                 highlightColor: Colors.transparent,
                 onTap: () async {
                   final selectedMedia = await selectMedia(
+                    maxWidth: 640.00,
+                    maxHeight: 1280.00,
                     multiImage: false,
                   );
                   if (selectedMedia != null &&

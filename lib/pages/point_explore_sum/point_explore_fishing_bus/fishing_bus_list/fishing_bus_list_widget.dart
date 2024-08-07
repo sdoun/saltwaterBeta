@@ -49,9 +49,7 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -225,12 +223,8 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                           builder: (context) {
                                             return WebViewAware(
                                               child: GestureDetector(
-                                                onTap: () => _model.unfocusNode
-                                                        .canRequestFocus
-                                                    ? FocusScope.of(context)
-                                                        .requestFocus(
-                                                            _model.unfocusNode)
-                                                    : FocusScope.of(context)
+                                                onTap: () =>
+                                                    FocusScope.of(context)
                                                         .unfocus(),
                                                 child: Padding(
                                                   padding:
@@ -468,13 +462,8 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                             builder: (context) {
                                               return WebViewAware(
                                                 child: GestureDetector(
-                                                  onTap: () => _model
-                                                          .unfocusNode
-                                                          .canRequestFocus
-                                                      ? FocusScope.of(context)
-                                                          .requestFocus(_model
-                                                              .unfocusNode)
-                                                      : FocusScope.of(context)
+                                                  onTap: () =>
+                                                      FocusScope.of(context)
                                                           .unfocus(),
                                                   child: Padding(
                                                     padding:
@@ -644,13 +633,8 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                                             builder: (context) {
                                               return WebViewAware(
                                                 child: GestureDetector(
-                                                  onTap: () => _model
-                                                          .unfocusNode
-                                                          .canRequestFocus
-                                                      ? FocusScope.of(context)
-                                                          .requestFocus(_model
-                                                              .unfocusNode)
-                                                      : FocusScope.of(context)
+                                                  onTap: () =>
+                                                      FocusScope.of(context)
                                                           .unfocus(),
                                                   child: Padding(
                                                     padding:
@@ -866,163 +850,145 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                         ),
                       ),
                     ),
-                    StreamBuilder<List<TBFishingBusRecord>>(
-                      stream: queryTBFishingBusRecord(
-                        queryBuilder: (tBFishingBusRecord) =>
-                            tBFishingBusRecord.whereIn(
-                                'bus_name',
-                                _model.busSearchList
-                                            ?.map((e) => e.busName)
-                                            .toList() !=
-                                        ''
-                                    ? _model.busSearchList
-                                        ?.map((e) => e.busName)
-                                        .toList()
-                                    : null),
-                      ),
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: SizedBox(
-                              width: 50.0,
-                              height: 50.0,
-                              child: CircularProgressIndicator(
-                                valueColor: AlwaysStoppedAnimation<Color>(
-                                  FlutterFlowTheme.of(context).primary,
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
+                      child: StreamBuilder<List<TBFishingBusRecord>>(
+                        stream: queryTBFishingBusRecord(
+                          queryBuilder: (tBFishingBusRecord) =>
+                              tBFishingBusRecord.whereIn(
+                                  'bus_name',
+                                  _model.busSearchList
+                                              ?.map((e) => e.busName)
+                                              .toList() !=
+                                          ''
+                                      ? _model.busSearchList
+                                          ?.map((e) => e.busName)
+                                          .toList()
+                                      : null),
+                        ),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
                                 ),
                               ),
-                            ),
-                          );
-                        }
-                        List<TBFishingBusRecord>
-                            containerTBFishingBusRecordList = snapshot.data!;
+                            );
+                          }
+                          List<TBFishingBusRecord>
+                              listViewTBFishingBusRecordList = snapshot.data!;
 
-                        return Container(
-                          width: double.infinity,
-                          height: 621.0,
-                          decoration: BoxDecoration(
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 20.0, 0.0, 20.0),
-                            child: Builder(
-                              builder: (context) {
-                                final busDocLists =
-                                    containerTBFishingBusRecordList.toList();
-
-                                return ListView.separated(
-                                  padding: EdgeInsets.zero,
-                                  shrinkWrap: true,
-                                  scrollDirection: Axis.vertical,
-                                  itemCount: busDocLists.length,
-                                  separatorBuilder: (_, __) =>
-                                      const SizedBox(height: 4.0),
-                                  itemBuilder: (context, busDocListsIndex) {
-                                    final busDocListsItem =
-                                        busDocLists[busDocListsIndex];
-                                    return Material(
-                                      color: Colors.transparent,
-                                      elevation: 2.0,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(12.0),
-                                      ),
-                                      child: Container(
-                                        width: 100.0,
-                                        height: 84.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                          boxShadow: const [
-                                            BoxShadow(
-                                              blurRadius: 4.0,
-                                              color: Color(0x33000000),
-                                              offset: Offset(
-                                                0.0,
-                                                2.0,
-                                              ),
-                                            )
-                                          ],
-                                          borderRadius:
-                                              BorderRadius.circular(12.0),
+                          return ListView.separated(
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: listViewTBFishingBusRecordList.length,
+                            separatorBuilder: (_, __) => const SizedBox(height: 4.0),
+                            itemBuilder: (context, listViewIndex) {
+                              final listViewTBFishingBusRecord =
+                                  listViewTBFishingBusRecordList[listViewIndex];
+                              return Material(
+                                color: Colors.transparent,
+                                elevation: 2.0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                child: Container(
+                                  width: 100.0,
+                                  height: 84.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    boxShadow: const [
+                                      BoxShadow(
+                                        blurRadius: 4.0,
+                                        color: Color(0x33000000),
+                                        offset: Offset(
+                                          0.0,
+                                          2.0,
                                         ),
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 8.0, 12.0, 8.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                child: Image.network(
-                                                  busDocListsItem.busImage,
-                                                  width: 80.0,
-                                                  height: 200.0,
-                                                  fit: BoxFit.cover,
-                                                ),
-                                              ),
-                                              Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    busDocListsItem.busName,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'PretendardSeries',
-                                                          fontSize: 15.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          useGoogleFonts:
-                                                              GoogleFonts
-                                                                      .asMap()
-                                                                  .containsKey(
-                                                                      'PretendardSeries'),
-                                                        ),
-                                                  ),
-                                                  Text(
-                                                    busDocListsItem.busArea,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
-                                                          letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
-                                                        ),
-                                                  ),
-                                                ].divide(const SizedBox(height: 4.0)),
-                                              ),
-                                            ].divide(const SizedBox(width: 8.0)),
+                                      )
+                                    ],
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 8.0, 12.0, 8.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          child: Image.network(
+                                            listViewTBFishingBusRecord.busImage,
+                                            width: 80.0,
+                                            height: 200.0,
+                                            fit: BoxFit.cover,
                                           ),
                                         ),
-                                      ),
-                                    );
-                                  },
-                                );
-                              },
-                            ),
-                          ),
-                        );
-                      },
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              listViewTBFishingBusRecord
+                                                  .busName,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'PretendardSeries',
+                                                        fontSize: 15.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                'PretendardSeries'),
+                                                      ),
+                                            ),
+                                            Text(
+                                              listViewTBFishingBusRecord
+                                                  .busArea,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
+                                                      ),
+                                            ),
+                                          ].divide(const SizedBox(height: 4.0)),
+                                        ),
+                                      ].divide(const SizedBox(width: 8.0)),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
+                          );
+                        },
+                      ),
                     ),
                   ],
                 ),
@@ -1047,16 +1013,20 @@ class _FishingBusListWidgetState extends State<FishingBusListWidget> {
                     onTap: () async {
                       context.pushNamed('fishingBusMap');
                     },
-                    child: Container(
-                      width: 109.0,
-                      height: 36.0,
-                      decoration: BoxDecoration(
-                        color: const Color(0x00E8E8E8),
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: Image.asset(
-                            'assets/images/p7ygm_.png',
-                          ).image,
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 0.0,
+                      child: Container(
+                        width: 109.0,
+                        height: 36.0,
+                        decoration: BoxDecoration(
+                          color: const Color(0x00E8E8E8),
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: Image.asset(
+                              'assets/images/p7ygm_.png',
+                            ).image,
+                          ),
                         ),
                       ),
                     ),

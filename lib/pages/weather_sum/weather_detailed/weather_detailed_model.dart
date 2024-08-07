@@ -22,7 +22,6 @@ class WeatherDetailedModel extends FlutterFlowModel<WeatherDetailedWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for customNavbar component.
   late CustomNavbarModel customNavbarModel;
 
@@ -33,7 +32,6 @@ class WeatherDetailedModel extends FlutterFlowModel<WeatherDetailedWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     customNavbarModel.dispose();
   }
 }

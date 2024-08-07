@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/custom_navbar_widget.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
@@ -105,9 +106,7 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
         List<TBPointRecord> exploreMapSWTBPointRecordList = snapshot.data!;
 
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -275,15 +274,8 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                 builder: (context) {
                                                   return WebViewAware(
                                                     child: GestureDetector(
-                                                      onTap: () => _model
-                                                              .unfocusNode
-                                                              .canRequestFocus
-                                                          ? FocusScope.of(
-                                                                  context)
-                                                              .requestFocus(_model
-                                                                  .unfocusNode)
-                                                          : FocusScope.of(
-                                                                  context)
+                                                      onTap: () =>
+                                                          FocusScope.of(context)
                                                               .unfocus(),
                                                       child: Padding(
                                                         padding: MediaQuery
@@ -382,15 +374,8 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                 builder: (context) {
                                                   return WebViewAware(
                                                     child: GestureDetector(
-                                                      onTap: () => _model
-                                                              .unfocusNode
-                                                              .canRequestFocus
-                                                          ? FocusScope.of(
-                                                                  context)
-                                                              .requestFocus(_model
-                                                                  .unfocusNode)
-                                                          : FocusScope.of(
-                                                                  context)
+                                                      onTap: () =>
+                                                          FocusScope.of(context)
                                                               .unfocus(),
                                                       child: Padding(
                                                         padding: MediaQuery
@@ -574,15 +559,8 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                 builder: (context) {
                                                   return WebViewAware(
                                                     child: GestureDetector(
-                                                      onTap: () => _model
-                                                              .unfocusNode
-                                                              .canRequestFocus
-                                                          ? FocusScope.of(
-                                                                  context)
-                                                              .requestFocus(_model
-                                                                  .unfocusNode)
-                                                          : FocusScope.of(
-                                                                  context)
+                                                      onTap: () =>
+                                                          FocusScope.of(context)
                                                               .unfocus(),
                                                       child: Padding(
                                                         padding: MediaQuery
@@ -766,15 +744,8 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                 builder: (context) {
                                                   return WebViewAware(
                                                     child: GestureDetector(
-                                                      onTap: () => _model
-                                                              .unfocusNode
-                                                              .canRequestFocus
-                                                          ? FocusScope.of(
-                                                                  context)
-                                                              .requestFocus(_model
-                                                                  .unfocusNode)
-                                                          : FocusScope.of(
-                                                                  context)
+                                                      onTap: () =>
+                                                          FocusScope.of(context)
                                                               .unfocus(),
                                                       child: Padding(
                                                         padding: MediaQuery
@@ -1006,6 +977,7 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                   width: double.infinity,
                                   height: double.infinity,
                                   pointList: exploreMapSWTBPointRecordList,
+                                  currentUser: currentUserReference!,
                                   onClickMarker: (markerDoc) async {
                                     context.pushNamed(
                                       'point_detailed',
@@ -1027,14 +999,10 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                   ),
                   Align(
                     alignment: const AlignmentDirectional(0.0, 1.0),
-                    child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
-                      child: wrapWithModel(
-                        model: _model.customNavbarModel,
-                        updateCallback: () => setState(() {}),
-                        child: const CustomNavbarWidget(),
-                      ),
+                    child: wrapWithModel(
+                      model: _model.customNavbarModel,
+                      updateCallback: () => setState(() {}),
+                      child: const CustomNavbarWidget(),
                     ),
                   ),
                 ],

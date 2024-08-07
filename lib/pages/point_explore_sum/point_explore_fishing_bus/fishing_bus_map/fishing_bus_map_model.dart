@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class FishingBusMapModel extends FlutterFlowModel<FishingBusMapWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Bottom Sheet - busFishes] action in Container widget.
   List<String>? selectedFishes;
   // Stores action output result for [Custom Action - busSearch] action in Button widget.
@@ -22,7 +21,6 @@ class FishingBusMapModel extends FlutterFlowModel<FishingBusMapWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     customNavbarModel.dispose();
   }
 }

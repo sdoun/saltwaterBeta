@@ -19,7 +19,6 @@ class ExploreMapSWModel extends FlutterFlowModel<ExploreMapSWWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   List<TBPointRecord>? exploreMapSWPreviousSnapshot;
   // State field(s) for Column widget.
   ScrollController? columnController;
@@ -50,7 +49,6 @@ class ExploreMapSWModel extends FlutterFlowModel<ExploreMapSWWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     columnController?.dispose();
     rowController?.dispose();
     customNavbarModel.dispose();

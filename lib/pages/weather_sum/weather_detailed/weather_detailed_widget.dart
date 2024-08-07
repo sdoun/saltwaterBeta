@@ -69,9 +69,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
         final weatherDetailedTBWeatherPointRecord = snapshot.data!;
 
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -144,7 +142,8 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                           baseDate: functions
                               .datetimeToDate(getCurrentTimestamp.toString()),
                           baseTime: functions
-                              .datetimeToTime(getCurrentTimestamp.toString()),
+                              .datetimeToTime(getCurrentTimestamp.toString())
+                              .toString(),
                         ),
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.
@@ -2015,10 +2014,14 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                 Text(
                                                                   valueOrDefault<
                                                                       String>(
-                                                                    '${MidFcstCall.am4(
-                                                                      containerMidFcstResponse
-                                                                          .jsonBody,
-                                                                    )}',
+                                                                    valueOrDefault<String>(
+                                                                      MidFcstCall
+                                                                          .am4(
+                                                                        containerMidFcstResponse
+                                                                            .jsonBody,
+                                                                      ),
+                                                                      '예보 응답없음',
+                                                                    ),
                                                                     '예보 응답없음',
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
@@ -2551,14 +2554,10 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                   ),
                   Align(
                     alignment: const AlignmentDirectional(0.0, 1.0),
-                    child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
-                      child: wrapWithModel(
-                        model: _model.customNavbarModel,
-                        updateCallback: () => setState(() {}),
-                        child: const CustomNavbarWidget(),
-                      ),
+                    child: wrapWithModel(
+                      model: _model.customNavbarModel,
+                      updateCallback: () => setState(() {}),
+                      child: const CustomNavbarWidget(),
                     ),
                   ),
                 ],

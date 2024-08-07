@@ -37,7 +37,6 @@ dependencies:
   cloud_functions_web: 4.9.4
   collection: 1.18.0
   dropdown_button2: 2.3.9
-  easy_debounce: 2.0.1
   equatable: 2.0.5
   file_picker: 8.0.3
   firebase_auth: 4.19.5

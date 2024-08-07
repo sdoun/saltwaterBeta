@@ -8,7 +8,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'carrot_search_result_model.dart';
 export 'carrot_search_result_model.dart';
 
@@ -41,14 +40,8 @@ class _CarrotSearchResultWidgetState extends State<CarrotSearchResultWidget> {
         queryBuilder: (tBCarrotPostRecord) =>
             tBCarrotPostRecord.orderBy('post_datetime'),
       );
-      FFAppState().carrotPosts = _model.postsQuery!
-          .map((e) => e.reference)
-          .toList()
-          .toList()
-          .cast<DocumentReference>();
-      setState(() {});
       _model.searchResults = await actions.carrotSearch(
-        FFAppState().searchText,
+        widget.searchText,
         _model.postsQuery?.toList(),
       );
     });
@@ -65,12 +58,8 @@ class _CarrotSearchResultWidgetState extends State<CarrotSearchResultWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -146,7 +135,7 @@ class _CarrotSearchResultWidgetState extends State<CarrotSearchResultWidget> {
                               'carrot_searchResult',
                               queryParameters: {
                                 'searchText': serializeParam(
-                                  FFAppState().searchText,
+                                  widget.searchText,
                                   ParamType.String,
                                 ),
                               }.withoutNulls,
@@ -171,7 +160,15 @@ class _CarrotSearchResultWidgetState extends State<CarrotSearchResultWidget> {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            context.pushNamed('carrot_search');
+                            context.pushNamed(
+                              'carrot_search',
+                              queryParameters: {
+                                'searchText': serializeParam(
+                                  widget.searchText,
+                                  ParamType.String,
+                                ),
+                              }.withoutNulls,
+                            );
                           },
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 0.75,
@@ -193,7 +190,7 @@ class _CarrotSearchResultWidgetState extends State<CarrotSearchResultWidget> {
                                   Text(
                                     valueOrDefault<String>(
                                       widget.searchText,
-                                      '테스트',
+                                      '검색어를 입력해주세요',
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -386,13 +383,10 @@ class _CarrotSearchResultWidgetState extends State<CarrotSearchResultWidget> {
                   ].divide(const SizedBox(height: 12.0)),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
-                child: wrapWithModel(
-                  model: _model.carrotNavBarModel,
-                  updateCallback: () => setState(() {}),
-                  child: const CarrotNavBarWidget(),
-                ),
+              wrapWithModel(
+                model: _model.carrotNavBarModel,
+                updateCallback: () => setState(() {}),
+                child: const CarrotNavBarWidget(),
               ),
             ],
           ),

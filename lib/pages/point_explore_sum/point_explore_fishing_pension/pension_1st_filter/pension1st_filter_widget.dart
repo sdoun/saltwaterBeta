@@ -61,7 +61,7 @@ class _Pension1stFilterWidgetState extends State<Pension1stFilterWidget> {
           width: 351.0,
           height: 380.0,
           decoration: BoxDecoration(
-            color: FlutterFlowTheme.of(context).secondaryBackground,
+            color: FlutterFlowTheme.of(context).primaryBackground,
             borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(0.0),
               bottomRight: Radius.circular(0.0),
@@ -102,8 +102,8 @@ class _Pension1stFilterWidgetState extends State<Pension1stFilterWidget> {
                           width: 98.0,
                           height: 44.0,
                           decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
                             borderRadius: const BorderRadius.only(
                               bottomLeft: Radius.circular(8.0),
                               bottomRight: Radius.circular(8.0),
@@ -187,8 +187,8 @@ class _Pension1stFilterWidgetState extends State<Pension1stFilterWidget> {
                           width: 100.0,
                           height: 44.0,
                           decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
                             borderRadius: const BorderRadius.only(
                               bottomLeft: Radius.circular(8.0),
                               bottomRight: Radius.circular(8.0),

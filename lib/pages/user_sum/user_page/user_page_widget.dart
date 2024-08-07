@@ -41,9 +41,7 @@ class _UserPageWidgetState extends State<UserPageWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -599,87 +597,114 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                               ),
                             ),
                           ),
-                          StreamBuilder<List<TBUserReviewPointRecord>>(
-                            stream: queryTBUserReviewPointRecord(
-                              queryBuilder: (tBUserReviewPointRecord) =>
-                                  tBUserReviewPointRecord.where(
-                                'review_written_by',
-                                isEqualTo: currentUserReference,
-                              ),
+                          Container(
+                            width: double.infinity,
+                            height: 480.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
                             ),
-                            builder: (context, snapshot) {
-                              // Customize what your widget looks like when it's loading.
-                              if (!snapshot.hasData) {
-                                return Center(
-                                  child: SizedBox(
-                                    width: 50.0,
-                                    height: 50.0,
-                                    child: CircularProgressIndicator(
-                                      valueColor: AlwaysStoppedAnimation<Color>(
-                                        FlutterFlowTheme.of(context).primary,
+                            child: StreamBuilder<List<TBUserReviewPointRecord>>(
+                              stream: queryTBUserReviewPointRecord(
+                                queryBuilder: (tBUserReviewPointRecord) =>
+                                    tBUserReviewPointRecord.where(
+                                  'review_written_by',
+                                  isEqualTo: currentUserReference,
+                                ),
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context).primary,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                );
-                              }
-                              List<TBUserReviewPointRecord>
-                                  columnTBUserReviewPointRecordList =
-                                  snapshot.data!;
+                                  );
+                                }
+                                List<TBUserReviewPointRecord>
+                                    listViewTBUserReviewPointRecordList =
+                                    snapshot.data!;
 
-                              return Column(
-                                mainAxisSize: MainAxisSize.max,
-                                children: List.generate(
-                                    columnTBUserReviewPointRecordList.length,
-                                    (columnIndex) {
-                                  final columnTBUserReviewPointRecord =
-                                      columnTBUserReviewPointRecordList[
-                                          columnIndex];
-                                  return StreamBuilder<UsersRecord>(
-                                    stream: UsersRecord.getDocument(
-                                        columnTBUserReviewPointRecord
-                                            .reviewWrittenBy!),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 50.0,
-                                            height: 50.0,
-                                            child: CircularProgressIndicator(
-                                              valueColor:
-                                                  AlwaysStoppedAnimation<Color>(
-                                                FlutterFlowTheme.of(context)
-                                                    .primary,
+                                return ListView.builder(
+                                  padding: EdgeInsets.zero,
+                                  scrollDirection: Axis.vertical,
+                                  itemCount: listViewTBUserReviewPointRecordList
+                                      .length,
+                                  itemBuilder: (context, listViewIndex) {
+                                    final listViewTBUserReviewPointRecord =
+                                        listViewTBUserReviewPointRecordList[
+                                            listViewIndex];
+                                    return StreamBuilder<UsersRecord>(
+                                      stream: UsersRecord.getDocument(
+                                          listViewTBUserReviewPointRecord
+                                              .reviewWrittenBy!),
+                                      builder: (context, snapshot) {
+                                        // Customize what your widget looks like when it's loading.
+                                        if (!snapshot.hasData) {
+                                          return Center(
+                                            child: SizedBox(
+                                              width: 50.0,
+                                              height: 50.0,
+                                              child: CircularProgressIndicator(
+                                                valueColor:
+                                                    AlwaysStoppedAnimation<
+                                                        Color>(
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        );
-                                      }
+                                          );
+                                        }
 
-                                      final containerUsersRecord =
-                                          snapshot.data!;
+                                        final containerUsersRecord =
+                                            snapshot.data!;
 
-                                      return Container(
-                                        width: double.infinity,
-                                        height: 124.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 8.0, 8.0, 8.0),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                columnTBUserReviewPointRecord
-                                                    .reviewTitle,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
+                                        return InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            context.pushNamed(
+                                              'point_detailed',
+                                              queryParameters: {
+                                                'pointRefSW': serializeParam(
+                                                  listViewTBUserReviewPointRecord
+                                                      .parentReference,
+                                                  ParamType.DocumentReference,
+                                                ),
+                                              }.withoutNulls,
+                                            );
+                                          },
+                                          child: Container(
+                                            width: double.infinity,
+                                            height: 124.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                            ),
+                                            child: Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    listViewTBUserReviewPointRecord
+                                                        .reviewTitle,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
@@ -694,12 +719,12 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                                                   .containsKey(
                                                                       'PretendardSeries'),
                                                         ),
-                                              ),
-                                              Text(
-                                                containerUsersRecord
-                                                    .displayName,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
+                                                  ),
+                                                  Text(
+                                                    containerUsersRecord
+                                                        .displayName,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
@@ -711,12 +736,12 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                                                   .containsKey(
                                                                       'PretendardSeries'),
                                                         ),
-                                              ),
-                                              Text(
-                                                columnTBUserReviewPointRecord
-                                                    .reviewText,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
+                                                  ),
+                                                  Text(
+                                                    listViewTBUserReviewPointRecord
+                                                        .reviewText,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
@@ -731,16 +756,18 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                                                           context)
                                                                       .bodyMediumFamily),
                                                         ),
+                                                  ),
+                                                ].divide(const SizedBox(height: 8.0)),
                                               ),
-                                            ].divide(const SizedBox(height: 8.0)),
+                                            ),
                                           ),
-                                        ),
-                                      );
-                                    },
-                                  );
-                                }),
-                              );
-                            },
+                                        );
+                                      },
+                                    );
+                                  },
+                                );
+                              },
+                            ),
                           ),
                         ],
                       ),

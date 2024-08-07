@@ -32,7 +32,7 @@
         },
         {
           "fieldPath": "room_createdAt",
-          "order": "DESCENDING"
+          "order": "ASCENDING"
         }
       ]
     },

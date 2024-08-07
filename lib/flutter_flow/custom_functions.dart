@@ -125,6 +125,7 @@ int datetimeToDate(String datetime) {
 int datetimeToTime(String dateTimeString) {
   DateTime dateTime = DateTime.parse(dateTimeString);
   int hour = dateTime.hour;
+
   hour = hour * 100;
 
   return hour;
@@ -478,7 +479,7 @@ String midFcstToImage(String? fcstSkyString) {
 
   if (fcstSkyString == '맑음') {
     return 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%82%A0%EC%94%A8%EC%9E%84%EC%8B%9C%2F%EB%A7%91%EC%9D%8C2.png?alt=media&token=2615f6d1-aa8f-41b0-a37c-530abd25a581';
-  } else if (fcstSkyString == '구르많음') {
+  } else if (fcstSkyString == '구름많음') {
     return 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%82%A0%EC%94%A8%EC%9E%84%EC%8B%9C%2F%EB%A7%91%EA%B3%A0%ED%9D%90%EB%A6%BC.png?alt=media&token=613a6068-5526-49c6-a497-1113bcbda715';
   } else if (fcstSkyString == '흐림') {
     return 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%82%A0%EC%94%A8%EC%9E%84%EC%8B%9C%2F%ED%9D%90%EB%A6%BC.png?alt=media&token=6cde332b-5672-4ae7-8b04-4fcd7558a51a';
@@ -499,6 +500,56 @@ String dateTimeToHourMinute(String datetime) {
 
 dynamic tidTime(dynamic tidListItem) {
   return [tidListItem["tph_time"]];
+}
+
+List<String>? stand1stFilterBottomsheet(
+  bool isStand,
+  bool isPension,
+  bool onDay,
+  bool overnight,
+) {
+  List<String> resultString = [];
+  if (isStand) {
+    resultString.add('좌대');
+  }
+  if (isPension) {
+    resultString.add('해상펜션');
+  }
+  if (onDay) {
+    resultString.add('당일낚시');
+  }
+  if (overnight) {
+    resultString.add('숙박가능');
+  }
+
+  return resultString;
+}
+
+List<String>? stand2ndFilterBottomsheet(
+  bool isbed,
+  bool istoilet,
+  bool cancook,
+  bool barbeque,
+) {
+  List<String> amenresult = [];
+
+  if (isbed) {
+    amenresult.add('침구류');
+  }
+
+  if (cancook) {
+    amenresult.add('취사장비');
+  }
+
+  if (istoilet) {
+    amenresult.add('화장실');
+  }
+
+  if (barbeque) {
+    amenresult.add('바베큐');
+  }
+
+  return amenresult;
 }
 
 dynamic tidLevel(dynamic tidListItem) {
@@ -640,6 +691,32 @@ List<String>? package3rdFilterSum(
   return result;
 }
 
+List<TidFcstStruct>? tidStructListFromJson(List<dynamic>? tidFcst) {
+  var tidStructList;
+  if (tidFcst != null) {
+    for (var tid in tidFcst) {
+      String tidDateTime = tid["tph_time"];
+      String tidCode = tid["hl_code"];
+      String tidLevel = tid["tph_level"];
+      DateTime parsedDateTime = DateTime.parse(tidDateTime);
+      int tidTime = parsedDateTime.hour * 100 +
+          parsedDateTime.minute +
+          parsedDateTime.second;
+
+      String HourString = parsedDateTime.hour.toString();
+      String minuteString = parsedDateTime.minute.toString();
+      String timeString = '$HourString 시 $minuteString 분';
+
+      TidFcstStruct tidStruct = TidFcstStruct();
+      tidStruct.time = tidTime;
+      tidStruct.tidLevel = tidLevel;
+      tidStruct.timeString = timeString;
+      tidStructList.add(tidStruct);
+    }
+  }
+  return tidStructList;
+}
+
 List<String>? newCustomFunction(
   bool fishingSelect,
   bool exSelect,
@@ -663,4 +740,30 @@ List<String>? fishingBusFishes(
 ) {
   var sum = (popular ?? []) + (fish1 ?? []) + (fish2 ?? []) + (fish3 ?? []);
   return sum;
+}
+
+int dateTimeForNcst(String dateTimeString) {
+  DateTime dateTime = DateTime.parse(dateTimeString);
+  int hour = dateTime.hour;
+  if (dateTime.minute < 40) {
+    if (dateTime.hour == 0) {
+      hour = 23;
+    } else {
+      hour = hour - 1;
+    }
+  } else {}
+
+  hour = hour * 100;
+
+  return hour;
+}
+
+int dateForNcst(String dateTimeString) {
+  DateTime dateTime = DateTime.parse(dateTimeString);
+  int date = dateTime.day;
+  if (dateTime.minute < 40 && dateTime.hour == 0) {
+    date = date - 1;
+  } else {}
+
+  return date;
 }

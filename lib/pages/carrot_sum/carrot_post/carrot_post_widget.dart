@@ -1,11 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/custom_navbar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/pages/carrot_sum/carrot_nav_bar/carrot_nav_bar_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
@@ -73,9 +73,7 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
         final carrotPostTBCarrotPostRecord = snapshot.data!;
 
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -569,13 +567,10 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                       ].divide(const SizedBox(height: 8.0)),
                     ),
                   ),
-                  Align(
-                    alignment: const AlignmentDirectional(0.0, 1.0),
-                    child: wrapWithModel(
-                      model: _model.customNavbarModel,
-                      updateCallback: () => setState(() {}),
-                      child: const CustomNavbarWidget(),
-                    ),
+                  wrapWithModel(
+                    model: _model.carrotNavBarModel,
+                    updateCallback: () => setState(() {}),
+                    child: const CarrotNavBarWidget(),
                   ),
                 ],
               ),

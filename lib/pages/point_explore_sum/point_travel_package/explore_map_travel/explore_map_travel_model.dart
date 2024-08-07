@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class ExploreMapTravelModel extends FlutterFlowModel<ExploreMapTravelWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   List<TBPointRecord>? exploreMapTravelPreviousSnapshot;
   // State field(s) for Column widget.
   ScrollController? columnController;
@@ -31,7 +30,6 @@ class ExploreMapTravelModel extends FlutterFlowModel<ExploreMapTravelWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     columnController?.dispose();
     rowController?.dispose();
     customNavbarModel.dispose();

@@ -25,9 +25,15 @@ class TBShoppingProductRecord extends FirestoreRecord {
   String get productCode => _productCode ?? '';
   bool hasProductCode() => _productCode != null;
 
+  // "product_category" field.
+  String? _productCategory;
+  String get productCategory => _productCategory ?? '';
+  bool hasProductCategory() => _productCategory != null;
+
   void _initializeFields() {
     _productName = snapshotData['product_name'] as String?;
     _productCode = snapshotData['product_code'] as String?;
+    _productCategory = snapshotData['product_category'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -68,11 +74,13 @@ class TBShoppingProductRecord extends FirestoreRecord {
 Map<String, dynamic> createTBShoppingProductRecordData({
   String? productName,
   String? productCode,
+  String? productCategory,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'product_name': productName,
       'product_code': productCode,
+      'product_category': productCategory,
     }.withoutNulls,
   );
 
@@ -86,12 +94,13 @@ class TBShoppingProductRecordDocumentEquality
   @override
   bool equals(TBShoppingProductRecord? e1, TBShoppingProductRecord? e2) {
     return e1?.productName == e2?.productName &&
-        e1?.productCode == e2?.productCode;
+        e1?.productCode == e2?.productCode &&
+        e1?.productCategory == e2?.productCategory;
   }
 
   @override
-  int hash(TBShoppingProductRecord? e) =>
-      const ListEquality().hash([e?.productName, e?.productCode]);
+  int hash(TBShoppingProductRecord? e) => const ListEquality()
+      .hash([e?.productName, e?.productCode, e?.productCategory]);
 
   @override
   bool isValidKey(Object? o) => o is TBShoppingProductRecord;

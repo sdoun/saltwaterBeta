@@ -4,9 +4,12 @@ import 'carrot_search_widget.dart' show CarrotSearchWidget;
 import 'package:flutter/material.dart';
 
 class CarrotSearchModel extends FlutterFlowModel<CarrotSearchWidget> {
+  ///  Local state fields for this page.
+
+  String? searchText;
+
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
@@ -21,7 +24,6 @@ class CarrotSearchModel extends FlutterFlowModel<CarrotSearchWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
 

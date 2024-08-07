@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/custom_navbar_widget.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
@@ -96,9 +97,7 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
         List<TBPointRecord> exploreMapOceanTBPointRecordList = snapshot.data!;
 
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -266,15 +265,8 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                                 builder: (context) {
                                                   return WebViewAware(
                                                     child: GestureDetector(
-                                                      onTap: () => _model
-                                                              .unfocusNode
-                                                              .canRequestFocus
-                                                          ? FocusScope.of(
-                                                                  context)
-                                                              .requestFocus(_model
-                                                                  .unfocusNode)
-                                                          : FocusScope.of(
-                                                                  context)
+                                                      onTap: () =>
+                                                          FocusScope.of(context)
                                                               .unfocus(),
                                                       child: Padding(
                                                         padding: MediaQuery
@@ -373,15 +365,8 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                                 builder: (context) {
                                                   return WebViewAware(
                                                     child: GestureDetector(
-                                                      onTap: () => _model
-                                                              .unfocusNode
-                                                              .canRequestFocus
-                                                          ? FocusScope.of(
-                                                                  context)
-                                                              .requestFocus(_model
-                                                                  .unfocusNode)
-                                                          : FocusScope.of(
-                                                                  context)
+                                                      onTap: () =>
+                                                          FocusScope.of(context)
                                                               .unfocus(),
                                                       child: Padding(
                                                         padding: MediaQuery
@@ -570,15 +555,8 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                                 builder: (context) {
                                                   return WebViewAware(
                                                     child: GestureDetector(
-                                                      onTap: () => _model
-                                                              .unfocusNode
-                                                              .canRequestFocus
-                                                          ? FocusScope.of(
-                                                                  context)
-                                                              .requestFocus(_model
-                                                                  .unfocusNode)
-                                                          : FocusScope.of(
-                                                                  context)
+                                                      onTap: () =>
+                                                          FocusScope.of(context)
                                                               .unfocus(),
                                                       child: Padding(
                                                         padding: MediaQuery
@@ -767,15 +745,8 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                                 builder: (context) {
                                                   return WebViewAware(
                                                     child: GestureDetector(
-                                                      onTap: () => _model
-                                                              .unfocusNode
-                                                              .canRequestFocus
-                                                          ? FocusScope.of(
-                                                                  context)
-                                                              .requestFocus(_model
-                                                                  .unfocusNode)
-                                                          : FocusScope.of(
-                                                                  context)
+                                                      onTap: () =>
+                                                          FocusScope.of(context)
                                                               .unfocus(),
                                                       child: Padding(
                                                         padding: MediaQuery
@@ -1018,6 +989,7 @@ class _ExploreMapOceanWidgetState extends State<ExploreMapOceanWidget> {
                                   width: double.infinity,
                                   height: double.infinity,
                                   pointList: exploreMapOceanTBPointRecordList,
+                                  currentUser: currentUserReference!,
                                   onClickMarker: (markerDoc) async {
                                     context.pushNamed(
                                       'point_detailed',

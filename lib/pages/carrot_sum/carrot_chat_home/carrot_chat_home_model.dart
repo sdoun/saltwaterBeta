@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class CarrotChatHomeModel extends FlutterFlowModel<CarrotChatHomeWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Model for carrotNavBar component.
   late CarrotNavBarModel carrotNavBarModel;
 
@@ -17,7 +16,6 @@ class CarrotChatHomeModel extends FlutterFlowModel<CarrotChatHomeWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     carrotNavBarModel.dispose();
   }
 }

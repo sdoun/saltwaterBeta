@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class ShoppingHomeModel extends FlutterFlowModel<ShoppingHomeWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for searchBar widget.
   FocusNode? searchBarFocusNode;
   TextEditingController? searchBarTextController;
@@ -26,7 +25,6 @@ class ShoppingHomeModel extends FlutterFlowModel<ShoppingHomeWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     searchBarFocusNode?.dispose();
     searchBarTextController?.dispose();
 

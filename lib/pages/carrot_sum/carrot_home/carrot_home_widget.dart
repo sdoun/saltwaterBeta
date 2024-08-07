@@ -65,9 +65,7 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
             snapshot.data!;
 
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -755,14 +753,10 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
                       ],
                     ),
                   ),
-                  Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
-                    child: wrapWithModel(
-                      model: _model.carrotNavBarModel,
-                      updateCallback: () => setState(() {}),
-                      child: const CarrotNavBarWidget(),
-                    ),
+                  wrapWithModel(
+                    model: _model.carrotNavBarModel,
+                    updateCallback: () => setState(() {}),
+                    child: const CarrotNavBarWidget(),
                   ),
                 ],
               ),

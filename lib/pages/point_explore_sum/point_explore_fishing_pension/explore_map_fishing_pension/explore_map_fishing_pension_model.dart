@@ -21,17 +21,11 @@ class ExploreMapFishingPensionModel
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
-  List<TBPointRecord>? exploreMapFishingPensionPreviousSnapshot;
-  // State field(s) for Column widget.
-  ScrollController? columnController;
   // State field(s) for ChoiceChips widget.
   FormFieldController<List<String>>? choiceChipsValueController;
   List<String>? get choiceChipsValues => choiceChipsValueController?.value;
   set choiceChipsValues(List<String>? val) =>
       choiceChipsValueController?.value = val;
-  // State field(s) for Row widget.
-  ScrollController? rowController;
   // Stores action output result for [Bottom Sheet - pension_1stFilter] action in Container widget.
   List<String>? pension1stFilter;
   // Stores action output result for [Bottom Sheet - pension_2ndFilter] action in Container widget.
@@ -45,16 +39,11 @@ class ExploreMapFishingPensionModel
 
   @override
   void initState(BuildContext context) {
-    columnController = ScrollController();
-    rowController = ScrollController();
     customNavbarModel = createModel(context, () => CustomNavbarModel());
   }
 
   @override
   void dispose() {
-    unfocusNode.dispose();
-    columnController?.dispose();
-    rowController?.dispose();
     customNavbarModel.dispose();
   }
 }

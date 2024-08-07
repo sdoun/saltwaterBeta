@@ -13,7 +13,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_naver_map/flutter_naver_map.dart';
 import '/flutter_flow/lat_lng.dart' as latlng;
 import 'dart:async';
-import 'package:http/http.dart';
 
 class NaverMapWidgetPoint extends StatefulWidget {
   const NaverMapWidgetPoint({
@@ -25,6 +24,7 @@ class NaverMapWidgetPoint extends StatefulWidget {
     this.pointList,
     required this.onClickMarker,
     this.basicIcon,
+    required this.currentUser,
   });
 
   final double? width;
@@ -34,6 +34,7 @@ class NaverMapWidgetPoint extends StatefulWidget {
   final List<TBPointRecord>? pointList;
   final Future Function(TBPointRecord markerDoc) onClickMarker;
   final FFUploadedFile? basicIcon;
+  final DocumentReference currentUser;
 
   @override
   State<NaverMapWidgetPoint> createState() => _NaverMapWidgetPointState();
@@ -58,18 +59,49 @@ class _NaverMapWidgetPointState extends State<NaverMapWidgetPoint> {
     );
   }
 
+  NMarker customMarker() {
+    NMarker marker = NMarker(
+      id: 'test',
+      position: NLatLng(35, 125),
+    );
+    setState(() async {
+      NOverlayImage image =
+          await NOverlayImage.fromAssetImage('assets/images/a418y_.png');
+      marker.setIcon(image);
+    });
+    return marker;
+  }
+
+  NOverlayImage createMarkerIcon(NMarker marker) {
+    final pointDoc = widget.pointList![int.parse(marker.info.id)];
+    final userRef = widget.currentUser;
+    NOverlayImage image;
+    if (pointDoc.pointLikedBy.contains(userRef)) {
+      return NOverlayImage.fromAssetImage('assets/images/a418y_.png');
+    } else {
+      return NOverlayImage.fromAssetImage('assets/images/beyv2_.png');
+    }
+  }
+
   Set<NMarker> _createMarkers() {
     for (int i = 0; i < pointLength; i++) {
       var place = widget.pointList?[i];
 
-      final latlng.LatLng coordinates = latlng.LatLng(
-          place?.pointLatitude ?? 0.0, place?.pointLongitude ?? 0.0);
       NLatLng _position =
           NLatLng(place?.pointLatitude ?? 0.0, place?.pointLongitude ?? 0.0);
-      NMarker marker = NMarker(id: i.toString(), position: _position);
+      NMarker marker = NMarker(
+        id: i.toString(),
+        position: _position,
+        size: const Size(24, 24),
+      );
       marker.setOnTapListener((NMarker marker) {
         print("마커가 터치되었습니다. id: ${marker.info.id}");
         widget.onClickMarker.call(widget.pointList![int.parse(marker.info.id)]);
+      });
+      setState(() async {
+        NOverlayImage image;
+        image = createMarkerIcon(marker);
+        marker.setIcon(image);
       });
       markerList.add(marker);
     }
@@ -80,6 +112,7 @@ class _NaverMapWidgetPointState extends State<NaverMapWidgetPoint> {
     setState(() {
       markerList.clear();
       markerList = _createMarkers();
+      markerList.add(customMarker());
       _updateMapOverlays();
     });
   }
@@ -117,6 +150,8 @@ class _NaverMapWidgetPointState extends State<NaverMapWidgetPoint> {
             zoom: 5,
             bearing: 0,
             tilt: 0),
+        rotationGesturesEnable: false,
+        tiltGesturesEnable: false,
       ),
       onMapReady: (NaverMapController controller) async {
         mapControllerCompleter.complete(controller);

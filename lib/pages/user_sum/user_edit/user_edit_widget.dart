@@ -52,9 +52,7 @@ class _UserEditWidgetState extends State<UserEditWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -134,13 +132,8 @@ class _UserEditWidgetState extends State<UserEditWidget> {
                                     builder: (context) {
                                       return WebViewAware(
                                         child: GestureDetector(
-                                          onTap: () => _model
-                                                  .unfocusNode.canRequestFocus
-                                              ? FocusScope.of(context)
-                                                  .requestFocus(
-                                                      _model.unfocusNode)
-                                              : FocusScope.of(context)
-                                                  .unfocus(),
+                                          onTap: () =>
+                                              FocusScope.of(context).unfocus(),
                                           child: Padding(
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),
@@ -308,9 +301,9 @@ class _UserEditWidgetState extends State<UserEditWidget> {
                           ),
                           FFButtonWidget(
                             onPressed: () async {
-                              context.safePop();
                               FFAppState().newProfileImage = '';
                               setState(() {});
+                              context.safePop();
                             },
                             text: '취소하기',
                             options: FFButtonOptions(

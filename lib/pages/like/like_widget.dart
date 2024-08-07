@@ -39,9 +39,7 @@ class _LikeWidgetState extends State<LikeWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -99,7 +97,7 @@ class _LikeWidgetState extends State<LikeWidget> {
           child: Stack(
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 64.0),
                 child: ListView(
                   padding: EdgeInsets.zero,
                   scrollDirection: Axis.vertical,
@@ -283,7 +281,7 @@ class _LikeWidgetState extends State<LikeWidget> {
                                     ),
                                   ),
                                 );
-                              }),
+                              }).divide(const SizedBox(height: 4.0)),
                             );
                           },
                         ),
@@ -473,7 +471,7 @@ class _LikeWidgetState extends State<LikeWidget> {
                                     ),
                                   ),
                                 );
-                              }),
+                              }).divide(const SizedBox(height: 4.0)),
                             );
                           },
                         ),

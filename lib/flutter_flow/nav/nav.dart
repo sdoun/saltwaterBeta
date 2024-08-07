@@ -302,6 +302,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'fishingBusMap',
           path: '/fishingBusMap',
           builder: (context, params) => const FishingBusMapWidget(),
+        ),
+        FFRoute(
+          name: 'exploreMap_stand',
+          path: '/exploreMapStand',
+          builder: (context, params) => const ExploreMapStandWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

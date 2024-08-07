@@ -78,9 +78,7 @@ class _TravelListWidgetState extends State<TravelListWidget> {
             snapshot.data!;
 
         return GestureDetector(
-          onTap: () => _model.unfocusNode.canRequestFocus
-              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-              : FocusScope.of(context).unfocus(),
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -259,13 +257,8 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                               builder: (context) {
                                                 return WebViewAware(
                                                   child: GestureDetector(
-                                                    onTap: () => _model
-                                                            .unfocusNode
-                                                            .canRequestFocus
-                                                        ? FocusScope.of(context)
-                                                            .requestFocus(_model
-                                                                .unfocusNode)
-                                                        : FocusScope.of(context)
+                                                    onTap: () =>
+                                                        FocusScope.of(context)
                                                             .unfocus(),
                                                     child: Padding(
                                                       padding: MediaQuery
@@ -443,13 +436,8 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                               builder: (context) {
                                                 return WebViewAware(
                                                   child: GestureDetector(
-                                                    onTap: () => _model
-                                                            .unfocusNode
-                                                            .canRequestFocus
-                                                        ? FocusScope.of(context)
-                                                            .requestFocus(_model
-                                                                .unfocusNode)
-                                                        : FocusScope.of(context)
+                                                    onTap: () =>
+                                                        FocusScope.of(context)
                                                             .unfocus(),
                                                     child: Padding(
                                                       padding: MediaQuery
@@ -625,13 +613,8 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                               builder: (context) {
                                                 return WebViewAware(
                                                   child: GestureDetector(
-                                                    onTap: () => _model
-                                                            .unfocusNode
-                                                            .canRequestFocus
-                                                        ? FocusScope.of(context)
-                                                            .requestFocus(_model
-                                                                .unfocusNode)
-                                                        : FocusScope.of(context)
+                                                    onTap: () =>
+                                                        FocusScope.of(context)
                                                             .unfocus(),
                                                     child: Padding(
                                                       padding: MediaQuery
@@ -925,14 +908,10 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                   ),
                   Align(
                     alignment: const AlignmentDirectional(0.0, 1.0),
-                    child: Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 640.0, 0.0, 0.0),
-                      child: wrapWithModel(
-                        model: _model.customNavbarModel,
-                        updateCallback: () => setState(() {}),
-                        child: const CustomNavbarWidget(),
-                      ),
+                    child: wrapWithModel(
+                      model: _model.customNavbarModel,
+                      updateCallback: () => setState(() {}),
+                      child: const CustomNavbarWidget(),
                     ),
                   ),
                   Align(

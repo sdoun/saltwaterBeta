@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class AuthTestModel extends FlutterFlowModel<AuthTestWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
@@ -47,7 +46,6 @@ class AuthTestModel extends FlutterFlowModel<AuthTestWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     tabBarController?.dispose();
     emailAddressCreateFocusNode?.dispose();
     emailAddressCreateTextController?.dispose();

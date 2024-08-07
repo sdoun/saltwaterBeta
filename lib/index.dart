@@ -57,3 +57,5 @@ export '/pages/shop_summary/shopping_guide/shopping_guide_widget.dart'
     show ShoppingGuideWidget;
 export '/pages/point_explore_sum/point_explore_fishing_bus/fishing_bus_map/fishing_bus_map_widget.dart'
     show FishingBusMapWidget;
+export '/pages/point_explore_sum/point_explore_stand/explore_map_stand/explore_map_stand_widget.dart'
+    show ExploreMapStandWidget;

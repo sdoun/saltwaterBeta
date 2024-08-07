@@ -74,9 +74,7 @@ class _Home1WidgetState extends State<Home1Widget> {
 
         return YoutubeFullScreenWrapper(
           child: GestureDetector(
-            onTap: () => _model.unfocusNode.canRequestFocus
-                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                : FocusScope.of(context).unfocus(),
+            onTap: () => FocusScope.of(context).unfocus(),
             child: Scaffold(
               key: scaffoldKey,
               backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -87,119 +85,6 @@ class _Home1WidgetState extends State<Home1Widget> {
                   Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      StreamBuilder<List<TBChatRecord>>(
-                        stream: queryTBChatRecord(
-                          queryBuilder: (tBChatRecord) => tBChatRecord
-                              .where(
-                                'chat_isRead',
-                                isEqualTo: false,
-                              )
-                              .whereIn(
-                                  'chat_chatRoom',
-                                  home1TBChatRoomRecordList
-                                      .map((e) => e.reference)
-                                      .toList())
-                              .where(
-                                'chat_createdBy',
-                                isNotEqualTo: currentUserReference,
-                              ),
-                        ),
-                        builder: (context, snapshot) {
-                          // Customize what your widget looks like when it's loading.
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: SizedBox(
-                                width: 50.0,
-                                height: 50.0,
-                                child: CircularProgressIndicator(
-                                  valueColor: AlwaysStoppedAnimation<Color>(
-                                    FlutterFlowTheme.of(context).primary,
-                                  ),
-                                ),
-                              ),
-                            );
-                          }
-                          List<TBChatRecord> badgeTBChatRecordList =
-                              snapshot.data!;
-
-                          return InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              await showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                enableDrag: false,
-                                context: context,
-                                builder: (context) {
-                                  return WebViewAware(
-                                    child: GestureDetector(
-                                      onTap: () => _model
-                                              .unfocusNode.canRequestFocus
-                                          ? FocusScope.of(context)
-                                              .requestFocus(_model.unfocusNode)
-                                          : FocusScope.of(context).unfocus(),
-                                      child: Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: SizedBox(
-                                          height: 480.0,
-                                          child: UnReadChatWidget(
-                                            unReadChat: badgeTBChatRecordList
-                                                .map((e) => e.reference)
-                                                .toList(),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                                },
-                              ).then((value) => safeSetState(() {}));
-                            },
-                            child: badges.Badge(
-                              badgeContent: Text(
-                                badgeTBChatRecordList.length.toString(),
-                                style: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .titleSmallFamily,
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmallFamily),
-                                    ),
-                              ),
-                              showBadge: true,
-                              shape: badges.BadgeShape.circle,
-                              badgeColor: FlutterFlowTheme.of(context).primary,
-                              elevation: 4.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 8.0, 8.0, 8.0),
-                              position: badges.BadgePosition.topEnd(),
-                              animationType: badges.BadgeAnimationType.scale,
-                              toAnimate: true,
-                              child: Container(
-                                width: 36.0,
-                                height: 36.0,
-                                clipBehavior: Clip.antiAlias,
-                                decoration: const BoxDecoration(
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Image.asset(
-                                  'assets/images/q3052_.png',
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
-                          );
-                        },
-                      ),
                       InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -561,7 +446,7 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       context.pushNamed(
-                                                          'exploreMapSW');
+                                                          'exploreMap_stand');
                                                     },
                                                     child: Container(
                                                       width: 80.0,
@@ -1124,15 +1009,8 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                         return WebViewAware(
                                                           child:
                                                               GestureDetector(
-                                                            onTap: () => _model
-                                                                    .unfocusNode
-                                                                    .canRequestFocus
-                                                                ? FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode)
-                                                                : FocusScope.of(
+                                                            onTap: () =>
+                                                                FocusScope.of(
                                                                         context)
                                                                     .unfocus(),
                                                             child: Padding(
@@ -1241,15 +1119,8 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                         return WebViewAware(
                                                           child:
                                                               GestureDetector(
-                                                            onTap: () => _model
-                                                                    .unfocusNode
-                                                                    .canRequestFocus
-                                                                ? FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode)
-                                                                : FocusScope.of(
+                                                            onTap: () =>
+                                                                FocusScope.of(
                                                                         context)
                                                                     .unfocus(),
                                                             child: Padding(
@@ -1358,15 +1229,8 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                         return WebViewAware(
                                                           child:
                                                               GestureDetector(
-                                                            onTap: () => _model
-                                                                    .unfocusNode
-                                                                    .canRequestFocus
-                                                                ? FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode)
-                                                                : FocusScope.of(
+                                                            onTap: () =>
+                                                                FocusScope.of(
                                                                         context)
                                                                     .unfocus(),
                                                             child: Padding(
@@ -1475,15 +1339,8 @@ class _Home1WidgetState extends State<Home1Widget> {
                                                         return WebViewAware(
                                                           child:
                                                               GestureDetector(
-                                                            onTap: () => _model
-                                                                    .unfocusNode
-                                                                    .canRequestFocus
-                                                                ? FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode)
-                                                                : FocusScope.of(
+                                                            onTap: () =>
+                                                                FocusScope.of(
                                                                         context)
                                                                     .unfocus(),
                                                             child: Padding(
@@ -1994,53 +1851,6 @@ class _Home1WidgetState extends State<Home1Widget> {
                                   ),
                                 ],
                               ),
-                              StreamBuilder<List<TBYoutubeLinksRecord>>(
-                                stream: queryTBYoutubeLinksRecord(
-                                  limit: 3,
-                                ),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 50.0,
-                                        height: 50.0,
-                                        child: CircularProgressIndicator(
-                                          valueColor:
-                                              AlwaysStoppedAnimation<Color>(
-                                            FlutterFlowTheme.of(context)
-                                                .primary,
-                                          ),
-                                        ),
-                                      ),
-                                    );
-                                  }
-                                  List<TBYoutubeLinksRecord>
-                                      columnTBYoutubeLinksRecordList =
-                                      snapshot.data!;
-
-                                  return Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: List.generate(
-                                        columnTBYoutubeLinksRecordList.length,
-                                        (columnIndex) {
-                                      final columnTBYoutubeLinksRecord =
-                                          columnTBYoutubeLinksRecordList[
-                                              columnIndex];
-                                      return FlutterFlowYoutubePlayer(
-                                        url: columnTBYoutubeLinksRecord
-                                            .videoLink,
-                                        autoPlay: false,
-                                        looping: true,
-                                        mute: false,
-                                        showControls: true,
-                                        showFullScreen: true,
-                                        strictRelatedVideos: false,
-                                      );
-                                    }).divide(const SizedBox(height: 12.0)),
-                                  );
-                                },
-                              ),
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 16.0, 0.0, 0.0),
@@ -2050,6 +1860,59 @@ class _Home1WidgetState extends State<Home1Widget> {
                                   decoration: const BoxDecoration(
                                     color: Color(0x00F4F6FF),
                                   ),
+                                  child:
+                                      StreamBuilder<List<TBYoutubeLinksRecord>>(
+                                    stream: queryTBYoutubeLinksRecord(
+                                      limit: 3,
+                                    ),
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 50.0,
+                                            height: 50.0,
+                                            child: CircularProgressIndicator(
+                                              valueColor:
+                                                  AlwaysStoppedAnimation<Color>(
+                                                FlutterFlowTheme.of(context)
+                                                    .primary,
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                      List<TBYoutubeLinksRecord>
+                                          listViewTBYoutubeLinksRecordList =
+                                          snapshot.data!;
+
+                                      return ListView.separated(
+                                        padding: EdgeInsets.zero,
+                                        scrollDirection: Axis.vertical,
+                                        itemCount:
+                                            listViewTBYoutubeLinksRecordList
+                                                .length,
+                                        separatorBuilder: (_, __) =>
+                                            const SizedBox(height: 8.0),
+                                        itemBuilder: (context, listViewIndex) {
+                                          final listViewTBYoutubeLinksRecord =
+                                              listViewTBYoutubeLinksRecordList[
+                                                  listViewIndex];
+                                          return FlutterFlowYoutubePlayer(
+                                            url: listViewTBYoutubeLinksRecord
+                                                .videoLink,
+                                            height: 240.0,
+                                            autoPlay: false,
+                                            looping: true,
+                                            mute: false,
+                                            showControls: true,
+                                            showFullScreen: true,
+                                            strictRelatedVideos: false,
+                                          );
+                                        },
+                                      );
+                                    },
+                                  ),
                                 ),
                               ),
                             ],
@@ -2058,11 +1921,135 @@ class _Home1WidgetState extends State<Home1Widget> {
                       ],
                     ),
                     Align(
+                      alignment: const AlignmentDirectional(0.92, 0.74),
+                      child: StreamBuilder<List<TBChatRecord>>(
+                        stream: queryTBChatRecord(
+                          queryBuilder: (tBChatRecord) => tBChatRecord
+                              .where(
+                                'chat_isRead',
+                                isEqualTo: false,
+                              )
+                              .whereIn(
+                                  'chat_chatRoom',
+                                  home1TBChatRoomRecordList
+                                      .map((e) => e.reference)
+                                      .toList())
+                              .where(
+                                'chat_createdBy',
+                                isNotEqualTo: currentUserReference,
+                              ),
+                        ),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    FlutterFlowTheme.of(context).primary,
+                                  ),
+                                ),
+                              ),
+                            );
+                          }
+                          List<TBChatRecord> badgeTBChatRecordList =
+                              snapshot.data!;
+
+                          return InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                enableDrag: false,
+                                context: context,
+                                builder: (context) {
+                                  return WebViewAware(
+                                    child: GestureDetector(
+                                      onTap: () =>
+                                          FocusScope.of(context).unfocus(),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: SizedBox(
+                                          height: 480.0,
+                                          child: UnReadChatWidget(
+                                            unReadChat: badgeTBChatRecordList
+                                                .map((e) => e.reference)
+                                                .toList(),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ).then((value) => safeSetState(() {}));
+                            },
+                            child: badges.Badge(
+                              badgeContent: Text(
+                                badgeTBChatRecordList.length.toString(),
+                                style: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .titleSmallFamily,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .titleSmallFamily),
+                                    ),
+                              ),
+                              showBadge: true,
+                              shape: badges.BadgeShape.circle,
+                              badgeColor: FlutterFlowTheme.of(context).primary,
+                              elevation: 4.0,
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  8.0, 8.0, 8.0, 8.0),
+                              position: badges.BadgePosition.topEnd(),
+                              animationType: badges.BadgeAnimationType.scale,
+                              toAnimate: true,
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 20.0, 0.0),
+                                child: Container(
+                                  width: 36.0,
+                                  height: 36.0,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.asset(
+                                    'assets/images/q3052_.png',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    Align(
                       alignment: const AlignmentDirectional(0.0, 1.0),
-                      child: wrapWithModel(
-                        model: _model.customNavbarModel,
-                        updateCallback: () => setState(() {}),
-                        child: const CustomNavbarWidget(),
+                      child: Container(
+                        width: double.infinity,
+                        height: MediaQuery.sizeOf(context).height * 0.08,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                        ),
+                        child: wrapWithModel(
+                          model: _model.customNavbarModel,
+                          updateCallback: () => setState(() {}),
+                          child: const CustomNavbarWidget(),
+                        ),
                       ),
                     ),
                   ],

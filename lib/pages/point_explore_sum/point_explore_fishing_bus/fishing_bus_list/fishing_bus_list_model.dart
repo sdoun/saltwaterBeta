@@ -18,7 +18,6 @@ class FishingBusListModel extends FlutterFlowModel<FishingBusListWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Bottom Sheet - busFishes] action in Container widget.
   List<String>? selectedFishes;
   // Stores action output result for [Custom Action - busSearch] action in Button widget.
@@ -33,7 +32,6 @@ class FishingBusListModel extends FlutterFlowModel<FishingBusListWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     customNavbarModel.dispose();
   }
 }

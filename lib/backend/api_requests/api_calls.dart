@@ -17,7 +17,7 @@ class RealtimeWeatherAPICall {
     int? pageNo,
     String? dataType = 'JSON',
     int? baseDate,
-    int? baseTime,
+    String? baseTime = '',
     int? nx,
     int? ny,
   }) async {

@@ -40,10 +40,6 @@ Future<List<String>?> sWFilterSumString(
     final tags =
         List<String>.from(documentSnapshot.get('point_tags') as List<dynamic>);
 
-    // Get the 'point_tags_boolen' field value
-    // Create a list to store tags from boolean structure
-    List<String> tagsFromBoolenStruct = [];
-
     // Add true items from 'point_tags_boolen' to tagsFromBoolenStruct
 
     // Check if all items in 'wCondition' are in 'tagsFromBoolenStruct'

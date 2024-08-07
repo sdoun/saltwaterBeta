@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 class TravelListModel extends FlutterFlowModel<TravelListWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Bottom Sheet - package_area] action in Container widget.
   List<String>? package1stFilter;
   // Stores action output result for [Bottom Sheet - package_type] action in Container widget.
@@ -47,7 +46,6 @@ class TravelListModel extends FlutterFlowModel<TravelListWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     customNavbarModel.dispose();
 
     /// Dispose query cache managers for this widget.

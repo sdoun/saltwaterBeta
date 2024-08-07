@@ -55,9 +55,7 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -618,8 +616,7 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                       onPressed: () async {
                         FFAppState().carrotImages = [];
                         setState(() {});
-
-                        context.pushNamed('carrotHome');
+                        context.safePop();
                       },
                       text: '취소하기',
                       options: FFButtonOptions(
