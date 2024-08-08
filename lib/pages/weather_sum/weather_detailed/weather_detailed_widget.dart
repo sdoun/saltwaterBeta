@@ -1062,12 +1062,14 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                         ),
                                         Builder(
                                           builder: (context) {
-                                            final tidList =
-                                                TidalFcstCall.dataList(
+                                            final tidList = functions
+                                                    .tidStructListFromJson(
+                                                        TidalFcstCall.dataList(
                                                       containerTidalFcstResponse
                                                           .jsonBody,
-                                                    )?.toList() ??
-                                                    [];
+                                                    )?.toList())
+                                                    ?.toList() ??
+                                                [];
 
                                             return SingleChildScrollView(
                                               scrollDirection: Axis.horizontal,
@@ -1089,7 +1091,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                     ),
                                                     child: Container(
                                                       width: 100.0,
-                                                      height: 119.0,
+                                                      height: 100.0,
                                                       decoration: BoxDecoration(
                                                         color: FlutterFlowTheme
                                                                 .of(context)
@@ -1131,14 +1133,8 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                     .start,
                                                             children: [
                                                               Text(
-                                                                valueOrDefault<
-                                                                    String>(
-                                                                  functions
-                                                                      .tidStructFromJson(
-                                                                          tidListItem)
-                                                                      ?.timeString,
-                                                                  '0',
-                                                                ),
+                                                                tidListItem
+                                                                    .timeString,
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -1158,8 +1154,8 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                     ),
                                                               ),
                                                               Text(
-                                                                functions.tidHlCode(
-                                                                    tidListItem),
+                                                                tidListItem
+                                                                    .tidType,
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMedium
@@ -1189,7 +1185,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                             8.0),
                                                                     child: Image
                                                                         .network(
-                                                                      functions.tidHlCode(tidListItem) ==
+                                                                      tidListItem.tidType ==
                                                                               '저조'
                                                                           ? 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%82%A0%EC%94%A8%EC%95%84%EC%9D%B4%EC%BD%98%2F%EC%A0%80%EC%A1%B0.png?alt=media&token=e66d459d-2e26-4041-af11-dc7d236bc380'
                                                                           : 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%82%A0%EC%94%A8%EC%95%84%EC%9D%B4%EC%BD%98%2F%EA%B3%A0%EC%A1%B0.png?alt=media&token=b5f1d918-8f87-46fc-a695-ee645f77586e',
@@ -1202,14 +1198,14 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                     ),
                                                                   ),
                                                                   Text(
-                                                                    '${functions.tidStructFromJson(tidListItem)?.tidLevel}cm',
+                                                                    '${tidListItem.tidLevel}cm',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
                                                                           fontFamily:
                                                                               FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                          color: functions.tidHlCode(tidListItem) == '저조'
+                                                                          color: tidListItem.tidType == '저조'
                                                                               ? FlutterFlowTheme.of(context).primary
                                                                               : const Color(0xFFFF0000),
                                                                           letterSpacing:

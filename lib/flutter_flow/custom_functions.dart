@@ -452,10 +452,6 @@ List<String>? park2ndFilterBottomsheet(
   return amenresult;
 }
 
-String tidHlCode(dynamic tidListItem) {
-  return tidListItem["hl_code"];
-}
-
 List<String>? park3rdFilterBottomsheet(
   bool lent,
   bool toolShop,
@@ -496,10 +492,6 @@ String dateTimeToHourMinute(String datetime) {
   int minute = _currentDateTime.minute;
 
   return '$hour:$minute';
-}
-
-dynamic tidTime(dynamic tidListItem) {
-  return [tidListItem["tph_time"]];
 }
 
 List<String>? stand1stFilterBottomsheet(
@@ -550,10 +542,6 @@ List<String>? stand2ndFilterBottomsheet(
   }
 
   return amenresult;
-}
-
-dynamic tidLevel(dynamic tidListItem) {
-  return [tidListItem["tph_level"]];
 }
 
 int indexMinus1(int itemIndex) {
@@ -692,7 +680,8 @@ List<String>? package3rdFilterSum(
 }
 
 List<TidFcstStruct>? tidStructListFromJson(List<dynamic>? tidFcst) {
-  var tidStructList;
+  List<TidFcstStruct> tidStructList = [];
+
   if (tidFcst != null) {
     for (var tid in tidFcst) {
       String tidDateTime = tid["tph_time"];
@@ -709,10 +698,18 @@ List<TidFcstStruct>? tidStructListFromJson(List<dynamic>? tidFcst) {
 
       TidFcstStruct tidStruct = TidFcstStruct();
       tidStruct.time = tidTime;
+      tidStruct.tidType = tidCode;
       tidStruct.tidLevel = tidLevel;
       tidStruct.timeString = timeString;
       tidStructList.add(tidStruct);
     }
+  } else {
+    TidFcstStruct tidStruct = TidFcstStruct();
+    tidStruct.time = 0;
+    tidStruct.tidType = '서버 응답없음';
+    tidStruct.tidLevel = '서버 응답없음';
+    tidStruct.timeString = '서버 응답없음';
+    tidStructList.add(tidStruct);
   }
   return tidStructList;
 }

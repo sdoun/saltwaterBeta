@@ -13,3 +13,14 @@ class CreateCustomTokenCloudFunctionCallResponse {
   String? resultAsString;
   dynamic data;
 }
+
+class CreateNaverTokenCloudFunctionCallResponse {
+  CreateNaverTokenCloudFunctionCallResponse({
+    this.errorCode,
+    this.succeeded,
+    this.jsonBody,
+  });
+  String? errorCode;
+  bool? succeeded;
+  dynamic jsonBody;
+}

@@ -17,37 +17,42 @@ Future<List<String>?> sWFilterSumString(
   List<String>? sWfishType,
 ) async {
   // Add your function code here!
-  final firestoreInstance = FirebaseFirestore.instance;
+  try {
+    final firestoreInstance = FirebaseFirestore.instance;
 
-  // Create a reference to the collection
-  final collectionReference = firestoreInstance.collection('TB_point');
+    // Create a reference to the collection
+    final collectionReference = firestoreInstance.collection('TB_point');
 
-  // Get all the documents in the collection
-  final querySnapshot = await collectionReference.get();
+    // Get all the documents in the collection
+    final querySnapshot = await collectionReference.get();
 
-  // Create an empty list to store the field values
-  List<String> result = [];
+    // Create an empty list to store the field values
+    List<String> result = [];
 
-  // Combine all filter conditions into one list
-  List<String> wCondition = (sW1stFilter ?? []) +
-      (sW2ndFilter ?? []) +
-      (sW3rdFilter ?? []) +
-      (sWfishType ?? []);
+    // Combine all filter conditions into one list
+    List<String> wCondition = (sW1stFilter ?? []) +
+        (sW2ndFilter ?? []) +
+        (sW3rdFilter ?? []) +
+        (sWfishType ?? []);
 
-  // Loop through all the documents
-  for (final documentSnapshot in querySnapshot.docs) {
-    // Get the 'point_tags' field value and convert to a List<String>
-    final tags =
-        List<String>.from(documentSnapshot.get('point_tags') as List<dynamic>);
+    // Loop through all the documents
+    for (final documentSnapshot in querySnapshot.docs) {
+      // Get the 'point_tags' field value and convert to a List<String>
+      final tags = List<String>.from(
+          documentSnapshot.get('point_tags') as List<dynamic>);
 
-    // Add true items from 'point_tags_boolen' to tagsFromBoolenStruct
+      // Add true items from 'point_tags_boolen' to tagsFromBoolenStruct
 
-    // Check if all items in 'wCondition' are in 'tagsFromBoolenStruct'
-    if (wCondition.every((element) => tags.contains(element))) {
-      final nameValue = documentSnapshot.get('point_name') as String;
-      result.add(nameValue);
+      // Check if all items in 'wCondition' are in 'tagsFromBoolenStruct'
+      if (wCondition.every((element) => tags.contains(element))) {
+        final nameValue = documentSnapshot.get('point_name') as String;
+        result.add(nameValue);
+      }
     }
-  }
 
-  return result;
+    return result;
+  } catch (e) {
+    print('error detected $e');
+    return null;
+  }
 }
