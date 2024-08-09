@@ -1490,7 +1490,7 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                     context.goNamedAuth('home1',
                                                         context.mounted);
                                                   },
-                                                  text: '로그인',
+                                                  text: 'Sign In',
                                                   options: FFButtonOptions(
                                                     width: 230.0,
                                                     height: 52.0,

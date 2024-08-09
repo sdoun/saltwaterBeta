@@ -59,3 +59,4 @@ export '/pages/point_explore_sum/point_explore_fishing_bus/fishing_bus_map/fishi
     show FishingBusMapWidget;
 export '/pages/point_explore_sum/point_explore_stand/explore_map_stand/explore_map_stand_widget.dart'
     show ExploreMapStandWidget;
+export '/pages/asset_test/asset_test_widget.dart' show AssetTestWidget;

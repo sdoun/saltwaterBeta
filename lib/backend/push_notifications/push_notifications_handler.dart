@@ -180,6 +180,7 @@ final parametersBuilderMap =
   'shoppingGuide': ParameterData.none(),
   'fishingBusMap': ParameterData.none(),
   'exploreMap_stand': ParameterData.none(),
+  'assetTest': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

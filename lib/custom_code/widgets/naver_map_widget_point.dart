@@ -78,8 +78,7 @@ class _NaverMapWidgetPointState extends State<NaverMapWidgetPoint> {
     NOverlayImage image;
     if (pointDoc.pointNotfree) {
       if (pointDoc.pointLikedBy.contains(userRef)) {
-        return NOverlayImage.fromAssetImage(
-            'assets/images/KakaoTalk_20240807_204700306_01.png');
+        return NOverlayImage.fromAssetImage('assets/images/a418y_.png');
       } else {
         return NOverlayImage.fromAssetImage(
             'assets/images/KakaoTalk_20240807_204700306.png');

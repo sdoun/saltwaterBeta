@@ -307,6 +307,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'exploreMap_stand',
           path: '/exploreMapStand',
           builder: (context, params) => const ExploreMapStandWidget(),
+        ),
+        FFRoute(
+          name: 'assetTest',
+          path: '/assetTest',
+          builder: (context, params) => const AssetTestWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
