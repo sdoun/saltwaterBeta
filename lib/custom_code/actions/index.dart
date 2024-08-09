@@ -13,3 +13,4 @@ export 'inint_kakao.dart' show inintKakao;
 export 'login_kakao.dart' show loginKakao;
 export 'logout_kakao.dart' show logoutKakao;
 export 'sign_in_with_naver.dart' show signInWithNaver;
+export 'init_app_l_ink.dart' show initAppLInk;

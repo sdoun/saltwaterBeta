@@ -76,10 +76,22 @@ class _NaverMapWidgetPointState extends State<NaverMapWidgetPoint> {
     final pointDoc = widget.pointList![int.parse(marker.info.id)];
     final userRef = widget.currentUser;
     NOverlayImage image;
-    if (pointDoc.pointLikedBy.contains(userRef)) {
-      return NOverlayImage.fromAssetImage('assets/images/a418y_.png');
+    if (pointDoc.pointNotfree) {
+      if (pointDoc.pointLikedBy.contains(userRef)) {
+        return NOverlayImage.fromAssetImage(
+            'assets/images/KakaoTalk_20240807_204700306_01.png');
+      } else {
+        return NOverlayImage.fromAssetImage(
+            'assets/images/KakaoTalk_20240807_204700306.png');
+      }
     } else {
-      return NOverlayImage.fromAssetImage('assets/images/beyv2_.png');
+      if (pointDoc.pointLikedBy.contains(userRef)) {
+        return NOverlayImage.fromAssetImage(
+            'assets/images/KakaoTalk_20240807_204700306_01.png');
+      } else {
+        return NOverlayImage.fromAssetImage(
+            'assets/images/KakaoTalk_20240807_204700306_02.png');
+      }
     }
   }
 
@@ -92,7 +104,7 @@ class _NaverMapWidgetPointState extends State<NaverMapWidgetPoint> {
       NMarker marker = NMarker(
         id: i.toString(),
         position: _position,
-        size: const Size(24, 24),
+        size: const Size(48, 48),
       );
       marker.setOnTapListener((NMarker marker) {
         print("마커가 터치되었습니다. id: ${marker.info.id}");

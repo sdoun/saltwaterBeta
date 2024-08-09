@@ -1104,8 +1104,9 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                                           0.0,
                                                                           0.0,
                                                                           0.0),
-                                                              color: const Color(
-                                                                  0xFFFFE700),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .accent4,
                                                               textStyle:
                                                                   FlutterFlowTheme.of(
                                                                           context)
@@ -1489,7 +1490,7 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                     context.goNamedAuth('home1',
                                                         context.mounted);
                                                   },
-                                                  text: 'Sign In',
+                                                  text: '로그인',
                                                   options: FFButtonOptions(
                                                     width: 230.0,
                                                     height: 52.0,
@@ -1789,6 +1790,81 @@ class _AuthTestWidgetState extends State<AuthTestWidget>
                                                                     0.0),
                                                         color:
                                                             const Color(0xFFFFE700),
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  fontSize:
+                                                                      16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
+                                                        elevation: 0.0,
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(12.0),
+                                                        hoverColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primaryBackground,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 16.0),
+                                                    child: FFButtonWidget(
+                                                      onPressed: () async {
+                                                        await actions
+                                                            .signInWithNaver();
+                                                      },
+                                                      text: '네이버 로그인',
+                                                      icon: const Icon(
+                                                        Icons
+                                                            .chat_bubble_outlined,
+                                                        size: 20.0,
+                                                      ),
+                                                      options: FFButtonOptions(
+                                                        width: 230.0,
+                                                        height: 44.0,
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        iconPadding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .accent4,
                                                         textStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)

@@ -20,6 +20,7 @@ void main() async {
 
   // Start initial custom actions code
   await actions.inintKakao();
+  await actions.initAppLInk();
   // End initial custom actions code
 
   await FlutterFlowTheme.initialize();
