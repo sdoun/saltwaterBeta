@@ -115,7 +115,7 @@ final parametersBuilderMap =
   'exploreMapSW': ParameterData.none(),
   'shoppingHome': ParameterData.none(),
   'loading1': ParameterData.none(),
-  'AuthTest': ParameterData.none(),
+  'login': ParameterData.none(),
   'googlemapErrorSolve': ParameterData.none(),
   'point_detailed': (data) async => ParameterData(
         allParams: {
@@ -181,6 +181,8 @@ final parametersBuilderMap =
   'fishingBusMap': ParameterData.none(),
   'exploreMap_stand': ParameterData.none(),
   'assetTest': ParameterData.none(),
+  'chargeResult': ParameterData.none(),
+  'chargePortone': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

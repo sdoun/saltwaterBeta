@@ -20,6 +20,7 @@ Future initAppLInk() async {
   try {
     final initialLink = await appLinks.getInitialLink();
     if (initialLink != null) {
+      print(initialLink);
       _handleDeepLink(initialLink.toString());
     }
   } catch (e) {
@@ -40,13 +41,15 @@ Future _handleDeepLink(String link) async {
   print("Handling deep link $link");
   final Uri uri = Uri.parse(link);
 
-  final firebaseToken = uri.queryParameters['firebaseToken'];
-  final String? name = uri.queryParameters['name'];
-  final String? profileImage = uri.queryParameters['profileImage'];
+  if (uri.authority == 'login-calback') {
+    final firebaseToken = uri.queryParameters['firebaseToken'];
+    final String? name = uri.queryParameters['name'];
+    final String? profileImage = uri.queryParameters['profileImage'];
 
-  if (firebaseToken != null) {
-    await FirebaseAuth.instance.signInWithCustomToken(firebaseToken);
-  } else {
-    print("Firebase token is missing in the deep link.");
+    if (firebaseToken != null) {
+      await FirebaseAuth.instance.signInWithCustomToken(firebaseToken);
+    } else {
+      print("Firebase token is missing in the deep link.");
+    }
   }
 }

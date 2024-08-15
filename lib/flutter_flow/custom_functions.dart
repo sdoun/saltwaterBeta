@@ -109,7 +109,23 @@ List<dynamic>? fcsSkyForTommorow(
   return null;
 }
 
-int datetimeToDate(String datetime) {
+String datetimeToDateString(String datetime) {
+  DateTime dateTime = DateTime.parse(datetime);
+
+  // 문자열 길이를 10으로 만들기
+  String formattedDateTime = dateTime.toString().substring(0, 10);
+
+  // 문자열에서 '-' 제거하기
+  formattedDateTime = formattedDateTime.replaceAll('-', '');
+  if (formattedDateTime.length == 3) {
+    formattedDateTime = '0' + formattedDateTime;
+  }
+
+  // 문자열을 int 값으로 변환하여 반환
+  return formattedDateTime;
+}
+
+int datetimeToDateCopy(String datetime) {
   DateTime dateTime = DateTime.parse(datetime);
 
   // 문자열 길이를 10으로 만들기
@@ -131,25 +147,39 @@ int datetimeToTime(String dateTimeString) {
   return hour;
 }
 
+String? datetimeToTimeString(String dateTimeString) {
+  DateTime dateTime = DateTime.parse(dateTimeString);
+  int hour = dateTime.hour;
+
+  hour = hour * 100;
+  String hourString = hour.toString();
+
+  if (hourString.length == 3) {
+    hourString = '0' + 'hourString';
+  }
+
+  return hourString;
+}
+
 String vecToString(String vecString) {
   final windDirectionList = [
-    'N',
-    'NNE',
-    'NE',
-    'ENE',
-    'E',
-    'ESE',
-    'SE',
-    'SSE',
-    'S',
-    'SSW',
-    'SW',
-    'WSW',
-    'W',
-    'WNW',
-    'NW',
-    'NNW',
-    'N',
+    '북',
+    '북북동',
+    '북동',
+    '동북동',
+    '동',
+    '동남동',
+    '남동',
+    '남남동',
+    '남',
+    '남남서',
+    '남서',
+    '서남서',
+    '서',
+    '서북서',
+    '북서',
+    '북북서',
+    '북',
   ];
 
   double vec = double.parse(vecString);

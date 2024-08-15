@@ -5,7 +5,7 @@ export '/pages/point_explore_sum/point_explore_seawall/explore_map_s_w/explore_m
 export '/pages/shop_summary/shopping_home/shopping_home_widget.dart'
     show ShoppingHomeWidget;
 export '/pages/loading1/loading1_widget.dart' show Loading1Widget;
-export '/pages/auth_test/auth_test_widget.dart' show AuthTestWidget;
+export '/pages/login/login_widget.dart' show LoginWidget;
 export '/pages/point_explore_sum/googlemap_error_solve/googlemap_error_solve_widget.dart'
     show GooglemapErrorSolveWidget;
 export '/pages/point_explore_sum/point_detailed/point_detailed_widget.dart'
@@ -60,3 +60,7 @@ export '/pages/point_explore_sum/point_explore_fishing_bus/fishing_bus_map/fishi
 export '/pages/point_explore_sum/point_explore_stand/explore_map_stand/explore_map_stand_widget.dart'
     show ExploreMapStandWidget;
 export '/pages/asset_test/asset_test_widget.dart' show AssetTestWidget;
+export '/pages/shop_summary/payments/charge_result/charge_result_widget.dart'
+    show ChargeResultWidget;
+export '/pages/shop_summary/payments/charge_portone/charge_portone_widget.dart'
+    show ChargePortoneWidget;

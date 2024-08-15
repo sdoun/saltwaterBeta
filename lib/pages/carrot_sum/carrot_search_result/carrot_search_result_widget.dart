@@ -344,7 +344,7 @@ class _CarrotSearchResultWidgetState extends State<CarrotSearchResultWidget> {
                                                 ),
                                                 Text(
                                                   functions
-                                                      .datetimeToDate(
+                                                      .datetimeToDateCopy(
                                                           resultsItem
                                                               .postDatetime!
                                                               .toString())

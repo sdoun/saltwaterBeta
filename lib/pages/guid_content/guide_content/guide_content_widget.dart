@@ -244,9 +244,10 @@ class _GuideContentWidgetState extends State<GuideContentWidget> {
                         ),
                         Text(
                           functions
-                              .datetimeToDate(guideContentTBGuideContentRecord
-                                  .contentCreatedAt!
-                                  .toString())
+                              .datetimeToDateCopy(
+                                  guideContentTBGuideContentRecord
+                                      .contentCreatedAt!
+                                      .toString())
                               .toString(),
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium

@@ -212,8 +212,7 @@ class _UserPageWidgetState extends State<UserPageWidget> {
                                   await authManager.signOut();
                                   GoRouter.of(context).clearRedirectLocation();
 
-                                  context.goNamedAuth(
-                                      'AuthTest', context.mounted);
+                                  context.goNamedAuth('login', context.mounted);
                                 },
                                 text: '로그아웃',
                                 options: FFButtonOptions(

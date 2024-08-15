@@ -711,7 +711,7 @@ class _CarrotHomeWidgetState extends State<CarrotHomeWidget> {
                                                         ),
                                                         Text(
                                                           functions
-                                                              .datetimeToDate(
+                                                              .datetimeToDateCopy(
                                                                   postsItem
                                                                       .postDatetime!
                                                                       .toString())

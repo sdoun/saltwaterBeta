@@ -78,7 +78,8 @@ class _NaverMapWidgetPointState extends State<NaverMapWidgetPoint> {
     NOverlayImage image;
     if (pointDoc.pointNotfree) {
       if (pointDoc.pointLikedBy.contains(userRef)) {
-        return NOverlayImage.fromAssetImage('assets/images/a418y_.png');
+        return NOverlayImage.fromAssetImage(
+            'assets/images/KakaoTalk_20240807_204700306_01.png');
       } else {
         return NOverlayImage.fromAssetImage(
             'assets/images/KakaoTalk_20240807_204700306.png');
@@ -95,27 +96,31 @@ class _NaverMapWidgetPointState extends State<NaverMapWidgetPoint> {
   }
 
   Set<NMarker> _createMarkers() {
-    for (int i = 0; i < pointLength; i++) {
-      var place = widget.pointList?[i];
+    if (widget.pointList != null) {
+      for (int i = 0; i < pointLength; i++) {
+        var place = widget.pointList?[i];
 
-      NLatLng _position =
-          NLatLng(place?.pointLatitude ?? 0.0, place?.pointLongitude ?? 0.0);
-      NMarker marker = NMarker(
-        id: i.toString(),
-        position: _position,
-        size: const Size(48, 48),
-      );
-      marker.setOnTapListener((NMarker marker) {
-        print("마커가 터치되었습니다. id: ${marker.info.id}");
-        widget.onClickMarker.call(widget.pointList![int.parse(marker.info.id)]);
-      });
-      setState(() async {
-        NOverlayImage image;
-        image = createMarkerIcon(marker);
-        marker.setIcon(image);
-      });
-      markerList.add(marker);
+        NLatLng _position =
+            NLatLng(place?.pointLatitude ?? 0.0, place?.pointLongitude ?? 0.0);
+        NMarker marker = NMarker(
+          id: i.toString(),
+          position: _position,
+          size: const Size(48, 64),
+        );
+        marker.setOnTapListener((NMarker marker) {
+          print("마커가 터치되었습니다. id: ${marker.info.id}");
+          widget.onClickMarker
+              .call(widget.pointList![int.parse(marker.info.id)]);
+        });
+        setState(() async {
+          NOverlayImage image;
+          image = createMarkerIcon(marker);
+          marker.setIcon(image);
+        });
+        markerList.add(marker);
+      }
     }
+
     return markerList;
   }
 

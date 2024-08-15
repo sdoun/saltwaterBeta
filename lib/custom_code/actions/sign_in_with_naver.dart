@@ -12,6 +12,10 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:math';
 import 'dart:convert';
+import 'package:flutter/services.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_functions/cloud_functions.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 Future signInWithNaver() async {
   // Add your function code here!
@@ -24,5 +28,9 @@ Future signInWithNaver() async {
       'https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=$clientId&redirect_uri=$redirectUri&state=$state');
   print(
       "Opening Naver SSO (Naver will call our Cloud Function which will use Callback Scheme to re-enter app..");
+  HttpsCallable callable = FirebaseFunctions.instanceFor(region: 'us-central1')
+      .httpsCallable('customNaverToken');
+  final response = await callable.call;
+  print('$response');
   await launchUrl(url); // flutter pub get url_launcher
 }

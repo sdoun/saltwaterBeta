@@ -454,7 +454,7 @@ class _GuideContentHomeWidgetState extends State<GuideContentHomeWidget> {
                                                       ),
                                                       Text(
                                                         functions
-                                                            .datetimeToDate(
+                                                            .datetimeToDateCopy(
                                                                 contentsItem
                                                                     .contentCreatedAt!
                                                                     .toString())
