@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 
 import 'package:app_links/app_links.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_functions/cloud_functions.dart';
 
 Future initAppLInk() async {
   // Add your function code here!
@@ -41,15 +43,32 @@ Future _handleDeepLink(String link) async {
   print("Handling deep link $link");
   final Uri uri = Uri.parse(link);
 
+  final HttpsCallable callable =
+      FirebaseFunctions.instance.httpsCallable('redirectionCloudLog');
+
   if (uri.authority == 'login-calback') {
     final firebaseToken = uri.queryParameters['firebaseToken'];
     final String? name = uri.queryParameters['name'];
     final String? profileImage = uri.queryParameters['profileImage'];
 
+    final HttpsCallable callable =
+        FirebaseFunctions.instance.httpsCallable('redirectionCloudLog');
+    callable.call(<String, dynamic>{
+      'logParam': firebaseToken,
+    });
+
     if (firebaseToken != null) {
       await FirebaseAuth.instance.signInWithCustomToken(firebaseToken);
+      callable.call(<String, dynamic>{
+        'logParam': 'logIn Success!',
+      });
     } else {
       print("Firebase token is missing in the deep link.");
     }
+  } else {
+    print('redirection failed');
+    callable.call(<String, dynamic>{
+      'logParam': 'redirection failed',
+    });
   }
 }

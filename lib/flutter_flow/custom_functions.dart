@@ -99,11 +99,23 @@ List<dynamic>? fcsSkyForTommorow(
   String basedate,
   int datePlus,
 ) {
-  int tomorrow = int.parse(basedate) + datePlus;
-
-  for (var item in fcstList!) {
-    if (item["fcstDate"] == tomorrow.toString() && item["category"] == 'SKY') {
-      return [item["fcstValue"]];
+  // Parse the base date
+  DateTime baseDateTime = DateTime.parse(basedate);
+  // Calculate the target date
+  DateTime targetDate = baseDateTime.add(Duration(days: datePlus));
+  // Format the target date back to "YYYYMMDD"
+  String targetDateString =
+      targetDate.toIso8601String().split('T').first.replaceAll('-', '');
+  if (fcstList == null) {
+    print('fcstList is null');
+    return null;
+  } else {
+    for (var item in fcstList!) {
+      if (item["fcstDate"] == targetDateString && item["category"] == 'SKY') {
+        print('fcstValue Detected');
+        print('$item["fcstValue"]');
+        return [item["fcstValue"]];
+      }
     }
   }
   return null;
@@ -155,13 +167,13 @@ String? datetimeToTimeString(String dateTimeString) {
   String hourString = hour.toString();
 
   if (hourString.length == 3) {
-    hourString = '0' + 'hourString';
+    hourString = '0' + hourString;
   }
 
   return hourString;
 }
 
-String vecToString(String vecString) {
+String vecToString(String? vecString) {
   final windDirectionList = [
     '북',
     '북북동',
@@ -182,6 +194,10 @@ String vecToString(String vecString) {
     '북',
   ];
 
+  if (vecString == null) {
+    print('vec is null!');
+    return '서버 응답없음';
+  }
   double vec = double.parse(vecString);
   vec = (vec + 22.5 * 0.5) / 22.5;
   int result = vec.toInt();
@@ -418,6 +434,8 @@ List<String> skyToImageLink(String? fcstSkyString) {
   int? fcstSky;
   if (fcstSkyString != null) {
     fcstSky = int.tryParse(fcstSkyString);
+    print('$fcstSkyString');
+    print('$fcstSky');
   }
 
   if (fcstSky == null) {

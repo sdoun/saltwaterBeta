@@ -28,9 +28,5 @@ Future signInWithNaver() async {
       'https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=$clientId&redirect_uri=$redirectUri&state=$state');
   print(
       "Opening Naver SSO (Naver will call our Cloud Function which will use Callback Scheme to re-enter app..");
-  HttpsCallable callable = FirebaseFunctions.instanceFor(region: 'us-central1')
-      .httpsCallable('customNaverToken');
-  final response = await callable.call;
-  print('$response');
   await launchUrl(url); // flutter pub get url_launcher
 }

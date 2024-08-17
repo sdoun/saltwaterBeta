@@ -28,3 +28,14 @@ class CustomNaverTokenCloudFunctionCallResponse {
   String? resultAsString;
   dynamic data;
 }
+
+class RedirectionCloudLogCloudFunctionCallResponse {
+  RedirectionCloudLogCloudFunctionCallResponse({
+    this.errorCode,
+    this.succeeded,
+    this.jsonBody,
+  });
+  String? errorCode;
+  bool? succeeded;
+  dynamic jsonBody;
+}

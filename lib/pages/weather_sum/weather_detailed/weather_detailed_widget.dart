@@ -164,7 +164,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
 
                           return Container(
                             width: 100.0,
-                            height: 308.0,
+                            height: 336.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
@@ -331,14 +331,21 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                                   .circular(
                                                                       8.0),
                                                           child: Image.network(
-                                                            functions
-                                                                .skyToImageLink(
-                                                                    FcstWeatherApiCall
-                                                                        .valueList(
-                                                                  containerFcstWeatherApiResponse
-                                                                      .jsonBody,
-                                                                )?[5])
-                                                                .first,
+                                                            valueOrDefault<
+                                                                String>(
+                                                              functions
+                                                                  .skyToImageLink(functions
+                                                                      .fcsSkyForTommorow(
+                                                                          FcstWeatherApiCall.itemList(
+                                                                            containerFcstWeatherApiResponse.jsonBody,
+                                                                          )?.toList(),
+                                                                          functions.datetimeToDateCopy(getCurrentTimestamp.toString()).toString(),
+                                                                          0)
+                                                                      ?.first
+                                                                      ?.toString())
+                                                                  .first,
+                                                              'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%82%A0%EC%94%A8%EC%9E%84%EC%8B%9C%2F%EB%A7%91%EC%9D%8C.png?alt=media&token=f967054c-0b4c-45ee-8364-3e928f218edf',
+                                                            ),
                                                             width: 300.0,
                                                             height: 200.0,
                                                             fit: BoxFit.cover,
@@ -420,7 +427,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                           ),
                                           child: Container(
                                             width: 100.0,
-                                            height: 115.0,
+                                            height: 100.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -444,89 +451,85 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                                 topRight: Radius.circular(8.0),
                                               ),
                                             ),
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 12.0, 0.0, 12.0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Text(
-                                                    '풍향',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
-                                                          color:
-                                                              const Color(0xFF1E2224),
-                                                          fontSize: 16.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
-                                                        ),
+                                            alignment:
+                                                const AlignmentDirectional(0.0, 0.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  '풍향',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        color:
+                                                            const Color(0xFF1E2224),
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
+                                                      ),
+                                                ),
+                                                Container(
+                                                  width: 36.0,
+                                                  height: 36.0,
+                                                  clipBehavior: Clip.antiAlias,
+                                                  decoration: const BoxDecoration(
+                                                    shape: BoxShape.circle,
                                                   ),
-                                                  Container(
-                                                    width: 40.0,
-                                                    height: 40.0,
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
-                                                    decoration: const BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Image.network(
-                                                      functions.vecStringToImage(
-                                                          functions.vecToString(
-                                                              RealtimeWeatherAPICall
-                                                                  .dataList(
-                                                        containerRealtimeWeatherAPIResponse
-                                                            .jsonBody,
-                                                      )![5])),
-                                                      fit: BoxFit.cover,
-                                                    ),
+                                                  child: Image.network(
+                                                    functions.vecStringToImage(
+                                                        functions.vecToString(
+                                                            RealtimeWeatherAPICall
+                                                                .dataList(
+                                                      containerRealtimeWeatherAPIResponse
+                                                          .jsonBody,
+                                                    )?[5])),
+                                                    fit: BoxFit.cover,
                                                   ),
-                                                  Text(
-                                                    valueOrDefault<String>(
-                                                      functions.vecToString(
-                                                          RealtimeWeatherAPICall
-                                                              .dataList(
-                                                        containerRealtimeWeatherAPIResponse
-                                                            .jsonBody,
-                                                      )![5]),
-                                                      '서버 응답없음',
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
-                                                        ),
+                                                ),
+                                                Text(
+                                                  valueOrDefault<String>(
+                                                    functions.vecToString(
+                                                        RealtimeWeatherAPICall
+                                                            .dataList(
+                                                      containerRealtimeWeatherAPIResponse
+                                                          .jsonBody,
+                                                    )?[5]),
+                                                    '서버 응답없음',
                                                   ),
-                                                ],
-                                              ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
+                                                      ),
+                                                ),
+                                              ],
                                             ),
                                           ),
                                         ),
@@ -551,7 +554,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                           ),
                                           child: Container(
                                             width: 100.0,
-                                            height: 80.0,
+                                            height: 100.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -709,7 +712,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                               ),
                                               child: Container(
                                                 width: 100.0,
-                                                height: 80.0,
+                                                height: 100.0,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
@@ -815,7 +818,7 @@ class _WeatherDetailedWidgetState extends State<WeatherDetailedWidget> {
                                       ),
                                     ].divide(const SizedBox(width: 12.0)),
                                   ),
-                                ],
+                                ].divide(const SizedBox(height: 8.0)),
                               ),
                             ),
                           );
