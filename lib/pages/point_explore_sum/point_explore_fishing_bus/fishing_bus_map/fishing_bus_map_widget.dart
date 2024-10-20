@@ -34,7 +34,7 @@ class _FishingBusMapWidgetState extends State<FishingBusMapWidget> {
     super.initState();
     _model = createModel(context, () => FishingBusMapModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -108,7 +108,6 @@ class _FishingBusMapWidgetState extends State<FishingBusMapWidget> {
                           const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: Container(
                         width: double.infinity,
-                        height: 98.0,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,
                         ),
@@ -131,7 +130,7 @@ class _FishingBusMapWidgetState extends State<FishingBusMapWidget> {
                                       onTap: () async {
                                         FFAppState().startDate = null;
                                         FFAppState().endDate = null;
-                                        setState(() {});
+                                        safeSetState(() {});
                                       },
                                       child: Container(
                                         width: 66.0,
@@ -340,7 +339,7 @@ class _FishingBusMapWidgetState extends State<FishingBusMapWidget> {
                                                       FFAppState()
                                                           .busExtraFilter = [];
                                                       FFAppState().busTime = [];
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     },
                                                   ),
                                                 ),
@@ -437,7 +436,7 @@ class _FishingBusMapWidgetState extends State<FishingBusMapWidget> {
                                                 onPressed: () async {
                                                   FFAppState().startDate = null;
                                                   FFAppState().endDate = null;
-                                                  setState(() {});
+                                                  safeSetState(() {});
                                                 },
                                               ),
                                             ),
@@ -477,7 +476,7 @@ class _FishingBusMapWidgetState extends State<FishingBusMapWidget> {
                                           ).then((value) => safeSetState(() =>
                                               _model.selectedFishes = value));
 
-                                          setState(() {});
+                                          safeSetState(() {});
                                         },
                                         child: Container(
                                           height: 34.0,
@@ -804,46 +803,51 @@ class _FishingBusMapWidgetState extends State<FishingBusMapWidget> {
                                 ),
                               ),
                             ),
-                            FFButtonWidget(
-                              onPressed: () async {
-                                _model.busSearchList = await actions.busSearch(
-                                  FFAppState().busFishType.toList(),
-                                  FFAppState().busExtraFilter.toList(),
-                                  FFAppState().busArea.toList(),
-                                  FFAppState().startDate,
-                                  FFAppState().endDate,
-                                  FFAppState().busTime.toList(),
-                                );
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 24.0),
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  _model.busSearchList =
+                                      await actions.busSearch(
+                                    FFAppState().busFishType.toList(),
+                                    FFAppState().busExtraFilter.toList(),
+                                    FFAppState().busArea.toList(),
+                                    FFAppState().startDate,
+                                    FFAppState().endDate,
+                                    FFAppState().busTime.toList(),
+                                  );
 
-                                setState(() {});
-                              },
-                              text: '검색하기',
-                              options: FFButtonOptions(
-                                width: double.infinity,
-                                height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    24.0, 0.0, 24.0, 0.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).primary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .titleSmallFamily,
-                                      color: Colors.white,
-                                      letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .titleSmallFamily),
-                                    ),
-                                elevation: 3.0,
-                                borderSide: const BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1.0,
+                                  safeSetState(() {});
+                                },
+                                text: '검색하기',
+                                options: FFButtonOptions(
+                                  width: double.infinity,
+                                  height: 40.0,
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      24.0, 0.0, 24.0, 0.0),
+                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .titleSmallFamily,
+                                        color: Colors.white,
+                                        letterSpacing: 0.0,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmallFamily),
+                                      ),
+                                  elevation: 3.0,
+                                  borderSide: const BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
-                                borderRadius: BorderRadius.circular(8.0),
                               ),
                             ),
                           ].divide(const SizedBox(height: 8.0)),
@@ -899,7 +903,7 @@ class _FishingBusMapWidgetState extends State<FishingBusMapWidget> {
                 alignment: const AlignmentDirectional(0.0, 1.0),
                 child: wrapWithModel(
                   model: _model.customNavbarModel,
-                  updateCallback: () => setState(() {}),
+                  updateCallback: () => safeSetState(() {}),
                   child: const CustomNavbarWidget(),
                 ),
               ),

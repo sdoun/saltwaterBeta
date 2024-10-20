@@ -45,6 +45,12 @@ class UsersRecord extends FirestoreRecord {
   String get phoneNumber => _phoneNumber ?? '';
   bool hasPhoneNumber() => _phoneNumber != null;
 
+  // "termsAgreement" field.
+  SignInAgreementStruct? _termsAgreement;
+  SignInAgreementStruct get termsAgreement =>
+      _termsAgreement ?? SignInAgreementStruct();
+  bool hasTermsAgreement() => _termsAgreement != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -52,6 +58,8 @@ class UsersRecord extends FirestoreRecord {
     _uid = snapshotData['uid'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
     _phoneNumber = snapshotData['phone_number'] as String?;
+    _termsAgreement =
+        SignInAgreementStruct.maybeFromMap(snapshotData['termsAgreement']);
   }
 
   static CollectionReference get collection =>
@@ -94,6 +102,7 @@ Map<String, dynamic> createUsersRecordData({
   String? uid,
   DateTime? createdTime,
   String? phoneNumber,
+  SignInAgreementStruct? termsAgreement,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -103,8 +112,12 @@ Map<String, dynamic> createUsersRecordData({
       'uid': uid,
       'created_time': createdTime,
       'phone_number': phoneNumber,
+      'termsAgreement': SignInAgreementStruct().toMap(),
     }.withoutNulls,
   );
+
+  // Handle nested data for "termsAgreement" field.
+  addSignInAgreementStructData(firestoreData, termsAgreement, 'termsAgreement');
 
   return firestoreData;
 }
@@ -119,7 +132,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.photoUrl == e2?.photoUrl &&
         e1?.uid == e2?.uid &&
         e1?.createdTime == e2?.createdTime &&
-        e1?.phoneNumber == e2?.phoneNumber;
+        e1?.phoneNumber == e2?.phoneNumber &&
+        e1?.termsAgreement == e2?.termsAgreement;
   }
 
   @override
@@ -129,7 +143,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.photoUrl,
         e?.uid,
         e?.createdTime,
-        e?.phoneNumber
+        e?.phoneNumber,
+        e?.termsAgreement
       ]);
 
   @override

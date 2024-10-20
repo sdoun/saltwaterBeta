@@ -27,7 +27,7 @@ class _Park2ndFilterWidgetState extends State<Park2ndFilterWidget> {
     super.initState();
     _model = createModel(context, () => Park2ndFilterModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -91,7 +91,6 @@ class _Park2ndFilterWidgetState extends State<Park2ndFilterWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                       child: Container(
-                        width: 88.0,
                         height: 44.0,
                         decoration: BoxDecoration(
                           color:
@@ -109,7 +108,7 @@ class _Park2ndFilterWidgetState extends State<Park2ndFilterWidget> {
                         ),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              5.0, 0.0, 5.0, 0.0),
+                              5.0, 0.0, 8.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -133,7 +132,7 @@ class _Park2ndFilterWidgetState extends State<Park2ndFilterWidget> {
                                   child: Checkbox(
                                     value: _model.checkboxValue1 ??= false,
                                     onChanged: (newValue) async {
-                                      setState(() =>
+                                      safeSetState(() =>
                                           _model.checkboxValue1 = newValue!);
                                     },
                                     side: BorderSide(
@@ -172,7 +171,6 @@ class _Park2ndFilterWidgetState extends State<Park2ndFilterWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                       child: Container(
-                        width: 87.0,
                         height: 44.0,
                         decoration: BoxDecoration(
                           color:
@@ -190,7 +188,7 @@ class _Park2ndFilterWidgetState extends State<Park2ndFilterWidget> {
                         ),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              5.0, 0.0, 5.0, 0.0),
+                              5.0, 0.0, 8.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -214,7 +212,7 @@ class _Park2ndFilterWidgetState extends State<Park2ndFilterWidget> {
                                   child: Checkbox(
                                     value: _model.checkboxValue2 ??= false,
                                     onChanged: (newValue) async {
-                                      setState(() =>
+                                      safeSetState(() =>
                                           _model.checkboxValue2 = newValue!);
                                     },
                                     side: BorderSide(
@@ -262,7 +260,6 @@ class _Park2ndFilterWidgetState extends State<Park2ndFilterWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                       child: Container(
-                        width: 92.0,
                         height: 44.0,
                         decoration: BoxDecoration(
                           color:
@@ -280,7 +277,7 @@ class _Park2ndFilterWidgetState extends State<Park2ndFilterWidget> {
                         ),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              5.0, 0.0, 5.0, 0.0),
+                              5.0, 0.0, 8.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -304,7 +301,7 @@ class _Park2ndFilterWidgetState extends State<Park2ndFilterWidget> {
                                   child: Checkbox(
                                     value: _model.checkboxValue3 ??= false,
                                     onChanged: (newValue) async {
-                                      setState(() =>
+                                      safeSetState(() =>
                                           _model.checkboxValue3 = newValue!);
                                     },
                                     side: BorderSide(
@@ -344,7 +341,6 @@ class _Park2ndFilterWidgetState extends State<Park2ndFilterWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                       child: Container(
-                        width: 94.0,
                         height: 44.0,
                         decoration: BoxDecoration(
                           color:
@@ -362,7 +358,7 @@ class _Park2ndFilterWidgetState extends State<Park2ndFilterWidget> {
                         ),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              5.0, 0.0, 5.0, 0.0),
+                              5.0, 0.0, 8.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -386,7 +382,7 @@ class _Park2ndFilterWidgetState extends State<Park2ndFilterWidget> {
                                   child: Checkbox(
                                     value: _model.checkboxValue4 ??= false,
                                     onChanged: (newValue) async {
-                                      setState(() =>
+                                      safeSetState(() =>
                                           _model.checkboxValue4 = newValue!);
                                     },
                                     side: BorderSide(

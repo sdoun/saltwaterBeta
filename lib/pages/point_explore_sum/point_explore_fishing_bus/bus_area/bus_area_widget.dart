@@ -33,8 +33,8 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
       vsync: this,
       length: 2,
       initialIndex: 0,
-    )..addListener(() => setState(() {}));
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -144,7 +144,7 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                                   options: const ['전체', '인천 남구', '인천 서구', '인천 중구'],
                                   selectedCallback:
                                       (selectedOptionCallback) async {
-                                    setState(() {});
+                                    safeSetState(() {});
                                   },
                                 ),
                               ),
@@ -205,7 +205,7 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                                   ],
                                   selectedCallback:
                                       (selectedOptionCallback) async {
-                                    setState(() {});
+                                    safeSetState(() {});
                                   },
                                 ),
                               ),
@@ -260,7 +260,7 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                                   options: const ['전체', '호남 당진', '호남 태안'],
                                   selectedCallback:
                                       (selectedOptionCallback) async {
-                                    setState(() {});
+                                    safeSetState(() {});
                                   },
                                 ),
                               ),
@@ -362,7 +362,7 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                                   options: const ['전체', '인천인근', '태안인근', '평택인근'],
                                   selectedCallback:
                                       (selectedOptionCallback) async {
-                                    setState(() {});
+                                    safeSetState(() {});
                                   },
                                 ),
                               ),
@@ -417,7 +417,7 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                                   options: const ['전체', '여수인근', '통영인근'],
                                   selectedCallback:
                                       (selectedOptionCallback) async {
-                                    setState(() {});
+                                    safeSetState(() {});
                                   },
                                 ),
                               ),
@@ -431,7 +431,7 @@ class _BusAreaWidgetState extends State<BusAreaWidget>
                             onPressed: () async {
                               FFAppState().busArea =
                                   _model.area.toList().cast<String>();
-                              setState(() {});
+                              safeSetState(() {});
                               Navigator.pop(context);
                             },
                             text: '적용',

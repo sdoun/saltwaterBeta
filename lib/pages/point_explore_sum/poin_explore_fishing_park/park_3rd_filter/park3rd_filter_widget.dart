@@ -27,7 +27,7 @@ class _Park3rdFilterWidgetState extends State<Park3rdFilterWidget> {
     super.initState();
     _model = createModel(context, () => Park3rdFilterModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -85,12 +85,12 @@ class _Park3rdFilterWidgetState extends State<Park3rdFilterWidget> {
               ),
               Row(
                 mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                     child: Container(
-                      width: 112.0,
                       height: 44.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -107,7 +107,7 @@ class _Park3rdFilterWidgetState extends State<Park3rdFilterWidget> {
                       ),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 8.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -130,7 +130,7 @@ class _Park3rdFilterWidgetState extends State<Park3rdFilterWidget> {
                                 child: Checkbox(
                                   value: _model.checkboxValue1 ??= false,
                                   onChanged: (newValue) async {
-                                    setState(() =>
+                                    safeSetState(() =>
                                         _model.checkboxValue1 = newValue!);
                                   },
                                   side: BorderSide(
@@ -147,7 +147,7 @@ class _Park3rdFilterWidgetState extends State<Park3rdFilterWidget> {
                             Align(
                               alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Text(
-                                '장비대여',
+                                '장비 대여',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -174,7 +174,6 @@ class _Park3rdFilterWidgetState extends State<Park3rdFilterWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                       child: Container(
-                        width: 111.0,
                         height: 44.0,
                         decoration: BoxDecoration(
                           color:
@@ -192,7 +191,7 @@ class _Park3rdFilterWidgetState extends State<Park3rdFilterWidget> {
                         ),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              5.0, 0.0, 5.0, 0.0),
+                              5.0, 0.0, 8.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -216,7 +215,7 @@ class _Park3rdFilterWidgetState extends State<Park3rdFilterWidget> {
                                   child: Checkbox(
                                     value: _model.checkboxValue2 ??= false,
                                     onChanged: (newValue) async {
-                                      setState(() =>
+                                      safeSetState(() =>
                                           _model.checkboxValue2 = newValue!);
                                     },
                                     side: BorderSide(
@@ -257,44 +256,48 @@ class _Park3rdFilterWidgetState extends State<Park3rdFilterWidget> {
                   ),
                 ],
               ),
-              InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  Navigator.pop(
-                      context,
-                      functions.park3rdFilterBottomsheet(
-                          _model.checkboxValue1!, _model.checkboxValue2!));
-                },
-                child: Container(
-                  width: 100.0,
-                  height: 43.0,
-                  decoration: const BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(8.0),
-                      bottomRight: Radius.circular(8.0),
-                      topLeft: Radius.circular(8.0),
-                      topRight: Radius.circular(8.0),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 48.0, 0.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    Navigator.pop(
+                        context,
+                        functions.park3rdFilterBottomsheet(
+                            _model.checkboxValue1!, _model.checkboxValue2!));
+                  },
+                  child: Container(
+                    width: 100.0,
+                    height: 43.0,
+                    decoration: const BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(8.0),
+                        bottomRight: Radius.circular(8.0),
+                        topLeft: Radius.circular(8.0),
+                        topRight: Radius.circular(8.0),
+                      ),
                     ),
-                  ),
-                  child: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
-                    child: Text(
-                      '선택완료',
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).bodyMediumFamily,
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            fontSize: 17.0,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.w500,
-                            useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).bodyMediumFamily),
-                          ),
+                    child: Align(
+                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      child: Text(
+                        '선택완료',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).bodyMediumFamily,
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              fontSize: 17.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.w500,
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context)
+                                      .bodyMediumFamily),
+                            ),
+                      ),
                     ),
                   ),
                 ),

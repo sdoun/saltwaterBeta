@@ -29,7 +29,7 @@ class _PackageAreaWidgetState extends State<PackageAreaWidget> {
     super.initState();
     _model = createModel(context, () => PackageAreaModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -114,7 +114,7 @@ class _PackageAreaWidgetState extends State<PackageAreaWidget> {
                         ChipData('제주권')
                       ],
                       onChanged: (val) =>
-                          setState(() => _model.choiceChipsValues = val),
+                          safeSetState(() => _model.choiceChipsValues = val),
                       selectedChipStyle: ChipStyle(
                         backgroundColor: FlutterFlowTheme.of(context).primary,
                         textStyle: FlutterFlowTheme.of(context)
@@ -173,7 +173,7 @@ class _PackageAreaWidgetState extends State<PackageAreaWidget> {
                   onPressed: () async {
                     FFAppState().packageFilter =
                         _model.choiceChipsValues!.toList().cast<String>();
-                    setState(() {});
+                    safeSetState(() {});
                     Navigator.pop(context, _model.choiceChipsValues);
                   },
                   text: '선택완료',

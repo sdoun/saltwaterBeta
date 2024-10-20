@@ -21,7 +21,7 @@ class _AssetTestWidgetState extends State<AssetTestWidget> {
     super.initState();
     _model = createModel(context, () => AssetTestModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

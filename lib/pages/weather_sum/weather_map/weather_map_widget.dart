@@ -1,9 +1,10 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/custom_navbar_widget.dart';
-import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'weather_map_model.dart';
@@ -26,7 +27,7 @@ class _WeatherMapWidgetState extends State<WeatherMapWidget> {
     super.initState();
     _model = createModel(context, () => WeatherMapModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -65,7 +66,6 @@ class _WeatherMapWidgetState extends State<WeatherMapWidget> {
           onTap: () => FocusScope.of(context).unfocus(),
           child: Scaffold(
             key: scaffoldKey,
-            resizeToAvoidBottomInset: false,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             appBar: PreferredSize(
               preferredSize: const Size.fromHeight(64.0),
@@ -147,43 +147,28 @@ class _WeatherMapWidgetState extends State<WeatherMapWidget> {
                                   .secondaryBackground,
                               borderRadius: BorderRadius.circular(12.0),
                             ),
-                            child: FlutterFlowGoogleMap(
-                              controller: _model.googleMapsController,
-                              onCameraIdle: (latLng) =>
-                                  _model.googleMapsCenter = latLng,
-                              initialLocation: _model.googleMapsCenter ??=
-                                  const LatLng(37.0, 127.0),
-                              markers: weatherMapTBWeatherPointRecordList
-                                  .map(
-                                    (marker) => FlutterFlowMarker(
-                                      marker.reference.path,
-                                      marker.latlng!,
-                                      () async {
-                                        context.pushNamed(
-                                          'weatherDetailed',
-                                          queryParameters: {
-                                            'weatherRef': serializeParam(
-                                              marker.reference,
-                                              ParamType.DocumentReference,
-                                            ),
-                                          }.withoutNulls,
-                                        );
-                                      },
-                                    ),
-                                  )
-                                  .toList(),
-                              markerColor: GoogleMarkerColor.violet,
-                              mapType: MapType.normal,
-                              style: GoogleMapStyle.standard,
-                              initialZoom: 7.0,
-                              allowInteraction: true,
-                              allowZoom: true,
-                              showZoomControls: true,
-                              showLocation: true,
-                              showCompass: false,
-                              showMapToolbar: false,
-                              showTraffic: false,
-                              centerMapOnMarkerTap: true,
+                            child: SizedBox(
+                              width: double.infinity,
+                              height: double.infinity,
+                              child: custom_widgets.NaverMapWidgetWeatherPoint(
+                                width: double.infinity,
+                                height: double.infinity,
+                                initLat: 37.0,
+                                initLng: 127.0,
+                                pointList: weatherMapTBWeatherPointRecordList,
+                                currentUser: currentUserReference!,
+                                onClickMarker: (markerDoc) async {
+                                  context.pushNamed(
+                                    'weatherDetailed',
+                                    queryParameters: {
+                                      'weatherRef': serializeParam(
+                                        markerDoc.reference,
+                                        ParamType.DocumentReference,
+                                      ),
+                                    }.withoutNulls,
+                                  );
+                                },
+                              ),
                             ),
                           ),
                         ),
@@ -192,10 +177,20 @@ class _WeatherMapWidgetState extends State<WeatherMapWidget> {
                   ),
                   Align(
                     alignment: const AlignmentDirectional(0.0, 1.0),
-                    child: wrapWithModel(
-                      model: _model.customNavbarModel,
-                      updateCallback: () => setState(() {}),
-                      child: const CustomNavbarWidget(),
+                    child: Container(
+                      width: double.infinity,
+                      height: MediaQuery.sizeOf(context).height * 0.08,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).primaryBackground,
+                      ),
+                      child: Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: wrapWithModel(
+                          model: _model.customNavbarModel,
+                          updateCallback: () => safeSetState(() {}),
+                          child: const CustomNavbarWidget(),
+                        ),
+                      ),
                     ),
                   ),
                 ],

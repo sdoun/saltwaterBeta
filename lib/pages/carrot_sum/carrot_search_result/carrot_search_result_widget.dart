@@ -46,7 +46,7 @@ class _CarrotSearchResultWidgetState extends State<CarrotSearchResultWidget> {
       );
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -385,7 +385,7 @@ class _CarrotSearchResultWidgetState extends State<CarrotSearchResultWidget> {
               ),
               wrapWithModel(
                 model: _model.carrotNavBarModel,
-                updateCallback: () => setState(() {}),
+                updateCallback: () => safeSetState(() {}),
                 child: const CarrotNavBarWidget(),
               ),
             ],

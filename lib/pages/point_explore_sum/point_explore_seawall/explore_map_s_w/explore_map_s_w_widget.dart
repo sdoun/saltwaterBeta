@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/pages/point_explore_sum/map_type_select/map_type_select_widget.dart';
 import '/pages/point_explore_sum/point_category/point_category_widget.dart';
 import '/pages/point_explore_sum/point_explore_seawall/seawall_1st_filter/seawall1st_filter_widget.dart';
 import '/pages/point_explore_sum/point_explore_seawall/seawall_2nd_filter/seawall2nd_filter_widget.dart';
@@ -40,10 +41,13 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {});
+      safeSetState(() {});
+      safeSetState(() {
+        _model.choiceChipsValueController?.value = FFAppState().fishes;
+      });
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -80,7 +84,7 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                 curve: Curves.ease,
               );
 
-              setState(() {});
+              safeSetState(() {});
             }();
           }
           _model.exploreMapSWPreviousSnapshot = snapshot;
@@ -165,7 +169,6 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                         children: [
                           Container(
                             width: double.infinity,
-                            height: 172.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
@@ -186,10 +189,12 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                         ChipData('중상층'),
                                         ChipData('원투낚시')
                                       ],
-                                      onChanged: (val) => setState(
+                                      onChanged: (val) => safeSetState(
                                           () => _model.choiceChipsValues = val),
                                       selectedChipStyle: ChipStyle(
-                                        backgroundColor: Colors.black,
+                                        backgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondary,
                                         textStyle: FlutterFlowTheme.of(context)
                                             .labelLarge
                                             .override(
@@ -237,7 +242,7 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                         borderRadius:
                                             BorderRadius.circular(10.0),
                                       ),
-                                      chipSpacing: 12.0,
+                                      chipSpacing: 8.0,
                                       rowSpacing: 12.0,
                                       multiselect: true,
                                       initialized:
@@ -294,67 +299,73 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
                                               child: Container(
-                                                width: 121.0,
-                                                height: 36.0,
+                                                height: 32.0,
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .primaryBackground,
+                                                      .primary,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           8.0),
                                                   border: Border.all(
-                                                    color: Colors.black,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
                                                   ),
                                                 ),
                                                 alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      '방파제 및 석축',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'PretendardSeries',
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            useGoogleFonts:
-                                                                GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        'PretendardSeries'),
-                                                          ),
-                                                    ),
-                                                    const Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              1.0, 0.0),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    3.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                child: Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          8.0, 0.0, 4.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Text(
+                                                        '방파제, 선착장',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'PretendardSeries',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBackground,
+                                                                  fontSize:
+                                                                      12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          'PretendardSeries'),
+                                                                ),
+                                                      ),
+                                                      Align(
+                                                        alignment:
+                                                            const AlignmentDirectional(
+                                                                1.0, 0.0),
                                                         child: Icon(
                                                           Icons
                                                               .keyboard_arrow_down_outlined,
-                                                          color: Colors.black,
-                                                          size: 20.0,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryBackground,
+                                                          size: 18.0,
                                                         ),
                                                       ),
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -391,13 +402,13 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                   () => _model.sW1stFilter =
                                                       value));
 
-                                              setState(() {});
+                                              safeSetState(() {});
                                             },
                                             child: ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
                                               child: Container(
-                                                height: 36.0,
+                                                height: 32.0,
                                                 decoration: BoxDecoration(
                                                   color: (_model.sW1stFilter !=
                                                                   null &&
@@ -419,21 +430,18 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                 ),
                                                 alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  4.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Builder(
+                                                child: Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          8.0, 0.0, 4.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Builder(
                                                         builder: (context) {
                                                           final firstFilter =
                                                               _model.sW1stFilter
@@ -467,6 +475,8 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primaryBackground,
+                                                                      fontSize:
+                                                                          12.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -482,44 +492,36 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                           );
                                                         },
                                                       ),
-                                                    ),
-                                                    Text(
-                                                      (_model.sW1stFilter !=
-                                                                      null &&
-                                                                  (_model.sW1stFilter)!
-                                                                      .isNotEmpty) ==
-                                                              true
-                                                          ? ''
-                                                          : '시설구분',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'PretendardSeries',
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            useGoogleFonts:
-                                                                GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        'PretendardSeries'),
-                                                          ),
-                                                    ),
-                                                    Align(
-                                                      alignment:
-                                                          const AlignmentDirectional(
-                                                              1.0, 0.0),
-                                                      child: Padding(
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    3.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                      Text(
+                                                        (_model.sW1stFilter !=
+                                                                        null &&
+                                                                    (_model.sW1stFilter)!
+                                                                        .isNotEmpty) ==
+                                                                true
+                                                            ? ''
+                                                            : '시설구분',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'PretendardSeries',
+                                                              fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                              useGoogleFonts: GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'PretendardSeries'),
+                                                            ),
+                                                      ),
+                                                      Align(
+                                                        alignment:
+                                                            const AlignmentDirectional(
+                                                                1.0, 0.0),
                                                         child: Icon(
                                                           Icons
                                                               .keyboard_arrow_down_outlined,
@@ -535,11 +537,11 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                               : FlutterFlowTheme
                                                                       .of(context)
                                                                   .primaryText,
-                                                          size: 20.0,
+                                                          size: 18.0,
                                                         ),
                                                       ),
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -576,13 +578,13 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                   () => _model.sW2ndFilter =
                                                       value));
 
-                                              setState(() {});
+                                              safeSetState(() {});
                                             },
                                             child: ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
                                               child: Container(
-                                                height: 36.0,
+                                                height: 32.0,
                                                 decoration: BoxDecoration(
                                                   color: (_model.sW2ndFilter !=
                                                                   null &&
@@ -604,21 +606,18 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                 ),
                                                 alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  4.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Builder(
+                                                child: Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          8.0, 0.0, 4.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Builder(
                                                         builder: (context) {
                                                           final secondFilter =
                                                               _model.sW2ndFilter
@@ -652,6 +651,8 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primaryBackground,
+                                                                      fontSize:
+                                                                          12.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -667,44 +668,36 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                           );
                                                         },
                                                       ),
-                                                    ),
-                                                    Text(
-                                                      (_model.sW2ndFilter !=
-                                                                      null &&
-                                                                  (_model.sW2ndFilter)!
-                                                                      .isNotEmpty) ==
-                                                              true
-                                                          ? ''
-                                                          : '편의구분',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'PretendardSeries',
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            useGoogleFonts:
-                                                                GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        'PretendardSeries'),
-                                                          ),
-                                                    ),
-                                                    Align(
-                                                      alignment:
-                                                          const AlignmentDirectional(
-                                                              1.0, 0.0),
-                                                      child: Padding(
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    3.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                      Text(
+                                                        (_model.sW2ndFilter !=
+                                                                        null &&
+                                                                    (_model.sW2ndFilter)!
+                                                                        .isNotEmpty) ==
+                                                                true
+                                                            ? ''
+                                                            : '편의시설',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'PretendardSeries',
+                                                              fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                              useGoogleFonts: GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'PretendardSeries'),
+                                                            ),
+                                                      ),
+                                                      Align(
+                                                        alignment:
+                                                            const AlignmentDirectional(
+                                                                1.0, 0.0),
                                                         child: Icon(
                                                           Icons
                                                               .keyboard_arrow_down_outlined,
@@ -720,11 +713,11 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                               : FlutterFlowTheme
                                                                       .of(context)
                                                                   .primaryText,
-                                                          size: 20.0,
+                                                          size: 18.0,
                                                         ),
                                                       ),
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -761,13 +754,13 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                   () => _model.sW3rdFilter =
                                                       value));
 
-                                              setState(() {});
+                                              safeSetState(() {});
                                             },
                                             child: ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
                                               child: Container(
-                                                height: 36.0,
+                                                height: 32.0,
                                                 decoration: BoxDecoration(
                                                   color: (_model.sW3rdFilter !=
                                                                   null &&
@@ -789,97 +782,98 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                 ),
                                                 alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Builder(
-                                                      builder: (context) {
-                                                        final thirdFilter =
-                                                            _model.sW3rdFilter
-                                                                    ?.toList() ??
-                                                                [];
+                                                child: Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          8.0, 0.0, 4.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Builder(
+                                                        builder: (context) {
+                                                          final thirdFilter =
+                                                              _model.sW3rdFilter
+                                                                      ?.toList() ??
+                                                                  [];
 
-                                                        return Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: List.generate(
-                                                              thirdFilter
-                                                                  .length,
-                                                              (thirdFilterIndex) {
-                                                            final thirdFilterItem =
-                                                                thirdFilter[
-                                                                    thirdFilterIndex];
-                                                            return Text(
-                                                              thirdFilterItem ==
-                                                                      _model
-                                                                          .sW3rdFilter
-                                                                          ?.last
-                                                                  ? thirdFilterItem
-                                                                  : '$thirdFilterItem, ',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'PretendardSeries',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryBackground,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            'PretendardSeries'),
-                                                                  ),
-                                                            );
-                                                          }),
-                                                        );
-                                                      },
-                                                    ),
-                                                    Text(
-                                                      (_model.sW3rdFilter !=
-                                                                      null &&
-                                                                  (_model.sW3rdFilter)!
-                                                                      .isNotEmpty) ==
-                                                              true
-                                                          ? ''
-                                                          : '편의사항',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'PretendardSeries',
-                                                            fontSize: 14.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            useGoogleFonts:
-                                                                GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        'PretendardSeries'),
-                                                          ),
-                                                    ),
-                                                    Align(
-                                                      alignment:
-                                                          const AlignmentDirectional(
-                                                              1.0, 0.0),
-                                                      child: Padding(
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    3.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                          return Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: List.generate(
+                                                                thirdFilter
+                                                                    .length,
+                                                                (thirdFilterIndex) {
+                                                              final thirdFilterItem =
+                                                                  thirdFilter[
+                                                                      thirdFilterIndex];
+                                                              return Text(
+                                                                thirdFilterItem ==
+                                                                        _model
+                                                                            .sW3rdFilter
+                                                                            ?.last
+                                                                    ? thirdFilterItem
+                                                                    : '$thirdFilterItem, ',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'PretendardSeries',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryBackground,
+                                                                      fontSize:
+                                                                          12.0,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              'PretendardSeries'),
+                                                                    ),
+                                                              );
+                                                            }),
+                                                          );
+                                                        },
+                                                      ),
+                                                      Text(
+                                                        (_model.sW3rdFilter !=
+                                                                        null &&
+                                                                    (_model.sW3rdFilter)!
+                                                                        .isNotEmpty) ==
+                                                                true
+                                                            ? ''
+                                                            : '편의사항',
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'PretendardSeries',
+                                                              fontSize: 12.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                              useGoogleFonts: GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'PretendardSeries'),
+                                                            ),
+                                                      ),
+                                                      Align(
+                                                        alignment:
+                                                            const AlignmentDirectional(
+                                                                1.0, 0.0),
                                                         child: Icon(
                                                           Icons
                                                               .keyboard_arrow_down_outlined,
@@ -895,65 +889,72 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                                               : FlutterFlowTheme
                                                                       .of(context)
                                                                   .primaryText,
-                                                          size: 20.0,
+                                                          size: 18.0,
                                                         ),
                                                       ),
-                                                    ),
-                                                  ],
+                                                    ],
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
-                                        ].divide(const SizedBox(width: 8.0)),
+                                        ].divide(const SizedBox(width: 4.0)),
                                       ),
                                     ),
                                   ),
-                                  FFButtonWidget(
-                                    onPressed: () async {
-                                      _model.sWPointList =
-                                          await actions.sWFilterSumString(
-                                        context,
-                                        _model.sW1stFilter?.toList(),
-                                        _model.sW2ndFilter?.toList(),
-                                        _model.sW3rdFilter?.toList(),
-                                        _model.choiceChipsValues?.toList(),
-                                      );
-                                      _model.filterValue =
-                                          exploreMapSWTBPointRecordList
-                                              .toList()
-                                              .cast<TBPointRecord>();
-                                      setState(() {});
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 24.0),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        _model.sWPointList =
+                                            await actions.sWFilterSumString(
+                                          context,
+                                          _model.sW1stFilter?.toList(),
+                                          _model.sW2ndFilter?.toList(),
+                                          _model.sW3rdFilter?.toList(),
+                                          _model.choiceChipsValues?.toList(),
+                                        );
+                                        _model.filterValue =
+                                            exploreMapSWTBPointRecordList
+                                                .toList()
+                                                .cast<TBPointRecord>();
+                                        safeSetState(() {});
 
-                                      setState(() {});
-                                    },
-                                    text: '선택완료',
-                                    options: FFButtonOptions(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          0.8,
-                                      height: 40.0,
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 0.0),
-                                      iconPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color: Colors.black,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            fontFamily: 'PretendardSeries',
-                                            color: Colors.white,
-                                            fontSize: 18.0,
-                                            letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    'PretendardSeries'),
-                                          ),
-                                      elevation: 3.0,
-                                      borderSide: const BorderSide(
-                                        color: Colors.transparent,
-                                        width: 1.0,
+                                        safeSetState(() {});
+                                      },
+                                      text: '선택완료',
+                                      options: FFButtonOptions(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.8,
+                                        height: 40.0,
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 0.0),
+                                        iconPadding:
+                                            const EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: Colors.black,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'PretendardSeries',
+                                              color: Colors.white,
+                                              fontSize: 18.0,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          'PretendardSeries'),
+                                            ),
+                                        elevation: 3.0,
+                                        borderSide: const BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
-                                      borderRadius: BorderRadius.circular(8.0),
                                     ),
                                   ),
                                 ].divide(const SizedBox(height: 8.0)),
@@ -970,26 +971,86 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                                     .primaryBackground,
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
-                              child: SizedBox(
-                                width: double.infinity,
-                                height: double.infinity,
-                                child: custom_widgets.NaverMapWidgetPoint(
-                                  width: double.infinity,
-                                  height: double.infinity,
-                                  pointList: exploreMapSWTBPointRecordList,
-                                  currentUser: currentUserReference!,
-                                  onClickMarker: (markerDoc) async {
-                                    context.pushNamed(
-                                      'point_detailed',
-                                      queryParameters: {
-                                        'pointRefSW': serializeParam(
-                                          markerDoc.reference,
-                                          ParamType.DocumentReference,
+                              child: Stack(
+                                children: [
+                                  SizedBox(
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                    child:
+                                        custom_widgets.NaverMapWidgetPointCopy(
+                                      width: double.infinity,
+                                      height: double.infinity,
+                                      mapType: FFAppState().mapTypeString,
+                                      pointList: exploreMapSWTBPointRecordList,
+                                      currentUser: currentUserReference!,
+                                      onClickMarker: (markerDoc) async {
+                                        context.pushNamed(
+                                          'point_detailed',
+                                          queryParameters: {
+                                            'pointRefSW': serializeParam(
+                                              markerDoc.reference,
+                                              ParamType.DocumentReference,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment: const AlignmentDirectional(1.0, -1.0),
+                                    child: Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 8.0, 8.0, 0.0),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          await showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: Colors.transparent,
+                                            enableDrag: false,
+                                            context: context,
+                                            builder: (context) {
+                                              return WebViewAware(
+                                                child: GestureDetector(
+                                                  onTap: () =>
+                                                      FocusScope.of(context)
+                                                          .unfocus(),
+                                                  child: Padding(
+                                                    padding:
+                                                        MediaQuery.viewInsetsOf(
+                                                            context),
+                                                    child:
+                                                        const MapTypeSelectWidget(),
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                          ).then(
+                                              (value) => safeSetState(() {}));
+                                        },
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.08,
+                                          height:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.08,
+                                          clipBehavior: Clip.antiAlias,
+                                          decoration: const BoxDecoration(
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Image.asset(
+                                            'assets/images/KakaoTalk_20240717_160550314.png',
+                                            fit: BoxFit.cover,
+                                          ),
                                         ),
-                                      }.withoutNulls,
-                                    );
-                                  },
-                                ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
@@ -999,10 +1060,20 @@ class _ExploreMapSWWidgetState extends State<ExploreMapSWWidget> {
                   ),
                   Align(
                     alignment: const AlignmentDirectional(0.0, 1.0),
-                    child: wrapWithModel(
-                      model: _model.customNavbarModel,
-                      updateCallback: () => setState(() {}),
-                      child: const CustomNavbarWidget(),
+                    child: Container(
+                      width: double.infinity,
+                      height: MediaQuery.sizeOf(context).height * 0.08,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).primaryBackground,
+                      ),
+                      child: Align(
+                        alignment: const AlignmentDirectional(0.0, 1.0),
+                        child: wrapWithModel(
+                          model: _model.customNavbarModel,
+                          updateCallback: () => safeSetState(() {}),
+                          child: const CustomNavbarWidget(),
+                        ),
+                      ),
                     ),
                   ),
                 ],

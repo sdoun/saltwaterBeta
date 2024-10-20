@@ -37,7 +37,7 @@ class _UserEditWidgetState extends State<UserEditWidget> {
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -266,7 +266,7 @@ class _UserEditWidgetState extends State<UserEditWidget> {
                                   photoUrl: FFAppState().newProfileImage,
                                 ));
                                 FFAppState().newProfileImage = '';
-                                setState(() {});
+                                safeSetState(() {});
                                 context.safePop();
                               },
                               text: '확인',
@@ -302,7 +302,7 @@ class _UserEditWidgetState extends State<UserEditWidget> {
                           FFButtonWidget(
                             onPressed: () async {
                               FFAppState().newProfileImage = '';
-                              setState(() {});
+                              safeSetState(() {});
                               context.safePop();
                             },
                             text: '취소하기',
@@ -344,7 +344,7 @@ class _UserEditWidgetState extends State<UserEditWidget> {
                 alignment: const AlignmentDirectional(0.0, 1.0),
                 child: wrapWithModel(
                   model: _model.customNavbarModel,
-                  updateCallback: () => setState(() {}),
+                  updateCallback: () => safeSetState(() {}),
                   child: const CustomNavbarWidget(),
                 ),
               ),

@@ -26,7 +26,7 @@ class _CarrotNavBarWidgetState extends State<CarrotNavBarWidget> {
     super.initState();
     _model = createModel(context, () => CarrotNavBarModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -51,7 +51,7 @@ class _CarrotNavBarWidgetState extends State<CarrotNavBarWidget> {
           padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
           child: Row(
             mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               InkWell(
                 splashColor: Colors.transparent,
@@ -62,7 +62,6 @@ class _CarrotNavBarWidgetState extends State<CarrotNavBarWidget> {
                   context.pushNamed('carrotHome');
                 },
                 child: Container(
-                  width: 71.0,
                   height: double.infinity,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).primaryBackground,
@@ -107,7 +106,6 @@ class _CarrotNavBarWidgetState extends State<CarrotNavBarWidget> {
                   context.pushNamed('carrot_chatHome');
                 },
                 child: Container(
-                  width: 71.0,
                   height: double.infinity,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).primaryBackground,
@@ -152,7 +150,6 @@ class _CarrotNavBarWidgetState extends State<CarrotNavBarWidget> {
                   context.pushNamed('carrot_search');
                 },
                 child: Container(
-                  width: 71.0,
                   height: double.infinity,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).primaryBackground,
@@ -197,7 +194,6 @@ class _CarrotNavBarWidgetState extends State<CarrotNavBarWidget> {
                   context.pushNamed('carrot_create');
                 },
                 child: Container(
-                  width: 71.0,
                   height: double.infinity,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).primaryBackground,
@@ -242,7 +238,6 @@ class _CarrotNavBarWidgetState extends State<CarrotNavBarWidget> {
                   context.pushNamed('carrot_liked');
                 },
                 child: Container(
-                  width: 71.0,
                   height: double.infinity,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).primaryBackground,

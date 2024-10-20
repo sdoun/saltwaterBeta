@@ -34,7 +34,7 @@ class _WishButtonWidgetState extends State<WishButtonWidget> {
     super.initState();
     _model = createModel(context, () => WishButtonModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

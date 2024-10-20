@@ -1,6 +1,9 @@
+import '/backend/backend.dart';
 import '/components/custom_navbar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/request_manager.dart';
+
 import 'fishing_park_map_widget.dart' show FishingParkMapWidget;
 import 'package:flutter/material.dart';
 
@@ -23,6 +26,23 @@ class FishingParkMapModel extends FlutterFlowModel<FishingParkMapWidget> {
   // Model for customNavbar component.
   late CustomNavbarModel customNavbarModel;
 
+  /// Query cache managers for this widget.
+
+  final _pointCacheManager = StreamRequestManager<List<TBPointRecord>>();
+  Stream<List<TBPointRecord>> pointCache({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Stream<List<TBPointRecord>> Function() requestFn,
+  }) =>
+      _pointCacheManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearPointCacheCache() => _pointCacheManager.clear();
+  void clearPointCacheCacheKey(String? uniqueKey) =>
+      _pointCacheManager.clearRequest(uniqueKey);
+
   @override
   void initState(BuildContext context) {
     customNavbarModel = createModel(context, () => CustomNavbarModel());
@@ -31,5 +51,9 @@ class FishingParkMapModel extends FlutterFlowModel<FishingParkMapWidget> {
   @override
   void dispose() {
     customNavbarModel.dispose();
+
+    /// Dispose query cache managers for this widget.
+
+    clearPointCacheCache();
   }
 }

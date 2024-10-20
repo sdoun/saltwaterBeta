@@ -10,20 +10,11 @@ import 'package:flutter/material.dart';
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
 Future<List<String>?> seawallType(
-  bool isSW,
-  bool isDock,
   bool isTetra,
   bool isShift,
 ) async {
   // Add your function code here!
-
   List<String> resultString = [];
-  if (isSW) {
-    resultString.add('방파제');
-  }
-  if (isDock) {
-    resultString.add('선착장');
-  }
   if (isTetra) {
     resultString.add('외향테트라');
   }

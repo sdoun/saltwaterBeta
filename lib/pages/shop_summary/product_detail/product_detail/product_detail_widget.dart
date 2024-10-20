@@ -2,7 +2,7 @@ import '/components/custom_navbar_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/pages/shop_summary/product_detail/wish_button/wish_button_widget.dart';
+import '/pages/shop_summary/product_detail/shopping_no_available/shopping_no_available_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
@@ -32,7 +32,7 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
     super.initState();
     _model = createModel(context, () => ProductDetailModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -163,7 +163,7 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                                 const Duration(milliseconds: 500),
                                             curve: Curves.ease,
                                           );
-                                          setState(() {});
+                                          safeSetState(() {});
                                         },
                                         effect: smooth_page_indicator
                                             .ExpandingDotsEffect(
@@ -203,22 +203,6 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
-                                      '관심고객수:',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily,
-                                            fontSize: 13.0,
-                                            letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily),
-                                          ),
-                                    ),
                                     Text(
                                       'Hello World',
                                       style: FlutterFlowTheme.of(context)
@@ -275,7 +259,7 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                     ),
                     Container(
                       width: 100.0,
-                      height: 215.0,
+                      height: 220.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).primaryBackground,
                         borderRadius: BorderRadius.circular(12.0),
@@ -306,62 +290,93 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                             Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Container(
-                                  width: 100.0,
-                                  height: 168.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                  ),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      ClipRRect(
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 8.0),
+                                  child: Material(
+                                    color: Colors.transparent,
+                                    elevation: 2.0,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    child: Container(
+                                      width: 108.0,
+                                      height: 161.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
+                                        boxShadow: const [
+                                          BoxShadow(
+                                            blurRadius: 4.0,
+                                            color: Color(0x33000000),
+                                            offset: Offset(
+                                              0.0,
+                                              2.0,
+                                            ),
+                                          )
+                                        ],
                                         borderRadius:
                                             BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          'https://picsum.photos/seed/185/600',
-                                          width: 300.0,
-                                          fit: BoxFit.cover,
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 0.0, 4.0, 0.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              child: Image.network(
+                                                'https://picsum.photos/seed/185/600',
+                                                width: 96.0,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            Text(
+                                              'Hello World',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
+                                                      ),
+                                            ),
+                                            Text(
+                                              'Hello World',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
+                                                      ),
+                                            ),
+                                          ].divide(const SizedBox(height: 8.0)),
                                         ),
                                       ),
-                                      Text(
-                                        'Hello World',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily,
-                                              letterSpacing: 0.0,
-                                              useGoogleFonts: GoogleFonts
-                                                      .asMap()
-                                                  .containsKey(
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily),
-                                            ),
-                                      ),
-                                      Text(
-                                        'Hello World',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily,
-                                              letterSpacing: 0.0,
-                                              useGoogleFonts: GoogleFonts
-                                                      .asMap()
-                                                  .containsKey(
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily),
-                                            ),
-                                      ),
-                                    ].divide(const SizedBox(height: 8.0)),
+                                    ),
                                   ),
                                 ),
                               ],
@@ -557,15 +572,14 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                         ),
                       ),
                     ),
+                    Container(
+                      width: double.infinity,
+                      height: 160.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).primaryBackground,
+                      ),
+                    ),
                   ].divide(const SizedBox(height: 8.0)),
-                ),
-              ),
-              Align(
-                alignment: const AlignmentDirectional(0.0, 1.0),
-                child: wrapWithModel(
-                  model: _model.customNavbarModel,
-                  updateCallback: () => setState(() {}),
-                  child: const CustomNavbarWidget(),
                 ),
               ),
               Align(
@@ -573,10 +587,26 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget> {
                 child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 64.0),
                   child: wrapWithModel(
-                    model: _model.wishButtonModel,
-                    updateCallback: () => setState(() {}),
-                    child: WishButtonWidget(
-                      productDetail: widget.product,
+                    model: _model.shoppingNoAvailableModel,
+                    updateCallback: () => safeSetState(() {}),
+                    child: const ShoppingNoAvailableWidget(),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: const AlignmentDirectional(0.0, 1.0),
+                child: Container(
+                  width: double.infinity,
+                  height: MediaQuery.sizeOf(context).height * 0.08,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).primaryBackground,
+                  ),
+                  child: Align(
+                    alignment: const AlignmentDirectional(0.0, 1.0),
+                    child: wrapWithModel(
+                      model: _model.customNavbarModel,
+                      updateCallback: () => safeSetState(() {}),
+                      child: const CustomNavbarWidget(),
                     ),
                   ),
                 ),

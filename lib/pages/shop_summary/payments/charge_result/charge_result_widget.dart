@@ -23,7 +23,7 @@ class _ChargeResultWidgetState extends State<ChargeResultWidget> {
     super.initState();
     _model = createModel(context, () => ChargeResultModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

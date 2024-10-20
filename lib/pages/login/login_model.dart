@@ -3,6 +3,10 @@ import 'login_widget.dart' show LoginWidget;
 import 'package:flutter/material.dart';
 
 class LoginModel extends FlutterFlowModel<LoginWidget> {
+  ///  Local state fields for this page.
+
+  bool agrred = false;
+
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for TabBar widget.
@@ -27,6 +31,10 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
   late bool passwordCreateConfirmVisibility;
   String? Function(BuildContext, String?)?
       passwordCreateConfirmTextControllerValidator;
+  // State field(s) for Checkbox widget.
+  bool? checkboxValue;
+  // Stores action output result for [Bottom Sheet - agreementForSignIn] action in Text widget.
+  bool? allAgree;
   // State field(s) for emailAddress widget.
   FocusNode? emailAddressFocusNode;
   TextEditingController? emailAddressTextController;

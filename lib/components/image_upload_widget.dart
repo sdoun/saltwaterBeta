@@ -28,7 +28,7 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
     super.initState();
     _model = createModel(context, () => ImageUploadModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -93,7 +93,7 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
                   if (selectedMedia != null &&
                       selectedMedia.every(
                           (m) => validateFileFormat(m.storagePath, context))) {
-                    setState(() => _model.isDataUploading1 = true);
+                    safeSetState(() => _model.isDataUploading1 = true);
                     var selectedUploadedFiles = <FFUploadedFile>[];
 
                     var downloadUrls = <String>[];
@@ -121,18 +121,18 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
                     }
                     if (selectedUploadedFiles.length == selectedMedia.length &&
                         downloadUrls.length == selectedMedia.length) {
-                      setState(() {
+                      safeSetState(() {
                         _model.uploadedLocalFile1 = selectedUploadedFiles.first;
                         _model.uploadedFileUrl1 = downloadUrls.first;
                       });
                     } else {
-                      setState(() {});
+                      safeSetState(() {});
                       return;
                     }
                   }
 
-                  FFAppState().addToCarrotImages(_model.uploadedFileUrl1);
-                  setState(() {});
+                  FFAppState().newProfileImage = _model.uploadedFileUrl1;
+                  safeSetState(() {});
                 },
                 child: Container(
                   width: 100.0,
@@ -178,7 +178,7 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
                   if (selectedMedia != null &&
                       selectedMedia.every(
                           (m) => validateFileFormat(m.storagePath, context))) {
-                    setState(() => _model.isDataUploading2 = true);
+                    safeSetState(() => _model.isDataUploading2 = true);
                     var selectedUploadedFiles = <FFUploadedFile>[];
 
                     var downloadUrls = <String>[];
@@ -206,18 +206,18 @@ class _ImageUploadWidgetState extends State<ImageUploadWidget> {
                     }
                     if (selectedUploadedFiles.length == selectedMedia.length &&
                         downloadUrls.length == selectedMedia.length) {
-                      setState(() {
+                      safeSetState(() {
                         _model.uploadedLocalFile2 = selectedUploadedFiles.first;
                         _model.uploadedFileUrl2 = downloadUrls.first;
                       });
                     } else {
-                      setState(() {});
+                      safeSetState(() {});
                       return;
                     }
                   }
 
                   FFAppState().addToCarrotImages(_model.uploadedFileUrl2);
-                  setState(() {});
+                  safeSetState(() {});
                 },
                 child: Container(
                   width: 100.0,

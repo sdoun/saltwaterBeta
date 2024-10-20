@@ -33,7 +33,7 @@ class _CarrotSearchWidgetState extends State<CarrotSearchWidget> {
     _model.textController ??= TextEditingController(text: widget.searchText);
     _model.textFieldFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -121,7 +121,7 @@ class _CarrotSearchWidgetState extends State<CarrotSearchWidget> {
                           onTap: () async {
                             FFAppState().insertAtIndexInRecentSearch(
                                 0, _model.textController.text);
-                            setState(() {});
+                            safeSetState(() {});
 
                             context.pushNamed(
                               'carrot_searchResult',
@@ -272,7 +272,7 @@ class _CarrotSearchWidgetState extends State<CarrotSearchWidget> {
                                   onPressed: () async {
                                     FFAppState().removeAtIndexFromRecentSearch(
                                         recentSearchIndex);
-                                    setState(() {});
+                                    safeSetState(() {});
                                   },
                                 ),
                               ],
@@ -288,7 +288,7 @@ class _CarrotSearchWidgetState extends State<CarrotSearchWidget> {
                 alignment: const AlignmentDirectional(0.0, 0.0),
                 child: wrapWithModel(
                   model: _model.carrotNavBarModel,
-                  updateCallback: () => setState(() {}),
+                  updateCallback: () => safeSetState(() {}),
                   child: const CarrotNavBarWidget(),
                 ),
               ),

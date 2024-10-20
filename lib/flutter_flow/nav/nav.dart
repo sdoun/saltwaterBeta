@@ -10,7 +10,6 @@ import '/auth/base_auth_user_provider.dart';
 import '/backend/push_notifications/push_notifications_handler.dart'
     show PushNotificationsHandler;
 import '/index.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -83,248 +82,282 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/',
           builder: (context, _) =>
               appStateNotifier.loggedIn ? const Home1Widget() : const LoginWidget(),
-          routes: [
-            FFRoute(
-              name: 'home1',
-              path: 'home1',
-              builder: (context, params) => const Home1Widget(),
-            ),
-            FFRoute(
-              name: 'exploreMapSW',
-              path: 'exploreMapSW',
-              builder: (context, params) => const ExploreMapSWWidget(),
-            ),
-            FFRoute(
-              name: 'shoppingHome',
-              path: 'shoppingHome',
-              builder: (context, params) => const ShoppingHomeWidget(),
-            ),
-            FFRoute(
-              name: 'loading1',
-              path: 'loading1',
-              builder: (context, params) => const Loading1Widget(),
-            ),
-            FFRoute(
-              name: 'login',
-              path: 'login',
-              builder: (context, params) => const LoginWidget(),
-            ),
-            FFRoute(
-              name: 'googlemapErrorSolve',
-              path: 'googlemapErrorSolve',
-              builder: (context, params) => const GooglemapErrorSolveWidget(),
-            ),
-            FFRoute(
-              name: 'point_detailed',
-              path: 'pointDetailed',
-              builder: (context, params) => PointDetailedWidget(
-                pointRefSW: params.getParam(
-                  'pointRefSW',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['TB_point'],
-                ),
-              ),
-            ),
-            FFRoute(
-              name: 'productDetail',
-              path: 'productDetail',
-              builder: (context, params) => ProductDetailWidget(
-                product: params.getParam(
-                  'product',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['TB_shoppingProduct'],
-                ),
-              ),
-            ),
-            FFRoute(
-              name: 'carrotHome',
-              path: 'carrotHome',
-              builder: (context, params) => const CarrotHomeWidget(),
-            ),
-            FFRoute(
-              name: 'carrotPost',
-              path: 'carrotPost',
-              builder: (context, params) => CarrotPostWidget(
-                carrotPost: params.getParam(
-                  'carrotPost',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['TB_carrotPost'],
-                ),
-              ),
-            ),
-            FFRoute(
-              name: 'carrot_create',
-              path: 'carrotCreate',
-              builder: (context, params) => const CarrotCreateWidget(),
-            ),
-            FFRoute(
-              name: 'carrot_chatHome',
-              path: 'carrotChatHome',
-              builder: (context, params) => const CarrotChatHomeWidget(),
-            ),
-            FFRoute(
-              name: 'carrot_chatRoom',
-              path: 'carrotChatRoom',
-              builder: (context, params) => CarrotChatRoomWidget(
-                chatRoom: params.getParam(
-                  'chatRoom',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['TB_chatRoom'],
-                ),
-              ),
-            ),
-            FFRoute(
-              name: 'userPage',
-              path: 'userPage',
-              builder: (context, params) => const UserPageWidget(),
-            ),
-            FFRoute(
-              name: 'weatherMap',
-              path: 'weatherMap',
-              builder: (context, params) => const WeatherMapWidget(),
-            ),
-            FFRoute(
-              name: 'weatherDetailed',
-              path: 'weatherDetailed',
-              builder: (context, params) => WeatherDetailedWidget(
-                weatherRef: params.getParam(
-                  'weatherRef',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['TB_weatherPoint'],
-                ),
-              ),
-            ),
-            FFRoute(
-              name: 'fishingBusList',
-              path: 'fishingBusList',
-              builder: (context, params) => const FishingBusListWidget(),
-            ),
-            FFRoute(
-              name: 'exploreMapOcean',
-              path: 'exploreMapOcean',
-              builder: (context, params) => const ExploreMapOceanWidget(),
-            ),
-            FFRoute(
-              name: 'like',
-              path: 'like',
-              builder: (context, params) => const LikeWidget(),
-            ),
-            FFRoute(
-              name: 'Checkout1',
-              path: 'checkout1',
-              builder: (context, params) => const Checkout1Widget(),
-            ),
-            FFRoute(
-              name: 'userEdit',
-              path: 'userEdit',
-              builder: (context, params) => UserEditWidget(
-                userRef: params.getParam(
-                  'userRef',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['users'],
-                ),
-              ),
-            ),
-            FFRoute(
-              name: 'exploreMapFishingPension',
-              path: 'exploreMapFishingPension',
-              builder: (context, params) => const ExploreMapFishingPensionWidget(),
-            ),
-            FFRoute(
-              name: 'guideContentHome',
-              path: 'guideContentHome',
-              builder: (context, params) => const GuideContentHomeWidget(),
-            ),
-            FFRoute(
-              name: 'guideContent',
-              path: 'guideContent',
-              builder: (context, params) => GuideContentWidget(
-                content: params.getParam(
-                  'content',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['TB_guideContent'],
-                ),
-              ),
-            ),
-            FFRoute(
-              name: 'fishingParkMap',
-              path: 'fishingParkMap',
-              builder: (context, params) => const FishingParkMapWidget(),
-            ),
-            FFRoute(
-              name: 'carrot_liked',
-              path: 'carrotLiked',
-              builder: (context, params) => const CarrotLikedWidget(),
-            ),
-            FFRoute(
-              name: 'carrot_search',
-              path: 'carrotSearch',
-              builder: (context, params) => CarrotSearchWidget(
-                searchText: params.getParam(
-                  'searchText',
-                  ParamType.String,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: 'exploreMap_travel',
-              path: 'exploreMapTravel',
-              builder: (context, params) => const ExploreMapTravelWidget(),
-            ),
-            FFRoute(
-              name: 'carrot_searchResult',
-              path: 'carrotSearchResult',
-              builder: (context, params) => CarrotSearchResultWidget(
-                searchText: params.getParam(
-                  'searchText',
-                  ParamType.String,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: 'travel_list',
-              path: 'travelList',
-              builder: (context, params) => const TravelListWidget(),
-            ),
-            FFRoute(
-              name: 'shoppingGuide',
-              path: 'shoppingGuide',
-              builder: (context, params) => const ShoppingGuideWidget(),
-            ),
-            FFRoute(
-              name: 'fishingBusMap',
-              path: 'fishingBusMap',
-              builder: (context, params) => const FishingBusMapWidget(),
-            ),
-            FFRoute(
-              name: 'exploreMap_stand',
-              path: 'exploreMapStand',
-              builder: (context, params) => const ExploreMapStandWidget(),
-            ),
-            FFRoute(
-              name: 'assetTest',
-              path: 'assetTest',
-              builder: (context, params) => const AssetTestWidget(),
-            ),
-            FFRoute(
-              name: 'chargeResult',
-              path: 'chargeResult',
-              builder: (context, params) => const ChargeResultWidget(),
-            ),
-            FFRoute(
-              name: 'chargePortone',
-              path: 'chargePortone',
-              builder: (context, params) => const ChargePortoneWidget(),
-            )
-          ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
+        FFRoute(
+          name: 'home1',
+          path: '/home1',
+          builder: (context, params) => const Home1Widget(),
+        ),
+        FFRoute(
+          name: 'exploreMapSW',
+          path: '/exploreMapSW',
+          builder: (context, params) => const ExploreMapSWWidget(),
+        ),
+        FFRoute(
+          name: 'shoppingHome',
+          path: '/shoppingHome',
+          builder: (context, params) => const ShoppingHomeWidget(),
+        ),
+        FFRoute(
+          name: 'loading1',
+          path: '/loading1',
+          builder: (context, params) => const Loading1Widget(),
+        ),
+        FFRoute(
+          name: 'login',
+          path: '/login',
+          builder: (context, params) => const LoginWidget(),
+        ),
+        FFRoute(
+          name: 'googlemapErrorSolve',
+          path: '/googlemapErrorSolve',
+          builder: (context, params) => const GooglemapErrorSolveWidget(),
+        ),
+        FFRoute(
+          name: 'point_detailed',
+          path: '/pointDetailed',
+          builder: (context, params) => PointDetailedWidget(
+            pointRefSW: params.getParam(
+              'pointRefSW',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['TB_point'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'productDetail',
+          path: '/productDetail',
+          builder: (context, params) => ProductDetailWidget(
+            product: params.getParam(
+              'product',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['TB_shoppingProduct'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'carrotHome',
+          path: '/carrotHome',
+          builder: (context, params) => const CarrotHomeWidget(),
+        ),
+        FFRoute(
+          name: 'carrotPost',
+          path: '/carrotPost',
+          builder: (context, params) => CarrotPostWidget(
+            carrotPost: params.getParam(
+              'carrotPost',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['TB_carrotPost'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'carrot_create',
+          path: '/carrotCreate',
+          builder: (context, params) => const CarrotCreateWidget(),
+        ),
+        FFRoute(
+          name: 'carrot_chatHome',
+          path: '/carrotChatHome',
+          builder: (context, params) => const CarrotChatHomeWidget(),
+        ),
+        FFRoute(
+          name: 'carrot_chatRoom',
+          path: '/carrotChatRoom',
+          builder: (context, params) => CarrotChatRoomWidget(
+            chatRoom: params.getParam(
+              'chatRoom',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['TB_chatRoom'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'userPage',
+          path: '/userPage',
+          builder: (context, params) => const UserPageWidget(),
+        ),
+        FFRoute(
+          name: 'weatherMap',
+          path: '/weatherMap',
+          builder: (context, params) => const WeatherMapWidget(),
+        ),
+        FFRoute(
+          name: 'weatherDetailed',
+          path: '/weatherDetailed',
+          builder: (context, params) => WeatherDetailedWidget(
+            weatherRef: params.getParam(
+              'weatherRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['TB_weatherPoint'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'fishingBusList',
+          path: '/fishingBusList',
+          builder: (context, params) => const FishingBusListWidget(),
+        ),
+        FFRoute(
+          name: 'exploreMapOcean',
+          path: '/exploreMapOcean',
+          builder: (context, params) => const ExploreMapOceanWidget(),
+        ),
+        FFRoute(
+          name: 'like',
+          path: '/like',
+          builder: (context, params) => const LikeWidget(),
+        ),
+        FFRoute(
+          name: 'Checkout1',
+          path: '/checkout1',
+          builder: (context, params) => const Checkout1Widget(),
+        ),
+        FFRoute(
+          name: 'userEdit',
+          path: '/userEdit',
+          builder: (context, params) => UserEditWidget(
+            userRef: params.getParam(
+              'userRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['users'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'exploreMapFishingPension',
+          path: '/exploreMapFishingPension',
+          builder: (context, params) => const ExploreMapFishingPensionWidget(),
+        ),
+        FFRoute(
+          name: 'guideContentHome',
+          path: '/guideContentHome',
+          builder: (context, params) => const GuideContentHomeWidget(),
+        ),
+        FFRoute(
+          name: 'guideContent',
+          path: '/guideContent',
+          builder: (context, params) => GuideContentWidget(
+            content: params.getParam(
+              'content',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['TB_guideContent'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'fishingParkMap',
+          path: '/fishingParkMap',
+          builder: (context, params) => const FishingParkMapWidget(),
+        ),
+        FFRoute(
+          name: 'carrot_liked',
+          path: '/carrotLiked',
+          builder: (context, params) => const CarrotLikedWidget(),
+        ),
+        FFRoute(
+          name: 'carrot_search',
+          path: '/carrotSearch',
+          builder: (context, params) => CarrotSearchWidget(
+            searchText: params.getParam(
+              'searchText',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'exploreMap_travel',
+          path: '/exploreMapTravel',
+          builder: (context, params) => const ExploreMapTravelWidget(),
+        ),
+        FFRoute(
+          name: 'carrot_searchResult',
+          path: '/carrotSearchResult',
+          builder: (context, params) => CarrotSearchResultWidget(
+            searchText: params.getParam(
+              'searchText',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'travel_list',
+          path: '/travelList',
+          builder: (context, params) => const TravelListWidget(),
+        ),
+        FFRoute(
+          name: 'shoppingGuide',
+          path: '/shoppingGuide',
+          builder: (context, params) => const ShoppingGuideWidget(),
+        ),
+        FFRoute(
+          name: 'fishingBusMap',
+          path: '/fishingBusMap',
+          builder: (context, params) => const FishingBusMapWidget(),
+        ),
+        FFRoute(
+          name: 'exploreMap_stand',
+          path: '/exploreMapStand',
+          builder: (context, params) => const ExploreMapStandWidget(),
+        ),
+        FFRoute(
+          name: 'assetTest',
+          path: '/assetTest',
+          builder: (context, params) => const AssetTestWidget(),
+        ),
+        FFRoute(
+          name: 'chargeResult',
+          path: '/chargeResult',
+          builder: (context, params) => const ChargeResultWidget(),
+        ),
+        FFRoute(
+          name: 'chargePortone',
+          path: '/chargePortone',
+          builder: (context, params) => const ChargePortoneWidget(),
+        ),
+        FFRoute(
+          name: 'menu',
+          path: '/menu',
+          builder: (context, params) => const MenuWidget(),
+        ),
+        FFRoute(
+          name: 'home_buttons',
+          path: '/homeButtons',
+          builder: (context, params) => const HomeButtonsWidget(),
+        ),
+        FFRoute(
+          name: 'service_is_not_ready',
+          path: '/serviceIsNotReady',
+          builder: (context, params) => const ServiceIsNotReadyWidget(),
+        ),
+        FFRoute(
+          name: 'point_detialed_unused',
+          path: '/pointDetialedUnused',
+          builder: (context, params) => const PointDetialedUnusedWidget(),
+        ),
+        FFRoute(
+          name: 'weatherMapCopy',
+          path: '/weatherMapCopy',
+          builder: (context, params) => const WeatherMapCopyWidget(),
+        ),
+        FFRoute(
+          name: 'imageDetailView',
+          path: '/imageDetailView',
+          builder: (context, params) => ImageDetailViewWidget(
+            imageList: params.getParam<String>(
+              'imageList',
+              ParamType.String,
+              isList: true,
+            ),
+          ),
+        )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
     );
@@ -511,15 +544,11 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(
-                        FlutterFlowTheme.of(context).primary,
-                      ),
-                    ),
+              ? Container(
+                  color: Colors.white,
+                  child: Image.asset(
+                    'assets/images/splash.png',
+                    fit: BoxFit.fitWidth,
                   ),
                 )
               : PushNotificationsHandler(child: page);

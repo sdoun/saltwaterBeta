@@ -33,7 +33,7 @@ class _GuideContentWidgetState extends State<GuideContentWidget> {
     super.initState();
     _model = createModel(context, () => GuideContentModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -191,7 +191,7 @@ class _GuideContentWidgetState extends State<GuideContentWidget> {
                                           duration: const Duration(milliseconds: 500),
                                           curve: Curves.ease,
                                         );
-                                        setState(() {});
+                                        safeSetState(() {});
                                       },
                                       effect: smooth_page_indicator
                                           .ExpandingDotsEffect(
@@ -280,7 +280,7 @@ class _GuideContentWidgetState extends State<GuideContentWidget> {
                   ),
                   wrapWithModel(
                     model: _model.customNavbarModel,
-                    updateCallback: () => setState(() {}),
+                    updateCallback: () => safeSetState(() {}),
                     child: const CustomNavbarWidget(),
                   ),
                 ],

@@ -30,7 +30,7 @@ class _GuideContentHomeWidgetState extends State<GuideContentHomeWidget> {
     super.initState();
     _model = createModel(context, () => GuideContentHomeModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -198,7 +198,7 @@ class _GuideContentHomeWidgetState extends State<GuideContentHomeWidget> {
                                           duration: const Duration(milliseconds: 500),
                                           curve: Curves.ease,
                                         );
-                                        setState(() {});
+                                        safeSetState(() {});
                                       },
                                       effect: smooth_page_indicator
                                           .ExpandingDotsEffect(
@@ -243,7 +243,7 @@ class _GuideContentHomeWidgetState extends State<GuideContentHomeWidget> {
                                   ChipData('꿀팁'),
                                   ChipData('기타')
                                 ],
-                                onChanged: (val) => setState(() =>
+                                onChanged: (val) => safeSetState(() =>
                                     _model.choiceChipsValue = val?.firstOrNull),
                                 selectedChipStyle: ChipStyle(
                                   backgroundColor:
@@ -497,7 +497,7 @@ class _GuideContentHomeWidgetState extends State<GuideContentHomeWidget> {
                   ),
                   wrapWithModel(
                     model: _model.customNavbarModel,
-                    updateCallback: () => setState(() {}),
+                    updateCallback: () => safeSetState(() {}),
                     child: const CustomNavbarWidget(),
                   ),
                 ],

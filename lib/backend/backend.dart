@@ -24,6 +24,8 @@ import 'schema/t_b_guide_content_record.dart';
 import 'schema/t_b_notification_record.dart';
 import 'schema/t_b_travel_package_record.dart';
 import 'schema/t_b_youtube_links_record.dart';
+import 'schema/t_b_service_terms_record.dart';
+import 'schema/t_b_product_ads_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -51,6 +53,8 @@ export 'schema/t_b_guide_content_record.dart';
 export 'schema/t_b_notification_record.dart';
 export 'schema/t_b_travel_package_record.dart';
 export 'schema/t_b_youtube_links_record.dart';
+export 'schema/t_b_service_terms_record.dart';
+export 'schema/t_b_product_ads_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -756,6 +760,80 @@ Future<List<TBYoutubeLinksRecord>> queryTBYoutubeLinksRecordOnce({
     queryCollectionOnce(
       TBYoutubeLinksRecord.collection,
       TBYoutubeLinksRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query TBServiceTermsRecords (as a Stream and as a Future).
+Future<int> queryTBServiceTermsRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      TBServiceTermsRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<TBServiceTermsRecord>> queryTBServiceTermsRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      TBServiceTermsRecord.collection,
+      TBServiceTermsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<TBServiceTermsRecord>> queryTBServiceTermsRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      TBServiceTermsRecord.collection,
+      TBServiceTermsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query TBProductAdsRecords (as a Stream and as a Future).
+Future<int> queryTBProductAdsRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      TBProductAdsRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<TBProductAdsRecord>> queryTBProductAdsRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      TBProductAdsRecord.collection,
+      TBProductAdsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<TBProductAdsRecord>> queryTBProductAdsRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      TBProductAdsRecord.collection,
+      TBProductAdsRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

@@ -27,7 +27,7 @@ class _Ocean3rdFilterWidgetState extends State<Ocean3rdFilterWidget> {
     super.initState();
     _model = createModel(context, () => Ocean3rdFilterModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -91,7 +91,6 @@ class _Ocean3rdFilterWidgetState extends State<Ocean3rdFilterWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                       child: Container(
-                        width: 112.0,
                         height: 44.0,
                         decoration: BoxDecoration(
                           color:
@@ -109,7 +108,7 @@ class _Ocean3rdFilterWidgetState extends State<Ocean3rdFilterWidget> {
                         ),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              5.0, 0.0, 5.0, 0.0),
+                              5.0, 0.0, 8.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -133,7 +132,7 @@ class _Ocean3rdFilterWidgetState extends State<Ocean3rdFilterWidget> {
                                   child: Checkbox(
                                     value: _model.checkboxValue1 ??= false,
                                     onChanged: (newValue) async {
-                                      setState(() =>
+                                      safeSetState(() =>
                                           _model.checkboxValue1 = newValue!);
                                     },
                                     side: BorderSide(
@@ -177,7 +176,6 @@ class _Ocean3rdFilterWidgetState extends State<Ocean3rdFilterWidget> {
                         padding:
                             const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                         child: Container(
-                          width: 111.0,
                           height: 44.0,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
@@ -195,7 +193,7 @@ class _Ocean3rdFilterWidgetState extends State<Ocean3rdFilterWidget> {
                           ),
                           child: Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                5.0, 0.0, 5.0, 0.0),
+                                5.0, 0.0, 8.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -219,7 +217,7 @@ class _Ocean3rdFilterWidgetState extends State<Ocean3rdFilterWidget> {
                                     child: Checkbox(
                                       value: _model.checkboxValue2 ??= false,
                                       onChanged: (newValue) async {
-                                        setState(() =>
+                                        safeSetState(() =>
                                             _model.checkboxValue2 = newValue!);
                                       },
                                       side: BorderSide(
@@ -271,7 +269,6 @@ class _Ocean3rdFilterWidgetState extends State<Ocean3rdFilterWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                       child: Container(
-                        width: 128.0,
                         height: 44.0,
                         decoration: BoxDecoration(
                           color:
@@ -289,7 +286,7 @@ class _Ocean3rdFilterWidgetState extends State<Ocean3rdFilterWidget> {
                         ),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              5.0, 0.0, 5.0, 0.0),
+                              5.0, 0.0, 8.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -313,7 +310,7 @@ class _Ocean3rdFilterWidgetState extends State<Ocean3rdFilterWidget> {
                                   child: Checkbox(
                                     value: _model.checkboxValue3 ??= false,
                                     onChanged: (newValue) async {
-                                      setState(() =>
+                                      safeSetState(() =>
                                           _model.checkboxValue3 = newValue!);
                                     },
                                     side: BorderSide(

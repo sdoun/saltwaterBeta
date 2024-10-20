@@ -35,7 +35,7 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
     super.initState();
     _model = createModel(context, () => PointDetailedModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -145,13 +145,33 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                                       (pointImagesIndex) {
                                     final pointImagesItem =
                                         pointImages[pointImagesIndex];
-                                    return ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.network(
-                                        pointImagesItem,
-                                        width: 168.0,
-                                        height: 176.0,
-                                        fit: BoxFit.cover,
+                                    return InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed(
+                                          'imageDetailView',
+                                          queryParameters: {
+                                            'imageList': serializeParam(
+                                              pointDetailedTBPointRecord
+                                                  .pointImages,
+                                              ParamType.String,
+                                              isList: true,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+                                      },
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.network(
+                                          pointImagesItem,
+                                          width: 168.0,
+                                          height: 176.0,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
                                     );
                                   }).divide(const SizedBox(width: 8.0)),
@@ -481,7 +501,6 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                           ),
                           Container(
                             width: double.infinity,
-                            height: 167.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
@@ -540,7 +559,6 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
 
                                     return Container(
                                       width: double.infinity,
-                                      height: 126.0,
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
@@ -559,77 +577,39 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                                               final pointFishingItem =
                                                   pointFishing[
                                                       pointFishingIndex];
-                                              return InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  context.pushNamed(
-                                                    'guideContent',
-                                                    queryParameters: {
-                                                      'content': serializeParam(
-                                                        pointFishingItem
-                                                            .fishingGuideContent,
-                                                        ParamType
-                                                            .DocumentReference,
-                                                      ),
-                                                    }.withoutNulls,
-                                                  );
-                                                },
-                                                child: Container(
-                                                  width: 78.0,
-                                                  height: 100.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                  ),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Container(
-                                                        width: 56.0,
-                                                        height: 56.0,
-                                                        clipBehavior:
-                                                            Clip.antiAlias,
-                                                        decoration:
-                                                            const BoxDecoration(
-                                                          shape:
-                                                              BoxShape.circle,
-                                                        ),
-                                                        child: Image.network(
-                                                          pointFishingItem
-                                                              .fishingIcon,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                      Text(
-                                                        pointFishingItem
-                                                            .fishingName,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'PretendardSeries',
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          'PretendardSeries'),
-                                                                ),
-                                                      ),
-                                                    ].divide(
-                                                        const SizedBox(height: 8.0)),
-                                                  ),
+                                              return Container(
+                                                width: 85.0,
+                                                height: 40.0,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBackground,
+                                                ),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Text(
+                                                      pointFishingItem
+                                                          .fishingName,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'PretendardSeries',
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                            useGoogleFonts:
+                                                                GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'PretendardSeries'),
+                                                          ),
+                                                    ),
+                                                  ].divide(
+                                                      const SizedBox(height: 8.0)),
                                                 ),
                                               );
                                             }),
@@ -640,116 +620,6 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                                   },
                                 ),
                               ].divide(const SizedBox(height: 4.0)),
-                            ),
-                          ),
-                          Container(
-                            width: double.infinity,
-                            height: 284.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  '연관링크',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .bodyMediumFamily,
-                                        fontSize: 20.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily),
-                                      ),
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Builder(
-                                      builder: (context) {
-                                        final links = pointDetailedTBPointRecord
-                                            .pointInvolvedLink
-                                            .toList();
-
-                                        return SingleChildScrollView(
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: List.generate(
-                                                links.length, (linksIndex) {
-                                              final linksItem =
-                                                  links[linksIndex];
-                                              return Container(
-                                                width: 100.0,
-                                                height: 39.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  image: DecorationImage(
-                                                    fit: BoxFit.cover,
-                                                    image: Image.asset(
-                                                      'assets/images/0dtfd_4.png',
-                                                    ).image,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          12.0),
-                                                ),
-                                              );
-                                            }),
-                                          ),
-                                        );
-                                      },
-                                    ),
-                                    Builder(
-                                      builder: (context) {
-                                        final videos =
-                                            pointDetailedTBPointRecord
-                                                .pointInvolvedVideo
-                                                .toList();
-
-                                        return SingleChildScrollView(
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: List.generate(
-                                                videos.length, (videosIndex) {
-                                              final videosItem =
-                                                  videos[videosIndex];
-                                              return Container(
-                                                width: 100.0,
-                                                height: 39.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  image: DecorationImage(
-                                                    fit: BoxFit.cover,
-                                                    image: Image.asset(
-                                                      'assets/images/5krgy_4.png',
-                                                    ).image,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          12.0),
-                                                ),
-                                              );
-                                            }),
-                                          ),
-                                        );
-                                      },
-                                    ),
-                                  ],
-                                ),
-                              ].divide(const SizedBox(height: 8.0)),
                             ),
                           ),
                         ],
@@ -1107,7 +977,7 @@ class _PointDetailedWidgetState extends State<PointDetailedWidget> {
                         },
                       ),
                     ),
-                  ].divide(const SizedBox(height: 8.0)),
+                  ].divide(const SizedBox(height: 12.0)),
                 ),
               ),
             ),

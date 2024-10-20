@@ -14,14 +14,25 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart' as kakao;
+import '/auth/firebase_auth/auth_util.dart';
+import '../../auth/auth_manager.dart';
 
 Future loginKakao() async {
   // Add your function code here!
   // 1. 카카오톡 사용 혹은 계정을 이용하여 카카오 로그인
-  if (await kakao.isKakaoTalkInstalled()) {
-    await kakao.UserApi.instance.loginWithKakaoTalk();
-  } else {
-    await kakao.UserApi.instance.loginWithKakaoAccount();
+  final HttpsCallable sdkCheckCallable =
+      FirebaseFunctions.instance.httpsCallable('redirectionCloudLog');
+  try {
+    if (await kakao.isKakaoTalkInstalled()) {
+      await kakao.UserApi.instance.loginWithKakaoAccount();
+    } else {
+      await kakao.UserApi.instance.loginWithKakaoAccount();
+    }
+
+    sdkCheckCallable.call(<String, dynamic>{'logParam': 'sdk call success!'});
+  } catch (e) {
+    print(e);
+    sdkCheckCallable.call(<String, dynamic>{'sdk call error log': e});
   }
 
   // 2. 카카오 유저 정보로부터 앱에서 사용할 유저 데이터 가공
@@ -35,24 +46,32 @@ Future loginKakao() async {
     'phoneNumber': kakaoUser.kakaoAccount?.phoneNumber,
   };
   print('### user before remove null: $user');
+  sdkCheckCallable.call(<String, dynamic>{'user data': user});
   // null 데이터 제거
   user.removeWhere((key, value) => value == null);
   print('### user: $user');
 
   // 3. cloud functions 를 이용하여 커스텀 토큰 생성
-  HttpsCallable callable =
+  HttpsCallable tokenCallable =
       FirebaseFunctions.instanceFor(region: 'asia-northeast3')
           .httpsCallable('createCustomToken');
-  final response = await callable.call({'user': user});
+  final response = await tokenCallable.call({'user': user});
   print('Custom token: ${response.data['token']}');
 
   final token = response.data['token'];
   print('### token: $token');
+  sdkCheckCallable.call(<String, dynamic>{'token data': token});
 
   // 4. 커스텀 토큰으로 로그인 진행
-  final credential = await FirebaseAuth.instance.signInWithCustomToken(token);
-  print('### userCredential: $credential');
+  try {
+    final credential = await FirebaseAuth.instance.signInWithCustomToken(token);
+    print('### userCredential: $credential');
 
-  // 5. DB 에 유저 데이터 동록
-  await maybeCreateUser(credential.user!);
+    // 5. DB 에 유저 데이터 동록
+    await maybeCreateUser(credential.user!);
+  } catch (e) {
+    print(e);
+    sdkCheckCallable.call(<String, dynamic>{'logParam': e});
+  }
+  // FlutterFlow의 AuthState 업데이
 }

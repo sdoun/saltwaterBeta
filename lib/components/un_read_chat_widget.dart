@@ -32,7 +32,7 @@ class _UnReadChatWidgetState extends State<UnReadChatWidget> {
     super.initState();
     _model = createModel(context, () => UnReadChatModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

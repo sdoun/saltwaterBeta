@@ -27,7 +27,7 @@ class _BusCalenderWidgetState extends State<BusCalenderWidget> {
     super.initState();
     _model = createModel(context, () => BusCalenderModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -103,7 +103,7 @@ class _BusCalenderWidgetState extends State<BusCalenderWidget> {
                       initialDate: getCurrentTimestamp,
                       rowHeight: 64.0,
                       onChange: (DateTimeRange? newSelectedDate) {
-                        setState(() =>
+                        safeSetState(() =>
                             _model.calendarSelectedDay1 = newSelectedDate);
                       },
                       titleStyle:
@@ -181,7 +181,7 @@ class _BusCalenderWidgetState extends State<BusCalenderWidget> {
                       initialDate: getCurrentTimestamp,
                       rowHeight: 64.0,
                       onChange: (DateTimeRange? newSelectedDate) {
-                        setState(() =>
+                        safeSetState(() =>
                             _model.calendarSelectedDay2 = newSelectedDate);
                       },
                       titleStyle:

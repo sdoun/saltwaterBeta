@@ -40,7 +40,7 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
     _model.textController3 ??= TextEditingController();
     _model.textFieldFocusNode3 ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -231,8 +231,8 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                                   '개인낚시배',
                                   '줄, 소품'
                                 ],
-                                onChanged: (val) =>
-                                    setState(() => _model.dropDownValue = val),
+                                onChanged: (val) => safeSetState(
+                                    () => _model.dropDownValue = val),
                                 width: 136.0,
                                 height: 50.0,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -297,7 +297,7 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                             alignment: const AlignmentDirectional(0.0, 0.0),
                             child: wrapWithModel(
                               model: _model.imageUploadModel,
-                              updateCallback: () => setState(() {}),
+                              updateCallback: () => safeSetState(() {}),
                               child: const ImageUploadWidget(),
                             ),
                           ),
@@ -356,7 +356,7 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                                                 FFAppState()
                                                     .removeFromCarrotImages(
                                                         carrotImagesItem);
-                                                setState(() {});
+                                                safeSetState(() {});
                                               },
                                             ),
                                           ),
@@ -584,7 +584,7 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                           ),
                         });
                         FFAppState().carrotImages = [];
-                        setState(() {});
+                        safeSetState(() {});
 
                         context.pushNamed('carrotHome');
                       },
@@ -615,7 +615,7 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
                     FFButtonWidget(
                       onPressed: () async {
                         FFAppState().carrotImages = [];
-                        setState(() {});
+                        safeSetState(() {});
                         context.safePop();
                       },
                       text: '취소하기',
@@ -655,7 +655,7 @@ class _CarrotCreateWidgetState extends State<CarrotCreateWidget> {
               ),
               wrapWithModel(
                 model: _model.carrotNavBarModel,
-                updateCallback: () => setState(() {}),
+                updateCallback: () => safeSetState(() {}),
                 child: const CarrotNavBarWidget(),
               ),
             ],

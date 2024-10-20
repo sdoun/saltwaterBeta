@@ -30,7 +30,7 @@ class _PackageDetailedWidgetState extends State<PackageDetailedWidget> {
     super.initState();
     _model = createModel(context, () => PackageDetailedModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -123,7 +123,7 @@ class _PackageDetailedWidgetState extends State<PackageDetailedWidget> {
                         ChipData('해변, 방파제 등')
                       ],
                       onChanged: (val) =>
-                          setState(() => _model.choiceChipsValues1 = val),
+                          safeSetState(() => _model.choiceChipsValues1 = val),
                       selectedChipStyle: ChipStyle(
                         backgroundColor: FlutterFlowTheme.of(context).primary,
                         textStyle: FlutterFlowTheme.of(context)
@@ -211,7 +211,7 @@ class _PackageDetailedWidgetState extends State<PackageDetailedWidget> {
                         ChipData('스노클링')
                       ],
                       onChanged: (val) =>
-                          setState(() => _model.choiceChipsValues2 = val),
+                          safeSetState(() => _model.choiceChipsValues2 = val),
                       selectedChipStyle: ChipStyle(
                         backgroundColor: FlutterFlowTheme.of(context).primary,
                         textStyle: FlutterFlowTheme.of(context)
@@ -284,7 +284,7 @@ class _PackageDetailedWidgetState extends State<PackageDetailedWidget> {
                                 true)!
                         .toList()
                         .cast<String>();
-                    setState(() {});
+                    safeSetState(() {});
                     Navigator.pop(
                         context,
                         functions.package3rdFilterSum(

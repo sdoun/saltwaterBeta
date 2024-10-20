@@ -44,10 +44,10 @@ class _AddProductToWishWidgetState extends State<AddProductToWishWidget> {
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {});
+      safeSetState(() {});
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -136,7 +136,7 @@ class _AddProductToWishWidgetState extends State<AddProductToWishWidget> {
                                 optionDropdownsIndex.toString(),
                                 optionDropdownsIndex,
                               ),
-                              updateCallback: () => setState(() {}),
+                              updateCallback: () => safeSetState(() {}),
                               child: OptionDropdownWidget(
                                 key: Key(
                                   'Keyp02_${optionDropdownsIndex.toString()}',
@@ -153,7 +153,7 @@ class _AddProductToWishWidgetState extends State<AddProductToWishWidget> {
                                           )
                                           .toList()
                                           .cast<String>();
-                                  setState(() {});
+                                  safeSetState(() {});
                                 },
                               ),
                             );
@@ -202,8 +202,8 @@ class _AddProductToWishWidgetState extends State<AddProductToWishWidget> {
                               ),
                         ),
                         count: _model.countControllerValue ??= 1,
-                        updateCount: (count) =>
-                            setState(() => _model.countControllerValue = count),
+                        updateCount: (count) => safeSetState(
+                            () => _model.countControllerValue = count),
                         stepSize: 1,
                         minimum: 1,
                       ),
@@ -253,7 +253,7 @@ class _AddProductToWishWidgetState extends State<AddProductToWishWidget> {
                               ),
                             });
                             FFAppState().chosenOptionList = [];
-                            setState(() {});
+                            safeSetState(() {});
                             Navigator.pop(context);
                           }
                         },
@@ -291,7 +291,7 @@ class _AddProductToWishWidgetState extends State<AddProductToWishWidget> {
                       child: FFButtonWidget(
                         onPressed: () async {
                           FFAppState().chosenOptionList = [];
-                          setState(() {});
+                          safeSetState(() {});
                           Navigator.pop(context);
                         },
                         text: '취소',

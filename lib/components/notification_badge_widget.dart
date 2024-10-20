@@ -27,7 +27,7 @@ class _NotificationBadgeWidgetState extends State<NotificationBadgeWidget> {
     super.initState();
     _model = createModel(context, () => NotificationBadgeModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

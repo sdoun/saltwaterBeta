@@ -37,7 +37,7 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
     super.initState();
     _model = createModel(context, () => CarrotPostModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -49,8 +49,8 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<TBCarrotPostRecord>(
-      stream: TBCarrotPostRecord.getDocument(widget.carrotPost!),
+    return FutureBuilder<TBCarrotPostRecord>(
+      future: TBCarrotPostRecord.getDocumentOnce(widget.carrotPost!),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -206,7 +206,7 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                                           duration: const Duration(milliseconds: 500),
                                           curve: Curves.ease,
                                         );
-                                        setState(() {});
+                                        safeSetState(() {});
                                       },
                                       effect: smooth_page_indicator
                                           .ExpandingDotsEffect(
@@ -424,7 +424,7 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                                                 }.withoutNulls,
                                               );
 
-                                              setState(() {});
+                                              safeSetState(() {});
                                             },
                                             text: '채팅하기',
                                             options: FFButtonOptions(
@@ -569,7 +569,7 @@ class _CarrotPostWidgetState extends State<CarrotPostWidget> {
                   ),
                   wrapWithModel(
                     model: _model.carrotNavBarModel,
-                    updateCallback: () => setState(() {}),
+                    updateCallback: () => safeSetState(() {}),
                     child: const CarrotNavBarWidget(),
                   ),
                 ],

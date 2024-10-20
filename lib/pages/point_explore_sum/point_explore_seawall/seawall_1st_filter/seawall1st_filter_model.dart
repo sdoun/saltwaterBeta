@@ -9,10 +9,6 @@ class Seawall1stFilterModel extends FlutterFlowModel<Seawall1stFilterWidget> {
   bool? checkboxValue1;
   // State field(s) for Checkbox widget.
   bool? checkboxValue2;
-  // State field(s) for Checkbox widget.
-  bool? checkboxValue3;
-  // State field(s) for Checkbox widget.
-  bool? checkboxValue4;
   // Stores action output result for [Custom Action - seawallType] action in Container widget.
   List<String>? sWType;
 

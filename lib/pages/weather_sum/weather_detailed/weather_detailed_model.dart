@@ -20,6 +20,10 @@ class WeatherDetailedModel extends FlutterFlowModel<WeatherDetailedWidget> {
           int index, Function(WeatherApiResponseStruct) updateFn) =>
       obsrDataList[index] = updateFn(obsrDataList[index]);
 
+  int? tidDate;
+
+  String? tidDateString;
+
   ///  State fields for stateful widgets in this page.
 
   // Model for customNavbar component.

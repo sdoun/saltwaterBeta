@@ -27,7 +27,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
     super.initState();
     _model = createModel(context, () => BusFishesModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -140,7 +140,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
                           selectedCallback: (selectedOptionCallback) async {
                             _model.selectedFish1 =
                                 selectedOptionCallback!.toList().cast<String>();
-                            setState(() {});
+                            safeSetState(() {});
                           },
                         ),
                       ),
@@ -206,7 +206,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
                           selectedCallback: (selectedOptionCallback) async {
                             _model.selectedFish5 =
                                 selectedOptionCallback!.toList().cast<String>();
-                            setState(() {});
+                            safeSetState(() {});
                           },
                         ),
                       ),
@@ -255,7 +255,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
                         selectedCallback: (selectedOptionCallback) async {
                           _model.selectedFish2 =
                               selectedOptionCallback!.toList().cast<String>();
-                          setState(() {});
+                          safeSetState(() {});
                         },
                       ),
                     ),
@@ -303,7 +303,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
                         selectedCallback: (selectedOptionCallback) async {
                           _model.selectedFish3 =
                               selectedOptionCallback!.toList().cast<String>();
-                          setState(() {});
+                          safeSetState(() {});
                         },
                       ),
                     ),
@@ -363,7 +363,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
                         selectedCallback: (selectedOptionCallback) async {
                           _model.selectedFish4 =
                               selectedOptionCallback!.toList().cast<String>();
-                          setState(() {});
+                          safeSetState(() {});
                         },
                       ),
                     ),
@@ -397,7 +397,7 @@ class _BusFishesWidgetState extends State<BusFishesWidget> {
                             _model.selectedFish5.toList())
                         .toList()
                         .cast<String>();
-                    setState(() {});
+                    safeSetState(() {});
                     Navigator.pop(
                         context,
                         (List<String>? var1,

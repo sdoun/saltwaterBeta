@@ -14,18 +14,10 @@ import '/backend/schema/structs/index.dart';
 import '/auth/firebase_auth/auth_util.dart';
 
 List<String>? sW1stFilterBottomsheet(
-  bool isSW,
-  bool isDock,
   bool isTetra,
   bool isShift,
 ) {
   List<String> resultString = [];
-  if (isSW) {
-    resultString.add('방파제');
-  }
-  if (isDock) {
-    resultString.add('선착장');
-  }
   if (isTetra) {
     resultString.add('외향테트라');
   }
@@ -137,6 +129,48 @@ String datetimeToDateString(String datetime) {
   return formattedDateTime;
 }
 
+List<String> datetimeToDateCopyFcst(String datetime) {
+  List<String> result = [];
+  DateTime dateTime = DateTime.parse(datetime);
+  print(dateTime.day);
+  if (dateTime.hour < 2) {
+    dateTime = dateTime.subtract(Duration(days: 1));
+    print(dateTime.day);
+  }
+
+  if (dateTime.hour >= 23) {
+    result.add('2300');
+  } else if (dateTime.hour >= 20) {
+    result.add('2000');
+  } else if (dateTime.hour >= 17) {
+    result.add('1700');
+  } else if (dateTime.hour >= 14) {
+    result.add('1400');
+  } else if (dateTime.hour >= 11) {
+    result.add('1100');
+  } else if (dateTime.hour >= 8) {
+    result.add('0800');
+  } else if (dateTime.hour >= 5) {
+    result.add('0500');
+  } else if (dateTime.hour >= 2) {
+    result.add('0200');
+  } else {
+    result.add('2300');
+  }
+  print(result[0]);
+
+  // 문자열 길이를 10으로 만들기
+  String formattedDateTime = dateTime.toString().substring(0, 10);
+
+  // 문자열에서 '-' 제거하기
+  formattedDateTime = formattedDateTime.replaceAll('-', '');
+  print(formattedDateTime);
+  // 문자열을 결과값에 추가
+  result.add(formattedDateTime);
+  print(result[1]);
+  return result;
+}
+
 int datetimeToDateCopy(String datetime) {
   DateTime dateTime = DateTime.parse(datetime);
 
@@ -145,7 +179,7 @@ int datetimeToDateCopy(String datetime) {
 
   // 문자열에서 '-' 제거하기
   formattedDateTime = formattedDateTime.replaceAll('-', '');
-
+  print(formattedDateTime);
   // 문자열을 int 값으로 변환하여 반환
   return int.parse(formattedDateTime);
 }
@@ -162,13 +196,20 @@ int datetimeToTime(String dateTimeString) {
 String? datetimeToTimeString(String dateTimeString) {
   DateTime dateTime = DateTime.parse(dateTimeString);
   int hour = dateTime.hour;
+  int minute = dateTime.minute;
 
+  if (minute <= 40) {
+    hour - 1;
+  }
   hour = hour * 100;
   String hourString = hour.toString();
-
   if (hourString.length == 3) {
     hourString = '0' + hourString;
   }
+  if (hourString.length == 1) {
+    hourString = '0000';
+  }
+  print(hourString);
 
   return hourString;
 }
@@ -205,6 +246,34 @@ String vecToString(String? vecString) {
   String resultString = windDirectionList[result];
 
   return resultString;
+}
+
+List<dynamic>? fcstListForCategory(
+  List<dynamic>? fcstList,
+  String basedate,
+  int datePlus,
+  String category,
+) {
+  // Parse the base date
+  DateTime baseDateTime = DateTime.parse(basedate);
+  // Calculate the target date
+  DateTime targetDate = baseDateTime.add(Duration(days: datePlus));
+  // Format the target date back to "YYYYMMDD"
+  String targetDateString =
+      targetDate.toIso8601String().split('T').first.replaceAll('-', '');
+  if (fcstList == null) {
+    print('fcstList is null');
+    return null;
+  } else {
+    for (var item in fcstList!) {
+      if (item["fcstDate"] == targetDateString &&
+          item["category"] == category) {
+        print('$item["fcstValue"]');
+        return [item["fcstValue"]];
+      }
+    }
+  }
+  return null;
 }
 
 String wrttempFromJson(dynamic jsonItem) {
@@ -280,13 +349,18 @@ dynamic findItemFromStacdeLay2(
   List<dynamic>? wtrTmpJsonList,
   String staCode,
 ) {
+  if (wtrTmpJsonList == null) {
+    print('JsonList is null');
+    return null;
+  }
   for (var item in wtrTmpJsonList!) {
-    if (item['sta_cde'] == staCode) {
-      if (item['obs_lay'] == 2) {
-        return item;
-      }
+    print(item['obs_lay']);
+    if (item['sta_cde'] == staCode && item['obs_lay'].toString() == '2') {
+      print('item found success');
+      return item;
     }
   }
+  print('Cannot Find Item');
   return null;
 }
 
@@ -436,23 +510,28 @@ List<String> skyToImageLink(String? fcstSkyString) {
     fcstSky = int.tryParse(fcstSkyString);
     print('$fcstSkyString');
     print('$fcstSky');
-  }
 
-  if (fcstSky == null) {
-    resultImage.add(
-        'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%82%A0%EC%94%A8%EC%9E%84%EC%8B%9C%2F%EB%A7%91%EC%9D%8C2.png?alt=media&token=2615f6d1-aa8f-41b0-a37c-530abd25a581');
-    return resultImage;
-  }
+    if (fcstSky == null) {
+      resultImage.add(
+          'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%82%A0%EC%94%A8%EC%9E%84%EC%8B%9C%2F%EB%A7%91%EC%9D%8C2.png?alt=media&token=2615f6d1-aa8f-41b0-a37c-530abd25a581');
+      return resultImage;
+    }
 
-  if (0 <= fcstSky && fcstSky <= 5) {
-    resultImage.add(
-        'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%82%A0%EC%94%A8%EC%9E%84%EC%8B%9C%2F%EB%A7%91%EC%9D%8C2.png?alt=media&token=2615f6d1-aa8f-41b0-a37c-530abd25a581');
-  } else if (6 <= fcstSky && fcstSky <= 8) {
-    resultImage.add(
-        'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%82%A0%EC%94%A8%EC%9E%84%EC%8B%9C%2F%EB%A7%91%EA%B3%A0%ED%9D%90%EB%A6%BC.png?alt=media&token=613a6068-5526-49c6-a497-1113bcbda715');
-  } else if (9 <= fcstSky && fcstSky <= 10) {
-    resultImage.add(
-        'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%82%A0%EC%94%A8%EC%9E%84%EC%8B%9C%2F%ED%9D%90%EB%A6%BC.png?alt=media&token=6cde332b-5672-4ae7-8b04-4fcd7558a51a');
+    if (0 <= fcstSky && fcstSky <= 5) {
+      print('success fcstSky : $fcstSky');
+      resultImage.add(
+          'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%82%A0%EC%94%A8%EC%9E%84%EC%8B%9C%2F%EB%A7%91%EC%9D%8C2.png?alt=media&token=2615f6d1-aa8f-41b0-a37c-530abd25a581');
+    } else if (6 <= fcstSky && fcstSky <= 8) {
+      print('success fcstSky : $fcstSky');
+      resultImage.add(
+          'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%82%A0%EC%94%A8%EC%9E%84%EC%8B%9C%2F%EB%A7%91%EA%B3%A0%ED%9D%90%EB%A6%BC.png?alt=media&token=613a6068-5526-49c6-a497-1113bcbda715');
+    } else if (9 <= fcstSky && fcstSky <= 10) {
+      print('success fcstSky : $fcstSky');
+      resultImage.add(
+          'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%82%A0%EC%94%A8%EC%9E%84%EC%8B%9C%2F%ED%9D%90%EB%A6%BC.png?alt=media&token=6cde332b-5672-4ae7-8b04-4fcd7558a51a');
+    }
+  } else {
+    print('fcstSky is null');
   }
 
   return resultImage;
@@ -608,52 +687,52 @@ String vecStringToImage(String vecString) {
   if (vecString == null) {
     return 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%B0%94%EB%9E%8C%EB%B0%A9%ED%96%A5%2FWSW(%EC%84%9C%EB%82%A8%EC%84%9C).jpg?alt=media&token=316b7100-77d5-43f7-a851-4bdbca2a9805';
   }
-  if (vecString == 'E') {
+  if (vecString == '동') {
     return 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%B0%94%EB%9E%8C%EB%B0%A9%ED%96%A5%2FE(%EB%8F%99).jpg?alt=media&token=70d774a6-73ef-43f5-a5ba-0e549991babe';
   }
-  if (vecString == 'ENE') {
+  if (vecString == '동북동') {
     return 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%B0%94%EB%9E%8C%EB%B0%A9%ED%96%A5%2FENE(%EB%8F%99%EB%B6%81%EB%8F%99).jpg?alt=media&token=60b5671b-8545-447f-8f53-9c5ddcc8d5b4';
   }
-  if (vecString == 'ESE') {
+  if (vecString == '동남동') {
     return 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%B0%94%EB%9E%8C%EB%B0%A9%ED%96%A5%2FESE(%EB%8F%99%EB%82%A8%EB%8F%99).jpg?alt=media&token=6769b017-2eff-498e-9652-9e4d79c19e65';
   }
-  if (vecString == 'N') {
+  if (vecString == '북') {
     return 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%B0%94%EB%9E%8C%EB%B0%A9%ED%96%A5%2FN(%EB%B6%81).jpg?alt=media&token=c1865cbd-d5e2-4f22-9a73-47f0800f13de';
   }
-  if (vecString == 'NE') {
+  if (vecString == '북동') {
     return 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%B0%94%EB%9E%8C%EB%B0%A9%ED%96%A5%2FNE(%EB%B6%81%EB%8F%99).jpg?alt=media&token=4ddfb640-878d-4a6d-8321-7ef6681ea4d2';
   }
-  if (vecString == 'NW') {
+  if (vecString == '북서') {
     return 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%B0%94%EB%9E%8C%EB%B0%A9%ED%96%A5%2FNE(%EB%B6%81%EC%84%9C).jpg?alt=media&token=7572cfb7-9ffc-420e-a750-ac49f4f82ab2';
   }
-  if (vecString == 'NNE') {
+  if (vecString == '북북동') {
     return 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%B0%94%EB%9E%8C%EB%B0%A9%ED%96%A5%2FNNE(%EB%B6%81%EB%B6%81%EB%8F%99).jpg?alt=media&token=d6145f9b-d182-4a37-a07e-7d02554b0855';
   }
-  if (vecString == 'NNW') {
+  if (vecString == '븍븍서') {
     return 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%B0%94%EB%9E%8C%EB%B0%A9%ED%96%A5%2FNNW(%EB%B6%81%EB%B6%81%EC%84%9C).jpg?alt=media&token=54c6a279-2de9-45c0-a593-84866ca0d8ae';
   }
-  if (vecString == 'S') {
+  if (vecString == '남') {
     return 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%B0%94%EB%9E%8C%EB%B0%A9%ED%96%A5%2FS(%EB%82%A8).jpg?alt=media&token=06df126b-f8ed-4f87-b6cb-4556360721a8';
   }
-  if (vecString == 'SE') {
+  if (vecString == '남동') {
     return 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%B0%94%EB%9E%8C%EB%B0%A9%ED%96%A5%2FSE(%EB%82%A8%EB%8F%99).jpg?alt=media&token=9ee8ea85-ff95-4a42-af82-f5589a3309ed';
   }
-  if (vecString == 'SSE') {
+  if (vecString == '남남동') {
     return 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%B0%94%EB%9E%8C%EB%B0%A9%ED%96%A5%2FSSE(%EB%82%A8%EB%82%A8%EB%8F%99).jpg?alt=media&token=44259360-74c1-499b-9a39-aa460760a4a5';
   }
-  if (vecString == 'SW') {
+  if (vecString == '남서') {
     return 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%B0%94%EB%9E%8C%EB%B0%A9%ED%96%A5%2FSW(%EB%82%A8%EC%84%9C).jpg?alt=media&token=782334e2-4be8-4ab0-b872-925af6db6c45';
   }
-  if (vecString == 'SSW') {
+  if (vecString == '남남서') {
     return 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%B0%94%EB%9E%8C%EB%B0%A9%ED%96%A5%2FSSW(%EB%82%A8%EB%82%A8%EC%84%9C).jpg?alt=media&token=49640f1d-e5ff-421b-8133-1d158179c50c';
   }
-  if (vecString == 'W') {
+  if (vecString == '서') {
     return 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%B0%94%EB%9E%8C%EB%B0%A9%ED%96%A5%2FW(%EC%84%9C).jpg?alt=media&token=c04cbd96-7bd6-4088-a53b-0ea47af04bb4';
   }
-  if (vecString == 'WNW') {
+  if (vecString == '서북서') {
     return 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%B0%94%EB%9E%8C%EB%B0%A9%ED%96%A5%2FWNW(%EC%84%9C%EB%B6%81%EC%84%9C).jpg?alt=media&token=4ccaa5e1-fff3-427b-94c3-0e481916598c';
   }
-  if (vecString == 'WSW') {
+  if (vecString == '서남서') {
     return 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%B0%94%EB%9E%8C%EB%B0%A9%ED%96%A5%2FWSW(%EC%84%9C%EB%82%A8%EC%84%9C).jpg?alt=media&token=316b7100-77d5-43f7-a851-4bdbca2a9805';
   } else {
     return 'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%B0%94%EB%9E%8C%EB%B0%A9%ED%96%A5%2FWSW(%EC%84%9C%EB%82%A8%EC%84%9C).jpg?alt=media&token=316b7100-77d5-43f7-a851-4bdbca2a9805';
@@ -693,6 +772,42 @@ List<DocumentReference> chatParticipants(
   List<DocumentReference> listOfUser = [currentUser] + [seller];
 
   return listOfUser;
+}
+
+List<String> skyToImageLinkCopy(String? fcstSkyString) {
+  List<String> resultImage = [];
+
+  int? fcstSky;
+  if (fcstSkyString != null) {
+    fcstSky = int.tryParse(fcstSkyString);
+    print('$fcstSkyString');
+    print('$fcstSky');
+
+    if (fcstSky == null) {
+      resultImage.add(
+          'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%82%A0%EC%94%A8%EC%9E%84%EC%8B%9C%2F%EB%A7%91%EC%9D%8C2.png?alt=media&token=2615f6d1-aa8f-41b0-a37c-530abd25a581');
+      return resultImage;
+    }
+    print(fcstSky);
+
+    if (fcstSky == 1) {
+      print('success fcstSky : $fcstSky');
+      resultImage.add(
+          'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%82%A0%EC%94%A8%EC%9E%84%EC%8B%9C%2F%EB%A7%91%EC%9D%8C2.png?alt=media&token=2615f6d1-aa8f-41b0-a37c-530abd25a581');
+    } else if (fcstSky == 3) {
+      print('success fcstSky : $fcstSky');
+      resultImage.add(
+          'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%82%A0%EC%94%A8%EC%9E%84%EC%8B%9C%2F%EB%A7%91%EA%B3%A0%ED%9D%90%EB%A6%BC.png?alt=media&token=613a6068-5526-49c6-a497-1113bcbda715');
+    } else if (fcstSky == 4) {
+      print('success fcstSky : $fcstSky');
+      resultImage.add(
+          'https://firebasestorage.googleapis.com/v0/b/salt-water-beta-ver1-4dujup.appspot.com/o/%EB%82%A0%EC%94%A8%EC%9E%84%EC%8B%9C%2F%ED%9D%90%EB%A6%BC.png?alt=media&token=6cde332b-5672-4ae7-8b04-4fcd7558a51a');
+    }
+  } else {
+    print('fcstSky is null');
+  }
+
+  return resultImage;
 }
 
 String? packageTypeToString(
@@ -811,4 +926,47 @@ int dateForNcst(String dateTimeString) {
   } else {}
 
   return date;
+}
+
+String? tidDateButton(
+  bool increse,
+  bool decrease,
+  String tidDateTime,
+) {
+  DateTime tidDate = DateTime.parse(tidDateTime);
+  if (increse) {
+    tidDate = tidDate.add(Duration(days: 1));
+  } else if (decrease) {
+    tidDate = tidDate.subtract(Duration(days: 1));
+  } else {
+    tidDate = DateTime.now();
+  }
+  print(tidDate);
+  String formattedDateTime = tidDate.toString().substring(0, 10);
+
+  // 문자열에서 '-' 제거하기
+  formattedDateTime = formattedDateTime.replaceAll('-', '');
+  print(formattedDateTime);
+
+  return formattedDateTime;
+}
+
+String? formatTidDate(String tidDate) {
+  if (tidDate.length != 8) {
+    return '잘못된 날짜 형식';
+  }
+
+  try {
+    // 문자열을 DateTime 객체로 파싱
+    DateTime date = DateTime.parse(tidDate);
+
+    // 월과 일을 추출
+    String month = date.month.toString().padLeft(2, '0');
+    String day = date.day.toString().padLeft(2, '0');
+
+    // 포맷팅된 문자열 반환
+    return '$month월 $day일';
+  } catch (e) {
+    return '날짜 변환 오류';
+  }
 }

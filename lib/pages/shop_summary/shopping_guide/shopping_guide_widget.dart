@@ -23,7 +23,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
     super.initState();
     _model = createModel(context, () => ShoppingGuideModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -1032,7 +1032,7 @@ class _ShoppingGuideWidgetState extends State<ShoppingGuideWidget> {
               ),
               wrapWithModel(
                 model: _model.customNavbarModel,
-                updateCallback: () => setState(() {}),
+                updateCallback: () => safeSetState(() {}),
                 child: const CustomNavbarWidget(),
               ),
             ],

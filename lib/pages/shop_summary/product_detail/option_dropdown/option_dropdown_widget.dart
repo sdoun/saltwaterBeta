@@ -46,10 +46,10 @@ class _OptionDropdownWidgetState extends State<OptionDropdownWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().insertAtIndexInChosenOptionList(
           widget.optionIndex!, _model.dropDownValue!);
-      setState(() {});
+      safeSetState(() {});
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -94,7 +94,7 @@ class _OptionDropdownWidgetState extends State<OptionDropdownWidget> {
                 FormFieldController<String>(null),
             options: containerTBProductOptionRecord.optionContent,
             onChanged: (val) async {
-              setState(() => _model.dropDownValue = val);
+              safeSetState(() => _model.dropDownValue = val);
               await widget.updateAction?.call();
             },
             width: double.infinity,

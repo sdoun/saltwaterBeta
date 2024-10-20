@@ -34,8 +34,8 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
       vsync: this,
       length: 5,
       initialIndex: 0,
-    )..addListener(() => setState(() {}));
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -1180,7 +1180,7 @@ class _ShoppingHomeWidgetState extends State<ShoppingHomeWidget>
                 alignment: const AlignmentDirectional(0.0, 1.0),
                 child: wrapWithModel(
                   model: _model.customNavbarModel,
-                  updateCallback: () => setState(() {}),
+                  updateCallback: () => safeSetState(() {}),
                   child: const CustomNavbarWidget(),
                 ),
               ),

@@ -59,6 +59,8 @@ class _NaverMapWidgetPointState extends State<NaverMapWidgetPoint> {
     );
   }
 
+/* 애셋 이미지로 마커 생성 테스트
+
   NMarker customMarker() {
     NMarker marker = NMarker(
       id: 'test',
@@ -71,6 +73,7 @@ class _NaverMapWidgetPointState extends State<NaverMapWidgetPoint> {
     });
     return marker;
   }
+  */
 
   NOverlayImage createMarkerIcon(NMarker marker) {
     final pointDoc = widget.pointList![int.parse(marker.info.id)];
@@ -105,7 +108,7 @@ class _NaverMapWidgetPointState extends State<NaverMapWidgetPoint> {
         NMarker marker = NMarker(
           id: i.toString(),
           position: _position,
-          size: const Size(48, 64),
+          size: const Size(24, 28),
         );
         marker.setOnTapListener((NMarker marker) {
           print("마커가 터치되었습니다. id: ${marker.info.id}");
@@ -128,7 +131,7 @@ class _NaverMapWidgetPointState extends State<NaverMapWidgetPoint> {
     setState(() {
       markerList.clear();
       markerList = _createMarkers();
-      markerList.add(customMarker());
+
       _updateMapOverlays();
     });
   }

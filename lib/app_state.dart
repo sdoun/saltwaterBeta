@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'flutter_flow/request_manager.dart';
 import '/backend/backend.dart';
+import '/backend/api_requests/api_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -459,6 +460,52 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInStandFacility2(int index, String value) {
     standFacility2.insert(index, value);
   }
+
+  SignInAgreementStruct _termsAgreement = SignInAgreementStruct();
+  SignInAgreementStruct get termsAgreement => _termsAgreement;
+  set termsAgreement(SignInAgreementStruct value) {
+    _termsAgreement = value;
+  }
+
+  void updateTermsAgreementStruct(Function(SignInAgreementStruct) updateFn) {
+    updateFn(_termsAgreement);
+  }
+
+  String _mapTypeString = '일반';
+  String get mapTypeString => _mapTypeString;
+  set mapTypeString(String value) {
+    _mapTypeString = value;
+  }
+
+  final _wtrTmpCacheManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> wtrTmpCache({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _wtrTmpCacheManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearWtrTmpCacheCache() => _wtrTmpCacheManager.clear();
+  void clearWtrTmpCacheCacheKey(String? uniqueKey) =>
+      _wtrTmpCacheManager.clearRequest(uniqueKey);
+
+  final _realTimeWeathCacheManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> realTimeWeathCache({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _realTimeWeathCacheManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearRealTimeWeathCacheCache() => _realTimeWeathCacheManager.clear();
+  void clearRealTimeWeathCacheCacheKey(String? uniqueKey) =>
+      _realTimeWeathCacheManager.clearRequest(uniqueKey);
 }
 
 void _safeInit(Function() initializeField) {

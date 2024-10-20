@@ -27,7 +27,7 @@ class _Ocean2ndFilterWidgetState extends State<Ocean2ndFilterWidget> {
     super.initState();
     _model = createModel(context, () => Ocean2ndFilterModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -63,7 +63,7 @@ class _Ocean2ndFilterWidgetState extends State<Ocean2ndFilterWidget> {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(18.0, 21.0, 18.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(16.0, 21.0, 16.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -86,12 +86,12 @@ class _Ocean2ndFilterWidgetState extends State<Ocean2ndFilterWidget> {
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                       child: Container(
-                        width: 88.0,
                         height: 44.0,
                         decoration: BoxDecoration(
                           color:
@@ -109,7 +109,7 @@ class _Ocean2ndFilterWidgetState extends State<Ocean2ndFilterWidget> {
                         ),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              5.0, 0.0, 5.0, 0.0),
+                              5.0, 0.0, 8.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -133,7 +133,7 @@ class _Ocean2ndFilterWidgetState extends State<Ocean2ndFilterWidget> {
                                   child: Checkbox(
                                     value: _model.checkboxValue1 ??= false,
                                     onChanged: (newValue) async {
-                                      setState(() =>
+                                      safeSetState(() =>
                                           _model.checkboxValue1 = newValue!);
                                     },
                                     side: BorderSide(
@@ -172,7 +172,6 @@ class _Ocean2ndFilterWidgetState extends State<Ocean2ndFilterWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                       child: Container(
-                        width: 87.0,
                         height: 44.0,
                         decoration: BoxDecoration(
                           color:
@@ -190,7 +189,7 @@ class _Ocean2ndFilterWidgetState extends State<Ocean2ndFilterWidget> {
                         ),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              5.0, 0.0, 5.0, 0.0),
+                              5.0, 0.0, 8.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -214,7 +213,7 @@ class _Ocean2ndFilterWidgetState extends State<Ocean2ndFilterWidget> {
                                   child: Checkbox(
                                     value: _model.checkboxValue2 ??= false,
                                     onChanged: (newValue) async {
-                                      setState(() =>
+                                      safeSetState(() =>
                                           _model.checkboxValue2 = newValue!);
                                     },
                                     side: BorderSide(
@@ -250,17 +249,7 @@ class _Ocean2ndFilterWidgetState extends State<Ocean2ndFilterWidget> {
                         ),
                       ),
                     ),
-                  ],
-                ),
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                    child: Container(
-                      width: 87.0,
+                    Container(
                       height: 44.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -277,7 +266,7 @@ class _Ocean2ndFilterWidgetState extends State<Ocean2ndFilterWidget> {
                       ),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 8.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -300,8 +289,93 @@ class _Ocean2ndFilterWidgetState extends State<Ocean2ndFilterWidget> {
                                 child: Checkbox(
                                   value: _model.checkboxValue3 ??= false,
                                   onChanged: (newValue) async {
-                                    setState(() =>
+                                    safeSetState(() =>
                                         _model.checkboxValue3 = newValue!);
+                                  },
+                                  side: BorderSide(
+                                    width: 2,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                  ),
+                                  activeColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  checkColor: Colors.black,
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: Text(
+                                '낚시방',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'PretendardSeries',
+                                      color: Colors.black,
+                                      fontSize: 17.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey('PretendardSeries'),
+                                    ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                    child: Container(
+                      height: 44.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        borderRadius: const BorderRadius.only(
+                          bottomLeft: Radius.circular(8.0),
+                          bottomRight: Radius.circular(8.0),
+                          topLeft: Radius.circular(8.0),
+                          topRight: Radius.circular(8.0),
+                        ),
+                        border: Border.all(
+                          color: const Color(0xFF545454),
+                          width: 1.0,
+                        ),
+                      ),
+                      child: Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 8.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              child: Theme(
+                                data: ThemeData(
+                                  checkboxTheme: CheckboxThemeData(
+                                    visualDensity: VisualDensity.compact,
+                                    materialTapTargetSize:
+                                        MaterialTapTargetSize.shrinkWrap,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(4.0),
+                                    ),
+                                  ),
+                                  unselectedWidgetColor:
+                                      FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                ),
+                                child: Checkbox(
+                                  value: _model.checkboxValue4 ??= false,
+                                  onChanged: (newValue) async {
+                                    safeSetState(() =>
+                                        _model.checkboxValue4 = newValue!);
                                   },
                                   side: BorderSide(
                                     width: 2,
@@ -340,7 +414,6 @@ class _Ocean2ndFilterWidgetState extends State<Ocean2ndFilterWidget> {
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                     child: Container(
-                      width: 94.0,
                       height: 44.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -357,7 +430,7 @@ class _Ocean2ndFilterWidgetState extends State<Ocean2ndFilterWidget> {
                       ),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 8.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -378,10 +451,10 @@ class _Ocean2ndFilterWidgetState extends State<Ocean2ndFilterWidget> {
                                           .secondaryText,
                                 ),
                                 child: Checkbox(
-                                  value: _model.checkboxValue4 ??= false,
+                                  value: _model.checkboxValue5 ??= false,
                                   onChanged: (newValue) async {
-                                    setState(() =>
-                                        _model.checkboxValue4 = newValue!);
+                                    safeSetState(() =>
+                                        _model.checkboxValue5 = newValue!);
                                   },
                                   side: BorderSide(
                                     width: 2,
@@ -417,90 +490,9 @@ class _Ocean2ndFilterWidgetState extends State<Ocean2ndFilterWidget> {
                   ),
                 ],
               ),
-              Row(
+              const Row(
                 mainAxisSize: MainAxisSize.max,
-                children: [
-                  Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                    child: Container(
-                      width: 87.0,
-                      height: 44.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                        borderRadius: const BorderRadius.only(
-                          bottomLeft: Radius.circular(8.0),
-                          bottomRight: Radius.circular(8.0),
-                          topLeft: Radius.circular(8.0),
-                          topRight: Radius.circular(8.0),
-                        ),
-                        border: Border.all(
-                          color: const Color(0xFF545454),
-                          width: 1.0,
-                        ),
-                      ),
-                      child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 5.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
-                              child: Theme(
-                                data: ThemeData(
-                                  checkboxTheme: CheckboxThemeData(
-                                    visualDensity: VisualDensity.compact,
-                                    materialTapTargetSize:
-                                        MaterialTapTargetSize.shrinkWrap,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(4.0),
-                                    ),
-                                  ),
-                                  unselectedWidgetColor:
-                                      FlutterFlowTheme.of(context)
-                                          .secondaryText,
-                                ),
-                                child: Checkbox(
-                                  value: _model.checkboxValue5 ??= false,
-                                  onChanged: (newValue) async {
-                                    setState(() =>
-                                        _model.checkboxValue5 = newValue!);
-                                  },
-                                  side: BorderSide(
-                                    width: 2,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                  ),
-                                  activeColor: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  checkColor: Colors.black,
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
-                              child: Text(
-                                '낚시방',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'PretendardSeries',
-                                      color: Colors.black,
-                                      fontSize: 17.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey('PretendardSeries'),
-                                    ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+                children: [],
               ),
               InkWell(
                 splashColor: Colors.transparent,
@@ -511,11 +503,11 @@ class _Ocean2ndFilterWidgetState extends State<Ocean2ndFilterWidget> {
                   Navigator.pop(
                       context,
                       functions.ocean2ndFilterBottomsheet(
-                          _model.checkboxValue4!,
+                          _model.checkboxValue5!,
                           _model.checkboxValue1!,
                           _model.checkboxValue2!,
-                          _model.checkboxValue3!,
-                          _model.checkboxValue5!));
+                          _model.checkboxValue4!,
+                          _model.checkboxValue3!));
                 },
                 child: Container(
                   width: 100.0,

@@ -22,7 +22,7 @@ class _ChargePortoneWidgetState extends State<ChargePortoneWidget> {
     super.initState();
     _model = createModel(context, () => ChargePortoneModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

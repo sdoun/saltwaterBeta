@@ -33,7 +33,7 @@ class _CarrotChatHomeWidgetState extends State<CarrotChatHomeWidget> {
       await actions.deleteUnusedChatRoom();
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -366,7 +366,7 @@ class _CarrotChatHomeWidgetState extends State<CarrotChatHomeWidget> {
                   ),
                   wrapWithModel(
                     model: _model.carrotNavBarModel,
-                    updateCallback: () => setState(() {}),
+                    updateCallback: () => safeSetState(() {}),
                     child: const CarrotNavBarWidget(),
                   ),
                 ],

@@ -28,7 +28,7 @@ class _Stand1stFilterWidgetState extends State<Stand1stFilterWidget> {
     super.initState();
     _model = createModel(context, () => Stand1stFilterModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -100,7 +100,6 @@ class _Stand1stFilterWidgetState extends State<Stand1stFilterWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                       child: Container(
-                        width: 86.0,
                         height: 44.0,
                         decoration: BoxDecoration(
                           color:
@@ -118,7 +117,7 @@ class _Stand1stFilterWidgetState extends State<Stand1stFilterWidget> {
                         ),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              5.0, 0.0, 5.0, 0.0),
+                              5.0, 0.0, 8.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -146,15 +145,15 @@ class _Stand1stFilterWidgetState extends State<Stand1stFilterWidget> {
                                                 .contains('좌대') ==
                                             true,
                                     onChanged: (newValue) async {
-                                      setState(() =>
+                                      safeSetState(() =>
                                           _model.checkboxValue1 = newValue!);
                                       if (newValue!) {
                                         FFAppState().addToStandFacility1('좌대');
-                                        setState(() {});
+                                        safeSetState(() {});
                                       } else {
                                         FFAppState()
                                             .removeFromStandFacility1('좌대');
-                                        setState(() {});
+                                        safeSetState(() {});
                                       }
                                     },
                                     side: BorderSide(
@@ -196,7 +195,6 @@ class _Stand1stFilterWidgetState extends State<Stand1stFilterWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                       child: Container(
-                        width: 112.0,
                         height: 44.0,
                         decoration: BoxDecoration(
                           color:
@@ -214,7 +212,7 @@ class _Stand1stFilterWidgetState extends State<Stand1stFilterWidget> {
                         ),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              5.0, 0.0, 5.0, 0.0),
+                              5.0, 0.0, 8.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -242,16 +240,16 @@ class _Stand1stFilterWidgetState extends State<Stand1stFilterWidget> {
                                                 .contains('해상펜션') ==
                                             true,
                                     onChanged: (newValue) async {
-                                      setState(() =>
+                                      safeSetState(() =>
                                           _model.checkboxValue2 = newValue!);
                                       if (newValue!) {
                                         FFAppState()
                                             .addToStandFacility1('해상펜션');
-                                        setState(() {});
+                                        safeSetState(() {});
                                       } else {
                                         FFAppState()
                                             .removeFromChosenOptionList('해상펜션');
-                                        setState(() {});
+                                        safeSetState(() {});
                                       }
                                     },
                                     side: BorderSide(
@@ -298,7 +296,6 @@ class _Stand1stFilterWidgetState extends State<Stand1stFilterWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                       child: Container(
-                        width: 112.0,
                         height: 44.0,
                         decoration: BoxDecoration(
                           color:
@@ -316,7 +313,7 @@ class _Stand1stFilterWidgetState extends State<Stand1stFilterWidget> {
                         ),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              5.0, 0.0, 5.0, 0.0),
+                              5.0, 0.0, 8.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -344,16 +341,16 @@ class _Stand1stFilterWidgetState extends State<Stand1stFilterWidget> {
                                                 .contains('당일낚시') ==
                                             true,
                                     onChanged: (newValue) async {
-                                      setState(() =>
+                                      safeSetState(() =>
                                           _model.checkboxValue3 = newValue!);
                                       if (newValue!) {
                                         FFAppState()
                                             .addToStandFacility2('당일낚시');
-                                        setState(() {});
+                                        safeSetState(() {});
                                       } else {
                                         FFAppState()
                                             .removeFromStandFacility2('당일낚시');
-                                        setState(() {});
+                                        safeSetState(() {});
                                       }
                                     },
                                     side: BorderSide(
@@ -395,7 +392,6 @@ class _Stand1stFilterWidgetState extends State<Stand1stFilterWidget> {
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                       child: Container(
-                        width: 112.0,
                         height: 44.0,
                         decoration: BoxDecoration(
                           color:
@@ -413,7 +409,7 @@ class _Stand1stFilterWidgetState extends State<Stand1stFilterWidget> {
                         ),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              5.0, 0.0, 5.0, 0.0),
+                              5.0, 0.0, 8.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -441,16 +437,16 @@ class _Stand1stFilterWidgetState extends State<Stand1stFilterWidget> {
                                                 .contains('숙박가능') ==
                                             true,
                                     onChanged: (newValue) async {
-                                      setState(() =>
+                                      safeSetState(() =>
                                           _model.checkboxValue4 = newValue!);
                                       if (newValue!) {
                                         FFAppState()
                                             .addToStandFacility2('숙박가능');
-                                        setState(() {});
+                                        safeSetState(() {});
                                       } else {
                                         FFAppState()
                                             .removeFromStandFacility2('숙박가능');
-                                        setState(() {});
+                                        safeSetState(() {});
                                       }
                                     },
                                     side: BorderSide(

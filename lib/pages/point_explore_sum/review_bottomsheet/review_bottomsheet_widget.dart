@@ -42,7 +42,7 @@ class _ReviewBottomsheetWidgetState extends State<ReviewBottomsheetWidget> {
     _model.shortBioTextController ??= TextEditingController();
     _model.shortBioFocusNode ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

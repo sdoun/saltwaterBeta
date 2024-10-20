@@ -27,7 +27,7 @@ class _BusExtarFilterWidgetState extends State<BusExtarFilterWidget> {
     super.initState();
     _model = createModel(context, () => BusExtarFilterModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -112,7 +112,7 @@ class _BusExtarFilterWidgetState extends State<BusExtarFilterWidget> {
                         selectedCallback: (selectedOptionCallback) async {
                           _model.extraFilter =
                               selectedOptionCallback!.toList().cast<String>();
-                          setState(() {});
+                          safeSetState(() {});
                         },
                       ),
                     ),
@@ -180,7 +180,7 @@ class _BusExtarFilterWidgetState extends State<BusExtarFilterWidget> {
                         selectedCallback: (selectedOptionCallback) async {
                           _model.extraFilter =
                               selectedOptionCallback!.toList().cast<String>();
-                          setState(() {});
+                          safeSetState(() {});
                         },
                       ),
                     ),
@@ -237,7 +237,7 @@ class _BusExtarFilterWidgetState extends State<BusExtarFilterWidget> {
                           selectedCallback: (selectedOptionCallback) async {
                             _model.tiemOfUse =
                                 selectedOptionCallback!.toList().cast<String>();
-                            setState(() {});
+                            safeSetState(() {});
                           },
                         ),
                       ),
@@ -259,7 +259,7 @@ class _BusExtarFilterWidgetState extends State<BusExtarFilterWidget> {
                           _model.extraFilter.toList().cast<String>();
                       FFAppState().busTime =
                           _model.tiemOfUse.toList().cast<String>();
-                      setState(() {});
+                      safeSetState(() {});
                       Navigator.pop(context);
                     },
                     child: Container(

@@ -24,7 +24,7 @@ class _GooglemapErrorSolveWidgetState extends State<GooglemapErrorSolveWidget> {
     super.initState();
     _model = createModel(context, () => GooglemapErrorSolveModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

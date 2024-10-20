@@ -26,7 +26,7 @@ class _CustomNavbarWidgetState extends State<CustomNavbarWidget> {
     super.initState();
     _model = createModel(context, () => CustomNavbarModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -53,7 +53,7 @@ class _CustomNavbarWidgetState extends State<CustomNavbarWidget> {
             padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 InkWell(
                   splashColor: Colors.transparent,
@@ -64,40 +64,49 @@ class _CustomNavbarWidgetState extends State<CustomNavbarWidget> {
                     context.pushNamed('home1');
                   },
                   child: Container(
-                    width: 71.0,
                     height: double.infinity,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).primaryBackground,
                     ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 24.0,
-                          height: 24.0,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed('home1');
+                      },
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 24.0,
+                            height: 24.0,
+                            clipBehavior: Clip.antiAlias,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                            ),
+                            child: Image.asset(
+                              'assets/images/w5xdr_.png',
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                          child: Image.asset(
-                            'assets/images/w5xdr_.png',
-                            fit: BoxFit.cover,
+                          Text(
+                            '홈',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'PretendardSeries',
+                                  fontSize: 11.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w600,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey('PretendardSeries'),
+                                ),
                           ),
-                        ),
-                        Text(
-                          '홈',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'PretendardSeries',
-                                    fontSize: 11.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey('PretendardSeries'),
-                                  ),
-                        ),
-                      ].divide(const SizedBox(height: 4.0)),
+                        ].divide(const SizedBox(height: 4.0)),
+                      ),
                     ),
                   ),
                 ),
@@ -110,40 +119,49 @@ class _CustomNavbarWidgetState extends State<CustomNavbarWidget> {
                     context.pushNamed('weatherMap');
                   },
                   child: Container(
-                    width: 71.0,
                     height: double.infinity,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).primaryBackground,
                     ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 24.0,
-                          height: 24.0,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed('weatherMap');
+                      },
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            width: 24.0,
+                            height: 24.0,
+                            clipBehavior: Clip.antiAlias,
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                            ),
+                            child: Image.asset(
+                              'assets/images/v997h_.png',
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                          child: Image.asset(
-                            'assets/images/v997h_.png',
-                            fit: BoxFit.cover,
+                          Text(
+                            '날씨정보',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'PretendardSeries',
+                                  fontSize: 11.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w600,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey('PretendardSeries'),
+                                ),
                           ),
-                        ),
-                        Text(
-                          '날씨정보',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'PretendardSeries',
-                                    fontSize: 11.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                    useGoogleFonts: GoogleFonts.asMap()
-                                        .containsKey('PretendardSeries'),
-                                  ),
-                        ),
-                      ].divide(const SizedBox(height: 4.0)),
+                        ].divide(const SizedBox(height: 4.0)),
+                      ),
                     ),
                   ),
                 ),
@@ -156,7 +174,6 @@ class _CustomNavbarWidgetState extends State<CustomNavbarWidget> {
                     context.pushNamed('shoppingHome');
                   },
                   child: Container(
-                    width: 71.0,
                     height: double.infinity,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).primaryBackground,
@@ -202,7 +219,6 @@ class _CustomNavbarWidgetState extends State<CustomNavbarWidget> {
                     context.pushNamed('userPage');
                   },
                   child: Container(
-                    width: 71.0,
                     height: double.infinity,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).primaryBackground,
@@ -248,7 +264,6 @@ class _CustomNavbarWidgetState extends State<CustomNavbarWidget> {
                     context.pushNamed('like');
                   },
                   child: Container(
-                    width: 71.0,
                     height: double.infinity,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).primaryBackground,

@@ -1,6 +1,6 @@
 import '/components/custom_navbar_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/pages/shop_summary/product_detail/wish_button/wish_button_widget.dart';
+import '/pages/shop_summary/product_detail/shopping_no_available/shopping_no_available_widget.dart';
 import 'product_detail_widget.dart' show ProductDetailWidget;
 import 'package:flutter/material.dart';
 
@@ -15,20 +15,21 @@ class ProductDetailModel extends FlutterFlowModel<ProductDetailWidget> {
           pageViewController!.page != null
       ? pageViewController!.page!.round()
       : 0;
+  // Model for shoppingNoAvailable component.
+  late ShoppingNoAvailableModel shoppingNoAvailableModel;
   // Model for customNavbar component.
   late CustomNavbarModel customNavbarModel;
-  // Model for wishButton component.
-  late WishButtonModel wishButtonModel;
 
   @override
   void initState(BuildContext context) {
+    shoppingNoAvailableModel =
+        createModel(context, () => ShoppingNoAvailableModel());
     customNavbarModel = createModel(context, () => CustomNavbarModel());
-    wishButtonModel = createModel(context, () => WishButtonModel());
   }
 
   @override
   void dispose() {
+    shoppingNoAvailableModel.dispose();
     customNavbarModel.dispose();
-    wishButtonModel.dispose();
   }
 }

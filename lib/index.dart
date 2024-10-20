@@ -64,3 +64,14 @@ export '/pages/shop_summary/payments/charge_result/charge_result_widget.dart'
     show ChargeResultWidget;
 export '/pages/shop_summary/payments/charge_portone/charge_portone_widget.dart'
     show ChargePortoneWidget;
+export '/pages/menu/menu_widget.dart' show MenuWidget;
+export '/not_used_widget/home_buttons/home_buttons_widget.dart'
+    show HomeButtonsWidget;
+export '/service_is_not_ready/service_is_not_ready_widget.dart'
+    show ServiceIsNotReadyWidget;
+export '/not_used_widget/point_detialed_unused/point_detialed_unused_widget.dart'
+    show PointDetialedUnusedWidget;
+export '/pages/weather_sum/weather_map_copy/weather_map_copy_widget.dart'
+    show WeatherMapCopyWidget;
+export '/pages/image_detail_view/image_detail_view_widget.dart'
+    show ImageDetailViewWidget;

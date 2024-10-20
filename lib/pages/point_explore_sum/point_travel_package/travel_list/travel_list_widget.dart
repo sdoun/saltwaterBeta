@@ -31,7 +31,7 @@ class _TravelListWidgetState extends State<TravelListWidget> {
     super.initState();
     _model = createModel(context, () => TravelListModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -121,7 +121,6 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                       children: [
                         Container(
                           width: double.infinity,
-                          height: 149.0,
                           decoration: BoxDecoration(
                             color:
                                 FlutterFlowTheme.of(context).primaryBackground,
@@ -154,7 +153,7 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                                   [];
                                               FFAppState().package3rdFilter =
                                                   [];
-                                              setState(() {});
+                                              safeSetState(() {});
                                             },
                                             child: ClipRRect(
                                               borderRadius:
@@ -277,7 +276,7 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                                 _model.package1stFilter =
                                                     value));
 
-                                            setState(() {});
+                                            safeSetState(() {});
                                           },
                                           child: ClipRRect(
                                             borderRadius:
@@ -456,7 +455,7 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                                 _model.package2ndFilter =
                                                     value));
 
-                                            setState(() {});
+                                            safeSetState(() {});
                                           },
                                           child: ClipRRect(
                                             borderRadius:
@@ -633,7 +632,7 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                                 _model.package3rdFilter =
                                                     value));
 
-                                            setState(() {});
+                                            safeSetState(() {});
                                           },
                                           child: ClipRRect(
                                             borderRadius:
@@ -776,50 +775,56 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                                     ),
                                   ),
                                 ),
-                                FFButtonWidget(
-                                  onPressed: () async {
-                                    setState(() {});
-                                    _model.packages =
-                                        await actions.packageSearch(
-                                      FFAppState().packageFilter.toList(),
-                                      FFAppState().package2ndFilter.toList(),
-                                      FFAppState().package3rdFilter.toList(),
-                                    );
-                                    _model.packageTitleList =
-                                        await actions.packageTitleSearch(
-                                      _model.package1stFilter?.toList(),
-                                      _model.package2ndFilter?.toList(),
-                                      _model.package3rdFilter?.toList(),
-                                    );
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 24.0),
+                                  child: FFButtonWidget(
+                                    onPressed: () async {
+                                      safeSetState(() {});
+                                      _model.packages =
+                                          await actions.packageSearch(
+                                        FFAppState().packageFilter.toList(),
+                                        FFAppState().package2ndFilter.toList(),
+                                        FFAppState().package3rdFilter.toList(),
+                                      );
+                                      _model.packageTitleList =
+                                          await actions.packageTitleSearch(
+                                        _model.package1stFilter?.toList(),
+                                        _model.package2ndFilter?.toList(),
+                                        _model.package3rdFilter?.toList(),
+                                      );
 
-                                    setState(() {});
-                                  },
-                                  text: '선택완료',
-                                  options: FFButtonOptions(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.8,
-                                    height: 40.0,
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: Colors.black,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'PretendardSeries',
-                                          color: Colors.white,
-                                          fontSize: 18.0,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey('PretendardSeries'),
-                                        ),
-                                    elevation: 3.0,
-                                    borderSide: const BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1.0,
+                                      safeSetState(() {});
+                                    },
+                                    text: '선택완료',
+                                    options: FFButtonOptions(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.8,
+                                      height: 40.0,
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 0.0),
+                                      iconPadding:
+                                          const EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
+                                      color: Colors.black,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .override(
+                                            fontFamily: 'PretendardSeries',
+                                            color: Colors.white,
+                                            fontSize: 18.0,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    'PretendardSeries'),
+                                          ),
+                                      elevation: 3.0,
+                                      borderSide: const BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
                                     ),
-                                    borderRadius: BorderRadius.circular(8.0),
                                   ),
                                 ),
                               ].divide(const SizedBox(height: 8.0)),
@@ -910,7 +915,7 @@ class _TravelListWidgetState extends State<TravelListWidget> {
                     alignment: const AlignmentDirectional(0.0, 1.0),
                     child: wrapWithModel(
                       model: _model.customNavbarModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const CustomNavbarWidget(),
                     ),
                   ),

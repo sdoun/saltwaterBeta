@@ -29,7 +29,7 @@ class _PackageTypeWidgetState extends State<PackageTypeWidget> {
     super.initState();
     _model = createModel(context, () => PackageTypeModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -106,7 +106,7 @@ class _PackageTypeWidgetState extends State<PackageTypeWidget> {
                     FlutterFlowChoiceChips(
                       options: const [ChipData('낚시'), ChipData('바다체험')],
                       onChanged: (val) =>
-                          setState(() => _model.choiceChipsValues = val),
+                          safeSetState(() => _model.choiceChipsValues = val),
                       selectedChipStyle: ChipStyle(
                         backgroundColor: FlutterFlowTheme.of(context).primary,
                         textStyle: FlutterFlowTheme.of(context)
@@ -170,7 +170,7 @@ class _PackageTypeWidgetState extends State<PackageTypeWidget> {
                       onPressed: () async {
                         FFAppState().package2ndFilter =
                             _model.choiceChipsValues!.toList().cast<String>();
-                        setState(() {});
+                        safeSetState(() {});
                         Navigator.pop(context, _model.choiceChipsValues);
                       },
                       text: 'Button',

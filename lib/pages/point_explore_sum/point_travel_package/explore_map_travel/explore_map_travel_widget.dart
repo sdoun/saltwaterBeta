@@ -33,7 +33,7 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
     super.initState();
     _model = createModel(context, () => ExploreMapTravelModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -62,7 +62,7 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                 curve: Curves.ease,
               );
 
-              setState(() {});
+              safeSetState(() {});
             }();
           }
           _model.exploreMapTravelPreviousSnapshot = snapshot;
@@ -133,7 +133,6 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                         children: [
                           Container(
                             width: double.infinity,
-                            height: 113.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
@@ -168,7 +167,7 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                                                     [];
                                                 FFAppState().package3rdFilter =
                                                     [];
-                                                setState(() {});
+                                                safeSetState(() {});
                                               },
                                               child: ClipRRect(
                                                 borderRadius:
@@ -278,7 +277,7 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                                                       _model.package1stFilter =
                                                           value));
 
-                                              setState(() {});
+                                              safeSetState(() {});
                                             },
                                             child: ClipRRect(
                                               borderRadius:
@@ -396,7 +395,7 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                                                   () => _model.ocean2ndFilter =
                                                       value));
 
-                                              setState(() {});
+                                              safeSetState(() {});
                                             },
                                             child: ClipRRect(
                                               borderRadius:
@@ -523,7 +522,7 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                                                   () => _model.oceean3rdFilter =
                                                       value));
 
-                                              setState(() {});
+                                              safeSetState(() {});
                                             },
                                             child: ClipRRect(
                                               borderRadius:
@@ -613,38 +612,45 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                                       ),
                                     ),
                                   ),
-                                  FFButtonWidget(
-                                    onPressed: () async {
-                                      setState(() {});
-                                    },
-                                    text: '선택완료',
-                                    options: FFButtonOptions(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          0.8,
-                                      height: 40.0,
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 0.0),
-                                      iconPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color: Colors.black,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            fontFamily: 'PretendardSeries',
-                                            color: Colors.white,
-                                            fontSize: 18.0,
-                                            letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    'PretendardSeries'),
-                                          ),
-                                      elevation: 3.0,
-                                      borderSide: const BorderSide(
-                                        color: Colors.transparent,
-                                        width: 1.0,
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 24.0),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        safeSetState(() {});
+                                      },
+                                      text: '선택완료',
+                                      options: FFButtonOptions(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.8,
+                                        height: 40.0,
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 0.0),
+                                        iconPadding:
+                                            const EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: Colors.black,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'PretendardSeries',
+                                              color: Colors.white,
+                                              fontSize: 18.0,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey(
+                                                          'PretendardSeries'),
+                                            ),
+                                        elevation: 3.0,
+                                        borderSide: const BorderSide(
+                                          color: Colors.transparent,
+                                          width: 1.0,
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
-                                      borderRadius: BorderRadius.circular(8.0),
                                     ),
                                   ),
                                 ].divide(const SizedBox(height: 8.0)),
@@ -701,7 +707,7 @@ class _ExploreMapTravelWidgetState extends State<ExploreMapTravelWidget> {
                     alignment: const AlignmentDirectional(0.0, 1.0),
                     child: wrapWithModel(
                       model: _model.customNavbarModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       child: const CustomNavbarWidget(),
                     ),
                   ),

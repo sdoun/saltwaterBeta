@@ -85,10 +85,11 @@ class RealtimeWtrTmpCall {
     );
   }
 
-  static dynamic jsonItems(dynamic response) => getJsonField(
+  static List? jsonItems(dynamic response) => getJsonField(
         response,
         r'''$.body.item''',
-      );
+        true,
+      ) as List?;
 }
 
 class FcstWeatherApiCall {
@@ -96,8 +97,8 @@ class FcstWeatherApiCall {
     int? numOfRows = 8,
     int? pageNo,
     String? dataType = 'JSON',
-    int? baseDate,
-    int? baseTime,
+    String? baseDate = '',
+    String? baseTime = '',
     int? nx,
     int? ny,
   }) async {
@@ -143,7 +144,7 @@ class FcstWeatherApiCall {
 
 class TidalFcstCall {
   static Future<ApiCallResponse> call({
-    int? date,
+    String? date = '',
     String? dataType = 'tideObsPreTab',
     String? obsCode = '',
     String? resultType = 'json',
@@ -242,6 +243,57 @@ class MidFcstCall {
         response,
         r'''$.response.body.items.item[:].wf7Am''',
       ));
+  static int? rnSt3Am(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.response.body.items.item[:].rnSt3Am''',
+      ));
+  static int? rnSt4Am(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.response.body.items.item[:].rnSt4Am''',
+      ));
+  static int? rnSt5Am(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.response.body.items.item[:].rnSt5Am''',
+      ));
+  static int? rnSt6Am(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.response.body.items.item[:].rnSt6Am''',
+      ));
+  static int? rnSt7Am(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.response.body.items.item[:].rnSt7Am''',
+      ));
+}
+
+class MidTmpCall {
+  static Future<ApiCallResponse> call({
+    int? numOfRows = 10,
+    int? pageNo = 1,
+    String? dataType = 'JSON',
+    String? regId = '',
+    String? tmFc = '0600',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'MidTmp',
+      apiUrl:
+          'http://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa?serviceKey=VcgMtzNuLXUcyCr6fVCfGeiT2b0iwexetcFE43%2FbFeTrUtz7afkQ3Y%2FG3WUyQaR4SBj6kQ96RY3kpvVz3sI%2Bfg%3D%3D',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {
+        'regId': regId,
+        'tmFc': tmFc,
+        'numOfRows': numOfRows,
+        'pageNo': pageNo,
+        'dataType': dataType,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
 }
 
 class ApiPagingParams {

@@ -28,7 +28,7 @@ class _FishChoicechipComponentWidgetState
     super.initState();
     _model = createModel(context, () => FishChoicechipComponentModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -70,7 +70,7 @@ class _FishChoicechipComponentWidgetState
         ],
         selectedCallback: (selectedOptionCallback) async {
           _model.selectend = selectedOptionCallback!.toList().cast<String>();
-          setState(() {});
+          safeSetState(() {});
         },
       ),
     );
